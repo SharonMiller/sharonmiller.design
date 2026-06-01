@@ -1,0 +1,117 @@
+.lumen-reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition:
+		opacity 700ms ease-out,
+		transform 700ms ease-out;
+}
+
+.lumen-reveal-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.section-heading-divider,
+.case-studies-divider {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	margin: 3rem 0 2rem;
+}
+
+.section-heading-divider::before,
+.section-heading-divider::after,
+.case-studies-divider::before,
+.case-studies-divider::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: var(--lumen-border);
+}
+
+.section-heading-divider h2,
+.case-studies-divider h2 {
+	flex-shrink: 0;
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--lumen-ink);
+}
+
+@media (min-width: 768px) {
+	.section-heading-divider h2,
+	.case-studies-divider h2 {
+		font-size: 1.5rem;
+	}
+}
+
+.case-study-card {
+	border: 1px solid var(--lumen-border);
+	border-radius: 1rem;
+	overflow: hidden;
+	background: white;
+	cursor: pointer;
+	transition:
+		transform 200ms ease,
+		box-shadow 200ms ease;
+}
+
+.case-study-card:hover {
+	transform: translateY(-2px);
+	box-shadow:
+		0 4px 6px -1px rgb(0 0 0 / 0.1),
+		0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.case-study-card:focus-within {
+	outline: 2px solid var(--lumen-terracotta);
+	outline-offset: 4px;
+}
+
+.case-study-card__image-wrap {
+	overflow: hidden;
+	background: rgb(243 244 246);
+}
+
+.case-study-card:hover .case-study-card__image {
+	transform: scale(1.02);
+	transition: transform 300ms ease;
+}
+
+.case-study-hero-image {
+	width: 100%;
+	max-width: 420px;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	border-radius: 0.75rem;
+}
+
+@media (min-width: 768px) {
+	.case-study-hero-image {
+		aspect-ratio: 4 / 3;
+	}
+}
+
+.case-study-inline-image {
+	width: 100%;
+	max-width: 800px;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	object-position: top;
+	border-radius: 0.75rem;
+}
+
+.profile-photo-intro {
+	width: 10rem;
+	height: 10rem;
+	object-fit: cover;
+	border-radius: 9999px;
+}
+
+@media (min-width: 768px) {
+	.profile-photo-intro {
+		width: 18rem;
+		height: auto;
+		aspect-ratio: 3 / 4;
+		border-radius: 1rem;
+	}
+}

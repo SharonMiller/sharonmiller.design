@@ -1,0 +1,65 @@
+.timeline {
+	position: relative;
+	padding: 4rem 0 5rem;
+}
+
+.timeline-axis {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	height: 1px;
+	background: rgba(196, 112, 74, 0.45);
+	transform: translateY(-50%);
+}
+
+.timeline-track {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(var(--timeline-count, 3), 1fr);
+	gap: 1.5rem;
+	align-items: center;
+}
+
+.timeline-node {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.timeline-node--above {
+	padding-bottom: 7rem;
+	justify-content: flex-end;
+}
+
+.timeline-node--below {
+	padding-top: 7rem;
+	justify-content: flex-start;
+}
+
+.timeline-connector {
+	position: absolute;
+	left: 0;
+	width: 1px;
+	height: 2.5rem;
+	background: rgba(196, 112, 74, 0.45);
+}
+
+.timeline-node--above .timeline-connector {
+	bottom: 3.5rem;
+}
+
+.timeline-node--below .timeline-connector {
+	top: 3.5rem;
+}
+
+.timeline-card {
+	max-width: 16rem;
+}
+
+@media (min-width: 1024px) {
+	.timeline-card {
+		max-width: 14rem;
+	}
+}

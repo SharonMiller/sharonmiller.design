@@ -1,0 +1,25 @@
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import WorkHistory from "./pages/WorkHistory.jsx";
+import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
+import AiFirstCaseStudy from "./pages/AiFirstCaseStudy.jsx";
+
+export default function App() {
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/work-history" element={<WorkHistory />} />
+				<Route path="/about" element={<About />} />
+				<Route path="/contact" element={<Contact />} />
+				<Route path="/case-study/ai-first" element={<AiFirstCaseStudy />} />
+				<Route
+					path="/work/ai-design-process"
+					element={<Navigate to="/case-study/ai-first" replace />}
+				/>
+				<Route path="*" element={<Navigate to="/" replace />} />
+			</Routes>
+		</BrowserRouter>
+	);
+}

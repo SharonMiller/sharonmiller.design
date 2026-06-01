@@ -1,0 +1,148 @@
+---
+description: Use the project design system (Tailwind + tokens) for all UI
+globs: **/*.jsx,**/*.tsx,**/*.css
+alwaysApply: true
+---
+
+# Design System — Usage Guidelines
+
+This prototype uses **Tailwind CSS** with a small set of CSS custom properties (`--ds-*`). Follow this order before writing custom HTML or CSS:
+
+1. **Tailwind utilities first** — spacing, color, typography, layout.
+2. **Figma spec second** — for larger patterns not yet coded; see [`docs/figma.md`](../docs/figma.md).
+3. **Custom CSS last resort** — layout-only rules or `@apply` in component CSS files.
+
+---
+
+## Setup
+
+```jsx
+// src/main.jsx — required global import
+import "./index.css";
+```
+
+Tailwind is configured in `tailwind.config.js`:
+- **Base:** `stone-50` backgrounds, `stone-900` primary text
+- **Accent:** `terracotta` (`#C4704A`) — links, primary actions, focus rings
+- **Font:** Plus Jakarta Sans (loaded in `index.html`)
+
+---
+
+## CSS custom properties (`--ds-*`)
+
+Use when a value must be shared outside Tailwind class strings (e.g. inline styles, canvas, third-party widgets):
+
+| What you need | Token |
+|---------------|-------|
+| Primary text | `var(--ds-text-primary)` |
+| Secondary text | `var(--ds-text-secondary)` |
+| Page background | `var(--ds-surface-background-primary)` |
+| Card background | `var(--ds-surface-background-secondary)` |
+| Dividers | `var(--ds-border-divider)` |
+| Interactive / links | `var(--ds-interactive-primary)` |
+
+Define new `--ds-*` tokens in `src/index.css` under `:root` when needed — never hardcode brand hex in component CSS.
+
+---
+
+## Typography
+
+Use **semantic HTML** with Tailwind classes. Do not set `font-size`, `font-weight`, or `line-height` in custom CSS for UI text.
+
+| Role | Element | Tailwind (example) |
+|------|---------|-------------------|
+| Page title | `h1` | `text-3xl font-semibold tracking-tight text-stone-900` |
+| Section / card title | `h2` | `text-lg font-semibold text-stone-900` |
+| Body | `p` | `text-base text-stone-900` |
+| Secondary / meta | `p` or `span` | `text-sm text-stone-600` |
+| Fine print | `p` | `text-xs text-stone-500` |
+| Field label | `label` | `text-sm font-medium text-stone-700` |
+| Link | `a` | `text-sm text-terracotta hover:text-terracotta/80` |
+
+```jsx
+// ✅ Page title
+<h1 className="text-3xl font-semibold tracking-tight text-stone-900">Dashboard</h1>
+
+// ❌ Never do this for UI text
+<h1 style={{ fontSize: 24 }}>Dashboard</h1>
+```
+
+---
+
+## Colors
+
+**Never hardcode hex in CSS** for UI surfaces, text, or borders. Use Tailwind (`bg-stone-50`, `text-stone-900`, `border-stone-200`) or `var(--ds-*)`.
+
+| Need | Tailwind |
+|------|----------|
+| Page background | `bg-stone-50` |
+| Primary text | `text-stone-900` |
+| Secondary text | `text-stone-600` |
+| Accent / CTA | `bg-terracotta`, `text-terracotta` |
+| Card surface | `bg-white border border-stone-200` |
+
+---
+
+## Buttons
+
+Use consistent Tailwind patterns (or a shared component once you add one):
+
+```jsx
+// Primary
+<button className="rounded-lg bg-terracotta px-4 py-2 text-sm font-medium text-white hover:bg-terracotta/90">
+  Save
+</button>
+
+// Ghost
+<button className="rounded-lg px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100">
+  Cancel
+</button>
+```
+
+---
+
+## Glass morphism
+
+Use the custom utilities from `tailwind.config.js`:
+
+- `.glass` — light frosted panel
+- `.glass-strong` — stronger blur and opacity
+- `.glass-panel` — subtle overlay panel
+
+```jsx
+<div className="glass rounded-xl p-6">...</div>
+```
+
+---
+
+## Forms
+
+Use native `<input>`, `<textarea>`, `<select>` with Tailwind:
+
+```jsx
+<input
+  className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900 placeholder:text-stone-400 focus:border-terracotta focus:outline-none focus:ring-1 focus:ring-terracotta"
+  aria-label="Full name"
+/>
+```
+
+---
+
+## CSS rules
+
+1. **No `font-size`, `font-weight`, or `line-height` on text elements in custom CSS** — use Tailwind on the element.
+2. **No `font-family` in component CSS** — inherits from `body` in `index.css`.
+3. **No hardcoded hex** for UI color in CSS files.
+4. **No broad selectors** that override Tailwind or shared components.
+5. **CSS files are for layout** — `display`, `flex`, `grid`, `gap`, padding, margin, size, position; prefer `@apply` for repeated layout clusters.
+
+---
+
+## What NOT to do
+
+| ❌ Don't | ✅ Do instead |
+|----------|----------------|
+| `color: #1a1a1a` in CSS | `text-stone-900` or `var(--ds-text-primary)` |
+| `background: #fafafa` | `bg-stone-50` |
+| Arbitrary `font-size` in CSS | Tailwind text utilities on the element |
+| Private npm design-system packages | Tailwind + this repo's tokens |

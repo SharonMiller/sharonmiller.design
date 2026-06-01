@@ -1,0 +1,59 @@
+/* Lumen Design System
+   AI-native design language by Sharon Miller
+   sharonmiller.design */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--lumen-terracotta: #c4704a;
+		--lumen-terracotta-light: #d4886a;
+		--lumen-terracotta-dark: #a85a38;
+		--lumen-ink: #111111;
+		--lumen-secondary: #6b7280;
+		--lumen-surface: #f9f9f9;
+		--lumen-border: #e5e7eb;
+
+		--ds-text-primary: var(--lumen-ink);
+		--ds-text-secondary: var(--lumen-secondary);
+		--ds-surface-background-primary: #ffffff;
+		--ds-surface-background-secondary: #ffffff;
+		--ds-border-divider: var(--lumen-border);
+		--ds-interactive-primary: var(--lumen-terracotta);
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background: #ffffff;
+		color: #111111;
+		@apply font-sans antialiased;
+	}
+}
+
+@layer components {
+	.lumen-section-label {
+		@apply text-xs font-semibold uppercase tracking-widest text-lumen-terracotta;
+	}
+
+	.lumen-btn-primary {
+		@apply inline-flex items-center justify-center rounded-xl bg-lumen-terracotta font-medium text-white transition-colors hover:bg-lumen-terracotta-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lumen-terracotta focus-visible:ring-offset-2;
+	}
+
+	.page-load {
+		animation: page-fade-in 400ms ease-out;
+	}
+
+	@keyframes page-fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}

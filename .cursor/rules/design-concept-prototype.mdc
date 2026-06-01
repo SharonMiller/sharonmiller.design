@@ -1,0 +1,12 @@
+---
+description: This repo is a design concept and interactive prototype, not the production app
+globs: **/*
+alwaysApply: true
+---
+
+# Design concept workspace (not production)
+
+- **What this is:** A **design-led interactive prototype** — a sandbox where layout, copy, tokens, and flows are expressed in code so the team can **align on product and UX** and **test with users** before or alongside production engineering.
+- **What it is not:** The shipped **production** application. Fidelity, data, and some behaviors are intentionally **spec / experiment**; engineering may map patterns to a different stack or enforce stricter product rules.
+- **How to use it:** **Design and product** treat this as a living spec and narrative. **Engineering** uses it for **visual and interaction requirements** and to scope work; treat repo decisions as **input to PRDs and tickets**, not a guarantee of how prod is built. **User research** can run sessions against this build for **speed and clarity**, then validate in the real app when it exists.
+- **Assistant behavior:** Assume changes here serve **clarity, consistency, and testable UX** in the prototype. When trade-offs appear (e.g. token parity vs. speed of iteration), **prefer the project's design system docs and Tailwind conventions** and note anything that may need a **separate eng decision** for production.
