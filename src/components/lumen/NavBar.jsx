@@ -34,7 +34,7 @@ export default function NavBar({
 	const linkClass = (active) =>
 		active
 			? "text-sm font-medium text-lumen-terracotta"
-			: "text-sm font-medium text-gray-600 transition-colors duration-200 hover:opacity-80";
+			: "text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-gray-900";
 
 	const renderLink = (link, className, onClick) => {
 		const isHash = link.href.includes("#");
@@ -61,7 +61,7 @@ export default function NavBar({
 
 	return (
 		<header
-			className={`transition-all duration-200 ${positionClass} ${stickyClass} ${shellClass} ${className}`.trim()}
+			className={`transition-all duration-300 ${positionClass} ${stickyClass} ${shellClass} ${className}`.trim()}
 		>
 			<div className="mx-auto flex h-14 max-w-4xl items-center justify-between gap-6 px-5 md:px-8">
 				{brandHref.startsWith("/") && !brandHref.includes("#") ? (

@@ -3,7 +3,7 @@ import Home from "./pages/Home.jsx";
 import WorkHistory from "./pages/WorkHistory.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
-import AiFirstCaseStudy from "./pages/AiFirstCaseStudy.jsx";
+import CaseStudyPage from "./pages/CaseStudyPage.jsx";
 import Login from "./pages/Login.tsx";
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
 				<Route path="/work-history" element={<WorkHistory />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/contact" element={<Contact />} />
-				<Route path="/case-study/ai-first" element={<AiFirstCaseStudy />} />
+				<Route path="/case-study/:slug" element={<CaseStudyPage />} />
 				<Route
 					path="/work/ai-design-process"
 					element={<Navigate to="/case-study/ai-first" replace />}

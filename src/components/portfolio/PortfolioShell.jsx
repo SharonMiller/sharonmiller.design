@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NavBar } from "../lumen";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import PageContainer from "./PageContainer";
@@ -19,6 +19,7 @@ export default function PortfolioShell({
 	mainClassName = "",
 }) {
 	const [scrolled, setScrolled] = useState(false);
+	const location = useLocation();
 
 	useScrollReveal();
 
@@ -46,7 +47,10 @@ export default function PortfolioShell({
 				links={links}
 			/>
 
-			<main className={`pb-24 pt-28 md:pt-32 ${mainClassName}`.trim()}>
+			<main
+				key={location.pathname}
+				className={`page-route pb-24 pt-28 md:pt-32 ${mainClassName}`.trim()}
+			>
 				<PageContainer>{children}</PageContainer>
 			</main>
 

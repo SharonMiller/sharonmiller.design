@@ -5,49 +5,8 @@ import PageContainer from "../components/portfolio/PageContainer";
 import { PORTFOLIO_NAV } from "../components/portfolio/PortfolioShell";
 import SectionHeading from "../components/portfolio/SectionHeading";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { CASE_STUDY_CARDS } from "../content/caseStudies/index.js";
 import "./Home.css";
-
-const CASE_STUDIES = [
-	{
-		label: "Case study",
-		title: "AI-first design process",
-		year: "2025",
-		href: "/case-study/ai-first",
-		previewImage: "/images/paywall-variants.png",
-		description:
-			"I stopped designing in Figma and started building in Cursor. Two MVPs shipping June 2026. One designer carrying full output, with no new design system headcount added.",
-		metrics: [
-			{ value: "2", label: "MVPs in build" },
-			{ value: "1 wk", label: "Concept cycles" },
-		],
-	},
-	{
-		label: "Case study",
-		title: "Workspace & Chat Agent",
-		year: "2026",
-		href: "/contact", // TODO: case study page
-		previewImage: "/images/workspace/dashboard.png",
-		description:
-			"Two products designed almost entirely in Cursor. Figma was for screenshots and design system updates. That's it.",
-		metrics: [
-			{ value: "2", label: "Products shipped" },
-			{ value: "0-1", label: "In Cursor" },
-		],
-	},
-	{
-		label: "Case study",
-		title: "Design system governance with AI",
-		year: "2025",
-		href: "/contact", // TODO: case study page
-		previewImage: "/images/cursor-prototype.png",
-		description:
-			"Used Claude to audit, fix, and document a production design system. No dedicated IC. Just a better process.",
-		metrics: [
-			{ value: "1", label: "Design system" },
-			{ value: "AI", label: "Governance model" },
-		],
-	},
-];
 
 function CaseStudyCard({ study }) {
 	const content = (
@@ -82,7 +41,7 @@ function CaseStudyCard({ study }) {
 						))}
 					</div>
 				)}
-				<span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-lumen-terracotta transition-all duration-200 group-hover:gap-2">
+				<span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-lumen-terracotta transition-colors duration-200 group-hover:text-lumen-terracotta-dark">
 					View case study →
 				</span>
 			</div>
@@ -138,19 +97,18 @@ export default function Home() {
 
 							<div className="mt-8 space-y-4 text-base leading-relaxed text-gray-700">
 								<p>
-									I operate at the strategy level, care about craft, and build the AI
-									workflows that help design teams amplify their impact without compromising
-									quality. I&apos;ve navigated every major platform shift in this industry.
-									This one is the most important, and I know exactly how to help teams make
-									it.
+									Most designers work on AI features. I do that and build the operating model
+									around them: governance, human-in-the-loop patterns, and design-engineering
+									integration that makes AI trustworthy at scale.
 								</p>
 								<p>
-									My process is built around AI. I prototype in Cursor, use Claude for design
-									system governance, and built Lumen to keep up with how fast things move now.
+									Head of Product Design at VSCO. Previously led growth and core product design
+									at SurveyMonkey. Twenty years in platform and systems work; AI just made it
+									more urgent.
 								</p>
 								<p>
-									Head of Product Design at VSCO. Open to senior IC and design lead roles where
-									the work is real and the team cares about shipping.
+									Open to senior platform design roles where complex workflows, trustworthy AI,
+									and systems thinking are the mission.
 								</p>
 							</div>
 
@@ -158,7 +116,7 @@ export default function Home() {
 								href="https://linkedin.com/in/millersharonk"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="mt-8 inline-block text-sm font-medium text-gray-600 transition-opacity duration-200 hover:opacity-80"
+								className="mt-8 inline-block text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-gray-900"
 							>
 								LinkedIn
 							</a>
@@ -180,7 +138,7 @@ export default function Home() {
 					<SectionHeading>Case studies</SectionHeading>
 
 					<div className="flex flex-col gap-6">
-						{CASE_STUDIES.map((study) => (
+						{CASE_STUDY_CARDS.map((study) => (
 							<CaseStudyCard key={study.title} study={study} />
 						))}
 					</div>

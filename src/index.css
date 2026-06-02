@@ -28,6 +28,12 @@
 		scroll-behavior: smooth;
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
 	body {
 		background: #ffffff;
 		color: #111111;
@@ -46,6 +52,17 @@
 
 	.page-load {
 		animation: page-fade-in 400ms ease-out;
+	}
+
+	.page-route {
+		animation: page-fade-in 200ms ease-out;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.page-load,
+		.page-route {
+			animation: none;
+		}
 	}
 
 	@keyframes page-fade-in {
