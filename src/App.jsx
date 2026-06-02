@@ -4,11 +4,13 @@ import WorkHistory from "./pages/WorkHistory.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import AiFirstCaseStudy from "./pages/AiFirstCaseStudy.jsx";
+import Login from "./pages/Login.tsx";
 
 export default function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
+				<Route path="/login" element={<Login />} />
 				<Route path="/" element={<Home />} />
 				<Route path="/work-history" element={<WorkHistory />} />
 				<Route path="/about" element={<About />} />
