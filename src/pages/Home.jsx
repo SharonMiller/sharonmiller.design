@@ -166,8 +166,8 @@ export default function Home() {
 
 						<div className="order-1 mx-auto mb-6 md:order-none md:col-span-2 md:mx-0 md:mb-0 md:flex md:justify-end">
 							<img
-								src="/images/portfolio-assets/photos/profile-photo.png"
-								alt="Sharon Miller smiling in a white sleeveless top, outdoor portrait"
+								src="/images/about-portrait.png"
+								alt="Sharon Miller smiling outdoors in golden light"
 								className="profile-photo-intro shadow-sm"
 							/>
 						</div>

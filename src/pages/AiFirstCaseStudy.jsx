@@ -41,7 +41,28 @@ const RELATED_WORK = [
 		year: "2025",
 		description:
 			"I led the strategic implementation of Superwall at VSCO, enabling my design team's experimentation with value-focused paywall copy and design and contributing to a 12% increase in conversion.",
-		image: "/images/paywall-variants.png",
+		images: [
+			{
+				src: "/images/paywall-variants.png",
+				alt: "Side-by-side mobile paywall variants testing value-focused copy and trial emphasis",
+			},
+		],
+	},
+	{
+		title: "Growth experimentation at scale",
+		year: "2023-2025",
+		description:
+			"At SurveyMonkey, I built the systems and rituals that let the growth design team run high-velocity experiments across pricing, onboarding, and paywalls. We tracked outcomes in a shared experiment database and reviewed wins, losses, and learnings as a team.",
+		images: [
+			{
+				src: "/images/experiment-database.png",
+				alt: "Experiment database repo tracking growth tests, decisions, and learnings",
+			},
+			{
+				src: "/images/growth-experiments.png",
+				alt: "Product-led growth experiment board showing outcomes and metric impact",
+			},
+		],
 	},
 	{
 		title: "Simplifying Real Estate Tour Scheduling",
@@ -210,12 +231,19 @@ export default function AiFirstCaseStudy() {
 					<div className="mt-10 flex flex-col gap-16">
 						{RELATED_WORK.map((project) => (
 							<article key={project.title} className="border-t border-gray-100 pt-10">
-								{project.image && (
-									<img
-										src={project.image}
-										alt=""
-										className="case-study-inline-image my-8"
-									/>
+								{project.images?.length > 0 && (
+									<div
+										className={`my-8 grid gap-4 ${project.images.length > 1 ? "md:grid-cols-2" : ""}`}
+									>
+										{project.images.map((image) => (
+											<img
+												key={image.src}
+												src={image.src}
+												alt={image.alt}
+												className="case-study-inline-image w-full"
+											/>
+										))}
+									</div>
 								)}
 								<h3 className="text-xl font-bold text-gray-900">
 									{project.title}{" "}

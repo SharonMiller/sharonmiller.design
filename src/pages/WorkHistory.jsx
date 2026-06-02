@@ -67,35 +67,31 @@ const EARLY_CAREER = [
 
 const WORK_PHOTOS = [
 	{
-		src: "/images/portfolio-assets/photos/IMG_1079.jpeg",
-		alt: "Sharon Miller with design teammates at a work event",
+		src: "/images/sharon-award.png",
+		alt: "Sharon Miller holding a SurveyMonkey Innovate Outstanding Achievement Award",
 	},
 	{
-		src: "/images/portfolio-assets/photos/IMG_4861.jpeg",
-		alt: "Team photo from a design offsite",
+		src: "/images/experiment-database.png",
+		alt: "Experiment database tracking growth and personalization tests at SurveyMonkey",
 	},
 	{
-		src: "/images/portfolio-assets/photos/IMG_2997.jpeg",
-		alt: "Sharon Miller presenting to the product team",
-	},
-	{
-		src: "/images/portfolio-assets/photos/IMG_4084.jpeg",
-		alt: "Design team collaboration session",
-	},
-	{
-		src: "/images/portfolio-assets/photos/IMG_0187.jpeg",
-		alt: "Team outing photo",
-	},
-	{
-		src: "/images/portfolio-assets/photos/IMG_5638.jpeg",
-		alt: "Work event group photo",
+		src: "/images/growth-experiments.png",
+		alt: "Product-led growth experiment outcomes and learnings dashboard",
 	},
 ];
 
 const PHOTO_COLLAGE = (
 	<img
 		src="/images/photo-collage.png"
-		alt="Sharon Miller presenting, with team photos from outings and award events"
+		alt="Sharon Miller presenting a visual roadmap, with team photos from outings and award events"
+		className="w-full rounded-xl object-cover"
+	/>
+);
+
+const VSCO_PORTRAIT = (
+	<img
+		src="/images/about-portrait.png"
+		alt="Sharon Miller smiling outdoors in golden light"
 		className="w-full rounded-xl object-cover"
 	/>
 );
@@ -116,7 +112,10 @@ export default function WorkHistory() {
 
 			<SectionDivider label="My current role" />
 
-			<ContentAsideRow aside={PHOTO_COLLAGE}>
+			<ContentAsideRow
+				aside={VSCO_PORTRAIT}
+				asideCaption="Head of Product Design at VSCO"
+			>
 				<h2 className="text-xl font-bold text-lumen-ink md:text-2xl">
 					Head of Product Design @ VSCO
 				</h2>
@@ -141,6 +140,13 @@ export default function WorkHistory() {
 			</ContentAsideRow>
 
 			<SectionDivider label="Leading growth design at SurveyMonkey" />
+
+			<div className="lumen-reveal mb-10">
+				{PHOTO_COLLAGE}
+				<p className="mt-3 text-xs leading-snug text-gray-400">
+					Presenting the Q1 2024 visual roadmap with the growth design team
+				</p>
+			</div>
 
 			<div className="lumen-reveal grid gap-10 md:grid-cols-3 md:gap-8">
 				<WorkColumn title="Principal product designer">
@@ -210,13 +216,13 @@ export default function WorkHistory() {
 				</WorkColumn>
 			</div>
 
-			<div className="lumen-reveal mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+			<div className="lumen-reveal mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
 				{WORK_PHOTOS.map((photo) => (
 					<img
 						key={photo.src}
 						src={photo.src}
 						alt={photo.alt}
-						className="aspect-square w-full rounded-xl object-cover"
+						className="aspect-[4/3] w-full rounded-xl object-cover object-top"
 					/>
 				))}
 			</div>
