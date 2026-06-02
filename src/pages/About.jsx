@@ -45,7 +45,7 @@ export default function About() {
 						<h1 className="mt-2 text-3xl font-bold tracking-tight text-lumen-ink md:text-5xl">
 							Sharon Miller
 						</h1>
-						<p className="mt-3 text-base font-medium text-gray-900">Product Design Leader</p>
+						<p className="mt-3 text-base font-medium text-gray-900">Head of Product Design</p>
 					</div>
 
 					<div className="profile-photo-frame shrink-0">

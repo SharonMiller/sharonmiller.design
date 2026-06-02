@@ -11,7 +11,7 @@ import "./Home.css";
 function CaseStudyCard({ study }) {
 	return (
 		<article className="case-study-card case-study-card--impact">
-			<Link to={study.href} className="group flex gap-5 p-6 md:gap-6 md:p-8">
+			<Link to={study.href} className="group flex items-start gap-5 p-6 md:gap-6 md:p-8">
 				<div className="min-w-0 flex-1">
 					<p className="text-xs font-semibold uppercase tracking-wider text-lumen-terracotta">
 						{study.label}

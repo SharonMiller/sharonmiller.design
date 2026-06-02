@@ -118,6 +118,9 @@
 
 .case-study-thumb {
 	width: 5.5rem;
+	height: auto;
+	flex-shrink: 0;
+	align-self: flex-start;
 	overflow: hidden;
 	border-radius: 0.5rem;
 	border: 1px solid var(--lumen-border);
