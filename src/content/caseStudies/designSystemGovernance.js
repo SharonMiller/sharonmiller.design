@@ -7,13 +7,12 @@ const designSystemGovernance = {
 	hook: "Restored design-system trust without adding headcount — and unblocked two product lines shipping June 2026.",
 	metrics: [
 		{ value: "0", label: "New DS hires" },
-		{ value: "Hours", label: "Full audit vs. weeks" },
+		{ value: "4", label: "Full audit vs. weeks" },
 	],
 	description:
 		"Restored a drifting design system without headcount — full audit in hours, remediation backlog cleared, Workspace components ready to ship.",
 	thumbnail: {
-		src: "/images/cursor-prototype.png",
-		alt: "Claude and Cursor design governance workflow",
+		placeholder: true,
 	},
 	impact: [
 		"Avoided a dedicated design systems hire while the team was already at capacity on two MVPs.",

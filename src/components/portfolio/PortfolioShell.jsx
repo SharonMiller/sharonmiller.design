@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NavBar } from "../lumen";
 import PageContainer from "./PageContainer";
@@ -17,15 +16,7 @@ export default function PortfolioShell({
 	contactFooter = true,
 	mainClassName = "",
 }) {
-	const [scrolled, setScrolled] = useState(false);
 	const location = useLocation();
-
-	useEffect(() => {
-		const onScroll = () => setScrolled(window.scrollY > 20);
-		onScroll();
-		window.addEventListener("scroll", onScroll, { passive: true });
-		return () => window.removeEventListener("scroll", onScroll);
-	}, []);
 
 	const links = PORTFOLIO_NAV.map((link) => ({
 		...link,
@@ -33,20 +24,12 @@ export default function PortfolioShell({
 	}));
 
 	return (
-		<div className="min-h-screen bg-white pb-20 md:pb-0">
-			<NavBar
-				fixed
-				floating
-				scrolled={scrolled}
-				brand="SM"
-				brandHref="/"
-				brandClassName="text-lumen-terracotta"
-				links={links}
-			/>
+		<div className="min-h-screen bg-white">
+			<NavBar brand="SM" brandHref="/" links={links} />
 
 			<main
 				key={location.pathname}
-				className={`pb-28 pt-28 md:pb-24 md:pt-32 ${mainClassName}`.trim()}
+				className={`pb-24 pt-[88px] ${mainClassName}`.trim()}
 			>
 				<PageContainer>{children}</PageContainer>
 			</main>
@@ -54,7 +37,7 @@ export default function PortfolioShell({
 			{contactFooter && (
 				<section className="border-t border-gray-100 bg-white py-16">
 					<PageContainer innerClassName="max-w-lg mx-auto text-center">
-						<h2 className="text-2xl font-bold text-gray-900">Let&apos;s connect:</h2>
+						<h2 className="text-xl font-semibold text-gray-900">Let&apos;s connect:</h2>
 						<a
 							href="mailto:sharonmillercreative@gmail.com"
 							className="lumen-btn-primary mt-8 inline-flex rounded-xl px-5 py-2.5 text-base font-medium text-white"

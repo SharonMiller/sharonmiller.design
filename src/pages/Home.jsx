@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { NavBar } from "../components/lumen";
 import PageContainer from "../components/portfolio/PageContainer";
@@ -10,80 +9,55 @@ import "./Home.css";
 
 function CaseStudyCard({ study }) {
 	return (
-		<article className="case-study-card case-study-card--impact">
-			<Link to={study.href} className="group flex items-start gap-5 p-6 md:gap-6 md:p-8">
-				<div className="min-w-0 flex-1">
-					<p className="text-xs font-semibold uppercase tracking-wider text-lumen-terracotta">
-						{study.label}
-					</p>
-					<h3 className="mt-2 text-xl font-bold text-gray-900 md:text-2xl">
+		<article className="case-study-card">
+			<Link to={study.href} className="case-study-card__link group">
+				<div className="case-study-card__content">
+					<p className="case-study-card__label">{study.label}</p>
+					<h3 className="case-study-card__title">
 						{study.title}
-						<span className="ml-2 text-sm font-normal text-gray-400">{study.year}</span>
+						<span className="case-study-card__year">{study.year}</span>
 					</h3>
 
-					{study.hook ? (
-						<p className="mt-4 text-base font-semibold leading-snug text-gray-900 md:text-lg">
-							{study.hook}
-						</p>
-					) : null}
+					{study.hook ? <p className="case-study-card__description">{study.hook}</p> : null}
 
 					{study.metrics?.length > 0 && (
-						<div className="mt-5 flex flex-wrap gap-6 border-t border-gray-100 pt-5">
+						<div className="case-study-card__stats">
 							{study.metrics.map((metric) => (
 								<div key={metric.label}>
-									<span className="block text-xl font-bold text-gray-900">{metric.value}</span>
-									<span className="block text-xs text-gray-500">{metric.label}</span>
+									<span className="case-study-card__stat-value">{metric.value}</span>
+									<span className="case-study-card__stat-label">{metric.label}</span>
 								</div>
 							))}
 						</div>
 					)}
 
-					<span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-lumen-terracotta">
-						Read case study →
-					</span>
+					<span className="case-study-card__cta">Read case study →</span>
 				</div>
 
-				<CaseStudyThumbnail image={study.thumbnail} variant="card" />
+				<CaseStudyThumbnail image={study.thumbnail} title={study.title} variant="card" />
 			</Link>
 		</article>
 	);
 }
 
 export default function Home() {
-	const [scrolled, setScrolled] = useState(false);
-
-	useEffect(() => {
-		const onScroll = () => setScrolled(window.scrollY > 20);
-		onScroll();
-		window.addEventListener("scroll", onScroll, { passive: true });
-		return () => window.removeEventListener("scroll", onScroll);
-	}, []);
-
 	return (
-		<div className="min-h-screen bg-white pb-20 md:pb-0">
+		<div className="portfolio-page min-h-screen bg-white">
 			<NavBar
-				fixed
-				floating
-				scrolled={scrolled}
 				brand="SM"
 				brandHref="/"
-				brandClassName="text-lumen-terracotta"
 				links={PORTFOLIO_NAV.map((link) => ({
 					...link,
 					active: link.href === "/",
 				}))}
 			/>
 
-			<section id="intro" className="bg-white pb-12 pt-28 md:pb-20 md:pt-32">
+			<section id="intro" className="home-intro">
 				<PageContainer>
 					<div className="intro-header flex items-start justify-between gap-5 md:gap-10">
 						<div className="min-w-0 flex-1">
-							<h1 className="text-3xl font-bold tracking-tight text-lumen-ink md:text-5xl">
-								Sharon Miller
-							</h1>
-							<p className="mt-3 text-base font-medium text-gray-900">
-								Head of Product Design
-							</p>
+							<h1 className="home-hero-name">Sharon Miller</h1>
+							<p className="home-hero-title">Head of Product Design</p>
 						</div>
 
 						<div className="profile-photo-frame shrink-0">
@@ -95,7 +69,7 @@ export default function Home() {
 						</div>
 					</div>
 
-					<div className="mt-8 max-w-2xl space-y-4 text-base leading-relaxed text-gray-700">
+					<div className="home-body-copy mt-8 max-w-2xl space-y-4">
 						<p>
 							Most designers work on AI features. I do that and build the operating model
 							around them: governance, human-in-the-loop patterns, and design-engineering
@@ -116,18 +90,18 @@ export default function Home() {
 						href="https://linkedin.com/in/millersharonk"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="mt-8 inline-block text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-gray-900"
+						className="home-linkedin mt-8 inline-block"
 					>
 						LinkedIn
 					</a>
 				</PageContainer>
 			</section>
 
-			<section id="work" className="border-t border-gray-100 py-12 md:py-20">
+			<section id="work" className="home-work">
 				<PageContainer>
-					<SectionHeading>Case studies</SectionHeading>
+					<SectionHeading className="case-studies-section-heading">Case studies</SectionHeading>
 
-					<div className="flex flex-col gap-4 md:gap-5">
+					<div className="case-study-list">
 						{CASE_STUDY_CARDS.map((study) => (
 							<CaseStudyCard key={study.slug} study={study} />
 						))}
