@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NavBar } from "../lumen";
-import { useScrollReveal } from "../../hooks/useScrollReveal";
 import PageContainer from "./PageContainer";
 
 export const PORTFOLIO_NAV = [
@@ -21,8 +20,6 @@ export default function PortfolioShell({
 	const [scrolled, setScrolled] = useState(false);
 	const location = useLocation();
 
-	useScrollReveal();
-
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 20);
 		onScroll();
@@ -36,7 +33,7 @@ export default function PortfolioShell({
 	}));
 
 	return (
-		<div className="page-load min-h-screen bg-white">
+		<div className="min-h-screen bg-white pb-20 md:pb-0">
 			<NavBar
 				fixed
 				floating
@@ -49,13 +46,13 @@ export default function PortfolioShell({
 
 			<main
 				key={location.pathname}
-				className={`page-route pb-24 pt-28 md:pt-32 ${mainClassName}`.trim()}
+				className={`pb-28 pt-28 md:pb-24 md:pt-32 ${mainClassName}`.trim()}
 			>
 				<PageContainer>{children}</PageContainer>
 			</main>
 
 			{contactFooter && (
-				<section className="lumen-reveal border-t border-gray-100 bg-white py-16">
+				<section className="border-t border-gray-100 bg-white py-16">
 					<PageContainer innerClassName="max-w-lg mx-auto text-center">
 						<h2 className="text-2xl font-bold text-gray-900">Let&apos;s connect:</h2>
 						<a

@@ -1,5 +1,6 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import CaseStudyLayout from "../components/portfolio/CaseStudyLayout.jsx";
+import CaseStudyPager from "../components/portfolio/CaseStudyPager.jsx";
 import PortfolioShell, { BackLink } from "../components/portfolio/PortfolioShell";
 import { getCaseStudy } from "../content/caseStudies/index.js";
 import "../pages/Home.css";
@@ -15,16 +16,9 @@ export default function CaseStudyPage() {
 	return (
 		<PortfolioShell activePath="/#work">
 			<div className="mx-auto max-w-3xl">
-				<BackLink to="/#work" />
+				<BackLink to="/#work">← All case studies</BackLink>
 				<CaseStudyLayout study={study} />
-				<p className="lumen-reveal mt-16 text-center">
-					<Link
-						to="/#work"
-						className="text-sm text-gray-500 transition-colors duration-200 hover:text-gray-900"
-					>
-						← All case studies
-					</Link>
-				</p>
+				<CaseStudyPager slug={slug} />
 			</div>
 		</PortfolioShell>
 	);

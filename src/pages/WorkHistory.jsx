@@ -90,7 +90,7 @@ const PHOTO_COLLAGE = (
 
 const VSCO_PORTRAIT = (
 	<img
-		src="/images/about-portrait.png"
+		src="/images/profile-photo-full.png"
 		alt="Sharon Miller smiling outdoors in golden light"
 		className="w-full rounded-xl object-cover"
 	/>

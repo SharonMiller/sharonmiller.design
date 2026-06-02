@@ -51,11 +51,11 @@
 	}
 
 	.page-load {
-		animation: page-fade-in 400ms ease-out;
+		animation: page-fade-in 250ms ease-out;
 	}
 
 	.page-route {
-		animation: page-fade-in 200ms ease-out;
+		animation: page-fade-in 180ms ease-out;
 	}
 
 	@media (prefers-reduced-motion: reduce) {

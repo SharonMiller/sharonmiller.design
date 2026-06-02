@@ -1,5 +1,28 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+
+function BrandMark({ href, className = "", onClick, label = "SM" }) {
+	const mark = (
+		<span
+			className={`inline-flex h-9 w-9 items-center justify-center rounded-xl bg-lumen-terracotta text-xs font-bold tracking-tight text-white shadow-md ring-2 ring-lumen-terracotta/25 ring-offset-2 ring-offset-white transition-transform duration-200 hover:scale-105 ${className}`.trim()}
+		>
+			{label}
+		</span>
+	);
+
+	if (href.startsWith("/") && !href.includes("#")) {
+		return (
+			<Link to={href} aria-label="Home" onClick={onClick}>
+				{mark}
+			</Link>
+		);
+	}
+
+	return (
+		<a href={href} aria-label="Home" onClick={onClick}>
+			{mark}
+		</a>
+	);
+}
 
 /**
  * NavBar — portfolio navigation per docs/layout-guidelines.md
@@ -7,7 +30,6 @@ import { Link } from "react-router-dom";
 export default function NavBar({
 	brand = "SM",
 	brandHref = "/",
-	brandClassName = "",
 	links = [],
 	actions,
 	className = "",
@@ -17,7 +39,6 @@ export default function NavBar({
 	scrolled = false,
 	onNavigate,
 }) {
-	const [menuOpen, setMenuOpen] = useState(false);
 	const positionClass = fixed || floating ? "fixed left-0 right-0 top-0 z-50" : "";
 	const stickyClass = sticky && !fixed && !floating ? "sticky top-0 z-50" : "";
 
@@ -27,7 +48,6 @@ export default function NavBar({
 			: "border-b border-gray-100 bg-white/90 backdrop-blur-sm";
 
 	const closeMenu = () => {
-		setMenuOpen(false);
 		onNavigate?.();
 	};
 
@@ -35,6 +55,11 @@ export default function NavBar({
 		active
 			? "text-sm font-medium text-lumen-terracotta"
 			: "text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-gray-900";
+
+	const mobileLinkClass = (active) =>
+		active
+			? "bg-lumen-terracotta/10 text-lumen-terracotta"
+			: "text-gray-600 hover:bg-stone-100 hover:text-gray-900";
 
 	const renderLink = (link, className, onClick) => {
 		const isHash = link.href.includes("#");
@@ -59,64 +84,58 @@ export default function NavBar({
 		);
 	};
 
+	const renderMobileLink = (link) => {
+		const shortLabel =
+			link.mobileLabel ??
+			(link.label === "Work history" ? "History" : link.label);
+		const isHash = link.href.includes("#");
+		const props = {
+			className: `shrink-0 rounded-full px-3 py-2 text-xs font-medium transition-colors duration-200 ${mobileLinkClass(link.active)}`.trim(),
+			"aria-current": link.active ? "page" : undefined,
+			onClick: closeMenu,
+		};
+
+		if (isHash) {
+			return (
+				<a key={link.href} href={link.href} {...props}>
+					{shortLabel}
+				</a>
+			);
+		}
+
+		return (
+			<Link key={link.href} to={link.href} {...props}>
+				{shortLabel}
+			</Link>
+		);
+	};
+
 	return (
-		<header
-			className={`transition-all duration-300 ${positionClass} ${stickyClass} ${shellClass} ${className}`.trim()}
-		>
-			<div className="mx-auto flex h-14 max-w-4xl items-center justify-between gap-6 px-5 md:px-8">
-				{brandHref.startsWith("/") && !brandHref.includes("#") ? (
-					<Link
-						to={brandHref}
-						className={`text-sm font-bold tracking-tight ${brandClassName || "text-lumen-terracotta"}`.trim()}
-						onClick={closeMenu}
-					>
-						{brand}
-					</Link>
-				) : (
-					<a
-						href={brandHref}
-						className={`text-sm font-bold tracking-tight ${brandClassName || "text-lumen-terracotta"}`.trim()}
-					>
-						{brand}
-					</a>
-				)}
+		<>
+			<header
+				className={`transition-all duration-300 ${positionClass} ${stickyClass} ${shellClass} ${className}`.trim()}
+			>
+				<div className="mx-auto flex h-14 max-w-4xl items-center justify-between gap-6 px-5 md:px-8">
+					<BrandMark href={brandHref} onClick={closeMenu} label={brand} />
 
-				{links.length > 0 && (
-					<nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
-						{links.map((link) => renderLink(link, "", closeMenu))}
-					</nav>
-				)}
-
-				<div className="flex items-center gap-2">
-					{actions}
 					{links.length > 0 && (
-						<button
-							type="button"
-							className="inline-flex flex-col justify-center gap-1.5 p-2 md:hidden"
-							aria-expanded={menuOpen}
-							aria-controls="mobile-nav"
-							aria-label={menuOpen ? "Close menu" : "Open menu"}
-							onClick={() => setMenuOpen((open) => !open)}
-						>
-							<span className="block h-0.5 w-5 bg-gray-700" />
-							<span className="block h-0.5 w-5 bg-gray-700" />
-							<span className="block h-0.5 w-5 bg-gray-700" />
-						</button>
+						<nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
+							{links.map((link) => renderLink(link, "", closeMenu))}
+						</nav>
 					)}
-				</div>
-			</div>
 
-			{menuOpen && links.length > 0 && (
+					{actions && <div className="hidden items-center gap-2 md:flex">{actions}</div>}
+				</div>
+			</header>
+
+			{links.length > 0 && (
 				<nav
-					id="mobile-nav"
-					className="border-b border-gray-100 bg-white md:hidden"
+					className="glass-strong fixed bottom-4 left-1/2 z-50 flex max-w-[calc(100vw-2rem)] -translate-x-1/2 items-center gap-0.5 overflow-x-auto rounded-full border border-white/40 px-2 py-2 shadow-lg md:hidden"
 					aria-label="Mobile"
 				>
-					{links.map((link) =>
-						renderLink(link, "block py-3 px-5 text-base", closeMenu),
-					)}
+					{links.map((link) => renderMobileLink(link))}
 				</nav>
 			)}
-		</header>
+		</>
 	);
 }

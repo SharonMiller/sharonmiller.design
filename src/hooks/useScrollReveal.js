@@ -1,13 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 /**
- * Observes `.lumen-reveal` elements and adds `lumen-reveal-visible` when they enter the viewport.
- * Call once at the top of a page that uses scroll-reveal sections.
+ * Fades in `.lumen-reveal` elements when they enter the viewport.
+ * Opacity-only (no transform) to keep scrolling smooth.
  */
-export function useScrollReveal() {
+export function useScrollReveal(deps = []) {
+	const observerRef = useRef(null);
+
 	useEffect(() => {
-		const elements = document.querySelectorAll(".lumen-reveal");
+		const elements = document.querySelectorAll(".lumen-reveal:not(.lumen-reveal-visible)");
 		if (elements.length === 0) return undefined;
+
+		observerRef.current?.disconnect();
 
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -18,11 +22,13 @@ export function useScrollReveal() {
 					}
 				});
 			},
-			{ threshold: 0.08, rootMargin: "0px 0px -32px 0px" },
+			{ threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
 		);
 
 		elements.forEach((el) => observer.observe(el));
+		observerRef.current = observer;
 
 		return () => observer.disconnect();
-	}, []);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, deps);
 }
