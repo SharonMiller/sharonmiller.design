@@ -1,31 +1,40 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { next } from "@vercel/functions";
 import { AUTH_COOKIE_NAME, createAuthToken, getSitePassword } from "./lib/auth";
 
 const STATIC_PATH =
 	/^\/(assets|images)\/|\.(ico|png|jpg|jpeg|gif|svg|webp|css|js|woff2?|txt|xml|json|map)$/;
 
-export async function middleware(request: NextRequest) {
-	const sitePassword = getSitePassword();
-	if (!sitePassword) {
-		return NextResponse.next();
+function getCookie(request: Request, name: string): string | undefined {
+	const cookieHeader = request.headers.get("cookie");
+	if (!cookieHeader) {
+		return undefined;
 	}
 
-	const { pathname } = request.nextUrl;
+	const match = cookieHeader.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+	return match ? decodeURIComponent(match[1]) : undefined;
+}
+
+export default async function middleware(request: Request) {
+	const sitePassword = getSitePassword();
+	if (!sitePassword) {
+		return next();
+	}
+
+	const { pathname } = new URL(request.url);
 
 	if (pathname === "/login" || pathname.startsWith("/api/auth")) {
-		return NextResponse.next();
+		return next();
 	}
 
 	if (STATIC_PATH.test(pathname)) {
-		return NextResponse.next();
+		return next();
 	}
 
-	const cookie = request.cookies.get(AUTH_COOKIE_NAME)?.value;
+	const cookie = getCookie(request, AUTH_COOKIE_NAME);
 	const expectedToken = await createAuthToken(sitePassword);
 
 	if (cookie === expectedToken) {
-		return NextResponse.next();
+		return next();
 	}
 
 	const loginUrl = new URL("/login", request.url);
@@ -33,7 +42,7 @@ export async function middleware(request: NextRequest) {
 		loginUrl.searchParams.set("returnTo", pathname);
 	}
 
-	return NextResponse.redirect(loginUrl);
+	return Response.redirect(loginUrl, 307);
 }
 
 export const config = {
