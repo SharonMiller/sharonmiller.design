@@ -54,46 +54,50 @@ export default function Home() {
 
 			<section id="intro" className="home-intro">
 				<PageContainer>
-					<div className="intro-header flex items-start justify-between gap-5 md:gap-10">
-						<div className="min-w-0 flex-1">
+					<div className="intro-layout">
+						<div className="intro-header">
 							<h1 className="home-hero-name">Sharon Miller</h1>
 							<p className="home-hero-title">Head of Product Design</p>
 						</div>
 
-						<div className="profile-photo-frame shrink-0">
-							<img
-								src="/images/profile-photo-full.png"
-								alt="Sharon Miller"
-								className="profile-photo-intro"
-							/>
+						<div className="intro-body-row">
+							<div className="intro-body">
+								<div className="home-body-copy">
+									<p>
+										Most designers work on AI features. I do that and build the operating model
+										around them: governance, human-in-the-loop patterns, and design-engineering
+										integration that makes AI trustworthy at scale.
+									</p>
+									<p>
+										Head of Product Design at VSCO. Previously led growth and core product design
+										at SurveyMonkey. Twenty years in platform and systems work; AI just made it
+										more urgent.
+									</p>
+									<p>
+										Open to senior platform design roles where complex workflows, trustworthy AI,
+										and systems thinking are the mission.
+									</p>
+								</div>
+
+								<a
+									href="https://linkedin.com/in/millersharonk"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="home-linkedin"
+								>
+									LinkedIn
+								</a>
+							</div>
+
+							<div className="profile-photo-frame">
+								<img
+									src="/images/profile-photo-full.png"
+									alt="Sharon Miller"
+									className="profile-photo-intro"
+								/>
+							</div>
 						</div>
 					</div>
-
-					<div className="home-body-copy mt-8 max-w-2xl space-y-4">
-						<p>
-							Most designers work on AI features. I do that and build the operating model
-							around them: governance, human-in-the-loop patterns, and design-engineering
-							integration that makes AI trustworthy at scale.
-						</p>
-						<p>
-							Head of Product Design at VSCO. Previously led growth and core product design
-							at SurveyMonkey. Twenty years in platform and systems work; AI just made it
-							more urgent.
-						</p>
-						<p>
-							Open to senior platform design roles where complex workflows, trustworthy AI,
-							and systems thinking are the mission.
-						</p>
-					</div>
-
-					<a
-						href="https://linkedin.com/in/millersharonk"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="home-linkedin mt-8 inline-block"
-					>
-						LinkedIn
-					</a>
 				</PageContainer>
 			</section>
 
