@@ -1,14 +1,16 @@
-import aiFirst from "./aiFirst.js";
 import designSystemGovernance from "./designSystemGovernance.js";
+import buildingAtlas from "./buildingAtlas.js";
+import aiDesignOps from "./aiDesignOps.js";
 import growthDesign from "./growthDesign.js";
-import workspaceChatAgent from "./workspaceChatAgent.js";
+import organizingGrowth from "./organizingGrowth.js";
 
-/** Workiva-first order on home: systems → enterprise proof → operating model → product depth */
+/** Order: most technically differentiated → product + process → org-level ops → IC craft → systems/leadership */
 export const CASE_STUDIES = [
 	designSystemGovernance,
+	buildingAtlas,
+	aiDesignOps,
 	growthDesign,
-	aiFirst,
-	workspaceChatAgent,
+	organizingGrowth,
 ];
 
 export const CASE_STUDY_CARDS = CASE_STUDIES.map(

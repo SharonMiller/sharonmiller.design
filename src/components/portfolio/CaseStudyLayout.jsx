@@ -1,6 +1,5 @@
 import { useRef, useEffect } from "react";
 import CaseStudyMeta from "./CaseStudyMeta.jsx";
-import CaseStudyThumbnail from "./CaseStudyThumbnail.jsx";
 import SectionHeading from "./SectionHeading.jsx";
 
 function DemoVideo({ src, caption }) {
@@ -40,12 +39,14 @@ function DemoVideo({ src, caption }) {
 }
 
 function Paragraphs({ items }) {
-	return items.map((text, index) => <p key={index}>{text}</p>);
+	return items.map((text, index) => (
+		<p key={index} className="case-study-paragraph">{text}</p>
+	));
 }
 
 function BulletList({ items }) {
 	return (
-		<ul className="case-study-list list-disc space-y-2.5 pl-5">
+		<ul className="case-study-bullets">
 			{items.map((item) => (
 				<li key={item}>{item}</li>
 			))}
@@ -55,9 +56,9 @@ function BulletList({ items }) {
 
 function SubSection({ title, paragraphs = [], list = [] }) {
 	return (
-		<div className="mt-8 first:mt-0">
-			<h3 className="text-base font-semibold text-gray-900">{title}</h3>
-			<div className="mt-3 space-y-4 text-base leading-relaxed text-gray-600">
+		<div className="case-study-subsection">
+			<h3 className="case-study-subsection__title">{title}</h3>
+			<div className="case-study-section__content">
 				{paragraphs.length > 0 && <Paragraphs items={paragraphs} />}
 				{list.length > 0 && <BulletList items={list} />}
 			</div>
@@ -65,20 +66,107 @@ function SubSection({ title, paragraphs = [], list = [] }) {
 	);
 }
 
-function SectionBlock({ section }) {
+function StatGrid({ stats }) {
+	return (
+		<div className="case-study-stat-grid">
+			{stats.map((stat) => (
+				<div key={stat.label} className="case-study-stat-card">
+					<span className="case-study-stat-card__value">{stat.value}</span>
+					<span className="case-study-stat-card__label">{stat.label}</span>
+				</div>
+			))}
+		</div>
+	);
+}
+
+function FigmaEmbed({ src, caption, height = 450 }) {
+	return (
+		<figure className="case-study-embed">
+			<div className="case-study-embed__frame">
+				<iframe
+					src={src}
+					height={height}
+					width="100%"
+					frameBorder="0"
+					allowTransparency="true"
+					allowFullScreen
+					title={caption ?? "Figma prototype"}
+					loading="lazy"
+				/>
+			</div>
+			{caption && <figcaption className="case-study-image__caption">{caption}</figcaption>}
+		</figure>
+	);
+}
+
+function SectionImage({ src, alt, caption }) {
+	return (
+		<figure className="case-study-image">
+			<img src={src} alt={alt ?? ""} loading="lazy" className="case-study-image__img" />
+			{caption && <figcaption className="case-study-image__caption">{caption}</figcaption>}
+		</figure>
+	);
+}
+
+/** Sections with layout="image-left" or layout="image-right" render 2-col */
+function SectionBlock({ section, index }) {
+	const hasImage = !!section.image;
+	const layout = section.layout; // "image-left" | "image-right" | undefined
+
+	const textContent = (
+		<div className="case-study-section__content">
+			{section.stats?.length > 0 && <StatGrid stats={section.stats} />}
+			{section.paragraphs?.length > 0 && <Paragraphs items={section.paragraphs} />}
+			{section.list?.length > 0 && <BulletList items={section.list} />}
+			{section.closingParagraphs?.length > 0 && <Paragraphs items={section.closingParagraphs} />}
+			{section.subsections?.map((sub) => (
+				<SubSection key={sub.title} {...sub} />
+			))}
+			{!layout && hasImage && (
+				<SectionImage src={section.image.src} alt={section.image.alt} caption={section.image.caption} />
+			)}
+			{section.video && <DemoVideo src={section.video.src} caption={section.video.caption} />}
+			{section.embed && (
+				<FigmaEmbed src={section.embed.src} caption={section.embed.caption} height={section.embed.height} />
+			)}
+		</div>
+	);
+
+	if (layout && hasImage) {
+		return (
+			<section className="case-study-section">
+				<SectionHeading className="case-study-section-heading">{section.title}</SectionHeading>
+				<div className={`case-study-split case-study-split--${layout}`}>
+					{layout === "image-right" ? (
+						<>
+							{textContent}
+							<figure className="case-study-split__image">
+								<img src={section.image.src} alt={section.image.alt ?? ""} loading="lazy" />
+								{section.image.caption && (
+									<figcaption className="case-study-image__caption">{section.image.caption}</figcaption>
+								)}
+							</figure>
+						</>
+					) : (
+						<>
+							<figure className="case-study-split__image">
+								<img src={section.image.src} alt={section.image.alt ?? ""} loading="lazy" />
+								{section.image.caption && (
+									<figcaption className="case-study-image__caption">{section.image.caption}</figcaption>
+								)}
+							</figure>
+							{textContent}
+						</>
+					)}
+				</div>
+			</section>
+		);
+	}
+
 	return (
 		<section className="case-study-section">
 			<SectionHeading className="case-study-section-heading">{section.title}</SectionHeading>
-			<div className="space-y-4 text-base leading-relaxed text-gray-700">
-				{section.paragraphs?.length > 0 && <Paragraphs items={section.paragraphs} />}
-				{section.list?.length > 0 && <BulletList items={section.list} />}
-				{section.subsections?.map((subsection) => (
-					<SubSection key={subsection.title} {...subsection} />
-				))}
-				{section.video && (
-					<DemoVideo src={section.video.src} caption={section.video.caption} />
-				)}
-			</div>
+			{textContent}
 		</section>
 	);
 }
@@ -87,38 +175,38 @@ export default function CaseStudyLayout({ study }) {
 	return (
 		<article className="case-study-article">
 			<header className="case-study-header">
-				<div className="case-study-header__top">
-					<div className="min-w-0 flex-1">
-						<p className="lumen-section-label">Case study</p>
-						<h1 className="mt-3 text-3xl font-bold tracking-tight text-lumen-ink md:text-4xl lg:text-5xl">
-							{study.title}
-						</h1>
-						<p className="mt-4 text-sm font-medium text-gray-900">{study.role}</p>
-						<p className="mt-1 text-sm text-gray-500">{study.type}</p>
-					</div>
-					<CaseStudyThumbnail image={study.thumbnail} variant="page" />
+				{/* Title block */}
+				<div className="case-study-header__title-block">
+					<p className="lumen-section-label">Case study</p>
+					<h1 className="case-study-title">{study.title}</h1>
+					<p className="case-study-header__role">{study.role}</p>
+					<p className="case-study-header__type">{study.type}</p>
 				</div>
 
-				{study.hook ? (
-					<p className="case-study-hook mt-8 text-xl font-semibold leading-snug text-gray-900 md:text-2xl">
-						{study.hook}
-					</p>
-				) : null}
+				{/* Hero image — full width */}
+				{study.thumbnail && (
+					<div className="case-study-hero">
+						<img
+							src={study.thumbnail.src}
+							alt={study.thumbnail.alt ?? study.title}
+							className="case-study-hero__img"
+						/>
+					</div>
+				)}
+
+				{study.hook && (
+					<p className="case-study-hook">{study.hook}</p>
+				)}
 
 				<CaseStudyMeta study={study} />
 
 				{study.impact?.length > 0 && (
-					<div className="case-study-impact mt-8 rounded-xl border border-gray-200 bg-stone-50 p-5 md:p-6">
-						<p className="text-xs font-semibold uppercase tracking-wider text-lumen-terracotta">
-							Company impact
-						</p>
-						<ul className="mt-4 space-y-3 text-base leading-relaxed text-gray-800">
+					<div className="case-study-impact">
+						<p className="case-study-impact__label">Company impact</p>
+						<ul className="case-study-impact-list">
 							{study.impact.map((item) => (
-								<li key={item} className="flex gap-3">
-									<span
-										aria-hidden
-										className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lumen-terracotta"
-									/>
+								<li key={item} className="case-study-impact-list__item">
+									<span aria-hidden className="case-study-impact-list__dot" />
 									<span>{item}</span>
 								</li>
 							))}
@@ -127,23 +215,21 @@ export default function CaseStudyLayout({ study }) {
 				)}
 
 				{study.summary?.length > 0 && (
-					<div className="mt-8 max-w-2xl space-y-4 text-base leading-relaxed text-gray-600">
+					<div className="case-study-summary">
 						<Paragraphs items={study.summary} />
 					</div>
 				)}
 			</header>
 
 			<div className="case-study-body">
-				{study.sections.map((section) => (
-					<SectionBlock key={section.title} section={section} />
+				{study.sections.map((section, i) => (
+					<SectionBlock key={section.title} section={section} index={i} />
 				))}
 			</div>
 
-			{study.footer ? (
-				<p className="mt-16 border-t border-gray-100 pt-8 text-sm text-gray-500">
-					{study.footer}
-				</p>
-			) : null}
+			{study.footer && (
+				<p className="case-study-footer">{study.footer}</p>
+			)}
 		</article>
 	);
 }

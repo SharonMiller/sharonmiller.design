@@ -14,7 +14,7 @@ const aiFirst = {
 		"AI-native operating model: two MVPs in production build, engineering handoff from working code, design org Flywheel adopted company-wide.",
 	thumbnail: {
 		src: "/images/workspace/dashboard-with-assistant.png",
-		alt: "VSCO Workspace prototype with assistant panel",
+		alt: "VSCO Workspace prototype — the product built through this AI-first process",
 	},
 	impact: [
 		"Two production MVPs designed from working prototypes, not static Figma decks. Engineering forks from a working branch.",
@@ -30,6 +30,11 @@ const aiFirst = {
 	sections: [
 		{
 			title: "The stack",
+			image: {
+				src: "/images/cursor ide.png",
+				alt: "Cursor agent making commits to the VSCO design workspace prototype",
+				caption: "Cursor agent iterating on the VSCO Workspace prototype — 272 commits, concept to working spec in roughly one week.",
+			},
 			subsections: [
 				{
 					title: "Claude — strategy and systems",
@@ -70,6 +75,19 @@ const aiFirst = {
 				"Share the concept link. Pull the live UI into Figma via html-to-design. Team leaves comments. Updates go back into Cursor, or new components go into VUI via MCP. Push to the concept link. Repeat.",
 				"The loop felt familiar to designers because it used Figma comments. The source of truth stayed in code. Live design hours three times a week replaced the async Slack thread that went nowhere.",
 			],
+		},
+		{
+			title: "What didn't work: Figma Make",
+			paragraphs: [
+				"Before landing on Cursor, I tested Figma Make to concept a new Galleries feature. It worked — technically. But the experience was poor in ways that mattered.",
+				"It consumed a significant amount of credits to produce results that weren't meaningfully better than what I could build in Cursor. More importantly, it couldn't leverage VUI. Even though the design system lived in Figma, Figma Make didn't pick it up in any meaningful way. The output used generic components, not ours. Cursor, working directly from the VUI codebase, produced on-brand, token-bound output from the start.",
+				"The lesson: proximity to the design system file is not the same as access to the design system. Cursor wins because it builds with the actual component code.",
+			],
+			image: {
+				src: "/images/cursor-prototype.png",
+				alt: "Figma Make generating a mobile UI prototype alongside a Cursor-built screen",
+				caption: "Figma Make concept test for the Galleries feature — technically functional, but design-system-blind and credit-heavy.",
+			},
 		},
 		{
 			title: "Getting the team in",

@@ -77,14 +77,9 @@ export default function Home() {
 									</p>
 								</div>
 
-								<a
-									href="https://linkedin.com/in/millersharonk"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="home-linkedin"
-								>
-									LinkedIn
-								</a>
+								<Link to="/about" className="home-linkedin">
+									Learn More
+								</Link>
 							</div>
 
 							<div className="profile-photo-frame">
@@ -103,7 +98,7 @@ export default function Home() {
 				<PageContainer>
 					<SectionHeading className="case-studies-section-heading">Case studies</SectionHeading>
 
-					<div className="case-study-list">
+					<div className="case-study-card-list">
 						{CASE_STUDY_CARDS.map((study) => (
 							<CaseStudyCard key={study.slug} study={study} />
 						))}

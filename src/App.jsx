@@ -18,7 +18,15 @@ export default function App() {
 				<Route path="/case-study/:slug" element={<CaseStudyPage />} />
 				<Route
 					path="/work/ai-design-process"
-					element={<Navigate to="/case-study/ai-first" replace />}
+					element={<Navigate to="/case-study/ai-design-ops" replace />}
+				/>
+				<Route
+					path="/case-study/ai-first"
+					element={<Navigate to="/case-study/ai-design-ops" replace />}
+				/>
+				<Route
+					path="/case-study/workspace-chat-agent"
+					element={<Navigate to="/case-study/building-atlas" replace />}
 				/>
 				<Route path="*" element={<Navigate to="/" replace />} />
 			</Routes>

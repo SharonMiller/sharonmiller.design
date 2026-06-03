@@ -4,7 +4,7 @@ import PageContainer from "./PageContainer";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 export const PORTFOLIO_NAV = [
-	{ label: "Work", href: "/#work" },
+	{ label: "Case studies", href: "/#work" },
 	{ label: "About", href: "/about" },
 	{ label: "Reach out", href: "/contact" },
 ];

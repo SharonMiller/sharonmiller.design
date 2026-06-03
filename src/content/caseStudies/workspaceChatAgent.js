@@ -49,6 +49,11 @@ const workspaceChatAgent = {
 				"Calendar: scheduling and availability",
 				"Settings: brand, business forms, pricing, payments — simplified to what a new user actually needs",
 			],
+			image: {
+				src: "/images/workspace/contacts.png",
+				alt: "VSCO Workspace contacts view with contact detail panel",
+				caption: "Contacts — full contact management with notes, job history, and lead scoring.",
+			},
 		},
 		{
 			title: "Designing the AI assistant",
@@ -56,6 +61,11 @@ const workspaceChatAgent = {
 				"Designing an AI assistant is different from designing a product flow. We cannot map every conversation a photographer might have. The inputs are too varied and most of them have not happened yet.",
 				"The approach: instead of designing flows, design the system that makes any flow work. A component vocabulary of output primitives the assistant can assemble in any order.",
 			],
+			image: {
+				src: "/images/workspace/dashboard-with-assistant.png",
+				alt: "VSCO Workspace dashboard with AI assistant panel open showing quick actions",
+				caption: "VSCO Assistant embedded in the product — quick actions, prompt suggestions, and a conversational interface on top of the full CRM.",
+			},
 			subsections: [
 				{
 					title: "The component vocabulary",
@@ -79,9 +89,11 @@ const workspaceChatAgent = {
 				"WITH DATA / NEW USER: flip instantly between a populated account and a zero-state onboarding experience. Research ran new user sessions without resetting or rebuilding anything.",
 				"ASSISTANT NUDGES: trigger specific push-in messages — Getting Started, Site Setup, Set Up Pricing, First Contact — to test assistant behavior in context before any production code was written.",
 			],
-			paragraphs: [
-				"This let the team validate Q2 direction, empty states, and assistant messaging scenarios in a single prototype. Hard product bets — when the assistant nudges, what it says, how onboarding sequences — were tested cheaply before engineering committed to building them.",
-			],
+			image: {
+				src: "/images/showing concept testing .png",
+				alt: "Prototype concept testing tools panel showing Atlas/Full and With Data/New User toggles",
+				caption: "Concept testing controls built into the prototype — toggle between product tiers, user states, and assistant nudges without resetting anything.",
+			},
 		},
 		{
 			title: "Why engineering could move fast",

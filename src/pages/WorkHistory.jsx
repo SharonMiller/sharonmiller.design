@@ -82,7 +82,7 @@ const WORK_PHOTOS = [
 
 const PHOTO_COLLAGE = (
 	<img
-		src="/images/photo-collage.png"
+		src="/images/family-collage.png"
 		alt="Sharon Miller presenting a visual roadmap, with team photos from outings and award events"
 		className="w-full rounded-xl object-cover"
 	/>

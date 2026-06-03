@@ -1,58 +1,133 @@
+const SM = "/images/surveymonkey transformation";
+
 const growthDesign = {
 	slug: "growth-design",
-	title: "Platform Transformation at SurveyMonkey",
+	title: "Survey Builder Transformation",
 	year: "2021–2024",
-	role: "Lead Product Designer, then Design Manager — Growth and AI/ML",
-	type: "Platform design · AI · Growth",
-	hook: "Led the ground-up modernization of a legacy survey platform. 90% of users were failing basic tasks. We fixed that.",
+	role: "Lead Product Designer, Growth and AI/ML",
+	type: "Platform design · AI · Legacy modernization",
+	hook: "90% of new users couldn't configure basic logic. 75% couldn't find foundational settings. The core of the product hadn't kept up — and a full rebuild wasn't an option.",
 	metrics: [
 		{ value: "8%", label: "Engagement increase" },
 		{ value: "17%", label: "UX score improvement" },
 	],
 	description:
-		"Survey authoring rebuilt from the ground up. AI creation flow designed with a trust model that made it the primary creation path. 3-year platform vision presented at exec level.",
+		"Survey authoring rebuilt from the ground up. AI creation flow designed with a trust model that became the primary creation path. 3-year platform vision presented at exec level.",
 	thumbnail: {
-		src: "/images/paywall-variants.png",
-		alt: "SurveyMonkey pricing and paywall variants",
+		src: `${SM}/aBZgJZTusXuz2S0q.png`,
+		alt: "SurveyMonkey product transformation: AI Chat and smart recommendations in the authoring experience",
 	},
 	impact: [
-		"Led ground-up modernization of SurveyMonkey's survey authoring platform — phased migration for millions of enterprise users, no hard cutover.",
-		"Designed Build with AI with a generate-review-edit trust model. It became the primary survey creation path and improved conversion.",
-		"Partnered with executive leadership to define and present a three-year platform vision — first multi-year design strategy at the board level.",
-		"Pricing and paywall redesign drove a 600% lift in Team Plan purchases in one experiment.",
-		"Preview-page engagement up 8% after redesigning the logic visualization workflow.",
+		"Led ground-up modernization of SurveyMonkey's survey authoring platform. Phased migration for millions of enterprise users, no hard cutover.",
+		"Designed Build with AI with a generate-review-edit trust model. It became the primary survey creation path.",
+		"Defined a three-year platform vision presented to CTO, SVP Product, and VP Design. First multi-year design strategy at the board level.",
+		"8% increase in engagement, 17% improvement in UX score, 4% NPS increase after the logic panel redesign shipped.",
 	],
 	summary: [
-		"Three years at SurveyMonkey as Lead Product Designer before transitioning into a manager role. The IC work spanned the full arc of the product: authoring, AI features, pricing, and platform vision.",
-		"The authoring modernization was the deepest challenge. Survey authoring is the core of the product and it had not kept up. Complex workflows, dated interaction patterns, millions of enterprise customers who could not be disrupted. The redesign had to be additive and phased, not a cutover.",
+		"Three years at SurveyMonkey as Lead Product Designer. The work spanned the full arc of the product: authoring, AI features, and platform vision.",
+		"Survey authoring was the core of the product and it hadn't kept up. 90% of new users couldn't configure basic logic. 75% failed to find foundational customization settings. The platform was mid-rewrite from Python to React, millions of enterprise users couldn't be disrupted, and a high-risk full rebuild wasn't an option.",
+		"The solution was a hybrid approach: React components injected into the existing Python UI, enabling incremental value delivery without disrupting active users or the ongoing roadmap.",
 	],
 	sections: [
 		{
-			title: "Survey authoring modernization",
-			paragraphs: [
-				"SurveyMonkey's survey authoring experience was the heart of the product. It was also showing its age. Complex workflows, dated interaction patterns, and a feeling that the platform had not kept up with how people work.",
-				"The challenge: modernize a legacy system used by millions of enterprise customers without disrupting active users. The approach was additive — new patterns introduced alongside existing ones, with gradual migration. Preview-page engagement increased 8%.",
+			title: "The problem",
+			stats: [
+				{ value: "90%", label: "of new users couldn't configure basic logic" },
+				{ value: "75%", label: "failed to find customization settings" },
 			],
+			paragraphs: [
+				"SurveyMonkey had shifted from sales-led to product-led growth, which exposed structural friction in the core authoring experience. Foundational workflows were difficult to discover and configure, limiting activation and perceived product value.",
+				"Internal research confirmed it. Users found the product outdated and hard to navigate. Simple tasks were needlessly complicated. Many features were impossible to find. Legacy code made modernization feel like a multi-year undertaking.",
+			],
+			image: {
+				src: `${SM}/Vplm6tlEwTNnWy2K.png`,
+				alt: "The current SurveyMonkey survey authoring experience — legacy interface",
+				caption: "The legacy authoring experience. Functional but dated, with buried features and high cognitive load.",
+			},
+		},
+		{
+			title: "Evaluating paths forward",
+			paragraphs: [
+				"Three options were on the table. Build with AI: a modern, AI-first experience built from scratch. Focus on the 80%: redesign around the most-used features, add the rest incrementally. Basic experience: a clean new UI for free users, with legacy preserved for paid.",
+				"Each had real tradeoffs. Build with AI risked a bifurcated experience and unknown time to parity. Focus on 80% could take years and risk losing paid customers mid-transition. Basic experience would downgrade paid users on upgrade.",
+				"After a week working with engineering, I proposed a hybrid: React components injected into the Python UI. Incremental value delivery, no disruption to active users, manageable risk. The Staff architect and I aligned on this as the path forward.",
+			],
+		},
+		{
+			title: "Page frameworks and guiding principles",
+			paragraphs: [
+				"Before touching individual features, we established the structural foundation. I partnered with design leads on admin, core, and navigation to define page frameworks — consistent layout patterns validated with users before any feature work built on them.",
+				"Six guiding principles defined the product direction and became guardrails for every design decision: cohesive, simple-to-complex, survey excellence, built for everybody, trust before delight, and easy collaboration.",
+			],
+			image: {
+				src: `${SM}/mLpQh08sxeTODaxu.png`,
+				alt: "Page framework diagram showing outline side sheet, main content, and contextual actions layout",
+				caption: "Page frameworks defined consistent layout patterns across the product before feature work began.",
+			},
+		},
+		{
+			title: "Concepting and testing",
+			paragraphs: [
+				"We ran divergent concept explorations at every major decision point: WYSIWYG vs Document view, dynamic toolbar modes vs static menus, contextual tooling options. Each was tested with users before committing.",
+				"Testing into the vision early meant hard product bets were validated cheaply. The survey build menu, logic panel, and contextual editing approach all went through user testing before engineering built them.",
+			],
+			image: {
+				src: `${SM}/73IpchFn8kAg3eFq.png`,
+				alt: "Divergent concepts: WYSIWYG vs Document view",
+				caption: "Divergent concept exploration: WYSIWYG vs Document view. Testing mental models before committing to a direction.",
+			},
+			embed: {
+				src: "https://embed.figma.com/proto/wOm1uVMnnYpiGHUa0gAQO4/Prototypes-for-portfolio?page-id=&node-id=9-6&starting-point-node-id=9%3A6&embed-host=share",
+				caption: "Working prototype — survey authoring redesign. Click through the flow.",
+				height: 450,
+			},
 		},
 		{
 			title: "Build with AI",
 			paragraphs: [
-				"I designed the first AI-powered feature in the core product. The design challenge was not just the interface — it was the trust model. How do you introduce AI generation in a way users trust, can verify, and can correct?",
+				"I designed the first AI-powered feature in the core product. The design challenge wasn't just the interface — it was the trust model. How do you introduce AI generation in a way users trust, can verify, and can correct?",
 				"The answer was generate-review-edit: AI generates a draft, user reviews it in context, user edits before committing. That sequence became the pattern. The flow became the primary creation path.",
 			],
+			image: {
+				src: `${SM}/PSE2tJgmg3qnUxDL.png`,
+				alt: "SurveyMonkey Build with AI: survey authoring with AI generation panel open",
+				caption: "Build with AI. Generate, review, edit — a trust model that kept users in control of what the AI produced.",
+			},
+		},
+		{
+			title: "The logic panel redesign",
+			paragraphs: [
+				"90% of users couldn't configure basic logic. The legacy logic panel buried the information users needed and made skip logic feel like an advanced feature.",
+				"The redesign put logic inline with survey overview. Users could now see at a glance where logic was applied, fix it without scanning through every question, and add it in context as they built.",
+			],
+			stats: [
+				{ value: "8%", label: "Engagement increase" },
+				{ value: "17%", label: "UX score improvement" },
+				{ value: "4%", label: "NPS increase" },
+			],
+			image: {
+				src: `${SM}/axJUOZsbRERUd3fk.png`,
+				alt: "Legacy logic panel vs revised logic panel side by side",
+				caption: "Before and after: logic panel redesign. Survey overview with inline logic visibility replaced the opaque legacy view.",
+			},
 		},
 		{
 			title: "Three-year platform vision",
 			paragraphs: [
-				"Partnered with executive leadership to define and present a multi-year product design vision — connecting long-term platform scalability with AI-assisted workflows and agent-driven experiences.",
-				"First time the design team had articulated a strategy at the board level.",
+				"Partnered with executive leadership to define and present a multi-year product design vision connecting platform scalability with AI-assisted workflows. Presented to CTO, SVP Product, and VP Design.",
+				"First time the design team had articulated a strategy at the board level. Secured multi-quarter buy-in for phased transformation over a high-risk full rebuild.",
 			],
+			image: {
+				src: `${SM}/qkYJpv0dqlEfrNye.png`,
+				alt: "SurveyMonkey product vision: personalized recommendations and guidance",
+				caption: "Platform vision: personalized recommendations and AI guidance as the long-term product direction.",
+			},
 		},
 		{
-			title: "Pricing and growth",
+			title: "Leadership transition",
 			paragraphs: [
-				"Years of inconsistent upgrade experiences and a pricing page that did not work on mobile. I led a systems-level redesign: how pricing, paywall, and checkout work together as a cohesive experience.",
-				"Result: 600% lift in Team Plan purchases in one experiment.",
+				"Shortly after the project was approved, my manager resigned. I was asked to manage the team until a new director could be hired. Minimal ramp time — I hit the ground running.",
+				"The transition required resetting timelines and expectations while keeping momentum. I shifted focus to delegation and empowering the team to make decisions, coaching rather than directing. My past leadership experience compressed the learning curve.",
 			],
 		},
 	],

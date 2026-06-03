@@ -6,14 +6,14 @@ import "./Home.css";
 
 const ABOUT_PHOTOS = [
 	{
-		src: "/images/sharon-award.png",
-		alt: "Sharon Miller holding a SurveyMonkey Innovate Outstanding Achievement Award",
-		caption: "SurveyMonkey Innovate award, 2023",
+		src: "/images/family-collage.png",
+		alt: "Sharon with family on the beach, plus skiing, lakeside with French Bulldogs, and son's track meet at George Fox University",
+		caption: "Family in Bend — beach trips, ski days, and two very opinionated Frenchies",
 	},
 	{
-		src: "/images/community-art.png",
-		alt: "Youth group collaborating on a large colorful community art project",
-		caption: "Community art workshop with local youth",
+		src: "/images/teamcollage.png",
+		alt: "Sharon presenting Visual Roadmap at a conference, team selfie at Millennium Park Chicago, group at a design conference, and full team photo",
+		caption: "Speaking, building teams, and trying to escape escape rooms",
 	},
 ];
 
@@ -116,12 +116,25 @@ function CapabilityCard({ title, description, proof }) {
 	);
 }
 
-function CareerRow({ period, role, company }) {
+function CareerRow({ period, role, company, companyHref }) {
 	return (
 		<div className="career-row">
 			<span className="career-row__period">{period}</span>
 			<span className="career-row__role">{role}</span>
-			<span className="career-row__company">{company}</span>
+			<span className="career-row__company">
+				{companyHref ? (
+					<a
+						href={companyHref}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="career-row__link"
+					>
+						{company}
+					</a>
+				) : (
+					company
+				)}
+			</span>
 		</div>
 	);
 }
@@ -137,58 +150,62 @@ export default function About() {
 			<section className="about-section" aria-labelledby="about-personal-heading">
 				<p className="lumen-section-label">About</p>
 
-				<div className="intro-layout">
-					<div className="intro-header">
+				{/* Name + circle photo */}
+				<div className="about-identity">
+					<img
+						src="/images/profile-photo-full.png"
+						alt="Sharon Miller"
+						className="about-avatar"
+					/>
+					<div>
 						<h1 className="home-hero-name mt-2" id="about-personal-heading">
 							Sharon Miller
 						</h1>
 						<p className="home-hero-title">Head of Product Design</p>
 					</div>
-
-					<div className="intro-body-row">
-						<div className="intro-body">
-							<div className="home-body-copy">
-								<p>
-									I operate at the strategy level, care about craft, and build the AI
-									workflows that help design teams amplify their impact without compromising
-									quality. I&apos;ve navigated every major platform shift in this industry.
-									This one is the most important, and I know exactly how to help teams make it.
-								</p>
-								<p>
-									I'm based in Bend, Oregon, working fully remote and spending as much time
-									as possible outdoors — hiking, climbing, making things with my hands. I
-									mentor early-career designers and have run community art workshops with
-									local youth for years.
-								</p>
-								<p>
-									I care about the people on the teams I work with as much as I care about
-									the work. Good culture and hard problems aren't a trade-off.
-								</p>
-							</div>
-						</div>
-
-						<div className="profile-photo-frame">
-							<img
-								src="/images/profile-photo-full.png"
-								alt="Sharon Miller smiling outdoors in golden light"
-								className="profile-photo-intro"
-							/>
-						</div>
-					</div>
 				</div>
 
-				{/* Personal photos */}
-				<div className="about-photos">
-					{ABOUT_PHOTOS.map((photo) => (
-						<figure key={photo.src} className="about-photo-figure">
-							<img
-								src={photo.src}
-								alt={photo.alt}
-								className="about-photo-img"
-							/>
-							<figcaption className="about-photo-caption">{photo.caption}</figcaption>
-						</figure>
-					))}
+				{/* Bio + family collage */}
+				<div className="about-personal-row">
+					<div className="intro-body">
+						<div className="home-body-copy">
+							<p>
+								I operate at the strategy level, care about craft, and build the AI
+								workflows that help design teams amplify their impact without compromising
+								quality. I&apos;ve navigated every major platform shift in this industry.
+								This one is the most important, and I know exactly how to help teams make it.
+							</p>
+							<p>
+								I'm based in Bend, Oregon, working fully remote. Outside work: family,
+								hiking, skiing, and two French Bulldogs who have very strong opinions about
+								everything. I mentor early-career designers and have run community art
+								workshops with local youth for years.
+							</p>
+							<p>
+								I care about the people on the teams I work with as much as I care about
+								the work. Good culture and hard problems aren't a trade-off.
+							</p>
+						</div>
+						<a
+							href="https://linkedin.com/in/millersharonk"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="home-linkedin"
+						>
+							LinkedIn
+						</a>
+					</div>
+
+					<figure className="about-collage-frame">
+						<img
+							src="/images/family-collage.png"
+							alt="Sharon with family on the beach, skiing with kids, lakeside with French Bulldogs, and son's track meet at George Fox University"
+							className="about-collage-img"
+						/>
+						<figcaption className="about-photo-caption">
+							Family in Bend — beach trips, ski days, and two very opinionated Frenchies
+						</figcaption>
+					</figure>
 				</div>
 
 				{/* Availability */}
@@ -214,21 +231,36 @@ export default function About() {
 
 			{/* ── WORK SECTION ─────────────────────────────────── */}
 			<section className="about-section" aria-labelledby="about-work-heading">
-				<div className="about-work-intro">
-					<h2 className="about-work-heading" id="about-work-heading">
-						Design, engineering, product, and operations — not as separate tracks, as one practice.
-					</h2>
-					<p className="about-work-subhead">
-						Twenty years across platform UX, growth design, SaaS product ownership, and cloud
-						infrastructure. The range is intentional.
-					</p>
-				</div>
+				<div className="about-work-row">
+					<div className="about-work-content">
+						<div className="about-work-intro">
+							<h2 className="about-work-heading" id="about-work-heading">
+								Design, engineering, product, and operations — not as separate tracks, as one practice.
+							</h2>
+							<p className="about-work-subhead">
+								Twenty years across platform UX, growth design, SaaS product ownership, and cloud
+								infrastructure. The range is intentional.
+							</p>
+						</div>
 
-				{/* Capability cards */}
-				<div className="capability-grid">
-					{CAPABILITIES.map((cap) => (
-						<CapabilityCard key={cap.title} {...cap} />
-					))}
+						{/* Capability cards */}
+						<div className="capability-grid">
+							{CAPABILITIES.map((cap) => (
+								<CapabilityCard key={cap.title} {...cap} />
+							))}
+						</div>
+					</div>
+
+					<figure className="about-team-frame">
+						<img
+							src="/images/teamcollage.png"
+							alt="Sharon presenting at a conference, team selfie at Millennium Park Chicago, and group photos"
+							className="about-collage-img"
+						/>
+						<figcaption className="about-photo-caption">
+							Speaking, building teams, and trying to escape escape rooms
+						</figcaption>
+					</figure>
 				</div>
 
 				{/* Career arc */}
@@ -258,21 +290,28 @@ export default function About() {
 				<div className="career-arc">
 					<h3 className="career-arc__heading">Speaking</h3>
 					<div className="career-arc__list">
-						<div className="career-row">
-							<span className="career-row__period">June 2026</span>
-							<span className="career-row__role">Speaker</span>
-							<span className="career-row__company">AI Conference — topic: AI-native design process</span>
-						</div>
-						<div className="career-row">
-							<span className="career-row__period">2024–2025</span>
-							<span className="career-row__role">Attendee & participant</span>
-							<span className="career-row__company">Artificially Intelligent Conference</span>
-						</div>
-						<div className="career-row">
-							<span className="career-row__period">Ongoing</span>
-							<span className="career-row__role">Guest speaker</span>
-							<span className="career-row__company">Local universities — AI-native design workflow</span>
-						</div>
+						<CareerRow
+							period="June 2026"
+							role="Speaker"
+							company="AI Snack Club"
+							companyHref="https://luma.com/aisnackclub"
+						/>
+						<CareerRow
+							period="2024–2025"
+							role="Attendee & participant"
+							company="Artificiality Summit"
+							companyHref="https://www.artificialityinstitute.org/summit"
+						/>
+						<CareerRow
+							period="Oct 2025"
+							role="Guest speaker"
+							company="George Fox University — AI-native design and product portfolio"
+						/>
+						<CareerRow
+							period="Ongoing"
+							role="Guest speaker"
+							company="Local universities — AI-native design workflow"
+						/>
 					</div>
 					<p className="about-speaking-note">Open to speaking engagements on AI-native design process, design systems, and building high-leverage design teams.</p>
 				</div>
