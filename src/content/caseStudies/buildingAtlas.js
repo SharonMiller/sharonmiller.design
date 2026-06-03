@@ -5,13 +5,13 @@ const buildingAtlas = {
 	role: "Head of Product Design, VSCO",
 	type: "Product design · AI-native process · Agentic UX",
 	status: "Atlas launch June 23, 2026",
-	hook: "When a designer on my team went on leave, I stepped back into IC work rather than slow down or hire a contractor — shipping Atlas in Cursor while running the org. This is what designing with AI actually looks like.",
+	hook: "When a designer on my team went on leave, I stepped back into IC work rather than slow down or hire a contractor, shipping Atlas in Cursor while running the org. This is what designing with AI actually looks like.",
 	metrics: [
 		{ value: "0", label: "P0 failures in usability test" },
 		{ value: "272", label: "Commits to the prototype" },
 	],
 	description:
-		"A legacy CRM rebuilt for creative professionals, designed in Cursor with AI. What it actually took to ship real product while running a design org — and what I learned about working with AI that changed how I think about both.",
+		"A legacy CRM rebuilt for creative professionals, designed in Cursor with AI. What it actually took to ship real product while running a design org, and what I learned about working with AI that changed how I think about both.",
 	thumbnail: {
 		src: "/images/workspace/assistant.png",
 		alt: "VSCO Atlas workspace with assistant panel",
@@ -25,9 +25,9 @@ const buildingAtlas = {
 		"Three-environment release model contributed to 12% paywall conversion lift through faster experiment cycles.",
 	],
 	summary: [
-		"When a designer on my team went on leave, I was already running the org full-time — 1:1s, direction-setting, cross-functional work. Adding IC work on top wasn't a clean handoff; it was a judgment call about what mattered and how fast I could learn to work differently.",
-		"In practice that meant carrying Atlas design, partial design systems lead work, and all the documentation that usually gets deprioritized — decision logs, usability test scripts, research synthesis — on top of my management responsibilities. AI compressed the overhead enough to make it workable. Not by automating design judgment, but by eliminating the low-value work around it.",
-		"The honest framing on AI-native design: it's like working with a very capable junior who has no taste and infinite energy. They execute exactly what you specify, immediately, without pushback — which means vague direction produces fast mediocre work that you now have to unpick. Design expertise isn't optional in this loop; it's the whole point.",
+		"When a designer on my team went on leave, I was already running the org full-time: 1:1s, direction-setting, cross-functional work. Adding IC work on top wasn't a clean handoff; it was a judgment call about what mattered and how fast I could learn to work differently.",
+		"In practice that meant carrying Atlas design, partial design systems lead work, and all the documentation that usually gets deprioritized — decision logs, usability test scripts, research synthesis, on top of my management responsibilities. AI compressed the overhead enough to make it workable. Not by automating design judgment, but by eliminating the low-value work around it.",
+		"The honest framing on AI-native design: it's like working with a very capable junior who has no taste and infinite energy. They execute exactly what you specify, immediately, without pushback, which means vague direction produces fast mediocre work that you now have to unpick. Design expertise isn't optional in this loop; it's the whole point.",
 	],
 	team: {
 		columns: [

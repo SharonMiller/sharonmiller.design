@@ -6,7 +6,7 @@ const growthDesign = {
 	year: "2021–2024",
 	role: "Lead Product Designer, Growth and AI/ML",
 	type: "Platform design · AI · Legacy modernization",
-	hook: "90% of new users couldn't configure basic logic. 75% couldn't find foundational settings. The core of the product hadn't kept up — and a full rebuild wasn't an option.",
+	hook: "90% of new users couldn't configure basic logic. 75% couldn't find foundational settings. The core of the product hadn't kept up, and a full rebuild wasn't an option.",
 	metrics: [
 		{ value: "8%", label: "Engagement increase" },
 		{ value: "17%", label: "UX score improvement" },
@@ -88,7 +88,7 @@ const growthDesign = {
 				{
 					title: "Page frameworks",
 					paragraphs: [
-						"Before touching individual features, we established the structural foundation. I partnered with design leads on admin, core, and navigation to define page frameworks — consistent layout patterns validated with users before any feature work built on them.",
+						"Before touching individual features, we established the structural foundation. I partnered with design leads on admin, core, and navigation to define page frameworks: consistent layout patterns validated with users before any feature work built on them.",
 					],
 				},
 				{
@@ -114,7 +114,7 @@ const growthDesign = {
 				{
 					title: "Build with AI",
 					paragraphs: [
-						"I designed the first AI-powered feature in the core product. The design challenge wasn't just the interface — it was the trust model. How do you introduce AI generation in a way users trust, can verify, and can correct?",
+						"I designed the first AI-powered feature in the core product. The design challenge wasn't just the interface; it was the trust model. How do you introduce AI generation in a way users trust, can verify, and can correct?",
 						"The answer was generate-review-edit: AI generates a draft, user reviews it in context, user edits before committing. That sequence became the pattern. The flow became the primary creation path.",
 					],
 				},
@@ -149,7 +149,7 @@ const growthDesign = {
 			title: "Cross-functional work",
 			layout: "image-right",
 			paragraphs: [
-				"Shortly after the project was approved, my manager resigned. I was asked to manage the team until a new director could be hired. Minimal ramp time — I hit the ground running.",
+				"Shortly after the project was approved, my manager resigned. I was asked to manage the team until a new director could be hired. Minimal ramp time. I hit the ground running.",
 				"The transition required resetting timelines and expectations while keeping momentum. I shifted focus to delegation and empowering the team to make decisions, coaching rather than directing. My past leadership experience compressed the learning curve.",
 				"Throughout the transformation, alignment with engineering was non-negotiable. The hybrid React-in-Python approach only worked because design and engineering shared ownership of the migration path and shipped incrementally rather than betting on a big bang.",
 			],

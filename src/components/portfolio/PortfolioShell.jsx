@@ -59,7 +59,7 @@ export default function PortfolioShell({
 						<PageContainer innerClassName="portfolio-site-footer__connect-inner">
 							<h2 className="portfolio-site-footer__heading">Let&apos;s connect</h2>
 							<p className="portfolio-site-footer__lede">
-								Questions, roles, or consulting — reach out anytime.
+								Open to senior roles and consulting with design teams on AI workflow and process.
 							</p>
 							<a
 								href={`mailto:${FOOTER_EMAIL}`}

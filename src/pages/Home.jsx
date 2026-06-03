@@ -60,23 +60,25 @@ export default function Home() {
 							<div className="intro-body">
 								<div className="home-body-copy">
 									<p>
-										Most designers work on AI features. I do that and build the operating model
-										around them: governance, human-in-the-loop patterns, and design-engineering
-										integration that makes AI trustworthy at scale.
+										Most design teams are adopting AI tools. Fewer have figured out how to make
+										that adoption work at the org level: the processes, the guardrails, the
+										handoff patterns, and the infrastructure that lets every designer move faster
+										without compromising craft or trust.
 									</p>
 									<p>
-										Head of Product Design at VSCO. Previously led growth and core product design
-										at SurveyMonkey. Twenty years in platform and systems work; AI just made it
-										more urgent.
+										That gap is where I work. Head of Product Design at VSCO, where I built the
+										AI-native operating model alongside shipping product. Previously at SurveyMonkey
+										leading platform design and AI features. Twenty years bridging design, engineering,
+										and product strategy.
 									</p>
 									<p>
-										Open to senior platform design roles where complex workflows, trustworthy AI,
-										and systems thinking are the mission.
+										Looking for senior platform and staff roles where the design challenge is as much
+										about how the team works as what they ship.
 									</p>
 								</div>
 
 								<Link to="/about" className="home-linkedin">
-									Learn More
+									More about my work
 								</Link>
 							</div>
 

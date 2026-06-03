@@ -17,15 +17,15 @@ const aiDesignOps = {
 	},
 	impact: [
 		"Wrote the Design × AI Flywheel model and competency framework, presented to the full design org at All Hands 2026. AI defined as a core competency at every level, not a bonus skill for senior designers.",
-		"Template repos with CLAUDE.md context files rolled out to four squads. Designers working in Cursor from day one with context already loaded.",
-		"Automated design feedback skill running before design reviews: catches token drift, accessibility gaps, and component naming issues before a human looks at it.",
+		"Starter repos with pre-loaded .cursor/rules/ rolled out to four squads. Any designer cloning the repo gets full design system context, product principles, and brand voice loaded automatically. No senior designer required.",
+		"Four skills shipped into the starter repo: first-time project setup, Cursor-to-Figma VUI compliance, prototype-to-Figma for design crit prep, and engineering handoff. Each encodes a workflow that previously required technical help.",
 		"Roadmap tracker pulling live from Jira, Confluence, Google Docs, Sheets, and Slack. PM and design leadership no longer manually maintaining a separate planning doc.",
 		"Concept-to-spec cycles compressed from months to roughly one week.",
 		"No dedicated AI tooling role added. The infrastructure runs as part of the design workflow.",
 	],
 	summary: [
 		"When my IC designer went on leave, the pressure to move faster without adding headcount forced a real reckoning with how the design org was operating. Engineering had already shifted to AI-assisted workflows. Design hadn't, and the gap was showing.",
-		"The answer wasn't a tool swap. Individual designers adopting Cursor changes their own output; it doesn't change how a design org operates. What changes the org is building the infrastructure that makes AI-native work the default for everyone — not the exception for whoever figured it out on their own.",
+		"The answer wasn't a tool swap. Individual designers adopting Cursor changes their own output; it doesn't change how a design org operates. What changes the org is building the infrastructure that makes AI-native work the default for everyone, not the exception for whoever figured it out on their own.",
 		"This is the work that does not show up in a product launch. It shows up in how fast the team moves six months later.",
 	],
 	team: {
@@ -84,30 +84,42 @@ const aiDesignOps = {
 			],
 		},
 		{
-			title: "Building the solution",
+			title: "Making it work for the whole squad",
 			paragraphs: [
-				"The second barrier was friction at the start of every project. Every designer working in Cursor was starting from zero: no design system context, no component conventions, no understanding of which patterns to use.",
+				"The second barrier was more fundamental: most designers on the team weren't technical. They didn't know what a branch was. A commit. A push. Asking them to adopt Cursor without solving that first was setting them up for a bad first session and a fast retreat.",
+				"The principle that guided everything: everything lives in the repo, not in Claude. Skills and rules in .cursor/ work for any designer with Cursor, with no Claude subscription, no engineering support, and no senior designer required. Claude reads the same files when connected, but the repo is the source of truth. One designer figuring it out doesn't help the team. Infrastructure does.",
 			],
 			subsections: [
 				{
 					title: "Starter repos and context files",
 					paragraphs: [
-						"Template repos with pre-loaded CLAUDE.md context files: written for designers, not developers. Each file explains the design system, the component vocabulary, the token naming conventions, and the prototype patterns we use. Open the repo, start working. The AI already knows what VUI is.",
-						"Four squads have these context projects running. The difference in first-session output is significant.",
+						"Each squad got a template repo with pre-loaded .cursor/rules/ files written for designers, not developers. The rules encode the design system, component vocabulary, VUI token conventions, data model, product principles, and brand voice. Open the repo, start working. The AI already knows what VUI is, what a Job is in Atlas, and how tone of voice works at VSCO.",
+						"Institutional knowledge that used to live in a senior designer's head, or in a Notion page nobody found, now loads automatically on every Cursor session. A designer cloning the repo on day one gets the same context as someone who has been on the project for six months.",
+					],
+				},
+				{
+					title: "Skills for non-technical workflows",
+					paragraphs: [
+						"Four skills were built and shipped into the starter repo; each one encodes a workflow that previously required either engineering help or a senior designer walking someone through it.",
+					],
+					list: [
+						"project-setup: interactive first-time setup for new designers. Node, pnpm, tokens, branch selection, Figma MCP. Cursor walks through it conversationally, with no terminal knowledge required.",
+						"cursor-to-figma-vui: audits a Cursor prototype import, repairs hardcoded hex values and Inter font references, replaces them with VUI token bindings and VSCO Gothic. Runs a Figma plugin script automatically. What used to take a design systems expert an afternoon runs in minutes.",
+						"prototype-to-figma: captures a running prototype screen into Figma via MCP, adds context about what feedback is needed, and sets up the file for design crit. Designers can prepare a review session without knowing how to use the Figma API.",
+						"dev-ready-release: diffs the working branch against the eng-ready branch, generates a changelog entry, and merges with a clean commit message. Maps to the engineering handoff moment, with no git knowledge required to execute it correctly.",
 					],
 				},
 				{
 					title: "Automated design feedback",
 					paragraphs: [
-						"I built a design review skill that runs before the human review. It checks token bindings against VUI, component naming against Code Connect conventions, auto-layout validity, accessibility annotations, and whether imported assets from Cursor prototypes have been bridged to VUI.",
-						"Human review now starts from a cleaner baseline. Senior designers spend their review time on the things that actually require judgment.",
+						"A design review skill runs before the human review. It checks token bindings against VUI, component naming against Code Connect conventions, auto-layout validity, accessibility annotations, and whether imported prototype assets have been bridged to VUI tokens.",
+						"Human review starts from a cleaner baseline. Senior designers spend their time on hierarchy, flow, edge cases, not chasing hardcoded hex values that an automated check would have caught in 30 seconds.",
 					],
 				},
 				{
 					title: "The roadmap tracker",
 					paragraphs: [
-						"The tracker pulls live from Jira, Confluence, Google Docs, Sheets, and Slack. It synthesizes them into a single view: what is in flight, what is blocked, what shipped, what changed this week.",
-						"PM and design leadership no longer maintain a separate planning document. When something changes in Jira, the tracker knows.",
+						"The tracker pulls live from Jira, Confluence, Google Docs, Sheets, and Slack, synthesized into a single view: what is in flight, what is blocked, what shipped, what changed this week. PM and design leadership no longer maintain a separate planning document. When something changes in Jira, the tracker knows.",
 					],
 				},
 			],
@@ -139,7 +151,7 @@ const aiDesignOps = {
 		},
 	],
 	footer:
-		"Competency framework, starter repos, and skill files available to review during an interview.",
+		"Competency framework, starter repos, and all four skill files available to review during an interview.",
 };
 
 export default aiDesignOps;

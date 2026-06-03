@@ -4,7 +4,7 @@ const organizingGrowth = {
 	year: "2022–2023",
 	role: "Product Design Manager, Growth — reporting to CTO",
 	type: "Design leadership · Systems thinking · Cross-functional influence",
-	hook: "Our experiment tracking system was fundamentally broken — repeated failures, overlapping tests, no shared memory across the team. Fixing it wasn't my mandate. I fixed it anyway.",
+	hook: "Our experiment tracking system was fundamentally broken: repeated failures, overlapping tests, no shared memory across the team. Fixing it wasn't my mandate. I fixed it anyway.",
 	metrics: [
 		{ value: "24%", label: "Increase in team delivery velocity" },
 		{ value: "12%", label: "Team morale improvement (eNPS)" },
@@ -23,8 +23,8 @@ const organizingGrowth = {
 		"Onboarding and offboarding no longer dependent on individual tribal knowledge.",
 	],
 	summary: [
-		"When I joined the growth team, there was no reliable system for tracking experiments. Tests were overlapping, past results couldn't be found, and the team spent more time managing confusion than running good experiments. The problem wasn't a lack of effort — it was a lack of shared infrastructure.",
-		"This wasn't a design problem by definition — it touched product, engineering, analytics, and ops, and was primarily a product responsibility. But it was clearly a systems problem, and systems thinking is where design leadership adds disproportionate value. I led it because I could see it most clearly, not because it was mine to own.",
+		"When I joined the growth team, there was no reliable system for tracking experiments. Tests were overlapping, past results couldn't be found, and the team spent more time managing confusion than running good experiments. The problem wasn't a lack of effort; it was a lack of shared infrastructure.",
+		"This wasn't a design problem by definition: it touched product, engineering, analytics, and ops, and was primarily a product responsibility. But it was clearly a systems problem, and systems thinking is where design leadership adds disproportionate value. I led it because I could see it most clearly, not because it was mine to own.",
 	],
 	team: {
 		columns: [

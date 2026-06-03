@@ -25,9 +25,9 @@ const CAPABILITIES = [
 		description:
 			"Platform and systems design across growth, AI, and 0→1 products. Human-in-the-loop patterns, agentic UI, design systems governance, and the full arc from strategy to shipped product.",
 		proof: [
-			"600% lift in Team Plan purchases — single experiment",
+			"600% lift in Team Plan purchases, single experiment",
 			"Two MVPs shipped from concept to working code branch",
-			"Design competency framework across L3–L5",
+			"AI competency framework written and presented org-wide",
 		],
 	},
 	{
@@ -35,9 +35,9 @@ const CAPABILITIES = [
 		description:
 			"Full-stack background from a year building in React at a software consultancy. Prototype in Cursor, build component systems, wire Figma Code Connect, and deploy to production environments.",
 		proof: [
-			"React & React Native component systems",
+			"React and React Native component systems",
 			"Cursor prototyping directly in VUI codebase",
-			"Figma Code Connect — component naming to code convention alignment",
+			"Figma Code Connect: component naming to code convention alignment",
 		],
 	},
 	{
@@ -55,9 +55,9 @@ const CAPABILITIES = [
 		description:
 			"AWS Solutions Architect certified. Led UX for an AWS Premier Partner cloud management platform. Built a three-environment deployment system for design-to-engineering handoff.",
 		proof: [
-			"AWS Certified Solutions Architect — Associate",
+			"AWS Certified Solutions Architect, Associate",
 			"Enterprise cloud platform UX at Effectual (AWS Premier Partner)",
-			"Three-environment system: eng-ready / wip / concept-testing",
+			"Three-environment handoff system: eng-ready, wip, concept-testing",
 		],
 	},
 ];
@@ -170,20 +170,20 @@ export default function About() {
 					<div className="intro-body">
 						<div className="home-body-copy">
 							<p>
-								I operate at the strategy level, care about craft, and build the AI
-								workflows that help design teams amplify their impact without compromising
-								quality. I&apos;ve navigated every major platform shift in this industry.
-								This one is the most important, and I know exactly how to help teams make it.
+								I work at the intersection of design leadership, AI tooling, and engineering
+								process. My job is to make sure design teams can actually use AI well: not
+								just adopt the tools, but build the workflows, guardrails, and shared
+								infrastructure that make it sustainable and scalable across a whole org.
 							</p>
 							<p>
-								I'm based in Bend, Oregon, working fully remote. Outside work: family,
+								Based in Bend, Oregon, working fully remote. Outside work: family,
 								hiking, skiing, and two French Bulldogs who have very strong opinions about
 								everything. I mentor early-career designers and have run community art
 								workshops with local youth for years.
 							</p>
 							<p>
 								I care about the people on the teams I work with as much as I care about
-								the work. Good culture and hard problems aren't a trade-off.
+								the work. Good culture and hard problems are not a trade-off.
 							</p>
 						</div>
 						<a
@@ -235,7 +235,7 @@ export default function About() {
 					<div className="about-work-content">
 						<div className="about-work-intro">
 							<h2 className="about-work-heading" id="about-work-heading">
-								Design, engineering, product, and operations — not as separate tracks, as one practice.
+								Design, engineering, product, and operations: not as separate tracks, but as one practice.
 							</h2>
 							<p className="about-work-subhead">
 								Twenty years across platform UX, growth design, SaaS product ownership, and cloud

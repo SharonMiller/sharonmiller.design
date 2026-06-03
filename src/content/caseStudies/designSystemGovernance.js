@@ -4,49 +4,50 @@ const designSystemGovernance = {
 	year: "2025–2026",
 	role: "Head of Product Design, VSCO",
 	type: "Design Systems · AI Tooling · Process",
-	hook: "Full design system audit in hours. Zero new headcount.",
+	hook: "Web, React Native, iOS, Android — each surface had its own library. Built the governance workflow that unified them and keeps them in sync.",
 	metrics: [
-		{ value: "< 1 day", label: "Full library audit" },
+		{ value: "< 1 day", label: "Audit to fix cycle" },
 		{ value: "0", label: "New headcount" },
 	],
 	description:
-		"Full VUI library audit in hours, not weeks. Remediation backlog cleared. Workspace components ready to ship. No headcount added.",
+		"An ongoing governance workflow built in Claude Cowork and Figma: audit the design system, fix it programmatically, submit for review, iterate, and notify engineering when components are Code Connect-ready.",
 	thumbnail: {
-		src: "/images/cursor 2.png",
-		alt: "Cursor agent running commits on VSCO design system components",
+		src: "/images/IMG_9072.png",
+		alt: "Figma Dashboard Card System for review — component inventory, variants, and auto-layout built programmatically",
 	},
 	impact: [
-		"Full VUI library audit completed in hours. Typography, tokens, icons, and component adoption gaps surfaced and documented across the entire app.",
-		"Dashboard Card System built from scratch with proper auto-layout, token bindings, and Code Connect-ready naming.",
-		"Zero dedicated design systems headcount added. Governance distributed into the workflow rather than concentrated in a specialist role.",
-		"React and React Native repo templates rolled out so design team adoption scales without per-project onboarding overhead.",
-		"Unblocked two product lines shipping June 2026.",
+		"Unified design library across web, React Native, iOS, and Android — replacing surface-specific libraries that had grown independently and diverged.",
+		"Full VUI library audit completed in hours. Typography, tokens, icons, and component adoption gaps surfaced and fixed across the entire app.",
+		"Dashboard Card System built from scratch — the foundation that unblocked two product lines shipping June 2026.",
+		"No dedicated design systems IC added. Distributed contribution model with an automated quality gate replaces the specialist bottleneck.",
+		"Solid primitive foundation now enables the team to design interactions at the component level and scale them across surfaces using Cursor.",
 	],
 	summary: [
-		"The design system had grown faster than the team could maintain it. Figma and code were diverging. Designers were working around the library. Engineers were hardcoding values. The standard fix was to hire a dedicated design systems IC. We did not have that headcount.",
-		"Most of what a design systems designer does is systematic. Audit, identify gaps, execute fixes, validate, document, repeat. That loop is automatable.",
+		"VSCO ships across web, React Native, iOS, and Android. Each surface had grown its own design library. The result was predictable: components diverged, tokens fell out of sync, and designers building for one surface had no reliable reference for another. The opportunity was to unify these into a single library that gave every surface a shared foundation.",
+		"Design system ownership is centralized — I own and approve the system. But building is distributed across a team with varying levels of design systems fluency. That gap between ownership and contribution is where drift happens. The standard fix is a dedicated design systems IC who audits everything. We did not have that headcount, and centralizing quality control in one person creates a bottleneck. The better model: distributed contribution with an automated quality gate. Any designer can build. The audit catches what skill varies.",
+		"There is a deeper reason this work matters beyond consistency. A well-maintained design system is what makes AI-native design possible. When a designer uses Cursor to build an experience, the AI needs the building blocks: tokens, primitives, component conventions. If those don't exist or aren't reliable, the AI invents its own patterns. A solid system means designers can focus on great interactions at the component level and then use Cursor to scale those interactions across surfaces — rather than spending every session re-explaining what a button is.",
 	],
 	team: {
 		columns: [
 			{
 				title: "Role",
 				items: [
-					"Head of Product Design",
-					"Design systems owner",
-					"No dedicated DS IC hire",
+					"Head of Product Design — owns and approves the system",
+					"Full design team — builds with varying DS skill levels",
+					"No dedicated design systems IC",
 				],
 			},
 			{
 				title: "Stack",
-				items: ["Figma + Plugin API", "Claude skills", "Cursor", "Slack"],
+				items: ["Figma + Plugin API", "Claude Cowork", "Claude skills", "Slack"],
 			},
 			{
-				title: "Skills",
+				title: "Model",
 				items: [
-					"Automated audit",
-					"Token governance",
-					"Code Connect",
-					"Component architecture",
+					"Distributed contribution",
+					"Automated compliance gate",
+					"Approval-based governance",
+					"Code Connect handoff",
 				],
 			},
 		],
@@ -66,9 +67,9 @@ const designSystemGovernance = {
 				"Large sections of the app had zero token usage at all.",
 			],
 			image: {
-				src: "/images/cursor 2.png",
-				alt: "Cursor agent running commits on VSCO design system components",
-				caption: "The gap between Figma and code had grown faster than the team could manually audit.",
+				src: "/images/IMG_1792.png",
+				alt: "Dashboard Card component variants in Figma showing the Figma library composite components",
+				caption: "The Figma library has composite components designers use to work fast. The code design system has primitives. The workflow has to know the difference.",
 			},
 		},
 		{
@@ -96,9 +97,21 @@ const designSystemGovernance = {
 					],
 				},
 				{
+					title: "Post for review and iterate",
+					paragraphs: [
+						"After fixes are applied, the workflow posts a structured summary to the design Slack channel: what was audited, what changed, what needs human review. A reusable skill generates these posts in the team's established review format automatically. Designers and leads review in Figma and leave comments. Claude reads those comments, incorporates the feedback, and re-runs validation.",
+					],
+				},
+				{
+					title: "Engineering notification",
+					paragraphs: [
+						"Once the Figma component passes review, the workflow posts to the engineering channel with a specific message: which components were updated, what changed in the token bindings or naming, and what they need to update in Code Connect. Engineers know exactly what to do without a meeting or a Loom.",
+					],
+				},
+				{
 					title: "The differentiator",
 					paragraphs: [
-						"Most Figma MCP integrations are read-only. This workflow uses a write-capable execution layer. Claude generates and runs plugin scripts directly inside the live Figma environment. That is the difference between AI that flags design system problems and AI that fixes them.",
+						"Most Figma MCP integrations are read-only. This workflow uses a write-capable execution layer built in Claude Cowork. Claude generates and runs plugin scripts directly inside the live Figma environment. That is the difference between AI that flags design system problems and AI that fixes them, posts them for review, and closes the loop with engineering.",
 					],
 				},
 			],
@@ -107,13 +120,15 @@ const designSystemGovernance = {
 			title: "Building the solution",
 			paragraphs: [
 				"Governance is one capability. The other is using the same workflow to build net-new components that didn't exist yet.",
-				"The Dashboard Card System was built from scratch directly in Figma via Claude and the Plugin API. Auto-layout, variant properties, token bindings, and Code Connect-ready naming all handled programmatically. Two product teams were blocked waiting for this component. It shipped the same week the workflow was set up.",
+				"The Dashboard Card System was built from scratch using Claude as a Figma agent via the Figma MCP. The architecture uses a slot-based composition model: a single card organism made from interchangeable header, body, and footer molecules. Rather than one card per use case, the system is combinatorially flexible — a small library of slots covers a large range of layouts. That decision was deliberate and documented for engineering, because auto-layout in Figma doesn't support CSS-style stretch across sibling cards the way code does. The implementation note went with the component.",
+				"The audit pass across 38 Dashboard components found 18 unlinked style nodes — components where VSCO Gothic was visually correct but not token-linked to the library. Visually correct is not the same as system correct. A component that looks right but isn't bound to the token breaks when the design system updates. The audit catches that. A manual review often doesn't.",
 			],
 			list: [
 				"Full typography migration to the Typography component with correct variant mapping",
 				"All hardcoded hex values replaced with semantic VUI tokens",
 				"Icon library standardized. Third-party library removed.",
 				"Component replacement plan created for every custom implementation with a VUI equivalent, sequenced by risk",
+				"Naming convention decision surfaced: Dashboard/ prefix vs Workspace/ — flagged in the review brief rather than decided unilaterally. Governance means surfacing the right decisions, not just fixing things.",
 			],
 			image: {
 				src: "/images/IMG_9072.png",
@@ -141,13 +156,14 @@ const designSystemGovernance = {
 		{
 			title: "The outcome",
 			stats: [
-				{ value: "< 1 day", label: "Full library audit" },
+				{ value: "< 1 day", label: "Audit to fix cycle" },
+				{ value: "4", label: "Surfaces on one library" },
 				{ value: "0", label: "New headcount" },
 			],
 			paragraphs: [
-				"The standard model assumes a dedicated design systems specialist. One person whose job is maintaining the system, running quarterly audits, keeping Figma and code aligned. When that person leaves, the system drifts.",
-				"This workflow distributes governance into the design process itself. Audits happen when something changes, not on a quarterly schedule. Fixes happen the same day. Documentation writes itself. The system stays current because the process does not require a dedicated person to run it.",
-				"React and React Native repo templates rolled out so design team adoption scales without per-project onboarding overhead. Two product lines unblocked for June 2026 ship dates.",
+				"The standard model assumes a dedicated design systems specialist: one person running quarterly audits, keeping Figma and code aligned across surfaces. When that person leaves, the system drifts. And across four surfaces — web, React Native, iOS, Android — the maintenance burden multiplied.",
+				"A unified library with an automated governance loop changes that. Audits happen when something changes, not on a quarterly schedule. Fixes happen the same day. Documentation writes itself. The system stays current because the process doesn't require a dedicated person.",
+				"The more important outcome: a reliable primitive foundation means designers can focus on great interactions at the component level and scale them across surfaces using Cursor. The design system is no longer just a style guide — it's the infrastructure that makes AI-native design work.",
 			],
 			image: {
 				src: "/images/IMG_1792.png",

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 /** Max vertical shift (px). Tune in Home.css `--intro-parallax-max` comment or here. */
-const PARALLAX_MAX_PX = 14;
+const PARALLAX_MAX_PX = 10;
 /** How strongly viewport position affects offset (lower = subtler). */
 const PARALLAX_FACTOR = 0.1;
 
