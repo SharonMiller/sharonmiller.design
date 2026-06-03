@@ -13,10 +13,8 @@ function CaseStudyCard({ study }) {
 			<Link to={study.href} className="case-study-card__link group">
 				<div className="case-study-card__content">
 					<p className="case-study-card__label">{study.label}</p>
-					<h3 className="case-study-card__title">
-						{study.title}
-						<span className="case-study-card__year">{study.year}</span>
-					</h3>
+					<h3 className="case-study-card__title">{study.title}</h3>
+					<p className="case-study-card__year-line">{study.year} · {study.role}</p>
 
 					{study.hook ? <p className="case-study-card__description">{study.hook}</p> : null}
 

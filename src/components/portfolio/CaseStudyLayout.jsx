@@ -1,6 +1,43 @@
+import { useRef, useEffect } from "react";
 import CaseStudyMeta from "./CaseStudyMeta.jsx";
 import CaseStudyThumbnail from "./CaseStudyThumbnail.jsx";
 import SectionHeading from "./SectionHeading.jsx";
+
+function DemoVideo({ src, caption }) {
+	const videoRef = useRef(null);
+
+	useEffect(() => {
+		const video = videoRef.current;
+		if (!video) return;
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					video.play().catch(() => {});
+				} else {
+					video.pause();
+				}
+			},
+			{ threshold: 0.25 }
+		);
+		observer.observe(video);
+		return () => observer.disconnect();
+	}, []);
+
+	return (
+		<figure className="case-study-video">
+			<video
+				ref={videoRef}
+				src={src}
+				muted
+				loop
+				playsInline
+				preload="metadata"
+				className="case-study-video__player"
+			/>
+			{caption && <figcaption className="case-study-video__caption">{caption}</figcaption>}
+		</figure>
+	);
+}
 
 function Paragraphs({ items }) {
 	return items.map((text, index) => <p key={index}>{text}</p>);
@@ -38,6 +75,9 @@ function SectionBlock({ section }) {
 				{section.subsections?.map((subsection) => (
 					<SubSection key={subsection.title} {...subsection} />
 				))}
+				{section.video && (
+					<DemoVideo src={section.video.src} caption={section.video.caption} />
+				)}
 			</div>
 		</section>
 	);

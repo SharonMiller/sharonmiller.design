@@ -1,13 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { NavBar } from "../lumen";
 import PageContainer from "./PageContainer";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 export const PORTFOLIO_NAV = [
-	{ label: "Home", href: "/" },
 	{ label: "Work", href: "/#work" },
-	{ label: "Work history", href: "/work-history" },
 	{ label: "About", href: "/about" },
-	{ label: "Contact", href: "/contact" },
+	{ label: "Reach out", href: "/contact" },
 ];
 
 export default function PortfolioShell({
@@ -17,6 +16,7 @@ export default function PortfolioShell({
 	mainClassName = "",
 }) {
 	const location = useLocation();
+	useScrollReveal([location.pathname]);
 
 	const links = PORTFOLIO_NAV.map((link) => ({
 		...link,
@@ -40,7 +40,7 @@ export default function PortfolioShell({
 						<h2 className="text-xl font-semibold text-gray-900">Let&apos;s connect:</h2>
 						<a
 							href="mailto:sharonmillercreative@gmail.com"
-							className="lumen-btn-primary mt-8 inline-flex rounded-xl px-5 py-2.5 text-base font-medium text-white"
+							className="lumen-btn-primary mt-8 inline-flex max-w-full rounded-xl px-5 py-2.5 text-sm font-medium text-white break-all sm:text-base"
 						>
 							sharonmillercreative@gmail.com
 						</a>

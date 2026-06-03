@@ -1,14 +1,14 @@
 const aiFirst = {
 	slug: "ai-first",
-	title: "Designing at the Speed of Thought",
-	year: "2026",
+	title: "AI-First Design Process",
+	year: "2025–2026",
 	role: "Head of Product Design, VSCO",
 	type: "Operating model · Platform delivery",
 	status: "MVP launch June 23, 2026",
-	hook: "Compressed concept-to-production cycles on two MVPs — without adding design systems headcount — by changing how the design org works, not just what it ships.",
+	hook: "Stopped designing in Figma. Started building in Cursor. Two MVPs shipped.",
 	metrics: [
-		{ value: "2", label: "MVPs in production build" },
-		{ value: "1 wk", label: "Concept cycles" },
+		{ value: "272", label: "Commits to the prototype" },
+		{ value: "~1 wk", label: "Concept to working spec" },
 	],
 	description:
 		"AI-native operating model: two MVPs in production build, engineering handoff from working code, design org Flywheel adopted company-wide.",
@@ -17,40 +17,69 @@ const aiFirst = {
 		alt: "VSCO Workspace prototype with assistant panel",
 	},
 	impact: [
-		"Two production MVPs (Workspace and Chat Agent) in build for June 2026 launch — designed and specified from working prototypes, not static Figma decks.",
-		"Engineering handoff shifted from spec translation to forkable branches — fastest concept-to-build cycle the team had seen.",
-		"Design × AI methodology rolled out to the full design org at All Hands 2026 with L3–L5 competency framework.",
-		"Flywheel model adopted: design system → AI-assisted prototyping → production → system improvement.",
-		"No dedicated design systems IC added — governance distributed through workflow.",
+		"Two production MVPs designed from working prototypes, not static Figma decks. Engineering forks from a working branch.",
+		"Concept-to-spec cycles compressed from months to roughly one week.",
+		"272 commits, 177k lines of design-led code. SharonMiller is the #1 contributor to the prototype repo. cursoragent is #2.",
+		"Design × AI Flywheel model and L3–L5 competency framework presented to the full design org at All Hands 2026.",
+		"No dedicated design systems IC added. Governance distributed through workflow.",
 	],
 	summary: [
-		"VSCO needed to rebuild an acquired CRM for a new audience, on a small team, on a real deadline. The win was not which tool I used — it was that one design leader could carry platform vision, systems governance, and two 0→1 products without the org adding headcount.",
+		"When my designer went on leave, I had a choice: slow down or find a faster way to work. Engineering was already using Cursor to move faster. Design was becoming the bottleneck.",
+		"The solution was not a tool swap. It was a new operating model: the design system, AI-assisted prototyping, and engineering handoff form a self-reinforcing loop. Each cycle makes all three stronger.",
 	],
 	sections: [
 		{
-			title: "What the company needed",
-			paragraphs: [
-				"Post-acquisition rebuild of Táve into Workspace for aspiring creatives — a full MVP (lead to payment) plus a one-year vision — with a team that was already stretched.",
+			title: "The stack",
+			subsections: [
+				{
+					title: "Claude — strategy and systems",
+					paragraphs: [
+						"Research synthesis, design strategy, Figma auditing via MCP, design system gap analysis, decision documentation, UX writing. Connected to Figma, GitHub, Confluence, Slack, and Jira. Accumulates context across sessions. Does not start from zero.",
+					],
+				},
+				{
+					title: "Cursor — execution",
+					paragraphs: [
+						"Prototyping directly in VUI component code. High-fidelity concepts in hours, not days. The prototype is the handoff artifact. Engineering forks from a working branch, not a Figma file.",
+					],
+				},
 			],
 		},
 		{
-			title: "What changed",
+			title: "The Flywheel",
+			paragraphs: [
+				"A well-maintained design system makes AI-assisted prototyping possible. AI-assisted prototyping surfaces design system gaps fast. Each cycle makes both stronger.",
+				"VUI stopped being a design artifact. It became the foundation that lets design move at engineering speed.",
+			],
+		},
+		{
+			title: "The trust problem with engineering",
+			paragraphs: [
+				"The first version of this workflow created a real problem. I was pushing changes to the concept link while engineering was actively building against it. Their reference moved underneath them. That broke trust.",
+				"The fix was three environments:",
+			],
 			list: [
-				"Concept cycles compressed to roughly one week — decisions made in working UI, not review meetings about static mocks",
-				"Prototype became the handoff artifact; engineering builds from code that already behaves correctly",
-				"New Workspace/Card component family published to the design system, ready for cross-app use",
-				"Template repos and MD context files so other designers can operate the same way without 1:1 onboarding every time",
-				"Caught upgrade UX regression during prototype review before it reached production",
+				"eng-ready: stable, what engineering builds from, updated on a schedule with advance notice",
+				"wip: active design work only",
+				"concept-testing: stable for user research sessions",
 			],
 		},
 		{
-			title: "Org-level impact",
+			title: "The review workflow",
 			paragraphs: [
-				"Presented the operating model to the full design organization. Defined AI competency by level. Configured shared Claude and GPT tools with design system constraints and research context embedded — institutional knowledge accessible to the whole team, not locked in one person's workflow.",
+				"Share the concept link. Pull the live UI into Figma via html-to-design. Team leaves comments. Updates go back into Cursor, or new components go into VUI via MCP. Push to the concept link. Repeat.",
+				"The loop felt familiar to designers because it used Figma comments. The source of truth stayed in code. Live design hours three times a week replaced the async Slack thread that went nowhere.",
+			],
+		},
+		{
+			title: "Getting the team in",
+			paragraphs: [
+				"The first barrier was linguistic, not technical. Designers did not know what a push was. What a commit was. Solving adoption meant solving the mental model first.",
+				"I built template repos with CLAUDE.md context files and instructions written for designers, not developers. Presented the full methodology at All Hands 2026. Defined AI as a core competency across L3–L5. Not a bonus skill.",
 			],
 		},
 	],
-	footer: "Product launches June 23, 2026. Prototype walkthrough available during an interview.",
+	footer: "Product launched June 23, 2026. Prototype walkthrough available during an interview.",
 };
 
 export default aiFirst;
