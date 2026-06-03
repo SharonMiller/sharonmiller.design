@@ -36,17 +36,27 @@
 
 	body {
 		background: #ffffff;
-		color: #333333;
-		font-size: 16px;
+		color: #555555;
+		font-size: 1rem;
 		font-weight: 400;
-		line-height: 1.6;
+		line-height: 1.7;
 		@apply font-sans antialiased;
+	}
+
+	a:focus-visible,
+	button:focus-visible {
+		outline: 2px solid var(--lumen-terracotta);
+		outline-offset: 3px;
 	}
 }
 
 @layer components {
 	.lumen-section-label {
-		@apply text-xs font-semibold uppercase tracking-widest text-lumen-terracotta;
+		font-size: 0.6875rem;
+		font-weight: 600;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+		color: var(--lumen-terracotta);
 	}
 
 	.lumen-btn-primary {
@@ -72,7 +82,8 @@
 		border: 1px solid rgb(0 0 0 / 0.08);
 		border-radius: 9999px;
 		background: rgb(255 255 255 / 0.7);
-		box-shadow: 0 2px 12px rgb(0 0 0 / 0.08);
+		box-shadow: 0 2px 20px rgb(0 0 0 / 0.08);
+		transition: box-shadow 200ms ease, background 200ms ease;
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
 		pointer-events: auto;
@@ -113,16 +124,17 @@
 
 	.portfolio-nav-link {
 		flex-shrink: 0;
-		font-size: 14px;
+		font-size: 0.875rem;
 		font-weight: 500;
 		line-height: 1.4;
-		color: #333333;
+		color: #555555;
 		text-decoration: none;
-		transition: opacity 200ms ease;
+		transition: color 150ms ease, opacity 150ms ease;
 	}
 
 	.portfolio-nav-link:hover {
-		opacity: 0.65;
+		color: #111111;
+		opacity: 1;
 	}
 
 	.portfolio-nav-link--active {
