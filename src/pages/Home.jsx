@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { NavBar } from "../components/lumen";
 import PageContainer from "../components/portfolio/PageContainer";
@@ -5,6 +6,7 @@ import { PORTFOLIO_NAV } from "../components/portfolio/PortfolioShell";
 import SectionHeading from "../components/portfolio/SectionHeading";
 import { CASE_STUDY_CARDS } from "../content/caseStudies/index.js";
 import CaseStudyThumbnail from "../components/portfolio/CaseStudyThumbnail.jsx";
+import { useIntroPhotoParallax } from "../hooks/useIntroPhotoParallax";
 import "./Home.css";
 
 function CaseStudyCard({ study }) {
@@ -14,20 +16,12 @@ function CaseStudyCard({ study }) {
 				<div className="case-study-card__content">
 					<p className="case-study-card__label">{study.label}</p>
 					<h3 className="case-study-card__title">{study.title}</h3>
-					<p className="case-study-card__year-line">{study.year} · {study.role}</p>
+					<p className="case-study-card__year-line">
+						{study.year}
+						{study.role ? ` · ${study.role}` : ""}
+					</p>
 
 					{study.hook ? <p className="case-study-card__description">{study.hook}</p> : null}
-
-					{study.metrics?.length > 0 && (
-						<div className="case-study-card__stats">
-							{study.metrics.map((metric) => (
-								<div key={metric.label}>
-									<span className="case-study-card__stat-value">{metric.value}</span>
-									<span className="case-study-card__stat-label">{metric.label}</span>
-								</div>
-							))}
-						</div>
-					)}
 
 					<span className="case-study-card__cta">Read case study →</span>
 				</div>
@@ -39,8 +33,12 @@ function CaseStudyCard({ study }) {
 }
 
 export default function Home() {
+	const introRef = useRef(null);
+	const photoFrameRef = useRef(null);
+	useIntroPhotoParallax(photoFrameRef, introRef);
+
 	return (
-		<div className="portfolio-page min-h-screen bg-white">
+		<div className="portfolio-page">
 			<NavBar
 				brand="SM"
 				brandHref="/"
@@ -50,7 +48,7 @@ export default function Home() {
 				}))}
 			/>
 
-			<section id="intro" className="home-intro">
+			<section id="intro" ref={introRef} className="home-intro">
 				<PageContainer>
 					<div className="intro-layout">
 						<div className="intro-header">
@@ -82,7 +80,7 @@ export default function Home() {
 								</Link>
 							</div>
 
-							<div className="profile-photo-frame">
+							<div ref={photoFrameRef} className="profile-photo-frame">
 								<img
 									src="/images/profile-photo-full.png"
 									alt="Sharon Miller"

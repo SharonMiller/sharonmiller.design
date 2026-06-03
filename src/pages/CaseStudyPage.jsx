@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { Navigate, useParams } from "react-router-dom";
+import { scrollPageToTop } from "../utils/scrollPageToTop.js";
 import CaseStudyLayout from "../components/portfolio/CaseStudyLayout.jsx";
 import CaseStudyPager from "../components/portfolio/CaseStudyPager.jsx";
 import PortfolioShell, { BackLink } from "../components/portfolio/PortfolioShell";
@@ -8,6 +10,10 @@ import "../pages/Home.css";
 export default function CaseStudyPage() {
 	const { slug } = useParams();
 	const study = getCaseStudy(slug);
+
+	useEffect(() => {
+		scrollPageToTop();
+	}, [slug]);
 
 	if (!study) {
 		return <Navigate to="/#work" replace />;

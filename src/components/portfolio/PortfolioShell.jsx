@@ -1,13 +1,30 @@
 import { Link, useLocation } from "react-router-dom";
 import { NavBar } from "../lumen";
 import PageContainer from "./PageContainer";
+import BackToTop from "./BackToTop";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useScrollToTopOnNavigate } from "../../hooks/useScrollToTopOnNavigate";
+import "../../pages/Home.css";
 
 export const PORTFOLIO_NAV = [
 	{ label: "Case studies", href: "/#work" },
 	{ label: "About", href: "/about" },
 	{ label: "Reach out", href: "/contact" },
 ];
+
+export const FOOTER_NAV = [
+	{ label: "Home", href: "/" },
+	{ label: "About", href: "/about" },
+	{ label: "Work history", href: "/work-history" },
+	{ label: "Contact", href: "/contact" },
+];
+
+export const FOOTER_SOCIAL = [
+	{ label: "LinkedIn", href: "https://linkedin.com/in/millersharonk" },
+	{ label: "GitHub", href: "https://github.com/SharonMiller" },
+];
+
+const FOOTER_EMAIL = "sharonmillercreative@gmail.com";
 
 export default function PortfolioShell({
 	children,
@@ -16,7 +33,9 @@ export default function PortfolioShell({
 	mainClassName = "",
 }) {
 	const location = useLocation();
+	useScrollToTopOnNavigate();
 	useScrollReveal([location.pathname]);
+	const year = new Date().getFullYear();
 
 	const links = PORTFOLIO_NAV.map((link) => ({
 		...link,
@@ -35,35 +54,54 @@ export default function PortfolioShell({
 			</main>
 
 			{contactFooter && (
-				<section className="portfolio-site-footer border-t border-stone-200 bg-white">
-					<PageContainer innerClassName="max-w-lg mx-auto text-center">
-						<h2 className="portfolio-site-footer__heading">Let&apos;s connect:</h2>
-						<a
-							href="mailto:sharonmillercreative@gmail.com"
-							className="lumen-btn-primary mt-8 inline-flex max-w-full rounded-xl px-5 py-2.5 text-sm font-medium text-white break-all sm:text-base"
-						>
-							sharonmillercreative@gmail.com
-						</a>
-						<div className="mt-6 flex justify-center gap-6 text-sm">
+				<footer className="portfolio-site-footer">
+					<div className="portfolio-site-footer__connect">
+						<PageContainer innerClassName="portfolio-site-footer__connect-inner">
+							<h2 className="portfolio-site-footer__heading">Let&apos;s connect</h2>
+							<p className="portfolio-site-footer__lede">
+								Questions, roles, or consulting — reach out anytime.
+							</p>
 							<a
-								href="https://linkedin.com/in/millersharonk"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="portfolio-site-footer__link"
+								href={`mailto:${FOOTER_EMAIL}`}
+								className="portfolio-site-footer__email"
 							>
-								LinkedIn
+								{FOOTER_EMAIL}
 							</a>
-							<a
-								href="https://github.com/SharonMiller"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="portfolio-site-footer__link"
-							>
-								GitHub
-							</a>
-						</div>
-					</PageContainer>
-				</section>
+							<ul className="portfolio-site-footer__social" aria-label="Social profiles">
+								{FOOTER_SOCIAL.map(({ label, href }) => (
+									<li key={label}>
+										<a
+											href={href}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="portfolio-site-footer__link"
+										>
+											{label}
+										</a>
+									</li>
+								))}
+							</ul>
+						</PageContainer>
+					</div>
+
+					<div className="portfolio-site-footer__bar">
+						<PageContainer innerClassName="portfolio-site-footer__bar-inner">
+							<nav className="portfolio-site-footer__nav" aria-label="Site">
+								{FOOTER_NAV.map(({ label, href }) => (
+									<Link key={href} to={href} className="portfolio-site-footer__nav-link">
+										{label}
+									</Link>
+								))}
+							</nav>
+							<p className="portfolio-site-footer__meta">
+								<span className="portfolio-site-footer__copyright">
+									&copy; {year} Sharon Miller
+								</span>
+								<BackToTop className="portfolio-site-footer__back-top" />
+							</p>
+						</PageContainer>
+					</div>
+				</footer>
 			)}
 		</div>
 	);

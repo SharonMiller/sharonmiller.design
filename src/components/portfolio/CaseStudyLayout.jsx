@@ -99,12 +99,34 @@ function FigmaEmbed({ src, caption, height = 450 }) {
 	);
 }
 
-function SectionImage({ src, alt, caption }) {
+function SectionImage({ src, alt, caption, fullWidth = false }) {
 	return (
-		<figure className="case-study-image">
+		<figure className={`case-study-image${fullWidth ? " case-study-image--full" : ""}`}>
 			<img src={src} alt={alt ?? ""} loading="lazy" className="case-study-image__img" />
 			{caption && <figcaption className="case-study-image__caption">{caption}</figcaption>}
 		</figure>
+	);
+}
+
+function TeamGrid({ team }) {
+	if (!team?.columns?.length) return null;
+
+	return (
+		<section className="case-study-team" aria-label="Project team">
+			<SectionHeading className="case-study-section-heading">The team</SectionHeading>
+			<div className="case-study-team__grid">
+				{team.columns.map((column) => (
+					<div key={column.title} className="case-study-team__column">
+						<h3 className="case-study-team__title">{column.title}</h3>
+						<ul className="case-study-team__list">
+							{column.items.map((item) => (
+								<li key={item}>{item}</li>
+							))}
+						</ul>
+					</div>
+				))}
+			</div>
+		</section>
 	);
 }
 
@@ -123,7 +145,12 @@ function SectionBlock({ section, index }) {
 				<SubSection key={sub.title} {...sub} />
 			))}
 			{!layout && hasImage && (
-				<SectionImage src={section.image.src} alt={section.image.alt} caption={section.image.caption} />
+				<SectionImage
+					src={section.image.src}
+					alt={section.image.alt}
+					caption={section.image.caption}
+					fullWidth={section.imageFullWidth}
+				/>
 			)}
 			{section.video && <DemoVideo src={section.video.src} caption={section.video.caption} />}
 			{section.embed && (
@@ -220,6 +247,8 @@ export default function CaseStudyLayout({ study }) {
 					</div>
 				)}
 			</header>
+
+			{study.team ? <TeamGrid team={study.team} /> : null}
 
 			<div className="case-study-body">
 				{study.sections.map((section, i) => (

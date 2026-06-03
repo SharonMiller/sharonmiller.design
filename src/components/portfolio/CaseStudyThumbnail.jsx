@@ -2,6 +2,21 @@
  * Case study image — card (280×220 grid column) or compact page thumb.
  */
 export default function CaseStudyThumbnail({ image, title, variant = "card" }) {
+	if (variant === "pager") {
+		if (!image?.src || image?.placeholder) {
+			return (
+				<div
+					className="case-study-pager__thumb-placeholder"
+					aria-hidden
+				/>
+			);
+		}
+
+		return (
+			<img src={image.src} alt={image.alt ?? ""} loading="lazy" />
+		);
+	}
+
 	if (variant === "card") {
 		if (image?.placeholder || !image?.src) {
 			return (

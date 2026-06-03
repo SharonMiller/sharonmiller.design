@@ -64,11 +64,12 @@ The agent uses `get_design_context` to return specs, token names, and reference 
 
 ---
 
-## Concept Figma file
+## Concept Figma file — portfolio (sharonmiller.design)
 
-_(Add your concept's Figma file URL when you create it.)_
+**File:** [Untitled — OpsFIbDLP9fqN4ZA2PvGvM](https://www.figma.com/design/OpsFIbDLP9fqN4ZA2PvGvM/Untitled)  
+**File key:** `OpsFIbDLP9fqN4ZA2PvGvM`
 
-| What | Link |
-|------|------|
-| Concept file | // TODO: add your Figma file URL |
-| Key frames for eng handoff | _(paste node URLs)_ |
+| What | Node | Link |
+|------|------|------|
+| Portfolio layout frame | `131:2` | [Open in Figma](https://www.figma.com/design/OpsFIbDLP9fqN4ZA2PvGvM/Untitled?node-id=131-2) |
+| Key frames for eng handoff | _(add node URLs as frames are marked 🟢)_ | |

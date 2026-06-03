@@ -12,7 +12,7 @@ const organizingGrowth = {
 	description:
 		"No direct authority. Cross-functional resistance. A broken experiment tracking system causing repeated failures and wasted work. Fixed through influence, systems thinking, and a roadshow to every stakeholder who needed to say yes.",
 	thumbnail: {
-		src: "/images/experiment-database.png",
+		src: "/images/organizing-growth-jpd-thumbnail.png",
 		alt: "SurveyMonkey growth experiment tracking database in Jira Product Discovery",
 	},
 	impact: [
@@ -26,29 +26,67 @@ const organizingGrowth = {
 		"When I joined the growth team, there was no reliable system for tracking experiments. Tests were overlapping, past results couldn't be found, and the team spent more time managing confusion than running good experiments. The problem wasn't a lack of effort — it was a lack of shared infrastructure.",
 		"This wasn't a design problem by definition — it touched product, engineering, analytics, and ops, and was primarily a product responsibility. But it was clearly a systems problem, and systems thinking is where design leadership adds disproportionate value. I led it because I could see it most clearly, not because it was mine to own.",
 	],
+	team: {
+		columns: [
+			{
+				title: "Role",
+				items: [
+					"Product Design Manager, Growth",
+					"Reporting to CTO",
+					"Cross-functional lead, no direct authority",
+				],
+			},
+			{
+				title: "Stack",
+				items: [
+					"Jira Product Discovery",
+					"Slack automations",
+					"Google Sheets (legacy tracking)",
+				],
+			},
+			{
+				title: "Skills",
+				items: [
+					"Systems thinking",
+					"Stakeholder influence",
+					"Experiment design",
+					"Cross-functional alignment",
+				],
+			},
+		],
+	},
 	sections: [
 		{
 			title: "The problem",
+			layout: "image-right",
 			paragraphs: [
 				"Documentation was siloed and disorganized. Teams were keeping notes in personal files and apps. When someone left, the knowledge left with them. There was no way to learn from past experiments, check for conflicts, or track longer-tail results.",
 				"The growth team spent more time managing chaos than planning. Onboarding was a nightmare. Cross-functional visibility was near zero. The experiment database was a spreadsheet that nobody trusted.",
 			],
 			image: {
-				src: "/images/experiment-database.png",
+				src: "/images/organizing-growth-jpd-thumbnail.png",
 				alt: "Jira Product Discovery delivery board showing experiments with status, metrics, and outcome tracking",
-				caption: "The experiment database in Jira Product Discovery: consistent fields, conflict detection, and outcome tracking across every experiment.",
+				caption:
+					"The experiment database in Jira Product Discovery: consistent fields, conflict detection, and outcome tracking across every experiment.",
 			},
 		},
 		{
-			title: "Building the system",
+			title: "Defining the approach",
 			paragraphs: [
 				"The first step was understanding what we actually needed to track. I worked with the data science team to define the required fields for detecting conflicts between concurrent experiments and assessing impact on business metrics.",
-				"From there: evaluated tools that could handle the workflow without creating redundant work for product teams. Jira Product Discovery fit. I created templates so every experiment ticket captured the same data from day one.",
-				"The structure wasn't just about tracking. It was about making the work legible to stakeholders who needed to prioritize, to adjacent teams who needed visibility, and to future team members who would inherit the work.",
+				"From there I evaluated tools that could handle the workflow without creating redundant work for product teams. Jira Product Discovery fit. The goal was a single source of truth that made experiment history searchable, comparable, and legible to anyone outside the growth team.",
 			],
 		},
 		{
-			title: "Influence without authority",
+			title: "Building the solution",
+			paragraphs: [
+				"I created templates so every experiment ticket captured the same data from day one: hypothesis, surface area, metrics, conflict flags, and outcome fields. The structure wasn't just about tracking. It was about making the work legible to stakeholders who needed to prioritize, to adjacent teams who needed visibility, and to future team members who would inherit the work.",
+				"Automations pushed experiment results to Slack as they published. Visibility without meetings. The system ran itself once the templates and workflows were in place.",
+			],
+		},
+		{
+			title: "Cross-functional work",
+			layout: "image-right",
 			paragraphs: [
 				"This was primarily a product responsibility. I was the design manager. To make it happen, I needed approval from the CTO, SVP of Product, VP of Engineering, and product leads across the company.",
 				"Some leaders were hesitant. The standard resistance: more process, more overhead, more meetings. I ran a roadshow using storytelling rather than slide decks. The case was simple: we are spending more time managing failed experiments than running good ones. Here is the cost. Here is the fix.",
@@ -62,14 +100,14 @@ const organizingGrowth = {
 		},
 		{
 			title: "The outcome",
-			paragraphs: [
-				"Team delivery velocity up 24%. eNPS up 12%. Those are real numbers from real measurement — not estimated.",
-				"The less visible wins mattered too. Adjacent teams could filter past experiments by date, impact, team, or surface area. Quarterly planning got easier. Design and content could plan proactively instead of reacting to what engineering was already building.",
-				"Automations pushed experiment results to Slack as they published. Visibility without meetings. The system ran itself.",
-			],
 			stats: [
 				{ value: "24%", label: "Delivery velocity increase" },
 				{ value: "12%", label: "Team morale (eNPS)" },
+			],
+			paragraphs: [
+				"Team delivery velocity up 24%. eNPS up 12%. Those are real numbers from real measurement, not estimated.",
+				"The less visible wins mattered too. Adjacent teams could filter past experiments by date, impact, team, or surface area. Quarterly planning got easier. Design and content could plan proactively instead of reacting to what engineering was already building.",
+				"Onboarding and offboarding no longer depended on tribal knowledge. The system held the memory the team had been carrying in people's heads.",
 			],
 		},
 	],

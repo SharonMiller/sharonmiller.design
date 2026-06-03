@@ -148,6 +148,49 @@ After all the above, do a final pass for feel:
 
 ---
 
+## Section 8 — Flex, alignment, and layout rhythm
+
+Use **gap on flex/grid parents** instead of ad-hoc `margin-top` on children. Prefer **`align-items: flex-start`** for text+media rows (top-align copy with images). Use **`min-width: 0`** on flex children that contain long text so nothing overflows at 375px.
+
+### Patterns to enforce
+
+| Pattern | Rule |
+|--------|------|
+| Stacked sections | `display: flex; flex-direction: column; gap: var(--portfolio-stack-gap)` |
+| Text + image row | `align-items: flex-start` from `md+`; single column + `gap` on mobile |
+| Card interiors | Flex column + `gap: var(--portfolio-stack-gap-sm)`; CTA `align-self: flex-start` |
+| Split case study blocks | Figure column `display: flex; flex-direction: column; gap`; prose `min-width: 0` |
+| Nav pill (desktop) | CSS grid `auto 1fr auto` so links stay centered between brand and menu |
+| Section dividers | `align-items: center` on the divider row only (label between rules) |
+| Stats / metrics | CSS grid, not flex without wrap — `repeat(auto-fill, minmax(...))` |
+
+### Token checklist (`Home.css` `:root`)
+
+- `--portfolio-stack-gap` — section-internal vertical rhythm (1.5rem)
+- `--portfolio-stack-gap-sm` — card/tight stacks (0.75rem)
+- `--portfolio-card-pad` / `--portfolio-card-pad-md` — card padding (mobile / md+)
+- `--portfolio-section-pt` — section top padding
+- `--portfolio-content-max` — prose max-width where needed
+
+### Common misalignments to fix
+
+- **Centered flex on multi-line copy** — `items-center` on a row with paragraphs + image misaligns baselines; use `items-start`.
+- **Duplicate CSS blocks** — merge rules (e.g. one `.capability-card` with flex + border + hover).
+- **Pager thumbnails** — `CaseStudyThumbnail` `variant="pager"` renders a plain `<img>` inside `.case-study-pager__thumb`, not `.case-study-thumb--page`.
+- **Meta metrics** — `CaseStudyMeta` uses BEM classes in `Home.css`, not one-off Tailwind in JSX.
+- **Year line under card title** — no extra `margin-top`; spacing comes from parent `gap`.
+
+### Verify (375px and 1280px)
+
+1. Home intro: photo and body top-aligned; LinkedIn not orphaned by margin hacks.
+2. Case study cards: stats grid aligned; CTA left-aligned with title block.
+3. About personal/work rows: collage stacks under copy on mobile; side-by-side with top alignment on md+.
+4. Case study header: title, hook, impact, summary share one `gap` rhythm.
+5. Pager: thumb 16:9, info block left-aligned, no horizontal scroll.
+6. Floating nav: links visually centered in pill at lg+.
+
+---
+
 ## Files to edit
 
 Primary CSS: `src/pages/Home.css`

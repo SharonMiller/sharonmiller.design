@@ -71,8 +71,8 @@ const WORK_PHOTOS = [
 		alt: "Sharon Miller holding a SurveyMonkey Innovate Outstanding Achievement Award",
 	},
 	{
-		src: "/images/experiment-database.png",
-		alt: "Experiment database tracking growth and personalization tests at SurveyMonkey",
+		src: "/images/organizing-growth-jpd-thumbnail.png",
+		alt: "Jira Product Discovery board tracking growth experiments at SurveyMonkey",
 	},
 	{
 		src: "/images/growth-experiments.png",

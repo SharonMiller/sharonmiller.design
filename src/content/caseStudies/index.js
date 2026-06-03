@@ -14,11 +14,12 @@ export const CASE_STUDIES = [
 ];
 
 export const CASE_STUDY_CARDS = CASE_STUDIES.map(
-	({ slug, title, year, href, hook, description, metrics, thumbnail }) => ({
+	({ slug, title, year, role, href, hook, description, metrics, thumbnail }) => ({
 		slug,
 		label: "Case study",
 		title,
 		year,
+		role,
 		hook,
 		href: href ?? `/case-study/${slug}`,
 		description,
