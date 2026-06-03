@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
 
+const STAGGER_MS = 80;
+
 /**
  * Fades in `.lumen-reveal` elements when they enter the viewport.
- * Opacity-only (no transform) to keep scrolling smooth.
+ * Optional lift via `.lumen-reveal--lift`. Stagger with `data-reveal-index`.
  */
 export function useScrollReveal(deps = []) {
 	const observerRef = useRef(null);
@@ -10,6 +12,13 @@ export function useScrollReveal(deps = []) {
 	useEffect(() => {
 		const elements = document.querySelectorAll(".lumen-reveal:not(.lumen-reveal-visible)");
 		if (elements.length === 0) return undefined;
+
+		elements.forEach((el) => {
+			const index = el.dataset.revealIndex;
+			if (index != null && index !== "") {
+				el.style.setProperty("--reveal-delay", `${Number(index) * STAGGER_MS}ms`);
+			}
+		});
 
 		observerRef.current?.disconnect();
 

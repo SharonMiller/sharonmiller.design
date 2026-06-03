@@ -7,8 +7,9 @@
 	--portfolio-stack-gap-sm: 0.75rem;
 	--portfolio-content-max: 42rem;
 	/* Intro portrait focal point + parallax buffer (useIntroPhotoParallax.js) */
-	--intro-photo-focal-y: 32%;
-	--intro-parallax-max: 10px;
+	--intro-photo-focal-y-mobile: 22%;
+	--intro-photo-focal-y-desktop: 28%;
+	--intro-parallax-max: 6px;
 }
 
 .portfolio-page {
@@ -22,36 +23,49 @@
 }
 
 .intro-layout {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	grid-template-areas:
+		"photo name"
+		"body body";
+	gap: 1rem 1rem;
+	align-items: center;
 }
 
 .intro-header {
-	max-width: 42rem;
-}
-
-.intro-body-row {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr);
-	gap: 1.5rem;
-	align-items: start;
-	margin-top: var(--portfolio-stack-gap);
-}
-
-@media (min-width: 768px) {
-	.intro-body-row {
-		grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-		gap: 2.5rem;
-		align-items: stretch;
-	}
+	grid-area: name;
+	min-width: 0;
 }
 
 .intro-body {
+	grid-area: body;
 	display: flex;
 	min-width: 0;
 	max-width: var(--portfolio-content-max);
 	flex-direction: column;
 	gap: var(--portfolio-stack-gap);
+	margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+	.intro-layout {
+		grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+		grid-template-areas:
+			"name photo"
+			"body photo";
+		gap: 2.5rem;
+		align-items: stretch;
+	}
+
+	.intro-header {
+		align-self: end;
+		padding-bottom: 0.25rem;
+	}
+
+	.intro-body {
+		margin-top: 0;
+		align-self: start;
+	}
 }
 
 .intro-content {
@@ -70,11 +84,18 @@
 }
 
 .home-hero-name {
+	margin: 0;
 	font-size: clamp(1.75rem, 4vw, 2.75rem);
 	font-weight: 700;
 	line-height: 1.15;
 	color: #111111;
 	letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+	.home-hero-name {
+		margin-top: 0;
+	}
 }
 
 .home-hero-title {
@@ -122,32 +143,37 @@
 
 .profile-photo-frame {
 	position: relative;
-	width: 100%;
-	max-width: 16rem;
-	margin-inline: auto;
-	aspect-ratio: 4 / 5;
+	grid-area: photo;
+	flex-shrink: 0;
+	width: 4rem;
+	height: 4rem;
 	overflow: hidden;
-	border-radius: 1rem;
-	border: 1px solid rgb(0 0 0 / 0.08);
+	border-radius: 9999px;
+	border: 2px solid var(--lumen-border, #e5e7eb);
 	background: rgb(249 250 251);
-	box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+	box-shadow: none;
 	transition: transform 250ms ease, box-shadow 200ms ease;
 }
 
 .profile-photo-frame:hover {
-	transform: scale(1.01);
-	box-shadow: 0 4px 16px rgb(0 0 0 / 0.07);
+	transform: scale(1.02);
+	box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
 }
 
 @media (min-width: 768px) {
 	.profile-photo-frame {
-		max-width: none;
 		width: 100%;
 		height: 100%;
 		min-height: 18rem;
-		margin-inline: 0;
-		aspect-ratio: auto;
+		border-radius: 1rem;
+		border: 1px solid rgb(0 0 0 / 0.08);
+		box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
 		align-self: stretch;
+	}
+
+	.profile-photo-frame:hover {
+		transform: scale(1.01);
+		box-shadow: 0 4px 16px rgb(0 0 0 / 0.07);
 	}
 }
 
@@ -156,11 +182,18 @@
 	inset: 0;
 	display: block;
 	width: 100%;
-	height: calc(100% + 2 * var(--intro-parallax-max));
-	top: calc(-1 * var(--intro-parallax-max));
+	height: 100%;
 	object-fit: cover;
-	object-position: center var(--intro-photo-focal-y);
+	object-position: center var(--intro-photo-focal-y-mobile);
 	will-change: transform;
+}
+
+@media (min-width: 768px) {
+	.profile-photo-intro {
+		height: calc(100% + 2 * var(--intro-parallax-max));
+		top: calc(-1 * var(--intro-parallax-max));
+		object-position: center var(--intro-photo-focal-y-desktop);
+	}
 }
 
 .section-heading-divider,
@@ -878,13 +911,15 @@
 	background: #ffffff;
 	box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
 	transition:
+		transform 200ms ease,
 		box-shadow 200ms ease,
 		border-color 200ms ease;
 }
 
 .case-study-pager__card:hover {
-	border-color: rgb(0 0 0 / 0.08);
-	box-shadow: 0 2px 10px rgb(0 0 0 / 0.06);
+	border-color: rgb(0 0 0 / 0.1);
+	box-shadow: 0 8px 24px rgb(0 0 0 / 0.08);
+	transform: translateY(-2px);
 }
 
 .case-study-pager__thumb {
@@ -962,11 +997,11 @@
 }
 
 .about-avatar {
-	width: 64px;
-	height: 64px;
+	width: 4rem;
+	height: 4rem;
 	border-radius: 50%;
 	object-fit: cover;
-	object-position: center 18%;
+	object-position: center var(--intro-photo-focal-y-mobile);
 	flex-shrink: 0;
 	border: 2px solid var(--lumen-border, #e5e7eb);
 }
@@ -1002,7 +1037,7 @@
 
 @media (min-width: 768px) {
 	.about-collage-frame {
-		width: 280px;
+		width: 20rem;
 	}
 }
 
@@ -1014,8 +1049,34 @@
 	transition: transform 250ms ease;
 }
 
+.about-photo-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.5rem;
+}
+
+.about-photo-grid--three {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+@media (min-width: 768px) {
+	.about-photo-grid {
+		gap: 0.625rem;
+	}
+}
+
+.about-photo-grid__img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	border-radius: 0.5rem;
+	object-fit: cover;
+	transition: transform 250ms ease;
+}
+
 .about-collage-frame:hover .about-collage-img,
-.about-team-frame:hover .about-collage-img {
+.about-collage-frame:hover .about-photo-grid__img,
+.about-team-frame:hover .about-photo-grid__img {
 	transform: scale(1.01);
 }
 
@@ -1042,7 +1103,8 @@
 
 @media (min-width: 1024px) {
 	.about-team-frame {
-		width: 16.25rem;
+		width: 100%;
+		max-width: 28rem;
 		position: sticky;
 		top: 6rem;
 	}
@@ -1089,8 +1151,9 @@
 }
 
 .about-photo-caption {
-	margin-top: 0.5rem;
+	margin-top: 0.625rem;
 	font-size: 12px;
+	line-height: 1.5;
 	color: #999999;
 }
 
@@ -1183,14 +1246,24 @@
 
 /* Capability grid */
 .capability-grid {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.capability-grid__secondary {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
 	.capability-grid {
-		grid-template-columns: 1fr 1fr;
+		gap: 1.25rem;
+	}
+
+	.capability-grid__secondary {
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1.25rem;
 	}
 }
@@ -1217,9 +1290,29 @@
 }
 
 .capability-card:hover {
-	border-color: rgb(0 0 0 / 0.08);
+	border-color: rgb(0 0 0 / 0.1);
 	box-shadow: 0 4px 16px rgb(0 0 0 / 0.07);
-	transform: translateY(-2px);
+	transform: scale(1.01);
+}
+
+.capability-card--featured {
+	padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+	.capability-card--featured {
+		padding: 2rem;
+	}
+}
+
+.capability-card--featured .capability-card__title {
+	font-size: 1.125rem;
+}
+
+@media (min-width: 768px) {
+	.capability-card--featured .capability-card__title {
+		font-size: 1.25rem;
+	}
 }
 
 .capability-card__title {
@@ -1487,6 +1580,10 @@
 	margin: 1.5rem 0;
 }
 
+.case-study-stat-grid--pair {
+	grid-template-columns: repeat(2, 1fr);
+}
+
 .case-study-stat-card {
 	display: flex;
 	flex-direction: column;
@@ -1545,6 +1642,14 @@
 	aspect-ratio: 16 / 9;
 	object-fit: cover;
 	object-position: top;
+}
+
+.case-study-image--contain .case-study-image__img,
+.case-study-image--full.case-study-image--contain .case-study-image__img {
+	aspect-ratio: auto;
+	height: auto;
+	object-fit: contain;
+	object-position: center;
 }
 
 /* ─── Case study Figma embed ───────────────────────────────────────────────── */
@@ -1656,9 +1761,18 @@
 
 .lumen-reveal {
 	opacity: 0;
-	transition: opacity 400ms ease-out;
+	transition: opacity 450ms ease-out;
+	transition-delay: var(--reveal-delay, 0ms);
 	/* Fallback: never stay invisible longer than 1s if JS is slow */
 	animation: lumen-reveal-fallback 0s 1s forwards;
+}
+
+.lumen-reveal--lift {
+	transform: translateY(16px);
+	transition:
+		opacity 450ms ease-out,
+		transform 450ms ease-out;
+	transition-delay: var(--reveal-delay, 0ms);
 }
 
 @keyframes lumen-reveal-fallback {
@@ -1668,6 +1782,10 @@
 .lumen-reveal-visible {
 	opacity: 1;
 	animation: none;
+}
+
+.lumen-reveal-visible.lumen-reveal--lift {
+	transform: none;
 }
 
 /* Site footer (PortfolioShell) */
@@ -1829,10 +1947,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.lumen-reveal {
+	.lumen-reveal,
+	.lumen-reveal--lift {
 		opacity: 1;
 		transform: none;
 		transition: none;
+		animation: none;
 	}
 
 	.case-study-card,
@@ -1851,7 +1971,8 @@
 	}
 
 	.about-collage-frame:hover .about-collage-img,
-	.about-team-frame:hover .about-collage-img {
+	.about-collage-frame:hover .about-photo-grid__img,
+	.about-team-frame:hover .about-photo-grid__img {
 		transform: none;
 	}
 

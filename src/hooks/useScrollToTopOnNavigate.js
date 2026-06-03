@@ -1,11 +1,25 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { scrollPageToTop, scrollToHash } from "../utils/smoothScroll.js";
 
-/** Scroll window to top on in-app route changes (case studies, footer nav, etc.). */
+/** Scroll to top on route change, or to hash target when present. */
 export function useScrollToTopOnNavigate() {
-	const { pathname } = useLocation();
+	const { pathname, hash } = useLocation();
 
 	useEffect(() => {
-		window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-	}, [pathname]);
+		if (hash) {
+			let innerFrame = 0;
+			const outerFrame = requestAnimationFrame(() => {
+				innerFrame = requestAnimationFrame(() => {
+					scrollToHash(hash);
+				});
+			});
+			return () => {
+				cancelAnimationFrame(outerFrame);
+				cancelAnimationFrame(innerFrame);
+			};
+		}
+
+		scrollPageToTop();
+	}, [pathname, hash]);
 }

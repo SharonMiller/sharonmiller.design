@@ -7,11 +7,16 @@ import SectionHeading from "../components/portfolio/SectionHeading";
 import { CASE_STUDY_CARDS } from "../content/caseStudies/index.js";
 import CaseStudyThumbnail from "../components/portfolio/CaseStudyThumbnail.jsx";
 import { useIntroPhotoParallax } from "../hooks/useIntroPhotoParallax";
+import { useScrollReveal } from "../hooks/useScrollReveal";
+import { useScrollToTopOnNavigate } from "../hooks/useScrollToTopOnNavigate";
 import "./Home.css";
 
-function CaseStudyCard({ study }) {
+function CaseStudyCard({ study, revealIndex }) {
 	return (
-		<article className="case-study-card">
+		<article
+			className="case-study-card lumen-reveal lumen-reveal--lift"
+			data-reveal-index={revealIndex}
+		>
 			<Link to={study.href} className="case-study-card__link group">
 				<div className="case-study-card__content">
 					<p className="case-study-card__label">{study.label}</p>
@@ -36,9 +41,11 @@ export default function Home() {
 	const introRef = useRef(null);
 	const photoFrameRef = useRef(null);
 	useIntroPhotoParallax(photoFrameRef, introRef);
+	useScrollToTopOnNavigate();
+	useScrollReveal(["home"]);
 
 	return (
-		<div className="portfolio-page">
+		<div className="portfolio-page page-load">
 			<NavBar
 				brand="SM"
 				brandHref="/"
@@ -56,39 +63,37 @@ export default function Home() {
 							<p className="home-hero-title">Head of Product Design</p>
 						</div>
 
-						<div className="intro-body-row">
-							<div className="intro-body">
-								<div className="home-body-copy">
-									<p>
-										Most design teams are adopting AI tools. Fewer have figured out how to make
-										that adoption work at the org level: the processes, the guardrails, the
-										handoff patterns, and the infrastructure that lets every designer move faster
-										without compromising craft or trust.
-									</p>
-									<p>
-										That gap is where I work. Head of Product Design at VSCO, where I built the
-										AI-native operating model alongside shipping product. Previously at SurveyMonkey
-										leading platform design and AI features. Twenty years bridging design, engineering,
-										and product strategy.
-									</p>
-									<p>
-										Looking for senior platform and staff roles where the design challenge is as much
-										about how the team works as what they ship.
-									</p>
-								</div>
+						<div ref={photoFrameRef} className="profile-photo-frame">
+							<img
+								src="/images/profile-photo-full.png"
+								alt="Sharon Miller"
+								className="profile-photo-intro"
+							/>
+						</div>
 
-								<Link to="/about" className="home-linkedin">
-									More about my work
-								</Link>
+						<div className="intro-body">
+							<div className="home-body-copy">
+								<p>
+									Most design teams are adopting AI tools. Fewer have figured out how to make
+									that adoption work at the org level: the processes, the guardrails, the
+									handoff patterns, and the infrastructure that lets every designer move faster
+									without compromising craft or trust.
+								</p>
+								<p>
+									That gap is where I work. Head of Product Design at VSCO, where I built the
+									AI-native operating model alongside shipping product. Previously at SurveyMonkey
+									leading platform design and AI features. Twenty years bridging design, engineering,
+									and product strategy.
+								</p>
+								<p>
+									Looking for senior platform and staff roles where the design challenge is as much
+									about how the team works as what they ship.
+								</p>
 							</div>
 
-							<div ref={photoFrameRef} className="profile-photo-frame">
-								<img
-									src="/images/profile-photo-full.png"
-									alt="Sharon Miller"
-									className="profile-photo-intro"
-								/>
-							</div>
+							<Link to="/about" className="home-linkedin">
+								My story →
+							</Link>
 						</div>
 					</div>
 				</PageContainer>
@@ -96,11 +101,13 @@ export default function Home() {
 
 			<section id="work" className="home-work">
 				<PageContainer>
-					<SectionHeading className="case-studies-section-heading">Case studies</SectionHeading>
+					<SectionHeading className="case-studies-section-heading" reveal>
+						Case studies
+					</SectionHeading>
 
 					<div className="case-study-card-list">
-						{CASE_STUDY_CARDS.map((study) => (
-							<CaseStudyCard key={study.slug} study={study} />
+						{CASE_STUDY_CARDS.map((study, index) => (
+							<CaseStudyCard key={study.slug} study={study} revealIndex={index} />
 						))}
 					</div>
 				</PageContainer>

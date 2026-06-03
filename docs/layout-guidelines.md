@@ -299,26 +299,14 @@ Links below:
 
 ## Transitions and Interactions
 
-Page load: 
-  Fade in body opacity 0 to 1 over 400ms
+See **[motion.md](./motion.md)** for implementation details (Lenis, reveals, route fade).
 
-Scroll reveal:
-  Elements with .lumen-reveal class
-  fade in + slide up 24px
-  duration-700 ease-out
-  Triggered by IntersectionObserver 
-  threshold: 0.1
+Summary:
 
-Nav on scroll:
-  Add shadow and bg-white/90 after 20px scroll
-  transition-all duration-300
-
-Hover states:
-  All interactive elements: duration-200
-  Links: opacity 80% on hover
-  Cards: -translate-y-0.5 shadow-md
-  Arrow links: gap increases by 4px
-  Images in cards: scale-[1.02] duration-300
+- **Micro** (150–250ms): hovers, buttons, nav links
+- **Macro** (450ms ease-out): scroll reveals (`.lumen-reveal--lift`), route fade (`.page-route`)
+- **Scroll reveal:** `.lumen-reveal` + optional `data-reveal-index` (80ms stagger); Intersection Observer via `useScrollReveal`
+- **Hover:** case study cards lift; capability cards `scale(1.01)`; respect `prefers-reduced-motion`
 
 ---
 

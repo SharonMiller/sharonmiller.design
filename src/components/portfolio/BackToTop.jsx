@@ -1,14 +1,11 @@
-export default function BackToTop({ className = "" }) {
-	const scrollToTop = () => {
-		const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-		window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-	};
+import { scrollToTopSmooth } from "../../utils/smoothScroll.js";
 
+export default function BackToTop({ className = "" }) {
 	return (
 		<button
 			type="button"
 			className={`portfolio-back-to-top ${className}`.trim()}
-			onClick={scrollToTop}
+			onClick={() => scrollToTopSmooth()}
 			aria-label="Back to top"
 		>
 			Back to top

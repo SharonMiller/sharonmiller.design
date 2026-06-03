@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { scrollToHash } from "../../utils/smoothScroll.js";
 
 function BrandMark({ href, label = "SM", onClick }) {
 	const mark = <span className="portfolio-nav-brand">{label}</span>;
@@ -79,6 +80,20 @@ export default function NavBar({
 		onNavigate?.();
 	};
 
+	const handleHashClick = (e, href) => {
+		closeMenu();
+		const hashIndex = href.indexOf("#");
+		if (hashIndex === -1) return;
+
+		const path = href.slice(0, hashIndex) || "/";
+		const hash = href.slice(hashIndex);
+
+		if (window.location.pathname === path) {
+			e.preventDefault();
+			scrollToHash(hash);
+		}
+	};
+
 	const renderLink = (link, mobile = false) => {
 		const isHash = link.href.includes("#");
 		const linkClass = `portfolio-nav-link${link.active ? " portfolio-nav-link--active" : ""}${mobile ? " portfolio-nav-link--mobile" : ""}`;
@@ -90,7 +105,7 @@ export default function NavBar({
 					href={link.href}
 					className={linkClass}
 					aria-current={link.active ? "page" : undefined}
-					onClick={closeMenu}
+					onClick={(e) => handleHashClick(e, link.href)}
 				>
 					{link.label}
 				</a>

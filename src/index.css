@@ -60,7 +60,8 @@
 	}
 
 	.lumen-btn-primary {
-		@apply inline-flex items-center justify-center rounded-xl bg-lumen-terracotta font-medium text-white transition-colors hover:bg-lumen-terracotta-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lumen-terracotta focus-visible:ring-offset-2;
+		@apply inline-flex items-center justify-center rounded-xl bg-lumen-terracotta font-medium text-white hover:bg-lumen-terracotta-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lumen-terracotta focus-visible:ring-offset-2;
+		transition: background-color 200ms ease, color 150ms ease;
 	}
 
 	.portfolio-nav-shell {
@@ -236,11 +237,11 @@
 	}
 
 	.page-load {
-		animation: page-fade-in 250ms ease-out;
+		animation: page-fade-in 450ms ease-out;
 	}
 
 	.page-route {
-		animation: page-fade-in 180ms ease-out;
+		animation: page-fade-in 450ms ease-out;
 	}
 
 	@media (prefers-reduced-motion: reduce) {

@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 
-/** Max vertical shift (px). Tune in Home.css `--intro-parallax-max` comment or here. */
-const PARALLAX_MAX_PX = 10;
+/** Max vertical shift (px). Tune in Home.css `--intro-parallax-max` or here. */
+const PARALLAX_MAX_PX = 6;
+/** Desktop breakpoint — parallax disabled below this width. */
+const PARALLAX_MIN_WIDTH = 768;
 /** How strongly viewport position affects offset (lower = subtler). */
 const PARALLAX_FACTOR = 0.1;
 
@@ -25,7 +27,7 @@ export function useIntroPhotoParallax(frameRef, sectionRef) {
 		};
 
 		const update = () => {
-			if (reducedMotion.matches) {
+			if (reducedMotion.matches || window.innerWidth < PARALLAX_MIN_WIDTH) {
 				clear();
 				return;
 			}

@@ -1,31 +1,36 @@
 const designSystemGovernance = {
 	slug: "design-system-governance",
-	title: "Design System Governance",
+	title: "Distributed Building, Centralized Quality",
 	year: "2025–2026",
 	role: "Head of Product Design, VSCO",
 	type: "Design Systems · AI Tooling · Process",
-	hook: "Web, React Native, iOS, Android — each surface had its own library. Built the governance workflow that unified them and keeps them in sync.",
+	hook: "Web, React Native, iOS, and Android each had their own Figma library. Built the governance workflow that unified them and keeps them in sync.",
 	metrics: [
 		{ value: "< 1 day", label: "Audit to fix cycle" },
 		{ value: "0", label: "New headcount" },
 	],
 	description:
-		"An ongoing governance workflow built in Claude Cowork and Figma: audit the design system, fix it programmatically, submit for review, iterate, and notify engineering when components are Code Connect-ready.",
+		"Web, React Native, iOS, and Android each had their own Figma library. Built the governance workflow that unified them and keeps them in sync.",
 	thumbnail: {
 		src: "/images/IMG_9072.png",
 		alt: "Figma Dashboard Card System for review — component inventory, variants, and auto-layout built programmatically",
 	},
+	beforeImage: {
+		src: "/images/ds_audit_problem.png",
+		alt: "Account page and Workspace Atlas screens showing design drift across surfaces in the same sprint",
+		caption:
+			"Account page (left) and Workspace Atlas (center, right). The center version is how engineering started building without a shared source of truth. Same sprint, already drifting.",
+	},
 	impact: [
-		"Unified design library across web, React Native, iOS, and Android — replacing surface-specific libraries that had grown independently and diverged.",
-		"Full VUI library audit completed in hours. Typography, tokens, icons, and component adoption gaps surfaced and fixed across the entire app.",
-		"Dashboard Card System built from scratch — the foundation that unblocked two product lines shipping June 2026.",
-		"No dedicated design systems IC added. Distributed contribution model with an automated quality gate replaces the specialist bottleneck.",
+		"38 components audited, 18 compliance issues found and fixed. Components that looked correct but weren't token-linked. Visually right, system wrong.",
+		"Unified design library across web, React Native, iOS, and Android, replacing surface-specific libraries that had grown independently and diverged.",
+		"Dashboard Card System built from scratch, the foundation that unblocked two product lines shipping June 2026.",
 		"Solid primitive foundation now enables the team to design interactions at the component level and scale them across surfaces using Cursor.",
 	],
 	summary: [
-		"VSCO ships across web, React Native, iOS, and Android. Each surface had grown its own design library. The result was predictable: components diverged, tokens fell out of sync, and designers building for one surface had no reliable reference for another. The opportunity was to unify these into a single library that gave every surface a shared foundation.",
-		"Design system ownership is centralized — I own and approve the system. But building is distributed across a team with varying levels of design systems fluency. That gap between ownership and contribution is where drift happens. The standard fix is a dedicated design systems IC who audits everything. We did not have that headcount, and centralizing quality control in one person creates a bottleneck. The better model: distributed contribution with an automated quality gate. Any designer can build. The audit catches what skill varies.",
-		"There is a deeper reason this work matters beyond consistency. A well-maintained design system is what makes AI-native design possible. When a designer uses Cursor to build an experience, the AI needs the building blocks: tokens, primitives, component conventions. If those don't exist or aren't reliable, the AI invents its own patterns. A solid system means designers can focus on great interactions at the component level and then use Cursor to scale those interactions across surfaces — rather than spending every session re-explaining what a button is.",
+		"At VSCO, every platform had its own Figma library. Web, React Native, iOS, and Android had drifted apart.",
+		"The solution wasn't to centralize who builds. It was to centralize quality. I owned the standard. The team built to it. An AI-assisted audit workflow became the quality gate.",
+		"Less than a day to audit the full library. Zero new headcount.",
 	],
 	team: {
 		columns: [
@@ -33,13 +38,13 @@ const designSystemGovernance = {
 				title: "Role",
 				items: [
 					"Head of Product Design — owns and approves the system",
-					"Full design team — builds with varying DS skill levels",
+					"Design Team contributes to design system",
 					"No dedicated design systems IC",
 				],
 			},
 			{
 				title: "Stack",
-				items: ["Figma + Plugin API", "Claude Cowork", "Claude skills", "Slack"],
+				items: ["MCP", "Claude Cowork", "Claude skills", "Slack"],
 			},
 			{
 				title: "Model",

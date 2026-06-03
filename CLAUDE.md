@@ -17,6 +17,7 @@ Some tools look for **`CLAUDE.md`** at the repo root. This project keeps canonic
 | [docs/layout-guidelines.md](./docs/layout-guidelines.md) | **Portfolio layout:** spacing, typography, responsive rules for sharonmiller.design |
 | [docs/refactoring-ui-reference.md](./docs/refactoring-ui-reference.md) | Refactoring UI — principles + links (not a copy of the book) |
 | [docs/ui-audit.md](./docs/ui-audit.md) | **UI quality pass:** spacing, type, motion, responsive checklist |
+| [docs/motion.md](./docs/motion.md) | **Motion:** Lenis, scroll reveals, route fade, hover timing |
 | [.cursor/skills/ui-audit/SKILL.md](./.cursor/skills/ui-audit/SKILL.md) | **Agent skill:** run the UI audit workflow (reads `docs/ui-audit.md`) |
 | [docs/ds-audit-template.md](./docs/ds-audit-template.md) | Lumen adoption tracker — fill in as you build |
 | [memory.md](./memory.md) | Bugs, wins, and past incidents |

@@ -2,18 +2,20 @@ import { Link } from "react-router-dom";
 import PortfolioShell, { BackLink } from "../components/portfolio/PortfolioShell";
 import "./Home.css";
 
-// ─── Personal ───────────────────────────────────────────────────────────────
+// ─── Work photos ─────────────────────────────────────────────────────────────
 
-const ABOUT_PHOTOS = [
+const WORK_PHOTOS = [
 	{
-		src: "/images/family-collage.png",
-		alt: "Sharon with family on the beach, plus skiing, lakeside with French Bulldogs, and son's track meet at George Fox University",
-		caption: "Family in Bend — beach trips, ski days, and two very opinionated Frenchies",
+		src: "/images/work_about_1.jpeg",
+		alt: "Sharon presenting the Visual Roadmap",
 	},
 	{
-		src: "/images/teamcollage.png",
-		alt: "Sharon presenting Visual Roadmap at a conference, team selfie at Millennium Park Chicago, group at a design conference, and full team photo",
-		caption: "Speaking, building teams, and trying to escape escape rooms",
+		src: "/images/team1.jpeg",
+		alt: "Design team selfie in Chicago",
+	},
+	{
+		src: "/images/team3.jpeg",
+		alt: "Full design org group photo",
 	},
 ];
 
@@ -68,7 +70,7 @@ const CAREER_ARC = [
 	{ period: "2025–Now", role: "Head of Product Design", company: "VSCO" },
 	{ period: "2021–2025", role: "Lead Designer → Design Manager, Growth & AI", company: "SurveyMonkey" },
 	{ period: "2017–2021", role: "Director of UX & Brand", company: "Effectual (AWS Premier Partner)" },
-	{ period: "2007–2020", role: "Principal Designer & Founder", company: "Sharon Miller Creative" },
+	{ period: "2007–present", role: "Principal Designer · consulting", company: "Sharon Miller Creative" },
 	{ period: "2000–2004", role: "Early Career", company: "Zango (startup, employee #5)" },
 ];
 
@@ -99,9 +101,12 @@ function Tag({ children }) {
 	);
 }
 
-function CapabilityCard({ title, description, proof }) {
+function CapabilityCard({ title, description, proof, revealIndex, featured = false }) {
 	return (
-		<div className="capability-card">
+		<div
+			className={`capability-card lumen-reveal lumen-reveal--lift${featured ? " capability-card--featured" : ""}`}
+			data-reveal-index={revealIndex}
+		>
 			<h3 className="capability-card__title">{title}</h3>
 			<p className="capability-card__description">{description}</p>
 			<ul className="capability-card__proof">
@@ -112,6 +117,22 @@ function CapabilityCard({ title, description, proof }) {
 					</li>
 				))}
 			</ul>
+		</div>
+	);
+}
+
+function PhotoGrid({ photos, columns = 2 }) {
+	return (
+		<div className={`about-photo-grid${columns === 3 ? " about-photo-grid--three" : ""}`}>
+			{photos.map((photo) => (
+				<img
+					key={photo.src}
+					src={photo.src}
+					alt={photo.alt}
+					className="about-photo-grid__img"
+					loading="lazy"
+				/>
+			))}
 		</div>
 	);
 }
@@ -245,20 +266,19 @@ export default function About() {
 
 						{/* Capability cards */}
 						<div className="capability-grid">
-							{CAPABILITIES.map((cap) => (
-								<CapabilityCard key={cap.title} {...cap} />
-							))}
+							<CapabilityCard {...CAPABILITIES[0]} revealIndex={0} featured />
+							<div className="capability-grid__secondary">
+								{CAPABILITIES.slice(1).map((cap, index) => (
+									<CapabilityCard key={cap.title} {...cap} revealIndex={index + 1} />
+								))}
+							</div>
 						</div>
 					</div>
 
 					<figure className="about-team-frame">
-						<img
-							src="/images/teamcollage.png"
-							alt="Sharon presenting at a conference, team selfie at Millennium Park Chicago, and group photos"
-							className="about-collage-img"
-						/>
+						<PhotoGrid photos={WORK_PHOTOS} columns={3} />
 						<figcaption className="about-photo-caption">
-							Speaking, building teams, and trying to escape escape rooms
+							Presenting the visual roadmap at SurveyMonkey. Team offsite in Chicago. The full design org.
 						</figcaption>
 					</figure>
 				</div>

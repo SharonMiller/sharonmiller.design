@@ -7,16 +7,10 @@ import { useScrollToTopOnNavigate } from "../../hooks/useScrollToTopOnNavigate";
 import "../../pages/Home.css";
 
 export const PORTFOLIO_NAV = [
+	{ label: "Home", href: "/" },
 	{ label: "Case studies", href: "/#work" },
 	{ label: "About", href: "/about" },
 	{ label: "Reach out", href: "/contact" },
-];
-
-export const FOOTER_NAV = [
-	{ label: "Home", href: "/" },
-	{ label: "About", href: "/about" },
-	{ label: "Work history", href: "/work-history" },
-	{ label: "Contact", href: "/contact" },
 ];
 
 export const FOOTER_SOCIAL = [
@@ -48,7 +42,7 @@ export default function PortfolioShell({
 
 			<main
 				key={location.pathname}
-				className={`pb-24 pt-[88px] ${mainClassName}`.trim()}
+				className={`page-route pb-24 pt-[88px] ${mainClassName}`.trim()}
 			>
 				<PageContainer>{children}</PageContainer>
 			</main>
@@ -87,7 +81,7 @@ export default function PortfolioShell({
 					<div className="portfolio-site-footer__bar">
 						<PageContainer innerClassName="portfolio-site-footer__bar-inner">
 							<nav className="portfolio-site-footer__nav" aria-label="Site">
-								{FOOTER_NAV.map(({ label, href }) => (
+								{PORTFOLIO_NAV.map(({ label, href }) => (
 									<Link key={href} to={href} className="portfolio-site-footer__nav-link">
 										{label}
 									</Link>

@@ -66,9 +66,9 @@ function SubSection({ title, paragraphs = [], list = [] }) {
 	);
 }
 
-function StatGrid({ stats }) {
+function StatGrid({ stats, columns }) {
 	return (
-		<div className="case-study-stat-grid">
+		<div className={`case-study-stat-grid${columns === 2 ? " case-study-stat-grid--pair" : ""}`}>
 			{stats.map((stat) => (
 				<div key={stat.label} className="case-study-stat-card">
 					<span className="case-study-stat-card__value">{stat.value}</span>
@@ -99,9 +99,11 @@ function FigmaEmbed({ src, caption, height = 450 }) {
 	);
 }
 
-function SectionImage({ src, alt, caption, fullWidth = false }) {
+function SectionImage({ src, alt, caption, fullWidth = false, contain = false }) {
 	return (
-		<figure className={`case-study-image${fullWidth ? " case-study-image--full" : ""}`}>
+		<figure
+			className={`case-study-image${fullWidth ? " case-study-image--full" : ""}${contain ? " case-study-image--contain" : ""}`}
+		>
 			<img src={src} alt={alt ?? ""} loading="lazy" className="case-study-image__img" />
 			{caption && <figcaption className="case-study-image__caption">{caption}</figcaption>}
 		</figure>
@@ -112,7 +114,7 @@ function TeamGrid({ team }) {
 	if (!team?.columns?.length) return null;
 
 	return (
-		<section className="case-study-team" aria-label="Project team">
+		<section className="case-study-team lumen-reveal lumen-reveal--lift" aria-label="Project team">
 			<SectionHeading className="case-study-section-heading">The team</SectionHeading>
 			<div className="case-study-team__grid">
 				{team.columns.map((column) => (
@@ -130,8 +132,59 @@ function TeamGrid({ team }) {
 	);
 }
 
+/** Render ordered content blocks when a section defines them */
+function ContentBlocks({ blocks }) {
+	return blocks.map((block, blockIndex) => {
+		switch (block.type) {
+			case "stats":
+				return <StatGrid key={blockIndex} stats={block.items} columns={block.columns} />;
+			case "paragraphs":
+				return <Paragraphs key={blockIndex} items={block.items} />;
+			case "list":
+				return <BulletList key={blockIndex} items={block.items} />;
+			case "subsection":
+				return <SubSection key={block.title} title={block.title} paragraphs={block.paragraphs} list={block.list} />;
+			case "image":
+				return (
+					<SectionImage
+						key={blockIndex}
+						src={block.src}
+						alt={block.alt}
+						caption={block.caption}
+						fullWidth={block.fullWidth ?? true}
+						contain={block.contain ?? false}
+					/>
+				);
+			case "embed":
+				return (
+					<FigmaEmbed
+						key={blockIndex}
+						src={block.src}
+						caption={block.caption}
+						height={block.height}
+					/>
+				);
+			case "video":
+				return <DemoVideo key={blockIndex} src={block.src} caption={block.caption} />;
+			default:
+				return null;
+		}
+	});
+}
+
 /** Sections with layout="image-left" or layout="image-right" render 2-col */
 function SectionBlock({ section, index }) {
+	if (section.contentBlocks?.length) {
+		return (
+			<section className="case-study-section lumen-reveal lumen-reveal--lift" data-reveal-index={index}>
+				<SectionHeading className="case-study-section-heading">{section.title}</SectionHeading>
+				<div className="case-study-section__content">
+					<ContentBlocks blocks={section.contentBlocks} />
+				</div>
+			</section>
+		);
+	}
+
 	const hasImage = !!section.image;
 	const layout = section.layout; // "image-left" | "image-right" | undefined
 
@@ -161,7 +214,7 @@ function SectionBlock({ section, index }) {
 
 	if (layout && hasImage) {
 		return (
-			<section className="case-study-section">
+			<section className="case-study-section lumen-reveal lumen-reveal--lift" data-reveal-index={index}>
 				<SectionHeading className="case-study-section-heading">{section.title}</SectionHeading>
 				<div className={`case-study-split case-study-split--${layout}`}>
 					{layout === "image-right" ? (
@@ -191,7 +244,7 @@ function SectionBlock({ section, index }) {
 	}
 
 	return (
-		<section className="case-study-section">
+		<section className="case-study-section lumen-reveal lumen-reveal--lift" data-reveal-index={index}>
 			<SectionHeading className="case-study-section-heading">{section.title}</SectionHeading>
 			{textContent}
 		</section>
@@ -221,11 +274,20 @@ export default function CaseStudyLayout({ study }) {
 					</div>
 				)}
 
-				{study.hook && (
-					<p className="case-study-hook">{study.hook}</p>
+				{study.title && (
+					<p className="case-study-hook">{study.title}</p>
 				)}
 
 				<CaseStudyMeta study={study} />
+
+				{study.beforeImage && (
+					<SectionImage
+						src={study.beforeImage.src}
+						alt={study.beforeImage.alt}
+						caption={study.beforeImage.caption}
+						fullWidth
+					/>
+				)}
 
 				{study.impact?.length > 0 && (
 					<div className="case-study-impact">
