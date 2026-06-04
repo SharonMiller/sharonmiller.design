@@ -252,36 +252,31 @@ export default function About() {
 
 			{/* ── WORK SECTION ─────────────────────────────────── */}
 			<section className="about-section" aria-labelledby="about-work-heading">
-				<div className="about-work-row">
-					<div className="about-work-content">
-						<div className="about-work-intro">
-							<h2 className="about-work-heading" id="about-work-heading">
-								Design, engineering, product, and operations: not as separate tracks, but as one practice.
-							</h2>
-							<p className="about-work-subhead">
-								Twenty years across platform UX, growth design, SaaS product ownership, and cloud
-								infrastructure. The range is intentional.
-							</p>
-						</div>
-
-						{/* Capability cards */}
-						<div className="capability-grid">
-							<CapabilityCard {...CAPABILITIES[0]} revealIndex={0} featured />
-							<div className="capability-grid__secondary">
-								{CAPABILITIES.slice(1).map((cap, index) => (
-									<CapabilityCard key={cap.title} {...cap} revealIndex={index + 1} />
-								))}
-							</div>
-						</div>
-					</div>
-
-					<figure className="about-team-frame">
-						<PhotoGrid photos={WORK_PHOTOS} columns={3} />
-						<figcaption className="about-photo-caption">
-							Presenting the visual roadmap at SurveyMonkey. Team offsite in Chicago. The full design org.
-						</figcaption>
-					</figure>
+				<div className="about-work-intro">
+					<h2 className="about-work-heading" id="about-work-heading">
+						Design, engineering, product, and operations: not as separate tracks, but as one practice.
+					</h2>
+					<p className="about-work-subhead">
+						Twenty years across platform UX, growth design, SaaS product ownership, and cloud
+						infrastructure. The range is intentional.
+					</p>
 				</div>
+
+				<div className="capability-grid">
+					<CapabilityCard {...CAPABILITIES[0]} revealIndex={0} featured />
+					<div className="capability-grid__secondary">
+						{CAPABILITIES.slice(1).map((cap, index) => (
+							<CapabilityCard key={cap.title} {...cap} revealIndex={index + 1} />
+						))}
+					</div>
+				</div>
+
+				<figure className="about-team-frame">
+					<PhotoGrid photos={WORK_PHOTOS} columns={3} />
+					<figcaption className="about-photo-caption">
+						Presenting the visual roadmap at SurveyMonkey. Team offsite in Chicago. The full design org.
+					</figcaption>
+				</figure>
 
 				{/* Career arc */}
 				<div className="career-arc">

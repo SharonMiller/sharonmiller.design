@@ -67,7 +67,7 @@ const EARLY_CAREER = [
 
 const WORK_PHOTOS = [
 	{
-		src: "/images/sharon-award.png",
+		src: "/images/wark_about_3.png",
 		alt: "Sharon Miller holding a SurveyMonkey Innovate Outstanding Achievement Award",
 	},
 	{

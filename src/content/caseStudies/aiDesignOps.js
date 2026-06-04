@@ -124,7 +124,7 @@ const aiDesignOps = {
 				},
 			],
 			image: {
-				src: "/images/roadmap-tracker.jpg",
+				src: "/images/organizing-growth-jpd-thumbnail.png",
 				alt: "Roadmap tracker pulling live data from Jira, Confluence, and Slack",
 				caption: "Live roadmap tracker: one view synthesized from primary sources.",
 			},

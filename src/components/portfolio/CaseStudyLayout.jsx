@@ -99,14 +99,46 @@ function FigmaEmbed({ src, caption, height = 450 }) {
 	);
 }
 
-function SectionImage({ src, alt, caption, fullWidth = false, contain = false }) {
+function SectionImage({ src, alt, caption, fullWidth = false, contain = true }) {
 	return (
-		<figure
-			className={`case-study-image${fullWidth ? " case-study-image--full" : ""}${contain ? " case-study-image--contain" : ""}`}
-		>
-			<img src={src} alt={alt ?? ""} loading="lazy" className="case-study-image__img" />
+		<figure className={`case-study-image${fullWidth ? " case-study-image--full" : ""}`}>
+			<div className={`case-study-image__frame${contain ? " case-study-image__frame--contain" : ""}`}>
+				<img src={src} alt={alt ?? ""} loading="lazy" className="case-study-image__img" />
+			</div>
 			{caption && <figcaption className="case-study-image__caption">{caption}</figcaption>}
 		</figure>
+	);
+}
+
+function SplitSectionImage({ src, alt, caption }) {
+	return (
+		<figure className="case-study-split__image">
+			<div className="case-study-image__frame case-study-image__frame--contain">
+				<img src={src} alt={alt ?? ""} loading="lazy" className="case-study-image__img" />
+			</div>
+			{caption && <figcaption className="case-study-image__caption">{caption}</figcaption>}
+		</figure>
+	);
+}
+
+function BeforeAfterImages({ before, after }) {
+	return (
+		<div className="case-study-before-after">
+			<figure className="case-study-before-after__item">
+				<p className="case-study-before-after__label">Before</p>
+				<div className="case-study-image__frame case-study-image__frame--contain">
+					<img src={before.src} alt={before.alt ?? "Before"} loading="lazy" className="case-study-image__img" />
+				</div>
+				{before.caption && <figcaption className="case-study-image__caption">{before.caption}</figcaption>}
+			</figure>
+			<figure className="case-study-before-after__item">
+				<p className="case-study-before-after__label">After</p>
+				<div className="case-study-image__frame case-study-image__frame--contain">
+					<img src={after.src} alt={after.alt ?? "After"} loading="lazy" className="case-study-image__img" />
+				</div>
+				{after.caption && <figcaption className="case-study-image__caption">{after.caption}</figcaption>}
+			</figure>
+		</div>
 	);
 }
 
@@ -152,7 +184,15 @@ function ContentBlocks({ blocks }) {
 						alt={block.alt}
 						caption={block.caption}
 						fullWidth={block.fullWidth ?? true}
-						contain={block.contain ?? false}
+						contain={block.contain ?? true}
+					/>
+				);
+			case "beforeAfter":
+				return (
+					<BeforeAfterImages
+						key={blockIndex}
+						before={block.before}
+						after={block.after}
 					/>
 				);
 			case "embed":
@@ -203,6 +243,7 @@ function SectionBlock({ section, index }) {
 					alt={section.image.alt}
 					caption={section.image.caption}
 					fullWidth={section.imageFullWidth}
+					contain={section.image.contain ?? true}
 				/>
 			)}
 			{section.video && <DemoVideo src={section.video.src} caption={section.video.caption} />}
@@ -220,21 +261,19 @@ function SectionBlock({ section, index }) {
 					{layout === "image-right" ? (
 						<>
 							{textContent}
-							<figure className="case-study-split__image">
-								<img src={section.image.src} alt={section.image.alt ?? ""} loading="lazy" />
-								{section.image.caption && (
-									<figcaption className="case-study-image__caption">{section.image.caption}</figcaption>
-								)}
-							</figure>
+							<SplitSectionImage
+								src={section.image.src}
+								alt={section.image.alt}
+								caption={section.image.caption}
+							/>
 						</>
 					) : (
 						<>
-							<figure className="case-study-split__image">
-								<img src={section.image.src} alt={section.image.alt ?? ""} loading="lazy" />
-								{section.image.caption && (
-									<figcaption className="case-study-image__caption">{section.image.caption}</figcaption>
-								)}
-							</figure>
+							<SplitSectionImage
+								src={section.image.src}
+								alt={section.image.alt}
+								caption={section.image.caption}
+							/>
 							{textContent}
 						</>
 					)}
@@ -286,6 +325,7 @@ export default function CaseStudyLayout({ study }) {
 						alt={study.beforeImage.alt}
 						caption={study.beforeImage.caption}
 						fullWidth
+						contain
 					/>
 				)}
 
