@@ -29,3 +29,4 @@ dist-ssr
 *.sw?
 public/videos/*.mov
 public/videos/*.mov
+public/images/surveymonkey transformation/transformation*_files/
