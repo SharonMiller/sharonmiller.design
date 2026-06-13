@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scout Thinking Animation</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f0ed; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; }
+
+  h1 { font-size: 14px; font-weight: 500; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 32px; }
+
+  .cards { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 32px; }
+
+  .card {
+    background: white; border-radius: 16px; padding: 24px 18px 16px;
+    border: 2px solid transparent; cursor: pointer; text-align: center;
+    transition: border-color 0.2s; min-width: 120px;
+  }
+  .card:hover { border-color: #ddd; }
+  .card.on { border-color: #1a1a1a; }
+  .card-lbl { font-size: 11px; color: #aaa; margin-top: 12px; }
+  .card-name { font-size: 13px; color: #222; font-weight: 500; margin-top: 2px; }
+
+  /* Avatar */
+  .av { width: 64px; height: 76px; position: relative; margin: 0 auto; display: flex; align-items: flex-end; justify-content: center; }
+  .face { width: 64px; height: 64px; position: relative; flex-shrink: 0; }
+  .face svg.base { width: 64px; height: 64px; position: absolute; }
+  .mouth-mask { position: absolute; background: white; width: 16px; height: 8px; left: 13px; bottom: 7px; border-radius: 2px; }
+  .mouth-line { position: absolute; left: 13px; bottom: 10px; width: 16px; height: 2px; background: black; border-radius: 1px; }
+
+  /* A: Thought bubble */
+  .bubble-wrap { position: absolute; top: -2px; right: -10px; }
+  .bubble-dot { border-radius: 50%; background: #222; position: absolute; }
+  .card.on .bubble-dot { animation: bpop 1.6s ease-in-out infinite; }
+  .bd1 { width: 5px; height: 5px; right: 0; bottom: 0; animation-delay: 0s !important; }
+  .bd2 { width: 7px; height: 7px; right: 8px; bottom: 7px; animation-delay: 0.2s !important; }
+  .bd3 { width: 10px; height: 10px; right: 16px; bottom: 15px; animation-delay: 0.4s !important; }
+  @keyframes bpop { 0%,100%{opacity:0.2;transform:scale(0.7)} 50%{opacity:1;transform:scale(1)} }
+
+  /* B: Halo arc */
+  .halo { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); width: 52px; height: 26px; }
+  .card.on .halo-path { animation: hglow 1.8s ease-in-out infinite; }
+  @keyframes hglow { 0%,100%{opacity:0.15;stroke-width:1.5} 50%{opacity:1;stroke-width:2.5} }
+
+  /* C: Question mark */
+  .qmark { position: absolute; top: -18px; right: -8px; font-size: 22px; color: #222; font-weight: 700; line-height: 1; opacity: 0; }
+  .card.on .qmark { animation: qfade 2s ease-in-out infinite; }
+  @keyframes qfade { 0%,100%{opacity:0;transform:translateY(4px) scale(0.8)} 25%,75%{opacity:1;transform:translateY(0) scale(1)} }
+
+  /* D: Lightbulb */
+  .card.on .bulb-svg { animation: bglow 1.6s ease-in-out infinite; }
+  @keyframes bglow { 0%,100%{opacity:0.25} 50%{opacity:1} }
+
+  /* E: Steam */
+  .steam { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
+  .wisp { width: 3px; height: 12px; border-radius: 2px; background: #333; opacity: 0; transform-origin: bottom center; }
+  .card.on .wisp:nth-child(1) { animation: wrise 1.4s 0.0s ease-out infinite; }
+  .card.on .wisp:nth-child(2) { animation: wrise 1.4s 0.3s ease-out infinite; }
+  .card.on .wisp:nth-child(3) { animation: wrise 1.4s 0.6s ease-out infinite; }
+  @keyframes wrise { 0%{opacity:0;transform:translateY(0) scaleY(0.5)} 30%{opacity:0.8} 100%{opacity:0;transform:translateY(-12px) scaleY(1.2)} }
+
+  /* F: Orbit */
+  .orbit-ring { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 64px; height: 64px; pointer-events: none; }
+  .orbit-dot { width: 7px; height: 7px; border-radius: 50%; background: #222; position: absolute; top: -3px; left: 50%; margin-left: -3.5px; opacity: 0; }
+  .card.on .orbit-ring { animation: spin 2s linear infinite; }
+  .card.on .orbit-dot { opacity: 1; }
+  @keyframes spin { from{transform:translateX(-50%) rotate(0deg)} to{transform:translateX(-50%) rotate(360deg)} }
+
+  /* Head tilt on active */
+  .card.on .face { animation: htilt 2.6s cubic-bezier(0.45,0,0.55,1) infinite; transform-origin: 50% 50%; }
+  @keyframes htilt {
+    0%   { transform: rotate(0deg); }
+    12%  { transform: rotate(-11deg); }
+    44%  { transform: rotate(-11deg); }
+    56%  { transform: rotate(0deg); }
+    72%  { transform: rotate(-7deg); }
+    88%  { transform: rotate(-7deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  .note { font-size: 13px; color: #aaa; text-align: center; }
+</style>
+</head>
+<body>
+
+<h1>Scout — thinking animation concepts</h1>
+
+<div class="cards">
+
+  <!-- A: Thought bubble -->
+  <div class="card on" id="c-a" onclick="pick('a')">
+    <div class="av">
+      <div class="bubble-wrap">
+        <div class="bubble-dot bd3"></div>
+        <div class="bubble-dot bd2"></div>
+        <div class="bubble-dot bd1"></div>
+      </div>
+      <div class="face">
+        <svg class="base" viewBox="0 0 24 24" fill="none">
+          <path d="M6.27637 12.5879C6.76818 12.3372 7.37105 12.5328 7.62207 13.0244L7.87305 13.5156C9.03513 15.7935 11.7284 16.8283 14.1162 15.9131L14.627 15.7168C15.1426 15.5192 15.7213 15.7773 15.9189 16.293C16.1166 16.8086 15.8584 17.3873 15.3428 17.585L14.832 17.7803C11.4893 19.0615 7.71787 17.6145 6.09082 14.4258L5.83984 13.9336C5.58915 13.4418 5.78472 12.8389 6.27637 12.5879Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.0967 2.53109 8.3172 3.4541 6.80273C3.53361 6.67227 3.61669 6.54423 3.70215 6.41797C3.71926 6.39258 3.73754 6.368 3.75488 6.34277C3.81636 6.25376 3.8781 6.16501 3.94238 6.07812C4.09143 5.87566 4.24857 5.67967 4.41211 5.48926C4.41828 5.48208 4.42448 5.47493 4.43066 5.46777L4.43164 5.4668C6.26536 3.34442 8.97507 2 12 2ZM12 4C10.4432 4 8.99072 4.44554 7.76172 5.21484C8.62995 5.55644 9.37999 6.21489 9.81641 7.13672C10.2283 8.00704 11.3609 8.23869 12.0811 7.59961C12.4942 7.23351 13.1258 7.27165 13.4922 7.68457C13.8584 8.09759 13.821 8.72918 13.4082 9.0957C11.6908 10.6197 8.99116 10.0683 8.00879 7.99316C7.59145 7.11145 6.57295 6.7325 5.70312 7.06738C4.63693 8.42656 4 10.1386 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 9.6154 18.9558 7.47543 17.3008 6.00977L18.1426 15.1055L10.9355 13.2559L11.4326 11.3184L15.8887 12.4619L15.165 4.65137C14.1943 4.23269 13.1244 4 12 4Z" fill="black"/>
+        </svg>
+        <div class="mouth-mask"></div>
+        <div class="mouth-line"></div>
+      </div>
+    </div>
+    <div class="card-lbl">A</div>
+    <div class="card-name">Thought bubble</div>
+  </div>
+
+  <!-- B: Halo -->
+  <div class="card" id="c-b" onclick="pick('b')">
+    <div class="av">
+      <div class="halo">
+        <svg width="52" height="26" viewBox="0 0 52 26">
+          <path class="halo-path" d="M4 23 Q26 2 48 23" stroke="#222" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.2"/>
+        </svg>
+      </div>
+      <div class="face">
+        <svg class="base" viewBox="0 0 24 24" fill="none">
+          <path d="M6.27637 12.5879C6.76818 12.3372 7.37105 12.5328 7.62207 13.0244L7.87305 13.5156C9.03513 15.7935 11.7284 16.8283 14.1162 15.9131L14.627 15.7168C15.1426 15.5192 15.7213 15.7773 15.9189 16.293C16.1166 16.8086 15.8584 17.3873 15.3428 17.585L14.832 17.7803C11.4893 19.0615 7.71787 17.6145 6.09082 14.4258L5.83984 13.9336C5.58915 13.4418 5.78472 12.8389 6.27637 12.5879Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.0967 2.53109 8.3172 3.4541 6.80273C3.53361 6.67227 3.61669 6.54423 3.70215 6.41797C3.71926 6.39258 3.73754 6.368 3.75488 6.34277C3.81636 6.25376 3.8781 6.16501 3.94238 6.07812C4.09143 5.87566 4.24857 5.67967 4.41211 5.48926C4.41828 5.48208 4.42448 5.47493 4.43066 5.46777L4.43164 5.4668C6.26536 3.34442 8.97507 2 12 2ZM12 4C10.4432 4 8.99072 4.44554 7.76172 5.21484C8.62995 5.55644 9.37999 6.21489 9.81641 7.13672C10.2283 8.00704 11.3609 8.23869 12.0811 7.59961C12.4942 7.23351 13.1258 7.27165 13.4922 7.68457C13.8584 8.09759 13.821 8.72918 13.4082 9.0957C11.6908 10.6197 8.99116 10.0683 8.00879 7.99316C7.59145 7.11145 6.57295 6.7325 5.70312 7.06738C4.63693 8.42656 4 10.1386 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 9.6154 18.9558 7.47543 17.3008 6.00977L18.1426 15.1055L10.9355 13.2559L11.4326 11.3184L15.8887 12.4619L15.165 4.65137C14.1943 4.23269 13.1244 4 12 4Z" fill="black"/>
+        </svg>
+        <div class="mouth-mask"></div>
+        <div class="mouth-line"></div>
+      </div>
+    </div>
+    <div class="card-lbl">B</div>
+    <div class="card-name">Halo pulse</div>
+  </div>
+
+  <!-- C: Question mark -->
+  <div class="card" id="c-c" onclick="pick('c')">
+    <div class="av">
+      <div class="face">
+        <svg class="base" viewBox="0 0 24 24" fill="none">
+          <path d="M6.27637 12.5879C6.76818 12.3372 7.37105 12.5328 7.62207 13.0244L7.87305 13.5156C9.03513 15.7935 11.7284 16.8283 14.1162 15.9131L14.627 15.7168C15.1426 15.5192 15.7213 15.7773 15.9189 16.293C16.1166 16.8086 15.8584 17.3873 15.3428 17.585L14.832 17.7803C11.4893 19.0615 7.71787 17.6145 6.09082 14.4258L5.83984 13.9336C5.58915 13.4418 5.78472 12.8389 6.27637 12.5879Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.0967 2.53109 8.3172 3.4541 6.80273C3.53361 6.67227 3.61669 6.54423 3.70215 6.41797C3.71926 6.39258 3.73754 6.368 3.75488 6.34277C3.81636 6.25376 3.8781 6.16501 3.94238 6.07812C4.09143 5.87566 4.24857 5.67967 4.41211 5.48926C4.41828 5.48208 4.42448 5.47493 4.43066 5.46777L4.43164 5.4668C6.26536 3.34442 8.97507 2 12 2ZM12 4C10.4432 4 8.99072 4.44554 7.76172 5.21484C8.62995 5.55644 9.37999 6.21489 9.81641 7.13672C10.2283 8.00704 11.3609 8.23869 12.0811 7.59961C12.4942 7.23351 13.1258 7.27165 13.4922 7.68457C13.8584 8.09759 13.821 8.72918 13.4082 9.0957C11.6908 10.6197 8.99116 10.0683 8.00879 7.99316C7.59145 7.11145 6.57295 6.7325 5.70312 7.06738C4.63693 8.42656 4 10.1386 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 9.6154 18.9558 7.47543 17.3008 6.00977L18.1426 15.1055L10.9355 13.2559L11.4326 11.3184L15.8887 12.4619L15.165 4.65137C14.1943 4.23269 13.1244 4 12 4Z" fill="black"/>
+        </svg>
+        <div class="mouth-mask"></div>
+        <div class="mouth-line"></div>
+        <div class="qmark">?</div>
+      </div>
+    </div>
+    <div class="card-lbl">C</div>
+    <div class="card-name">Question mark</div>
+  </div>
+
+  <!-- D: Lightbulb -->
+  <div class="card" id="c-d" onclick="pick('d')">
+    <div class="av">
+      <div style="position:absolute;top:-10px;right:0">
+        <svg class="bulb-svg" width="20" height="24" viewBox="0 0 20 24" fill="none" opacity="0.3">
+          <path d="M10 2C6.68629 2 4 4.68629 4 8C4 10.2091 5.13 12.1518 6.85938 13.2969L7 14H13L13.1406 13.2969C14.87 12.1518 16 10.2091 16 8C16 4.68629 13.3137 2 10 2Z" fill="#222"/>
+          <rect x="7" y="15" width="6" height="1.5" rx="0.75" fill="#222"/>
+          <rect x="7.5" y="17.5" width="5" height="1.5" rx="0.75" fill="#222"/>
+        </svg>
+      </div>
+      <div class="face">
+        <svg class="base" viewBox="0 0 24 24" fill="none">
+          <path d="M6.27637 12.5879C6.76818 12.3372 7.37105 12.5328 7.62207 13.0244L7.87305 13.5156C9.03513 15.7935 11.7284 16.8283 14.1162 15.9131L14.627 15.7168C15.1426 15.5192 15.7213 15.7773 15.9189 16.293C16.1166 16.8086 15.8584 17.3873 15.3428 17.585L14.832 17.7803C11.4893 19.0615 7.71787 17.6145 6.09082 14.4258L5.83984 13.9336C5.58915 13.4418 5.78472 12.8389 6.27637 12.5879Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.0967 2.53109 8.3172 3.4541 6.80273C3.53361 6.67227 3.61669 6.54423 3.70215 6.41797C3.71926 6.39258 3.73754 6.368 3.75488 6.34277C3.81636 6.25376 3.8781 6.16501 3.94238 6.07812C4.09143 5.87566 4.24857 5.67967 4.41211 5.48926C4.41828 5.48208 4.42448 5.47493 4.43066 5.46777L4.43164 5.4668C6.26536 3.34442 8.97507 2 12 2ZM12 4C10.4432 4 8.99072 4.44554 7.76172 5.21484C8.62995 5.55644 9.37999 6.21489 9.81641 7.13672C10.2283 8.00704 11.3609 8.23869 12.0811 7.59961C12.4942 7.23351 13.1258 7.27165 13.4922 7.68457C13.8584 8.09759 13.821 8.72918 13.4082 9.0957C11.6908 10.6197 8.99116 10.0683 8.00879 7.99316C7.59145 7.11145 6.57295 6.7325 5.70312 7.06738C4.63693 8.42656 4 10.1386 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 9.6154 18.9558 7.47543 17.3008 6.00977L18.1426 15.1055L10.9355 13.2559L11.4326 11.3184L15.8887 12.4619L15.165 4.65137C14.1943 4.23269 13.1244 4 12 4Z" fill="black"/>
+        </svg>
+        <div class="mouth-mask"></div>
+        <div class="mouth-line"></div>
+      </div>
+    </div>
+    <div class="card-lbl">D</div>
+    <div class="card-name">Lightbulb</div>
+  </div>
+
+  <!-- E: Steam -->
+  <div class="card" id="c-e" onclick="pick('e')">
+    <div class="av">
+      <div class="steam">
+        <div class="wisp"></div><div class="wisp"></div><div class="wisp"></div>
+      </div>
+      <div class="face">
+        <svg class="base" viewBox="0 0 24 24" fill="none">
+          <path d="M6.27637 12.5879C6.76818 12.3372 7.37105 12.5328 7.62207 13.0244L7.87305 13.5156C9.03513 15.7935 11.7284 16.8283 14.1162 15.9131L14.627 15.7168C15.1426 15.5192 15.7213 15.7773 15.9189 16.293C16.1166 16.8086 15.8584 17.3873 15.3428 17.585L14.832 17.7803C11.4893 19.0615 7.71787 17.6145 6.09082 14.4258L5.83984 13.9336C5.58915 13.4418 5.78472 12.8389 6.27637 12.5879Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.0967 2.53109 8.3172 3.4541 6.80273C3.53361 6.67227 3.61669 6.54423 3.70215 6.41797C3.71926 6.39258 3.73754 6.368 3.75488 6.34277C3.81636 6.25376 3.8781 6.16501 3.94238 6.07812C4.09143 5.87566 4.24857 5.67967 4.41211 5.48926C4.41828 5.48208 4.42448 5.47493 4.43066 5.46777L4.43164 5.4668C6.26536 3.34442 8.97507 2 12 2ZM12 4C10.4432 4 8.99072 4.44554 7.76172 5.21484C8.62995 5.55644 9.37999 6.21489 9.81641 7.13672C10.2283 8.00704 11.3609 8.23869 12.0811 7.59961C12.4942 7.23351 13.1258 7.27165 13.4922 7.68457C13.8584 8.09759 13.821 8.72918 13.4082 9.0957C11.6908 10.6197 8.99116 10.0683 8.00879 7.99316C7.59145 7.11145 6.57295 6.7325 5.70312 7.06738C4.63693 8.42656 4 10.1386 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 9.6154 18.9558 7.47543 17.3008 6.00977L18.1426 15.1055L10.9355 13.2559L11.4326 11.3184L15.8887 12.4619L15.165 4.65137C14.1943 4.23269 13.1244 4 12 4Z" fill="black"/>
+        </svg>
+        <div class="mouth-mask"></div>
+        <div class="mouth-line"></div>
+      </div>
+    </div>
+    <div class="card-lbl">E</div>
+    <div class="card-name">Steam wisps</div>
+  </div>
+
+  <!-- F: Orbit -->
+  <div class="card" id="c-f" onclick="pick('f')">
+    <div class="av">
+      <div class="face">
+        <svg class="base" viewBox="0 0 24 24" fill="none">
+          <path d="M6.27637 12.5879C6.76818 12.3372 7.37105 12.5328 7.62207 13.0244L7.87305 13.5156C9.03513 15.7935 11.7284 16.8283 14.1162 15.9131L14.627 15.7168C15.1426 15.5192 15.7213 15.7773 15.9189 16.293C16.1166 16.8086 15.8584 17.3873 15.3428 17.585L14.832 17.7803C11.4893 19.0615 7.71787 17.6145 6.09082 14.4258L5.83984 13.9336C5.58915 13.4418 5.78472 12.8389 6.27637 12.5879Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.0967 2.53109 8.3172 3.4541 6.80273C3.53361 6.67227 3.61669 6.54423 3.70215 6.41797C3.71926 6.39258 3.73754 6.368 3.75488 6.34277C3.81636 6.25376 3.8781 6.16501 3.94238 6.07812C4.09143 5.87566 4.24857 5.67967 4.41211 5.48926C4.41828 5.48208 4.42448 5.47493 4.43066 5.46777L4.43164 5.4668C6.26536 3.34442 8.97507 2 12 2ZM12 4C10.4432 4 8.99072 4.44554 7.76172 5.21484C8.62995 5.55644 9.37999 6.21489 9.81641 7.13672C10.2283 8.00704 11.3609 8.23869 12.0811 7.59961C12.4942 7.23351 13.1258 7.27165 13.4922 7.68457C13.8584 8.09759 13.821 8.72918 13.4082 9.0957C11.6908 10.6197 8.99116 10.0683 8.00879 7.99316C7.59145 7.11145 6.57295 6.7325 5.70312 7.06738C4.63693 8.42656 4 10.1386 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 9.6154 18.9558 7.47543 17.3008 6.00977L18.1426 15.1055L10.9355 13.2559L11.4326 11.3184L15.8887 12.4619L15.165 4.65137C14.1943 4.23269 13.1244 4 12 4Z" fill="black"/>
+        </svg>
+        <div class="mouth-mask"></div>
+        <div class="mouth-line"></div>
+        <div class="orbit-ring"><div class="orbit-dot"></div></div>
+      </div>
+    </div>
+    <div class="card-lbl">F</div>
+    <div class="card-name">Orbit dot</div>
+  </div>
+
+</div>
+
+<p class="note">Click any card to preview · All use head tilt + flat mouth</p>
+
+<script>
+function pick(id) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('on'));
+  document.getElementById('c-' + id).classList.add('on');
+}
+</script>
+</body>
+</html>

@@ -20,7 +20,7 @@ export default function CaseStudyPage() {
 	}
 
 	return (
-		<PortfolioShell activePath="/#work">
+		<PortfolioShell activePath="/#work" background="#ffffff">
 			<div className="mx-auto max-w-3xl">
 				<BackLink to="/#work">← All case studies</BackLink>
 				<CaseStudyLayout study={study} />

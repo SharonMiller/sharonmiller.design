@@ -6,15 +6,15 @@ import "./Home.css";
 
 const WORK_PHOTOS = [
 	{
-		src: "/images/work_about_1.jpeg",
+		src: "/images/about and career/work_about_1.jpeg",
 		alt: "Sharon presenting the Visual Roadmap",
 	},
 	{
-		src: "/images/team1.jpeg",
+		src: "/images/about and career/team1.jpeg",
 		alt: "Design team selfie in Chicago",
 	},
 	{
-		src: "/images/team3.jpeg",
+		src: "/images/about and career/team3.jpeg",
 		alt: "Full design org group photo",
 	},
 ];
@@ -174,7 +174,7 @@ export default function About() {
 				{/* Name + circle photo */}
 				<div className="about-identity">
 					<img
-						src="/images/profile-photo-full.png"
+						src="/images/about and career/profile-photo-full.png"
 						alt="Sharon Miller"
 						className="about-avatar"
 					/>
@@ -182,7 +182,7 @@ export default function About() {
 						<h1 className="home-hero-name mt-2" id="about-personal-heading">
 							Sharon Miller
 						</h1>
-						<p className="home-hero-title">Head of Product Design</p>
+						<p className="home-hero-title">Design Leader</p>
 					</div>
 				</div>
 
@@ -200,7 +200,10 @@ export default function About() {
 								Based in Bend, Oregon, working fully remote. Outside work: family,
 								hiking, skiing, and two French Bulldogs who have very strong opinions about
 								everything. I mentor early-career designers and have run community art
-								workshops with local youth for years.
+								workshops with local youth for years. I serve on the advisory board for the
+								Design department at Central Oregon Community College, and advise the High
+								Desert Education Service District, working with high school teachers across
+								Oregon to prepare students for careers in tech.
 							</p>
 							<p>
 								I care about the people on the teams I work with as much as I care about
@@ -219,7 +222,7 @@ export default function About() {
 
 					<figure className="about-collage-frame">
 						<img
-							src="/images/family-collage.png"
+							src="/images/about and career/family-collage.png"
 							alt="Sharon with family on the beach, skiing with kids, lakeside with French Bulldogs, and son's track meet at George Fox University"
 							className="about-collage-img"
 						/>
@@ -236,8 +239,7 @@ export default function About() {
 							<span aria-hidden="true">● </span>Available
 						</span>
 						<span>
-							Open to senior IC and staff roles. Also consulting with design teams on
-							AI-powered process and workflow transformation.
+							Open to senior IC and staff roles, and consulting with design teams on AI-powered workflow and process.
 						</span>
 					</p>
 				</div>
@@ -251,14 +253,15 @@ export default function About() {
 			</div>
 
 			{/* ── WORK SECTION ─────────────────────────────────── */}
-			<section className="about-section" aria-labelledby="about-work-heading">
+			<section className="about-section" aria-labelledby="about-work-heading" style={{ background: "#ffffff", borderRadius: "1rem", padding: "2.5rem", marginTop: "2rem" }}>
 				<div className="about-work-intro">
 					<h2 className="about-work-heading" id="about-work-heading">
 						Design, engineering, product, and operations: not as separate tracks, but as one practice.
 					</h2>
 					<p className="about-work-subhead">
 						Twenty years across platform UX, growth design, SaaS product ownership, and cloud
-						infrastructure. The range is intentional.
+						infrastructure — currently leading design at VSCO, an iconic platform built for photographers
+						and creators. The range is intentional.
 					</p>
 				</div>
 
@@ -271,12 +274,6 @@ export default function About() {
 					</div>
 				</div>
 
-				<figure className="about-team-frame">
-					<PhotoGrid photos={WORK_PHOTOS} columns={3} />
-					<figcaption className="about-photo-caption">
-						Presenting the visual roadmap at SurveyMonkey. Team offsite in Chicago. The full design org.
-					</figcaption>
-				</figure>
 
 				{/* Career arc */}
 				<div className="career-arc">
@@ -286,19 +283,7 @@ export default function About() {
 							<CareerRow key={item.period} {...item} />
 						))}
 					</div>
-					<div className="about-history-links">
-						<Link to="/work-history" className="about-work-history-link">
-							Full work history →
-						</Link>
-						<a
-							href="https://sharonmillercreative.com"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="about-work-history-link"
-						>
-							sharonmillercreative.com →
-						</a>
-					</div>
+
 				</div>
 
 				{/* Speaking */}

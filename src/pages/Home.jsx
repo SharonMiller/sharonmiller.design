@@ -19,7 +19,6 @@ function CaseStudyCard({ study, revealIndex }) {
 		>
 			<Link to={study.href} className="case-study-card__link group">
 				<div className="case-study-card__content">
-					<p className="case-study-card__label">{study.label}</p>
 					<h3 className="case-study-card__title">{study.title}</h3>
 					<p className="case-study-card__year-line">
 						{study.year}
@@ -45,9 +44,8 @@ export default function Home() {
 	useScrollReveal(["home"]);
 
 	return (
-		<div className="portfolio-page page-load">
+		<div className="portfolio-page page-load" style={{ background: "#ffffff" }}>
 			<NavBar
-				brand="SM"
 				brandHref="/"
 				links={PORTFOLIO_NAV.map((link) => ({
 					...link,
@@ -65,7 +63,7 @@ export default function Home() {
 
 						<div ref={photoFrameRef} className="profile-photo-frame">
 							<img
-								src="/images/profile-photo-full.png"
+								src="/images/about and career/profile-photo-full.png"
 								alt="Sharon Miller"
 								className="profile-photo-intro"
 							/>
@@ -80,14 +78,13 @@ export default function Home() {
 									without compromising craft or trust.
 								</p>
 								<p>
-									That gap is where I work. Head of Product Design at VSCO, where I built the
+									That gap is where I work. Design leader at VSCO, where I built the
 									AI-native operating model alongside shipping product. Previously at SurveyMonkey
 									leading platform design and AI features. Twenty years bridging design, engineering,
 									and product strategy.
 								</p>
 								<p>
-									Looking for senior platform and staff roles where the design challenge is as much
-									about how the team works as what they ship.
+									Looking for senior IC, staff, and leadership roles where the design challenge is as much about how the team works as what they ship.
 								</p>
 							</div>
 

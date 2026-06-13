@@ -2,6 +2,97 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { scrollToHash } from "../../utils/smoothScroll.js";
 
+function NavDropdown({ link, mobile = false, onClose }) {
+	const [open, setOpen] = useState(false);
+	const ref = useRef(null);
+	const closeTimer = useRef(null);
+
+	const scheduleClose = () => {
+		closeTimer.current = setTimeout(() => setOpen(false), 150);
+	};
+	const cancelClose = () => {
+		if (closeTimer.current) clearTimeout(closeTimer.current);
+	};
+
+	useEffect(() => {
+		if (!open) return;
+		function handleClick(e) {
+			if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+		}
+		document.addEventListener("mousedown", handleClick);
+		return () => document.removeEventListener("mousedown", handleClick);
+	}, [open]);
+
+	if (mobile) {
+		return (
+			<div className="portfolio-nav-dropdown-mobile">
+				<button
+					className={`portfolio-nav-link portfolio-nav-link--mobile portfolio-nav-dropdown-trigger${open ? " is-open" : ""}`}
+					onClick={() => setOpen((v) => !v)}
+					aria-expanded={open}
+				>
+					{link.label}
+					<svg className="portfolio-nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+						<path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+					</svg>
+				</button>
+				{open && (
+					<div className="portfolio-nav-dropdown-panel portfolio-nav-dropdown-panel--mobile">
+						{link.children.map((child) => (
+							<Link
+								key={child.href}
+								to={child.href}
+								className="portfolio-nav-dropdown-item"
+								onClick={() => { setOpen(false); onClose?.(); }}
+							>
+								{child.label}
+							</Link>
+						))}
+					</div>
+				)}
+			</div>
+		);
+	}
+
+	return (
+		<div
+			className="portfolio-nav-dropdown"
+			ref={ref}
+			onMouseEnter={() => { cancelClose(); setOpen(true); }}
+			onMouseLeave={scheduleClose}
+		>
+			<button
+				className={`portfolio-nav-link portfolio-nav-dropdown-trigger${link.active ? " portfolio-nav-link--active" : ""}${open ? " is-open" : ""}`}
+				aria-expanded={open}
+				onClick={() => setOpen((v) => !v)}
+			>
+				{link.label}
+				<svg className="portfolio-nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+					<path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+				</svg>
+			</button>
+			{open && (
+				<div
+					className="portfolio-nav-dropdown-panel"
+					onMouseEnter={cancelClose}
+					onMouseLeave={scheduleClose}
+				>
+					{link.children.map((child) => (
+						<Link
+							key={child.href}
+							to={child.href}
+							className="portfolio-nav-dropdown-item"
+							onClick={() => setOpen(false)}
+						>
+							{child.label}
+						</Link>
+					))}
+				</div>
+			)}
+		</div>
+	);
+}
+
 function BrandMark({ href, label = "SM", onClick }) {
 	const mark = <span className="portfolio-nav-brand">{label}</span>;
 
@@ -52,7 +143,7 @@ function HamburgerIcon({ open }) {
  * Mobile: hamburger button → dropdown panel
  */
 export default function NavBar({
-	brand = "SM",
+	brand = null,
 	brandHref = "/",
 	links = [],
 	actions,
@@ -95,7 +186,11 @@ export default function NavBar({
 	};
 
 	const renderLink = (link, mobile = false) => {
-		const isHash = link.href.includes("#");
+		if (link.children?.length) {
+			return <NavDropdown key={link.label} link={link} mobile={mobile} onClose={closeMenu} />;
+		}
+
+		const isHash = link.href?.includes("#");
 		const linkClass = `portfolio-nav-link${link.active ? " portfolio-nav-link--active" : ""}${mobile ? " portfolio-nav-link--mobile" : ""}`;
 
 		if (isHash) {
@@ -128,7 +223,7 @@ export default function NavBar({
 	return (
 		<header className={`portfolio-nav-shell ${className}`.trim()} ref={navRef}>
 			<div className="portfolio-nav-pill">
-				<BrandMark href={brandHref} label={brand} onClick={closeMenu} />
+				{brand && <BrandMark href={brandHref} label={brand} onClick={closeMenu} />}
 
 				{/* Desktop links */}
 				{links.length > 0 && (

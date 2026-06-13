@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import CaseStudyMeta from "./CaseStudyMeta.jsx";
+import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading.jsx";
 
 function DemoVideo({ src, caption }) {
@@ -38,6 +38,18 @@ function DemoVideo({ src, caption }) {
 	);
 }
 
+function PullQuote({ text }) {
+	return <p className="case-study-pullquote">{text}</p>;
+}
+
+function SectionDivider({ text }) {
+	return (
+		<div className="case-study-divider">
+			<span className="case-study-divider__text">{text}</span>
+		</div>
+	);
+}
+
 function Paragraphs({ items }) {
 	return items.map((text, index) => (
 		<p key={index} className="case-study-paragraph">{text}</p>
@@ -54,21 +66,31 @@ function BulletList({ items }) {
 	);
 }
 
-function SubSection({ title, paragraphs = [], list = [] }) {
+function SubSection({ title, paragraphs = [], list = [], image }) {
 	return (
 		<div className="case-study-subsection">
 			<h3 className="case-study-subsection__title">{title}</h3>
 			<div className="case-study-section__content">
 				{paragraphs.length > 0 && <Paragraphs items={paragraphs} />}
 				{list.length > 0 && <BulletList items={list} />}
+				{image && (
+					<SectionImage
+						src={image.src}
+						alt={image.alt}
+						caption={image.caption}
+						fullWidth={image.fullWidth ?? true}
+						contain={image.contain ?? true}
+					/>
+				)}
 			</div>
 		</div>
 	);
 }
 
 function StatGrid({ stats, columns }) {
+	const isPair = columns === 2 || stats.length === 2;
 	return (
-		<div className={`case-study-stat-grid${columns === 2 ? " case-study-stat-grid--pair" : ""}`}>
+		<div className={`case-study-stat-grid${isPair ? " case-study-stat-grid--pair" : ""}`}>
 			{stats.map((stat) => (
 				<div key={stat.label} className="case-study-stat-card">
 					<span className="case-study-stat-card__value">{stat.value}</span>
@@ -147,7 +169,7 @@ function TeamGrid({ team }) {
 
 	return (
 		<section className="case-study-team lumen-reveal lumen-reveal--lift" aria-label="Project team">
-			<SectionHeading className="case-study-section-heading">The team</SectionHeading>
+			<SectionHeading className="case-study-section-heading">{team.title ?? "The team"}</SectionHeading>
 			<div className="case-study-team__grid">
 				{team.columns.map((column) => (
 					<div key={column.title} className="case-study-team__column">
@@ -206,6 +228,10 @@ function ContentBlocks({ blocks }) {
 				);
 			case "video":
 				return <DemoVideo key={blockIndex} src={block.src} caption={block.caption} />;
+			case "pullquote":
+				return <PullQuote key={blockIndex} text={block.text} />;
+			case "divider":
+				return <SectionDivider key={blockIndex} text={block.text} />;
 			default:
 				return null;
 		}
@@ -234,9 +260,19 @@ function SectionBlock({ section, index }) {
 			{section.paragraphs?.length > 0 && <Paragraphs items={section.paragraphs} />}
 			{section.list?.length > 0 && <BulletList items={section.list} />}
 			{section.closingParagraphs?.length > 0 && <Paragraphs items={section.closingParagraphs} />}
-			{section.subsections?.map((sub) => (
-				<SubSection key={sub.title} {...sub} />
-			))}
+			{section.subsections?.length > 0 && (
+				section.subsectionColumns ? (
+					<div className="case-study-subsections-grid">
+						{section.subsections.map((sub) => (
+							<SubSection key={sub.title} {...sub} />
+						))}
+					</div>
+				) : (
+					section.subsections.map((sub) => (
+						<SubSection key={sub.title} {...sub} />
+					))
+				)
+			)}
 			{!layout && hasImage && (
 				<SectionImage
 					src={section.image.src}
@@ -246,7 +282,11 @@ function SectionBlock({ section, index }) {
 					contain={section.image.contain ?? true}
 				/>
 			)}
-			{section.video && <DemoVideo src={section.video.src} caption={section.video.caption} />}
+			{section.pullquote && <PullQuote text={section.pullquote} />}
+		{section.beforeAfter && (
+			<BeforeAfterImages before={section.beforeAfter.before} after={section.beforeAfter.after} />
+		)}
+		{section.video && <DemoVideo src={section.video.src} caption={section.video.caption} />}
 			{section.embed && (
 				<FigmaEmbed src={section.embed.src} caption={section.embed.caption} height={section.embed.height} />
 			)}
@@ -296,10 +336,11 @@ export default function CaseStudyLayout({ study }) {
 			<header className="case-study-header">
 				{/* Title block */}
 				<div className="case-study-header__title-block">
-					<p className="lumen-section-label">Case study</p>
 					<h1 className="case-study-title">{study.title}</h1>
-					<p className="case-study-header__role">{study.role}</p>
-					<p className="case-study-header__type">{study.type}</p>
+					<p className="case-study-header__role">
+						{study.role}{study.year ? ` · ${study.year}` : ""}
+					</p>
+					{study.type && <p className="case-study-header__type">{study.type}</p>}
 				</div>
 
 				{/* Hero image — full width */}
@@ -313,11 +354,9 @@ export default function CaseStudyLayout({ study }) {
 					</div>
 				)}
 
-				{study.title && (
-					<p className="case-study-hook">{study.title}</p>
+				{study.hook && (
+					<p className="case-study-hook">{study.hook}</p>
 				)}
-
-				<CaseStudyMeta study={study} />
 
 				{study.beforeImage && (
 					<SectionImage
@@ -360,6 +399,26 @@ export default function CaseStudyLayout({ study }) {
 
 			{study.footer && (
 				<p className="case-study-footer">{study.footer}</p>
+			)}
+
+			{study.relatedStudy && (
+				<Link to={`/case-study/${study.relatedStudy.slug}`} className="case-study-related">
+					<span className="case-study-related__label">{study.relatedStudy.label}</span>
+					<p className="case-study-related__text">{study.relatedStudy.text}</p>
+					<span className="case-study-related__cta">{study.relatedStudy.cta}</span>
+				</Link>
+			)}
+
+			{study.relatedStudies?.length > 0 && (
+				<div className="case-study-related-list">
+					{study.relatedStudies.map((rs) => (
+						<Link key={rs.slug} to={`/case-study/${rs.slug}`} className="case-study-related">
+							<span className="case-study-related__label">{rs.label}</span>
+							<p className="case-study-related__text">{rs.text}</p>
+							<span className="case-study-related__cta">{rs.cta}</span>
+						</Link>
+					))}
+				</div>
 			)}
 		</article>
 	);

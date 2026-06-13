@@ -4,11 +4,11 @@ import aiDesignOps from "./aiDesignOps.js";
 import growthDesign from "./growthDesign.js";
 import organizingGrowth from "./organizingGrowth.js";
 
-/** Order: most technically differentiated → product + process → org-level ops → IC craft → systems/leadership */
+/** Order: lead with IC AI work → ops/org → systems → IC craft → growth */
 export const CASE_STUDIES = [
-	designSystemGovernance,
 	buildingAtlas,
 	aiDesignOps,
+	designSystemGovernance,
 	growthDesign,
 	organizingGrowth,
 ];

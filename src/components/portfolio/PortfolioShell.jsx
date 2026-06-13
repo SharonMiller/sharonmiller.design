@@ -4,11 +4,18 @@ import PageContainer from "./PageContainer";
 import BackToTop from "./BackToTop";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useScrollToTopOnNavigate } from "../../hooks/useScrollToTopOnNavigate";
+import { CASE_STUDIES } from "../../content/caseStudies";
 import "../../pages/Home.css";
 
 export const PORTFOLIO_NAV = [
 	{ label: "Home", href: "/" },
-	{ label: "Case studies", href: "/#work" },
+	{
+		label: "Case studies",
+		children: CASE_STUDIES.map((s) => ({
+			label: s.title,
+			href: `/case-study/${s.slug}`,
+		})),
+	},
 	{ label: "About", href: "/about" },
 	{ label: "Reach out", href: "/contact" },
 ];
@@ -25,6 +32,7 @@ export default function PortfolioShell({
 	activePath,
 	contactFooter = true,
 	mainClassName = "",
+	background = "#ffffff",
 }) {
 	const location = useLocation();
 	useScrollToTopOnNavigate();
@@ -37,8 +45,8 @@ export default function PortfolioShell({
 	}));
 
 	return (
-		<div className="min-h-screen bg-white">
-			<NavBar brand="SM" brandHref="/" links={links} />
+		<div className="min-h-screen" style={{ background }}>
+			<NavBar brandHref="/" links={links} />
 
 			<main
 				key={location.pathname}
@@ -80,16 +88,9 @@ export default function PortfolioShell({
 
 					<div className="portfolio-site-footer__bar">
 						<PageContainer innerClassName="portfolio-site-footer__bar-inner">
-							<nav className="portfolio-site-footer__nav" aria-label="Site">
-								{PORTFOLIO_NAV.map(({ label, href }) => (
-									<Link key={href} to={href} className="portfolio-site-footer__nav-link">
-										{label}
-									</Link>
-								))}
-							</nav>
 							<p className="portfolio-site-footer__meta">
 								<span className="portfolio-site-footer__copyright">
-									&copy; {year} Sharon Miller
+									&copy; {year} Sharon Miller &middot; Designed and built with Cursor + Claude
 								</span>
 								<BackToTop className="portfolio-site-footer__back-top" />
 							</p>

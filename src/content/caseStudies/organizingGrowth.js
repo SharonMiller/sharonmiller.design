@@ -1,10 +1,12 @@
+const OG = "/images/surveymonkey organizing growth";
+
 const organizingGrowth = {
 	slug: "organizing-growth",
-	title: "Organizing Growth",
-	year: "2022–2023",
-	role: "Product Design Manager, Growth — reporting to CTO",
+	title: "Order From Chaos",
+	year: "2023–2024",
+	role: "Product Design Manager, Growth (reporting to CTO)",
 	type: "Design leadership · Systems thinking · Cross-functional influence",
-	hook: "Our experiment tracking system was fundamentally broken: repeated failures, overlapping tests, no shared memory across the team. Fixing it wasn't my mandate. I fixed it anyway.",
+	hook: "Every team I've been on has had some version of chaos that everyone accepted as normal. I can't work that way. At SurveyMonkey I inherited a growth team with no experiment tracking, no shared memory, and no accountability. I built the system that changed that — without the authority to make anyone use it.",
 	metrics: [
 		{ value: "24%", label: "Increase in team delivery velocity" },
 		{ value: "12%", label: "Team morale improvement (eNPS)" },
@@ -12,7 +14,7 @@ const organizingGrowth = {
 	description:
 		"No direct authority. Cross-functional resistance. A broken experiment tracking system causing repeated failures and wasted work. Fixed through influence, systems thinking, and a roadshow to every stakeholder who needed to say yes.",
 	thumbnail: {
-		src: "/images/organizing-growth-jpd-thumbnail.png",
+		src: `${OG}/organizing-growth-jpd-thumbnail.png`,
 		alt: "SurveyMonkey growth experiment tracking database in Jira Product Discovery",
 	},
 	impact: [
@@ -29,74 +31,151 @@ const organizingGrowth = {
 	team: {
 		columns: [
 			{
-				title: "Role",
+				title: "The team",
 				items: [
-					"Product Design Manager, Growth",
-					"Reporting to CTO",
-					"Cross-functional lead, no direct authority",
+					"Myself",
+					"Director, Product, Growth",
+					"Director, Engineering, Growth",
+					"Director, Product Analytics",
 				],
 			},
 			{
-				title: "Stack",
+				title: "Stakeholders",
 				items: [
-					"Jira Product Discovery",
-					"Slack automations",
-					"Google Sheets (legacy tracking)",
+					"Chief Technology Officer",
+					"Senior VP, Product",
+					"VP Engineering",
+					"Sr. Director, Systems Engineering",
+					"Product leads across the company",
 				],
 			},
 			{
 				title: "Skills",
-				items: [
-					"Systems thinking",
-					"Stakeholder influence",
-					"Experiment design",
-					"Cross-functional alignment",
-				],
+				items: ["Leadership", "Influence", "Systems Thinking", "Organization"],
 			},
 		],
 	},
 	sections: [
 		{
+			title: "My role",
+			paragraphs: [
+				"Reporting directly to the Chief Technology Officer, I spearheaded this initiative as Product Design Manager for growth and personalization.",
+				"I collaborated closely with my counterparts, the Product Director and Engineering Director. We had all recently joined the growth team with a shared goal of improving workflows, fostering a supportive environment, and achieving impactful outcomes.",
+			],
+		},
+		{
 			title: "The problem",
 			layout: "image-right",
 			paragraphs: [
-				"Documentation was siloed and disorganized. Teams were keeping notes in personal files and apps. When someone left, the knowledge left with them. There was no way to learn from past experiments, check for conflicts, or track longer-tail results.",
-				"The growth team spent more time managing chaos than planning. Onboarding was a nightmare. Cross-functional visibility was near zero. The experiment database was a spreadsheet that nobody trusted.",
+				"Our experiment tracking system was inadequate and fundamentally broken. This inefficiency led to:",
+			],
+			list: [
+				"repeating failed experiments",
+				"difficulty in measuring our impact",
+				"frequent experiment overlaps compromising quality",
+			],
+			closingParagraphs: [
+				"Instead of planning, we spent our time putting out fires and trying to keep the teams on track.",
 			],
 			image: {
-				src: "/images/organizing-growth-jpd-thumbnail.png",
-				alt: "Jira Product Discovery delivery board showing experiments with status, metrics, and outcome tracking",
-				caption:
-					"The experiment database in Jira Product Discovery: consistent fields, conflict detection, and outcome tracking across every experiment.",
+				src: `${OG}/gif-this-is-fine.webp`,
+				alt: "The 'this is fine' meme — a dog sitting calmly in a room on fire",
+				caption: "Lack of tracking led to being reactive.",
 			},
 		},
 		{
-			title: "Defining the approach",
-			paragraphs: [
-				"The first step was understanding what we actually needed to track. I worked with the data science team to define the required fields for detecting conflicts between concurrent experiments and assessing impact on business metrics.",
-				"From there I evaluated tools that could handle the workflow without creating redundant work for product teams. Jira Product Discovery fit. The goal was a single source of truth that made experiment history searchable, comparable, and legible to anyone outside the growth team.",
+			title: "Digging deeper",
+			layout: "image-left",
+			image: {
+				src: `${OG}/apps used.png`,
+				alt: "Tools used by the growth team: Jira, Confluence, Google Docs, Google Sheets, Notion, Figma",
+				caption: "Apps being used to document work.",
+			},
+			list: [
+				"Documentation was disorganized and siloed",
+				"We could not learn from past mistakes",
+				"Employees kept documentation in personal files — lost when they left",
+				"Employee onboarding and offboarding was a nightmare",
 			],
 		},
 		{
-			title: "Building the solution",
-			paragraphs: [
-				"I created templates so every experiment ticket captured the same data from day one: hypothesis, surface area, metrics, conflict flags, and outcome fields. The structure wasn't just about tracking. It was about making the work legible to stakeholders who needed to prioritize, to adjacent teams who needed visibility, and to future team members who would inherit the work.",
-				"Automations pushed experiment results to Slack as they published. Visibility without meetings. The system ran itself once the templates and workflows were in place.",
-			],
-		},
-		{
-			title: "Cross-functional work",
+			title: "Creating structure",
 			layout: "image-right",
 			paragraphs: [
-				"This was primarily a product responsibility. I was the design manager. To make it happen, I needed approval from the CTO, SVP of Product, VP of Engineering, and product leads across the company.",
-				"Some leaders were hesitant. The standard resistance: more process, more overhead, more meetings. I ran a roadshow using storytelling rather than slide decks. The case was simple: we are spending more time managing failed experiments than running good ones. Here is the cost. Here is the fix.",
-				"The lesson I came back to throughout: influence without agency is hard, but the results belong to everyone. Keeping a united front with my product partner was what made the difference. We presented as one team, not as design lobbying for a design solution.",
+				"I documented all the necessary fields to track and analyze the impact of experiments on business metrics.",
+				"Collaborated with our data science team to determine the required fields for detecting potential conflicts in ongoing experiments.",
 			],
 			image: {
-				src: "/images/pug stubborn.png",
-				alt: "A stubborn-looking pug on a sidewalk",
-				caption: "Some stakeholders were hesitant towards change. The pug understands.",
+				src: `${OG}/JPD with templage.png`,
+				alt: "Jira Product Discovery experiment template with structured fields for hypothesis, metrics, and conflict detection",
+				caption: "Experiment template: consistent fields across every ticket from day one.",
 			},
+		},
+		{
+			title: "Aligning on a solution",
+			layout: "image-right",
+			paragraphs: [
+				"Explored tools that could streamline the process without adding redundant work for the product team.",
+				"Coordinated with product delivery leads to gain approval for Jira Product Discovery.",
+				"Created templates so all experiment tickets captured the same data: hypothesis, surface area, metrics, conflict flags, and outcome fields.",
+			],
+			image: {
+				src: `${OG}/growth-experiments.png`,
+				alt: "Growth experiments view in Jira Product Discovery showing grouped experiments by theme",
+				caption: "Experiments organized by theme, owner, and status in a single source of truth.",
+			},
+		},
+		{
+			title: "Delivering the solution",
+			imageFullWidth: true,
+			paragraphs: [
+				"The structure wasn't just about tracking. It was about making the work legible to stakeholders who needed to prioritize, adjacent teams who needed visibility, and future team members who would inherit it.",
+				"Automations pushed experiment results to Slack as they published. Visibility without meetings. The system ran itself once the templates and workflows were in place.",
+			],
+			image: {
+				src: `${OG}/experiment-database.png`,
+				alt: "Full experiment database in Jira Product Discovery showing all growth experiments with status, metrics, and outcomes",
+				caption: "The full experiment database: searchable, filterable, and automatically updated.",
+			},
+		},
+		{
+			title: "The benefit",
+			layout: "image-right",
+			list: [
+				"New ideas documented for easy prioritization on the roadmap",
+				"Improved team morale",
+				"Searchable database of experiments and results",
+				"Stakeholders can track impact on business metrics",
+			],
+			image: {
+				src: `${OG}/organizing-growth-jpd-thumbnail.png`,
+				alt: "Jira Product Discovery roadmap view showing prioritized experiment ideas",
+				caption: "Easy prioritization.",
+			},
+		},
+		{
+			title: "Overcoming resistance",
+			layout: "image-left",
+			image: {
+				src: `${OG}/pug stubborn.png`,
+				alt: "A stubborn-looking pug on a sidewalk",
+				caption: "Getting alignment with change resistors.",
+			},
+			subsections: [
+				{
+					title: "Influence without agency",
+					paragraphs: [
+						"With support from my product partner, I led the initiative. It was essential to keep a united front since this was primarily a product responsibility.",
+					],
+				},
+				{
+					title: "Stakeholder management",
+					paragraphs: [
+						"To achieve alignment across the company, I needed approval from the CTO, SVP of Product, VP of Engineering, and product leads across the company.",
+						"Some leaders were hesitant. I ran a roadshow using storytelling rather than slide decks. The case was simple: we're spending more time managing failed experiments than running good ones. Here's the cost. Here's the fix.",
+					],
+				},
+			],
 		},
 		{
 			title: "The outcome",
@@ -104,14 +183,35 @@ const organizingGrowth = {
 				{ value: "24%", label: "Delivery velocity increase" },
 				{ value: "12%", label: "Team morale (eNPS)" },
 			],
-			paragraphs: [
-				"Team delivery velocity up 24%. eNPS up 12%. Those are real numbers from real measurement, not estimated.",
-				"The less visible wins mattered too. Adjacent teams could filter past experiments by date, impact, team, or surface area. Quarterly planning got easier. Design and content could plan proactively instead of reacting to what engineering was already building.",
-				"Onboarding and offboarding no longer depended on tribal knowledge. The system held the memory the team had been carrying in people's heads.",
+			subsectionColumns: true,
+			subsections: [
+				{
+					title: "Improved metrics tracking",
+					list: [
+						"Reduced experiments on hold due to assignment issues",
+						"Process to validate success and guardrail metrics with data science",
+						"Easier to track longer-tail results linked to specific experiments",
+					],
+				},
+				{
+					title: "Transparency and visibility",
+					list: [
+						"Automations publish experiment results to Slack as they ship",
+						"Adjacent teams can learn at scale",
+						"Past experiments filterable by date, impact, team, or surface area",
+					],
+				},
+				{
+					title: "Enhanced team dynamics",
+					list: [
+						"Improved cross-functional communication",
+						"Enabled proactive planning for design and content",
+						"Quarterly planning and roadmap simplified",
+					],
+				},
 			],
 		},
 	],
-	footer: "Full case study walkthrough available during an interview.",
 };
 
 export default organizingGrowth;
