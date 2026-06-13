@@ -28,34 +28,7 @@ const growthDesign = {
 		"Survey authoring was the core of the product and it hadn't kept up. 90% of new users couldn't configure basic logic. 75% failed to find foundational customization settings. The platform was mid-rewrite from Python to React, millions of enterprise users couldn't be disrupted, and a high-risk full rebuild wasn't an option.",
 		"The solution was a hybrid approach: React components injected into the existing Python UI, enabling incremental value delivery without disrupting active users or the ongoing roadmap.",
 	],
-	team: {
-		columns: [
-			{
-				title: "Design leadership",
-				items: [
-					"Co-led product and UX strategy with the Sr. Manager of Product to define a three-year modernization vision.",
-					"Shaped architectural direction in partnership with the Engineering Director.",
-					"Defined foundational UX patterns to guide phased system evolution and long-term consistency.",
-				],
-			},
-			{
-				title: "Executive alignment",
-				items: [
-					"Presented modernization strategy to the CTO, SVP Product, and VP Design.",
-					"Secured multi-quarter buy-in for phased transformation over a high-risk full rebuild.",
-					"Aligned cross-functional leadership around sequencing, investment, and success metrics.",
-				],
-			},
-			{
-				title: "Delivery model",
-				items: [
-					"Sequenced phased rollout to minimize revenue risk while maintaining feature velocity.",
-					"Introduced modular system patterns progressively adopted across feature teams.",
-					"Balanced experimentation with architectural evolution to avoid disrupting the active roadmap.",
-				],
-			},
-		],
-	},
+	stack: ["Figma", "React", "User Testing"],
 	sections: [
 		{
 			title: "My role",
@@ -275,7 +248,7 @@ const growthDesign = {
 		{
 			title: "Leadership transition: design lead to management",
 			paragraphs: [
-				"Shortly after the project was approved, my manager resigned, and I was asked to manage the team until we could hire a new director. With minimal time to adjust, I had to hit the ground running. My past leadership experience in previous roles helped me come up to speed faster.",
+				"Shortly after the project was approved, my manager resigned. I took on the management responsibilities while staying IC on the modernization work — 1:1s, direction-setting, cross-functional alignment, plus delivery. Prior leadership experience meant I could move faster than starting from zero.",
 			],
 			subsectionColumns: true,
 			subsections: [
@@ -320,28 +293,10 @@ const growthDesign = {
 			],
 		},
 		{
-			title: "Next steps",
-			subsectionColumns: true,
-			subsections: [
-				{
-					title: "Core team",
-					paragraphs: [
-						"The transformation process is a multiyear journey. The team is continuing to roll out incremental value and learning as they go. The next step includes bringing the overview panel into the authoring space so logic is easier to add as questions are being built.",
-					],
-				},
-				{
-					title: "Growth team",
-					paragraphs: [
-						"The growth team plays a crucial role supporting the product development process. They run experiments to gather insights that drive design decisions around conversion, engagement, and retention, then optimize the experience following each new feature launch.",
-					],
-				},
-			],
-		},
-		{
 			title: "Learnings",
 			paragraphs: [
-				"This project was filled with unexpected twists and turns. As I transitioned from Lead IC to managing my former peers, I had to learn to let go and empower the team to take ownership of the vision. The transition wasn't always smooth, but the team's graciousness during the messier moments made it work.",
-				"By leveraging my knowledge and existing partnerships, I was able to break down silos between growth and core teams. We collaborated to de-risk assumptions on core and meet our goals on growth. A win for both sides.",
+				"Transitioning from Lead IC to managing my former peers required a different kind of judgment. The work that mattered most wasn't staying IC on every decision — it was helping the team own the vision themselves. The transition had rough patches; the team's patience through them made it work.",
+				"The cross-functional relationships I'd built became the practical advantage when it mattered: growth and core ran coordinated experiments, de-risked shared assumptions, and both teams hit their goals.",
 			],
 		},
 	],

@@ -114,7 +114,7 @@ const buildingAtlas = {
 				"The assistant is the simple surface on top of a complex system. Designing it required a different approach than designing a flow: we can't map every conversation a photographer might have.",
 				"Instead of flows, we designed a component vocabulary: output primitives the assistant can assemble in any order. Option chips for decisions. Structured preview cards before any write action. A confirmation step before anything is committed. Always one tap from a real person.",
 				"The human-in-the-loop principle that applied to my design process applied to the product too. The assistant shows its work before it acts. Users stay in control.",
-				"I designed the Scout component library (@vsco/scout-ui) as a standalone React package. Every component in the vocabulary ships as a documented, testable primitive: ScoutOptionChip, ScoutConfirmationStep, ScoutCelebrationState, ScoutHandoffCard, ScoutThinkingIndicator. The library is published with a live playground for testing animation parameters.",
+				"I designed Scout as a standalone React component library. Every component in the vocabulary ships as a documented, testable primitive: ScoutOptionChip, ScoutConfirmationStep, ScoutCelebrationState, ScoutHandoffCard, ScoutThinkingIndicator. The library is published with a live playground for testing animation parameters.",
 				"My instinct whenever someone proposes a third-party hire: try it myself first. Cursor kept producing hard-edged blobs instead of the soft mesh the design called for. I switched to Claude, which solved the SVG math differently and got there. The head of brand liked it but wanted to tweak it, so it shipped as an interactive playground with parametric controls rather than a hardcoded value.",
 			],
 			embed: {
@@ -156,6 +156,7 @@ const buildingAtlas = {
 			title: "The outcome",
 			stats: [
 				{ value: "0", label: "P0 failures in usability test" },
+				{ value: "~1 wk", label: "Concept to working spec" },
 				{ value: "272", label: "Commits to the prototype" },
 			],
 			paragraphs: [

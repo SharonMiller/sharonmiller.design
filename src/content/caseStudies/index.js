@@ -1,13 +1,13 @@
 import designSystemGovernance from "./designSystemGovernance.js";
 import buildingAtlas from "./buildingAtlas.js";
-import aiDesignOps from "./aiDesignOps.js";
+import aiFirst from "./aiFirst.js";
 import growthDesign from "./growthDesign.js";
 import organizingGrowth from "./organizingGrowth.js";
 
 /** Order: lead with IC AI work → ops/org → systems → IC craft → growth */
 export const CASE_STUDIES = [
 	buildingAtlas,
-	aiDesignOps,
+	aiFirst,
 	designSystemGovernance,
 	growthDesign,
 	organizingGrowth,

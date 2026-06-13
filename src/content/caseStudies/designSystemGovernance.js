@@ -34,31 +34,7 @@ const designSystemGovernance = {
 		"The solution wasn't to centralize who builds. It was to centralize quality. I owned the standard. The team built to it. An AI-assisted audit workflow became the quality gate.",
 		"Less than a day to audit the full library. Zero new headcount.",
 	],
-	team: {
-		columns: [
-			{
-				title: "Role",
-				items: [
-					"Head of Product Design, owns and approves the system",
-					"Design Team contributes to design system",
-					"No dedicated design systems IC",
-				],
-			},
-			{
-				title: "Stack",
-				items: ["MCP", "Claude Cowork", "Claude skills", "Slack"],
-			},
-			{
-				title: "Model",
-				items: [
-					"Distributed contribution",
-					"Automated compliance gate",
-					"Approval-based governance",
-					"Code Connect handoff",
-				],
-			},
-		],
-	},
+	stack: ["MCP", "Claude", "Figma", "Slack"],
 	relatedStudy: {
 		slug: "operationalizing-ai-native-design",
 		label: "Read next",

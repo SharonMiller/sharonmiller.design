@@ -13,14 +13,14 @@ const aiFirst = {
 	description:
 		"AI-native operating model: Cursor as the primary design surface, working branches as engineering handoff, and a Flywheel that made the design system stronger with every prototype.",
 	thumbnail: {
-		src: "/images/workspace/dashboard-with-assistant.png",
-		alt: "VSCO Workspace prototype — built in Cursor, shipped as the engineering handoff",
+		src: "/images/ai design ops/animation-screenshot.png",
+		alt: "Scout thinking indicator animation — four styles prototyped in Cursor as interactive React components",
 	},
 	impact: [
 		"Two production MVPs designed from working prototypes, not static Figma decks. Engineering forked from a working branch.",
 		"Concept-to-spec cycles compressed from months to roughly one week.",
 		"272 commits, 177k lines of design-led code. Top contributor to the prototype repo.",
-		"Design × AI Flywheel and L3–L5 competency framework adopted across the full design org at All Hands 2026.",
+		"Design × AI Flywheel and IC-level AI competency framework adopted across the full design org at the design all-hands.",
 		"No dedicated design systems IC added. Governance distributed through workflow.",
 	],
 	summary: [
@@ -74,6 +74,11 @@ const aiFirst = {
 		},
 		{
 			title: "The Flywheel",
+			image: {
+				src: "/images/ai design ops/ai-first-process-diagram.svg",
+				alt: "The Design × AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
+				contain: true,
+			},
 			paragraphs: [
 				"A well-maintained design system makes AI-assisted prototyping possible. AI-assisted prototyping surfaces design system gaps fast. Each cycle makes both stronger.",
 				"The Dashboard Card system is the concrete proof point. Building Workspace in Cursor surfaced that the card system didn't exist as a proper VUI component — it lived in the product file as a local build. That gap went through the Flywheel: audited via the Figma Plugin API, built programmatically in the VUI Design System file with correct token bindings, published to the library, pulled back into the prototype. The prototype got better. VUI got stronger. Neither required a separate sprint.",
@@ -133,8 +138,8 @@ const aiFirst = {
 		{
 			title: "Getting the team in",
 			paragraphs: [
-				"sandbox-design-starter-web is a GitHub template any VSCO designer can fork. VUI pre-installed, VSCO Gothic fonts bundled, Cursor rules active, and skills for every stage of the workflow: first-time setup, prototype-to-Figma capture, VUI auditing, eng-ready releases. One prompt in Cursor starts the full setup.",
-				"Presented the methodology at All Hands 2026. Defined AI fluency as a required competency at L3, L4, and L5 — not a bonus skill. L3 means working with AI tools fluently. L4 means configuring context and building prompt systems. L5 means designing the infrastructure other designers build on. That framework changed how the team thought about what the work actually was.",
+				"A GitHub template any designer on the team can fork. Design system pre-installed, brand fonts bundled, Cursor rules active, and skills for every stage of the workflow: first-time setup, prototype-to-Figma capture, design system auditing, eng-ready releases. One prompt in Cursor starts the full setup.",
+				"Presented the methodology at the design org all-hands. Defined AI fluency as a required competency at every IC level — not a bonus skill. Working with AI tools fluently. Configuring context and building prompt systems. Designing the infrastructure other designers build on. That framework changed how the team thought about what the work actually was.",
 			],
 		},
 		{

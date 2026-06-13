@@ -664,6 +664,38 @@
 	color: #111111;
 }
 
+/* Stack tags — rendered in case study header when study.stack is set */
+.case-study-stack {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.375rem;
+	margin-top: 0.25rem;
+}
+
+.case-study-stack__tag {
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	color: #666666;
+	border: 1px solid #ebebeb;
+	border-radius: 100px;
+	padding: 0.25rem 0.625rem;
+	line-height: 1.5;
+}
+
+/* Related studies list — wraps multiple .case-study-related cards */
+.case-study-related-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-top: 4rem;
+}
+
+.case-study-related-list .case-study-related {
+	margin-top: 0;
+}
+
 /* ─── Case study body sections ──────────────────────────────────────────────── */
 
 .case-study-body {
