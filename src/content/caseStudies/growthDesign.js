@@ -174,7 +174,7 @@ const growthDesign = {
 					type: "subsection",
 					title: "Three-year platform vision",
 					paragraphs: [
-						"Partnered with executive leadership to define and present a multi-year product design vision connecting platform scalability with AI-assisted workflows. Presented to CTO, SVP Product, and VP Design.",
+						"Worked with executive leadership on a multi-year product vision: platform scalability plus AI-assisted workflows. Presented to CTO, SVP Product, and VP Design.",
 						"First time the design team had articulated a strategy at the board level. Got multi-quarter exec buy-in for the phased approach over a full rebuild.",
 					],
 				},
