@@ -35,7 +35,7 @@ const growthDesign = {
 			layout: "image-right",
 			paragraphs: [
 				"Co-led product and UX strategy to define a long-term modernization approach for SurveyMonkey's authoring experience.",
-				"Led cross-functional offsites to surface systemic friction, align stakeholders, and translate research into an actionable architectural roadmap.",
+				"Led cross-functional offsites to surface systemic friction, align stakeholders, and translate research into a phased architectural roadmap.",
 				"In 2023, transitioned into design leadership to guide the first phase of implementation, defining foundational interaction patterns and sequencing delivery to preserve product momentum while reducing risk.",
 			],
 			image: {
@@ -66,7 +66,7 @@ const growthDesign = {
 					type: "paragraphs",
 					items: [
 						"SurveyMonkey had shifted from sales-led to product-led growth, which exposed structural friction in the core authoring experience. While freemium accelerated acquisition, foundational workflows were difficult to discover and configure, limiting activation and perceived product value.",
-						"Without intervention, friction in early workflows risked suppressing activation, engagement, and downstream monetization.",
+						"New users hit that friction early and often never activated. That showed up in weak engagement and missed conversion downstream.",
 					],
 				},
 				{
@@ -176,7 +176,7 @@ const growthDesign = {
 					title: "Three-year platform vision",
 					paragraphs: [
 						"Partnered with executive leadership to define and present a multi-year product design vision connecting platform scalability with AI-assisted workflows. Presented to CTO, SVP Product, and VP Design.",
-						"First time the design team had articulated a strategy at the board level. Secured multi-quarter buy-in for phased transformation over a high-risk full rebuild.",
+						"First time the design team had articulated a strategy at the board level. Got multi-quarter exec buy-in for the phased approach over a full rebuild.",
 					],
 				},
 				{
@@ -253,7 +253,7 @@ const growthDesign = {
 			subsectionColumns: true,
 			subsections: [
 				{
-					title: "Stakeholder management",
+					title: "Resetting expectations with the team",
 					paragraphs: [
 						"Transitioning the work to the team required resetting expectations on timelines and deliverables. It was a balance of letting them come up to speed while trying to keep positive momentum.",
 					],
@@ -261,13 +261,13 @@ const growthDesign = {
 				{
 					title: "Delegation and trust",
 					paragraphs: [
-						"I quickly refocused on delegation and empowering the team, allowing them to make smaller decisions while I ensured alignment with the broader vision. To foster growth and innovation, I had to let go and give the team autonomy to make decisions, even if it meant making mistakes along the way.",
+						"I refocused on delegation: smaller decisions stayed with the team while I held alignment to the broader vision. That meant letting go, even when mistakes happened along the way.",
 					],
 				},
 				{
-					title: "Coaching & feedback",
+					title: "Getting the team to own it",
 					paragraphs: [
-						"I used feedback and coaching to help mentor and guide my team. By guiding the team to find solutions on their own, I was able to help them develop problem-solving skills. This helped increase their confidence and led to more creative and innovative solutions.",
+						"I coached by asking questions instead of handing down answers. The team built problem-solving muscle and confidence by finding their own solutions.",
 					],
 				},
 			],
@@ -287,7 +287,7 @@ const growthDesign = {
 					type: "paragraphs",
 					items: [
 						"The logic panel redesign shipped with measurable impact. Engagement up 8%, UX score up 17%, NPS up 4%. Build with AI became the primary survey creation path.",
-						"The three-year platform vision secured multi-quarter executive buy-in for phased transformation. The hybrid migration model delivered incremental value without disrupting millions of enterprise users mid-rewrite.",
+						"The three-year platform vision got multi-quarter exec buy-in for the phased approach. The hybrid migration model delivered incremental value without disrupting millions of enterprise users mid-rewrite.",
 					],
 				},
 			],

@@ -139,7 +139,7 @@ const designSystemGovernance = {
 				src: `${DS}/IMG_2671.png`,
 				alt: "Claude posting a VUI design review summary in Slack with component changes and token updates",
 				caption:
-					"Claude's design review post in Slack: structured, specific, actionable. No meeting required.",
+					"Claude's design review post in Slack: structured, specific, ready to use. No meeting required.",
 			},
 		},
 		{

@@ -308,7 +308,7 @@ export default function About() {
 							company="Local universities: AI-native design workflow"
 						/>
 					</div>
-					<p className="about-speaking-note">Open to speaking engagements on AI-native design process, design systems, and building high-leverage design teams.</p>
+					<p className="about-speaking-note">Open to speaking engagements on AI-native design process, design systems, and building effective design teams.</p>
 				</div>
 
 				{/* Tools */}
