@@ -143,6 +143,21 @@ const designSystemGovernance = {
 			},
 		},
 		{
+			title: "Designing for agentic scale",
+			paragraphs: [
+				"A traditional design system pre-builds every variant. A modal with a footer. Without a footer. With an icon header. That model breaks down when AI is doing the assembly — there are too many possible combinations to enumerate in advance.",
+				"The alternative: write the rules instead of the variants.",
+			],
+			list: [
+				"The design system repos include MD files that define what is allowed at the composition level — for example, what configurations are valid in a modal header, body, and footer",
+				"A Cursor design system skill runs these rules automatically when engineers build with components",
+				"Cursor checks its output against the guidelines rather than guessing or reverse-engineering intent from a visual",
+			],
+			closingParagraphs: [
+				"The result is consistency at scale without pre-building every permutation. The design work shifts from \"build all the variants\" to \"define what is allowed.\" That is a model that holds up when AI is composing UI.",
+			],
+		},
+		{
 			title: "The outcome",
 			stats: [
 				{ value: "< 1 day", label: "Audit to fix cycle" },

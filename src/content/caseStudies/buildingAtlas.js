@@ -6,8 +6,8 @@ const buildingAtlas = {
 	year: "2026",
 	role: "Head of Product Design, VSCO",
 	type: "Product design · AI-native process · Agentic UX",
-	status: "VSCO Workspace launch June 23, 2026",
-	hook: "Designer on leave. Full IC load, full management load. Shipped in 12 weeks. This is what AI-native design makes possible.",
+	status: "Shipped June 23, 2026 · VSCO One",
+	hook: "VSCO Workspace is live. A legacy CRM rebuilt for creative professionals — shipped in 12 weeks with AI-native design.",
 	metrics: [
 		{ value: "12 weeks", label: "First commit to shipped product" },
 		{ value: "272", label: "Commits to the prototype" },
@@ -20,7 +20,9 @@ const buildingAtlas = {
 		alt: "VSCO Workspace redesign and Cursor agent side-by-side — the AI-native design workflow in action",
 	},
 	impact: [
-		"VSCO Workspace shipped June 23, 2026. Dashboard, contacts, jobs, invoices, calendar, settings. A redesign and simplified transformation of a legacy CRM into a product creative professionals actually want to use.",
+		"VSCO Workspace shipped publicly June 23, 2026 as part of VSCO One (vsco.co/vsco-one). Live at vsco.co/workspace.",
+		"Covered by 9to5Mac at launch, June 23, 2026.",
+		"Dashboard, contacts, jobs, invoices, calendar, settings. A redesign and simplified transformation of a legacy CRM into a product creative professionals actually want to use.",
 		"Did the IC work as Head of Design with a designer on leave, on top of full management responsibilities. No additional hire. The AI made the difference.",
 		"272 commits to the prototype. Engineering used the working branch as the primary production reference, not a Figma file.",
 		"Concept-to-spec cycles compressed from months to roughly one week.",
@@ -98,12 +100,12 @@ const buildingAtlas = {
 				},
 				{
 					type: "video",
-					src: "/videos/workspace-tour-small-1.mov",
+					src: "/videos/workspace-tour-small-1.mp4",
 					caption: "Dashboard and contacts: real navigation and data states prototyped in Cursor.",
 				},
 				{
 					type: "video",
-					src: "/videos/workspace-tour-small-2.mov",
+					src: "/videos/workspace-tour-small-2.mp4",
 					caption: "Jobs and invoicing: the full lead-to-payment flow.",
 				},
 			],

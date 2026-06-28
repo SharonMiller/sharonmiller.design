@@ -6,7 +6,7 @@ const growthDesign = {
 	year: "2021–2024",
 	role: "Lead Product Designer, Growth and AI/ML",
 	type: "Platform design · AI · Legacy modernization",
-	hook: "Re-architecting SurveyMonkey's legacy authoring experience without a full rewrite. I defined a three-year modernization vision and phased execution strategy that increased engagement by 8% and conversion by 3.2% while enabling continuous feature delivery.",
+	hook: "The experiment infrastructure was the real design problem — not the experiments themselves.",
 	metrics: [
 		{ value: "8%", label: "Engagement increase" },
 		{ value: "17%", label: "UX score improvement" },
