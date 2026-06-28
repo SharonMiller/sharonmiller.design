@@ -81,14 +81,14 @@ const buildingAtlas = {
 				{
 					type: "paragraphs",
 					items: [
-						"Because the prototype was in code, I could embed concept testing controls directly into it. Three toggles, visible only in design sessions:",
+						"Because the prototype was in code, I embedded concept testing controls directly into it. Three toggles, visible only in design sessions:",
 					],
 				},
 				{
 					type: "list",
 					items: [
-						"WORKSPACE / FULL: toggle between the free tier and paid roadmap in the same link. PM and leadership could see both products without two separate prototypes.",
-						"WITH DATA / NEW USER: flip instantly between a populated account and a zero-state. Research ran new user sessions without resetting anything.",
+						"WORKSPACE / FULL: switch between the free tier and paid roadmap in one link so PM and leadership could compare both products without two prototypes.",
+						"WITH DATA / NEW USER: flip between a populated account and a zero-state so research could run new-user sessions without resetting anything.",
 						"ASSISTANT NUDGES: trigger specific push-in messages to test assistant behavior in context before any production code was written.",
 					],
 				},

@@ -34,9 +34,8 @@ const growthDesign = {
 			title: "My role",
 			layout: "image-right",
 			paragraphs: [
-				"Co-led product and UX strategy to define a long-term modernization approach for SurveyMonkey's authoring experience.",
-				"Led cross-functional offsites to surface systemic friction, align stakeholders, and translate research into a phased architectural roadmap.",
-				"In 2023, transitioned into design leadership to guide the first phase of implementation, defining foundational interaction patterns and sequencing delivery to preserve product momentum while reducing risk.",
+				"I co-led product and UX strategy for SurveyMonkey's authoring modernization: how to ship incrementally without breaking millions of enterprise users.",
+				"I ran cross-functional offsites to align on systemic friction and the phased roadmap. In 2023 I moved into design leadership to ship the first implementation phase while the platform rewrite continued underneath.",
 			],
 			image: {
 				src: `${SM}/workshop-stickies.jpeg`,

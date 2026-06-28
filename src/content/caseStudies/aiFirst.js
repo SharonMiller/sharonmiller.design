@@ -147,8 +147,10 @@ const aiFirst = {
 		{
 			title: "Getting the team in",
 			paragraphs: [
+				"Adoption required removing every excuse not to start.",
 				"A GitHub template any designer on the team can fork. Design system pre-installed, brand fonts bundled, Cursor rules active, and skills for every stage of the workflow: first-time setup, prototype-to-Figma capture, design system auditing, eng-ready releases. One prompt in Cursor starts the full setup.",
-				"Presented the methodology at the design org all-hands. Defined AI fluency as a required competency at every IC level, not a bonus skill. Working with AI tools fluently. Configuring context and building prompt systems. Designing the infrastructure other designers build on. That framework changed how the team thought about what the work actually was.",
+				"Presented the methodology at the design org all-hands. Defined AI fluency as a required competency at every IC level, not a bonus skill.",
+				"That meant working with AI tools fluently, configuring context, building prompt systems, and designing the infrastructure other designers build on. The framework changed how the team thought about what the work actually was.",
 			],
 		},
 		{
