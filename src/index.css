@@ -138,7 +138,8 @@
 	}
 
 	.portfolio-nav-link--active {
-		color: var(--lumen-sage);
+		color: var(--lumen-sage-dark);
+		font-weight: 600;
 		text-decoration: none;
 		background: none;
 	}
@@ -239,7 +240,8 @@
 	}
 
 	.portfolio-nav-link--mobile.portfolio-nav-link--active {
-		color: var(--lumen-sage);
+		color: var(--lumen-sage-dark);
+		font-weight: 600;
 	}
 
 	/* Dropdown — desktop */
