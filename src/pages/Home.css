@@ -479,7 +479,7 @@
 }
 
 .case-study-section-heading.section-heading-divider {
-	margin: 0 0 1rem;
+	margin: 0 0 1.25rem;
 }
 
 .case-study-section-heading h2 {
@@ -499,7 +499,7 @@
 .case-study-header {
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
+	gap: 2rem;
 	padding-bottom: 2.5rem;
 }
 
@@ -618,7 +618,7 @@
 .case-study-related {
 	display: block;
 	margin-top: 4rem;
-	padding: 1.75rem 2rem;
+	padding: var(--portfolio-card-pad);
 	border: 1px solid #e5e5e5;
 	border-radius: 1rem;
 	text-decoration: none;
