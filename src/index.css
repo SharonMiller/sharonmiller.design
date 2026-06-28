@@ -136,6 +136,8 @@
 
 	.portfolio-nav-link--active {
 		color: var(--lumen-terracotta);
+		text-decoration: none;
+		background: none;
 	}
 
 	/* Right slot: actions + hamburger */

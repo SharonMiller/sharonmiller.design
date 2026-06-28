@@ -21,11 +21,9 @@ export default function CaseStudyPage() {
 
 	return (
 		<PortfolioShell activePath="/#work" background="#ffffff">
-			<div className="mx-auto max-w-3xl">
-				<BackLink to="/#work">← All case studies</BackLink>
-				<CaseStudyLayout study={study} />
-				<CaseStudyPager slug={slug} />
-			</div>
+			<BackLink to="/#work">← All case studies</BackLink>
+			<CaseStudyLayout study={study} />
+			<CaseStudyPager slug={slug} />
 		</PortfolioShell>
 	);
 }
