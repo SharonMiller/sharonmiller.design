@@ -6,7 +6,7 @@ const designSystemGovernance = {
 	year: "2025–2026",
 	role: "Head of Product Design, VSCO",
 	type: "Design Systems · AI Tooling · Process",
-	hook: "Four surfaces, four libraries, zero shared source of truth. Fixed it in less than a day — no dedicated hire, no reorg.",
+	hook: "Four surfaces, four libraries, zero shared source of truth. Fixed it in less than a day, no dedicated hire, no reorg.",
 	metrics: [
 		{ value: "< 1 day", label: "Audit to fix cycle" },
 		{ value: "0", label: "New headcount" },
@@ -145,11 +145,11 @@ const designSystemGovernance = {
 		{
 			title: "Designing for agentic scale",
 			paragraphs: [
-				"A traditional design system pre-builds every variant. A modal with a footer. Without a footer. With an icon header. That model breaks down when AI is doing the assembly — there are too many possible combinations to enumerate in advance.",
+				"A traditional design system pre-builds every variant. A modal with a footer. Without a footer. With an icon header. That model breaks down when AI is doing the assembly: there are too many possible combinations to enumerate in advance.",
 				"The alternative: write the rules instead of the variants.",
 			],
 			list: [
-				"The design system repos include MD files that define what is allowed at the composition level — for example, what configurations are valid in a modal header, body, and footer",
+				"The design system repos include MD files that define what is allowed at the composition level, for example what configurations are valid in a modal header, body, and footer",
 				"A Cursor design system skill runs these rules automatically when engineers build with components",
 				"Cursor checks its output against the guidelines rather than guessing or reverse-engineering intent from a visual",
 			],

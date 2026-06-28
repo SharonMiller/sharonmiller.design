@@ -7,7 +7,7 @@ const buildingAtlas = {
 	role: "Head of Product Design, VSCO",
 	type: "Product design · AI-native process · Agentic UX",
 	status: "Shipped June 23, 2026 · VSCO One",
-	hook: "VSCO Workspace is live. A legacy CRM rebuilt for creative professionals — shipped in 12 weeks with AI-native design.",
+	hook: "VSCO Workspace is live. A legacy CRM rebuilt for creative professionals, shipped in 12 weeks with AI-native design.",
 	metrics: [
 		{ value: "12 weeks", label: "First commit to shipped product" },
 		{ value: "272", label: "Commits to the prototype" },
@@ -17,7 +17,7 @@ const buildingAtlas = {
 		"A legacy CRM rebuilt for creative professionals, designed in Cursor with AI. What it actually took to ship real product while running a design org, and what I learned about working with AI that changed how I think about both.",
 	thumbnail: {
 		src: "/images/Atlas Workspace/cursor-2-crop.png",
-		alt: "VSCO Workspace redesign and Cursor agent side-by-side — the AI-native design workflow in action",
+		alt: "VSCO Workspace redesign and Cursor agent side-by-side, showing the AI-native design workflow in action",
 	},
 	impact: [
 		"VSCO Workspace shipped publicly June 23, 2026 as part of VSCO One (vsco.co/vsco-one). Live at vsco.co/workspace.",
@@ -56,12 +56,12 @@ const buildingAtlas = {
 			beforeAfter: {
 				before: {
 					src: "/images/Atlas Workspace/contact-form-old.png",
-					alt: "Legacy Táve contact form — generic, dated styling",
+					alt: "Legacy Táve contact form, generic dated styling",
 					caption: "Before: legacy Táve client contact form",
 				},
 				after: {
 					src: "/images/Atlas Workspace/contact-form-new.png",
-					alt: "New VSCO Workspace contact form — clean, branded",
+					alt: "New VSCO Workspace contact form, clean branded styling",
 					caption: "After: VSCO Workspace contact form",
 				},
 			},
@@ -95,7 +95,7 @@ const buildingAtlas = {
 				{
 					type: "paragraphs",
 					items: [
-						"The prototype lived at a stable URL from day one. VSCO has a group of design partners — photographers who opt in to early access and feedback sessions — and because the prototype was a real running app, not a Figma link, we could share it with them the same day a flow was built. No account required, no resetting state between sessions. Real reactions on real flows, weeks before engineering started building.",
+						"The prototype lived at a stable URL from day one. VSCO has a group of design partners, photographers who opt in to early access and feedback sessions, and because the prototype was a real running app, not a Figma link, we could share it with them the same day a flow was built. No account required, no resetting state between sessions. Real reactions on real flows, weeks before engineering started building.",
 					],
 				},
 				{
@@ -138,18 +138,18 @@ const buildingAtlas = {
 			],
 			imageFullWidth: {
 				src: `${DO}/IMG_0495.png`,
-				alt: "Scout animation playground running in browser alongside Cursor agent conversation — the actual design workflow in action",
+				alt: "Scout animation playground running in browser alongside Cursor agent conversation, showing the actual design workflow in action",
 				caption: "Scout development in Cursor: the prototype runs in the browser while Claude handles component iteration in the agent panel.",
 			},
 			beforeAfter: {
 				before: {
 					src: "/images/Atlas Workspace/contact-form-settings-old-crop.png",
-					alt: "Legacy Táve form settings — long scrolling configuration page with many fields",
+					alt: "Legacy Táve form settings, long scrolling configuration page with many fields",
 					caption: "Before: Táve contact form settings",
 				},
 				after: {
 					src: "/images/Atlas Workspace/contact-form-settings-new.png",
-					alt: "New VSCO Workspace form settings — clean preview with simple controls",
+					alt: "New VSCO Workspace form settings, clean preview with simple controls",
 					caption: "After: VSCO Workspace form settings",
 				},
 			},

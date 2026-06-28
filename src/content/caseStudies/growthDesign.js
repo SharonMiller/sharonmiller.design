@@ -6,7 +6,7 @@ const growthDesign = {
 	year: "2021–2024",
 	role: "Lead Product Designer, Growth and AI/ML",
 	type: "Platform design · AI · Legacy modernization",
-	hook: "The experiment infrastructure was the real design problem — not the experiments themselves.",
+	hook: "The experiment infrastructure was the real design problem, not the experiments themselves.",
 	metrics: [
 		{ value: "8%", label: "Engagement increase" },
 		{ value: "17%", label: "UX score improvement" },
@@ -248,7 +248,7 @@ const growthDesign = {
 		{
 			title: "Leadership transition: design lead to management",
 			paragraphs: [
-				"Shortly after the project was approved, my manager resigned. I took on the management responsibilities while staying IC on the modernization work — 1:1s, direction-setting, cross-functional alignment, plus delivery. Prior leadership experience meant I could move faster than starting from zero.",
+				"Shortly after the project was approved, my manager resigned. I took on the management responsibilities while staying IC on the modernization work: 1:1s, direction-setting, cross-functional alignment, plus delivery. Prior leadership experience meant I could move faster than starting from zero.",
 			],
 			subsectionColumns: true,
 			subsections: [
@@ -295,7 +295,7 @@ const growthDesign = {
 		{
 			title: "Learnings",
 			paragraphs: [
-				"Transitioning from Lead IC to managing my former peers required a different kind of judgment. The work that mattered most wasn't staying IC on every decision — it was helping the team own the vision themselves. The transition had rough patches; the team's patience through them made it work.",
+				"Transitioning from Lead IC to managing my former peers required a different kind of judgment. The work that mattered most wasn't staying IC on every decision. It was helping the team own the vision themselves. The transition had rough patches; the team's patience through them made it work.",
 				"The cross-functional relationships I'd built became the practical advantage when it mattered: growth and core ran coordinated experiments, de-risked shared assumptions, and both teams hit their goals.",
 			],
 		},

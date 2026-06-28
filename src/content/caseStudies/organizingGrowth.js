@@ -6,7 +6,7 @@ const organizingGrowth = {
 	year: "2023–2024",
 	role: "Product Design Manager, Growth (reporting to CTO)",
 	type: "Design leadership · Systems thinking · Cross-functional influence",
-	hook: "Every team I've been on has had some version of chaos that everyone accepted as normal. I can't work that way. At SurveyMonkey I inherited a growth team with no experiment tracking, no shared memory, and no accountability. I built the system that changed that — without the authority to make anyone use it.",
+	hook: "Every team I've been on has had some version of chaos that everyone accepted as normal. I can't work that way. At SurveyMonkey I inherited a growth team with no experiment tracking, no shared memory, and no accountability. I built the system that changed that, without the authority to make anyone use it.",
 	metrics: [
 		{ value: "24%", label: "Increase in team delivery velocity" },
 		{ value: "12%", label: "Team morale improvement (eNPS)" },
@@ -79,7 +79,7 @@ const organizingGrowth = {
 			],
 			image: {
 				src: `${OG}/gif-this-is-fine.webp`,
-				alt: "The 'this is fine' meme — a dog sitting calmly in a room on fire",
+				alt: "The 'this is fine' meme, a dog sitting calmly in a room on fire",
 				caption: "Lack of tracking led to being reactive.",
 			},
 		},
@@ -94,7 +94,7 @@ const organizingGrowth = {
 			list: [
 				"Documentation was disorganized and siloed",
 				"We could not learn from past mistakes",
-				"Employees kept documentation in personal files — lost when they left",
+				"Employees kept documentation in personal files, lost when they left",
 				"Employee onboarding and offboarding was a nightmare",
 			],
 		},

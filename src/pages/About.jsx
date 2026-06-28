@@ -222,7 +222,7 @@ export default function About() {
 							className="about-collage-img"
 						/>
 						<figcaption className="about-photo-caption">
-							Family in Bend — beach trips, ski days, and two very opinionated Frenchies
+							Family in Bend: beach trips, ski days, and two very opinionated Frenchies
 						</figcaption>
 					</figure>
 				</div>
@@ -255,7 +255,7 @@ export default function About() {
 					</h2>
 					<p className="about-work-subhead">
 						Twenty years across platform UX, growth design, SaaS product ownership, and cloud
-						infrastructure — currently leading design at VSCO, an iconic platform built for photographers
+						infrastructure. Currently leading design at VSCO, an iconic platform built for photographers
 						and creators. The range is intentional.
 					</p>
 				</div>
@@ -300,12 +300,12 @@ export default function About() {
 						<CareerRow
 							period="Oct 2025"
 							role="Guest speaker"
-							company="George Fox University — AI-native design and product portfolio"
+							company="George Fox University: AI-native design and product portfolio"
 						/>
 						<CareerRow
 							period="Ongoing"
 							role="Guest speaker"
-							company="Local universities — AI-native design workflow"
+							company="Local universities: AI-native design workflow"
 						/>
 					</div>
 					<p className="about-speaking-note">Open to speaking engagements on AI-native design process, design systems, and building high-leverage design teams.</p>
