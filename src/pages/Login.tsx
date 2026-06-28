@@ -63,7 +63,7 @@ export default function Login() {
 							onChange={(event) => setPassword(event.target.value)}
 							autoComplete="current-password"
 							required
-							className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900 placeholder:text-stone-400 focus:border-terracotta focus:outline-none focus:ring-1 focus:ring-terracotta"
+							className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900 placeholder:text-stone-400 focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
 						/>
 					</div>
 

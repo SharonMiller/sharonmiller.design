@@ -8,9 +8,12 @@
 
 @layer base {
 	:root {
-		--lumen-terracotta: #c4704a;
-		--lumen-terracotta-light: #d4886a;
-		--lumen-terracotta-dark: #a85a38;
+		--lumen-sage: #5f7161;
+		--lumen-sage-light: #7a8f7a;
+		--lumen-sage-dark: #4a5a4f;
+		--lumen-terracotta: var(--lumen-sage);
+		--lumen-terracotta-light: var(--lumen-sage-light);
+		--lumen-terracotta-dark: var(--lumen-sage-dark);
 		--lumen-ink: #111111;
 		--lumen-secondary: #6b7280;
 		--lumen-surface: #f9f9f9;
@@ -21,7 +24,7 @@
 		--ds-surface-background-primary: #ffffff;
 		--ds-surface-background-secondary: #ffffff;
 		--ds-border-divider: var(--lumen-border);
-		--ds-interactive-primary: var(--lumen-terracotta);
+		--ds-interactive-primary: var(--lumen-sage);
 	}
 
 	html {
@@ -45,7 +48,7 @@
 
 	a:focus-visible,
 	button:focus-visible {
-		outline: 2px solid var(--lumen-terracotta);
+		outline: 2px solid var(--lumen-sage);
 		outline-offset: 3px;
 	}
 }
@@ -56,11 +59,11 @@
 		font-weight: 600;
 		letter-spacing: 0.07em;
 		text-transform: uppercase;
-		color: var(--lumen-terracotta);
+		color: var(--lumen-secondary);
 	}
 
 	.lumen-btn-primary {
-		@apply inline-flex items-center justify-center rounded-xl bg-lumen-terracotta font-medium text-white hover:bg-lumen-terracotta-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lumen-terracotta focus-visible:ring-offset-2;
+		@apply inline-flex items-center justify-center rounded-xl bg-lumen-sage font-medium text-white hover:bg-lumen-sage-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lumen-sage focus-visible:ring-offset-2;
 		transition: background-color 200ms ease, color 150ms ease;
 	}
 
@@ -135,7 +138,7 @@
 	}
 
 	.portfolio-nav-link--active {
-		color: var(--lumen-terracotta);
+		color: var(--lumen-sage);
 		text-decoration: none;
 		background: none;
 	}
@@ -236,7 +239,7 @@
 	}
 
 	.portfolio-nav-link--mobile.portfolio-nav-link--active {
-		color: var(--lumen-terracotta);
+		color: var(--lumen-sage);
 	}
 
 	/* Dropdown — desktop */

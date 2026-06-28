@@ -51,7 +51,7 @@ export default function CareerTimeline({ title, items, graphicSrc, graphicAlt })
 				{items.map((item) => (
 					<li
 						key={`${item.period}-mobile-${item.title}`}
-						className="border-l-2 border-lumen-terracotta/50 pl-5"
+						className="border-l-2 border-stone-300 pl-5"
 					>
 						<p className="text-sm font-semibold text-lumen-ink">
 							{item.period}

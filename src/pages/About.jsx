@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import PortfolioShell, { BackLink } from "../components/portfolio/PortfolioShell";
+import PortfolioShell from "../components/portfolio/PortfolioShell";
 import "./Home.css";
 
 // ─── Work photos ─────────────────────────────────────────────────────────────
@@ -165,12 +164,8 @@ function CareerRow({ period, role, company, companyHref }) {
 export default function About() {
 	return (
 		<PortfolioShell activePath="/about" contactFooter={false} mainClassName="py-20">
-			<BackLink />
-
 			{/* ── PERSONAL SECTION ─────────────────────────────── */}
 			<section className="about-section" aria-labelledby="about-personal-heading">
-				<p className="lumen-section-label">About</p>
-
 				{/* Name + circle photo */}
 				<div className="about-identity">
 					<img

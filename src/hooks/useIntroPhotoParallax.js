@@ -15,15 +15,15 @@ export function useIntroPhotoParallax(frameRef, sectionRef) {
 	useEffect(() => {
 		const frame = frameRef.current;
 		const section = sectionRef?.current ?? frame?.closest("#intro");
-		const img = frame?.querySelector(".profile-photo-intro");
-		if (!frame || !img) return undefined;
+		const track = frame?.querySelector(".profile-photo-intro__track");
+		if (!frame || !track) return undefined;
 
 		const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 		let raf = 0;
 
 		const clear = () => {
-			img.style.removeProperty("transform");
+			track.style.removeProperty("transform");
 		};
 
 		const update = () => {
@@ -43,7 +43,7 @@ export function useIntroPhotoParallax(frameRef, sectionRef) {
 			const centerY = rect.top + rect.height * 0.5;
 			const delta = (centerY - vh * 0.5) * PARALLAX_FACTOR;
 			const y = Math.max(-PARALLAX_MAX_PX, Math.min(PARALLAX_MAX_PX, delta));
-			img.style.transform = `translate3d(0, ${y}px, 0)`;
+			track.style.transform = `translate3d(0, ${y}px, 0)`;
 		};
 
 		const schedule = () => {

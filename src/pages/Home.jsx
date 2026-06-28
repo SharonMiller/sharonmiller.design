@@ -62,11 +62,13 @@ export default function Home() {
 						</div>
 
 						<div ref={photoFrameRef} className="profile-photo-frame">
-							<img
-								src="/images/about and career/profile-photo-full.png"
-								alt="Sharon Miller"
-								className="profile-photo-intro"
-							/>
+							<div className="profile-photo-intro__track" aria-hidden="true">
+								<img
+									src="/images/about and career/profile-photo-full.png"
+									alt="Sharon Miller"
+									className="profile-photo-intro"
+								/>
+							</div>
 						</div>
 
 						<div className="intro-body">

@@ -120,9 +120,9 @@ const buildingAtlas = {
 				"My instinct whenever someone proposes a third-party hire: try it myself first. Cursor kept producing hard-edged blobs instead of the soft mesh the design called for. I switched to Claude, which solved the SVG math differently and got there. The head of brand liked it but wanted to tweak it, so it shipped as an interactive playground with parametric controls rather than a hardcoded value.",
 			],
 			embed: {
-				src: "/demos/scout-thinking-playground.html",
-				caption: "Thinking indicator exploration: four animation styles as interactive prototypes. Hit Play to animate all four, then select a direction.",
-				height: 580,
+				src: "/demos/scout-thinking-playground.html?embed=1",
+				caption: "Thinking indicator exploration: six animation styles as interactive prototypes. Click a card to preview.",
+				height: 500,
 			},
 			video: {
 				src: "/videos/scout-ui-2.mp4",

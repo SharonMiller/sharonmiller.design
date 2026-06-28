@@ -13,7 +13,7 @@
  */
 const variantClasses = {
 	primary:
-		"bg-lumen-terracotta text-white hover:bg-lumen-terracotta-dark focus-visible:ring-lumen-terracotta",
+		"bg-lumen-sage text-white hover:bg-lumen-sage-dark focus-visible:ring-lumen-sage",
 	secondary:
 		"border border-stone-300 bg-white text-lumen-charcoal hover:bg-lumen-stone focus-visible:ring-lumen-muted",
 	ghost:

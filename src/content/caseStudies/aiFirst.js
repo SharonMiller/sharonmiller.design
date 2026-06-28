@@ -13,8 +13,8 @@ const aiFirst = {
 	description:
 		"AI-native operating model: Cursor as the primary design surface, working branches as engineering handoff, and a Flywheel that made the design system stronger with every prototype.",
 	thumbnail: {
-		src: "/images/ai design ops/animation-screenshot.png",
-		alt: "Scout thinking indicator animation — four styles prototyped in Cursor as interactive React components",
+		src: "/images/ai design ops/ai-first-process-diagram.svg",
+		alt: "Design × AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
 	},
 	impact: [
 		"Two production MVPs designed from working prototypes, not static Figma decks. Engineering forked from a working branch.",

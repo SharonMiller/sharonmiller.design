@@ -28,7 +28,7 @@ const shellClasses = {
 
 const valueClasses = {
 	default: "text-2xl font-semibold tabular-nums text-lumen-ink",
-	hero: "text-2xl font-bold tabular-nums text-lumen-terracotta",
+	hero: "text-2xl font-bold tabular-nums text-stone-900",
 };
 
 export default function StatPill({

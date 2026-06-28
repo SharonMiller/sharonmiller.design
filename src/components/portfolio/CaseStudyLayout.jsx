@@ -51,9 +51,13 @@ function SectionDivider({ text }) {
 }
 
 function Paragraphs({ items }) {
-	return items.map((text, index) => (
-		<p key={index} className="case-study-paragraph">{text}</p>
-	));
+	return (
+		<div className="case-study-prose">
+			{items.map((text, index) => (
+				<p key={index} className="case-study-paragraph">{text}</p>
+			))}
+		</div>
+	);
 }
 
 function BulletList({ items }) {
@@ -381,8 +385,7 @@ export default function CaseStudyLayout({ study }) {
 						<ul className="case-study-impact-list">
 							{study.impact.map((item) => (
 								<li key={item} className="case-study-impact-list__item">
-									<span aria-hidden className="case-study-impact-list__dot" />
-									<span>{item}</span>
+									{item}
 								</li>
 							))}
 						</ul>

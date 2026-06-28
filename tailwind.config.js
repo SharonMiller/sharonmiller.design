@@ -4,11 +4,15 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				terracotta: "#C4704A",
+				sage: "#5F7161",
+				terracotta: "#5F7161",
 				lumen: {
-					terracotta: "#C4704A",
-					"terracotta-light": "#D4886A",
-					"terracotta-dark": "#A85A38",
+					sage: "#5F7161",
+					"sage-light": "#7A8F7A",
+					"sage-dark": "#4A5A4F",
+					terracotta: "#5F7161",
+					"terracotta-light": "#7A8F7A",
+					"terracotta-dark": "#4A5A4F",
 					ink: "#111111",
 					secondary: "#6B7280",
 					surface: "#F9F9F9",
