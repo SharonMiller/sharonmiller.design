@@ -6,36 +6,51 @@ const growthDesign = {
 	year: "2021–2024",
 	role: "Lead Product Designer, Growth and AI/ML",
 	type: "Platform design · AI · Legacy modernization",
-	hook: "The experiment infrastructure was the real design problem, not the experiments themselves.",
-	metrics: [
-		{ value: "8%", label: "Engagement increase" },
-		{ value: "17%", label: "UX score improvement" },
-	],
+	hook: "Re-architected SurveyMonkey's survey authoring platform without a full rewrite. Three-year modernization vision, phased delivery, no disruption to millions of enterprise users mid-migration. Engagement up 8%, conversion up 3.2%.",
 	description:
 		"Survey authoring rebuilt from the ground up. AI creation flow designed with a trust model that became the primary creation path. 3-year platform vision presented at exec level.",
 	thumbnail: {
 		src: `${SM}/redesign.png`,
 		alt: "SurveyMonkey product transformation: AI Chat and smart recommendations in the authoring experience",
 	},
-	impact: [
-		"Led ground-up modernization of SurveyMonkey's survey authoring platform. Phased migration for millions of enterprise users, no hard cutover.",
-		"Designed Build with AI with a generate-review-edit trust model. It became the primary survey creation path.",
-		"Defined a three-year platform vision presented to CTO, SVP Product, and VP Design. First multi-year design strategy at the board level.",
-		"8% increase in engagement, 17% improvement in UX score, 4% NPS increase after the logic panel redesign shipped.",
-	],
-	summary: [
-		"Three years at SurveyMonkey as Lead Product Designer. The work spanned the full arc of the product: authoring, AI features, and platform vision.",
-		"Survey authoring was the core of the product and it hadn't kept up. 90% of new users couldn't configure basic logic. 75% failed to find foundational customization settings. The platform was mid-rewrite from Python to React, millions of enterprise users couldn't be disrupted, and a high-risk full rebuild wasn't an option.",
-		"The solution was a hybrid approach: React components injected into the existing Python UI, enabling incremental value delivery without disrupting active users or the ongoing roadmap.",
-	],
 	stack: ["Figma", "React", "User Testing"],
+	team: {
+		title: "My contributions",
+		columns: [
+			{
+				title: "Design leadership",
+				items: [
+					"Co-led product and UX strategy with the Sr. Manager of Product to define a three-year modernization vision for SurveyMonkey's core authoring experience",
+					"Shaped architectural direction in partnership with the Engineering Director",
+					"Defined foundational UX patterns to guide phased system evolution and long-term consistency",
+				],
+			},
+			{
+				title: "Executive alignment",
+				items: [
+					"Presented modernization strategy to the CTO, SVP Product, and VP Design",
+					"Secured multi-quarter buy-in for phased transformation instead of a high-risk full rebuild",
+					"Aligned cross-functional leadership around sequencing, investment, and success metrics",
+				],
+			},
+			{
+				title: "Delivery model",
+				items: [
+					"Sequenced phased rollout to minimize revenue risk while maintaining feature velocity",
+					"Introduced modular system patterns progressively adopted across feature teams",
+					"Balanced experimentation with architectural evolution to avoid disrupting active roadmap work",
+				],
+			},
+		],
+	},
 	sections: [
 		{
 			title: "My role",
 			layout: "image-right",
 			paragraphs: [
 				"I co-led product and UX strategy for SurveyMonkey's authoring modernization: how to ship incrementally without breaking millions of enterprise users.",
-				"I ran cross-functional offsites to align on systemic friction and the phased roadmap. In 2023 I moved into design leadership to ship the first implementation phase while the platform rewrite continued underneath.",
+				"I ran cross-functional offsites to surface systemic friction, align stakeholders, and translate research into an architectural roadmap.",
+				"In 2023 I moved into design leadership to guide the first implementation phase, defining foundational interaction patterns and sequencing delivery to preserve product momentum while reducing risk.",
 			],
 			image: {
 				src: `${SM}/workshop-stickies.jpeg`,
@@ -50,8 +65,8 @@ const growthDesign = {
 					type: "stats",
 					columns: 2,
 					items: [
-						{ value: "90%", label: "of new users couldn't configure basic logic" },
-						{ value: "75%", label: "couldn't find foundational settings" },
+						{ value: "90%", label: "of new users couldn't configure basic logic", negative: true },
+						{ value: "75%", label: "couldn't find foundational settings", negative: true },
 					],
 				},
 				{
@@ -221,12 +236,6 @@ const growthDesign = {
 					alt: "Testing into changes starting with the survey build menu",
 					caption: "testing concepts with users to ensure they align with mental models",
 					contain: true,
-				},
-				{
-					type: "embed",
-					src: "https://embed.figma.com/proto/wOm1uVMnnYpiGHUa0gAQO4/Prototypes-for-portfolio?page-id=&node-id=9-6&starting-point-node-id=9%3A6&embed-host=share",
-					caption: "Working prototype: survey authoring redesign. Click through the flow.",
-					height: 450,
 				},
 			],
 		},

@@ -6,11 +6,7 @@ const organizingGrowth = {
 	year: "2023–2024",
 	role: "Product Design Manager, Growth (reporting to CTO)",
 	type: "Design leadership · Systems thinking · Cross-functional influence",
-	hook: "Every team I've been on has had some version of chaos that everyone accepted as normal. I can't work that way. At SurveyMonkey I inherited a growth team with no experiment tracking, no shared memory, and no accountability. I built the system that changed that, without the authority to make anyone use it.",
-	metrics: [
-		{ value: "24%", label: "Increase in team delivery velocity" },
-		{ value: "12%", label: "Team morale improvement (eNPS)" },
-	],
+	hook: "Grew growth team delivery velocity 24%. Four distributed squads, no shared experiment tracking, no institutional memory, no accountability across teams. I built the system that fixed it, without the authority to make anyone use it.",
 	description:
 		"No direct authority. Cross-functional resistance. A broken experiment tracking system causing repeated failures and wasted work. Fixed through influence, systems thinking, and a roadshow to every stakeholder who needed to say yes.",
 	thumbnail: {
@@ -18,11 +14,8 @@ const organizingGrowth = {
 		alt: "SurveyMonkey growth experiment tracking database in Jira Product Discovery",
 	},
 	impact: [
-		"Team delivery velocity increased 24% after implementing structured experiment tracking.",
-		"Growth team eNPS up 12% within a quarter. Less chaos, more clarity.",
-		"Searchable database of all experiments with outcomes, conflict detection, and longer-tail result tracking.",
-		"Automations published experiment results to Slack, giving adjacent teams visibility without additional process overhead.",
-		"Onboarding and offboarding no longer dependent on individual tribal knowledge.",
+		"Experiment database replaced siloed personal docs. Adoption spread company-wide.",
+		"Results auto-published to Slack. Adjacent teams got visibility without added process.",
 	],
 	summary: [
 		"When I joined the growth team, there was no reliable system for tracking experiments. Tests were overlapping, past results couldn't be found, and the team spent more time managing confusion than running good experiments. The problem wasn't a lack of effort; it was a lack of shared infrastructure.",
@@ -33,10 +26,11 @@ const organizingGrowth = {
 			{
 				title: "The team",
 				items: [
-					"Myself",
+					"5 Product Designers (US, Toronto, Amsterdam, Bengaluru)",
+					"4–5 Product Managers",
+					"Engineering (Dublin + US)",
 					"Director, Product, Growth",
 					"Director, Engineering, Growth",
-					"Director, Product Analytics",
 				],
 			},
 			{
@@ -45,13 +39,16 @@ const organizingGrowth = {
 					"Chief Technology Officer",
 					"Senior VP, Product",
 					"VP Engineering",
-					"Sr. Director, Systems Engineering",
-					"Product leads across the company",
 				],
 			},
 			{
 				title: "Skills",
-				items: ["Leadership", "Influence", "Systems Thinking", "Organization"],
+				items: [
+					"Leadership",
+					"Influence",
+					"Systems Thinking",
+					"Organization",
+				],
 			},
 		],
 	},
@@ -59,8 +56,9 @@ const organizingGrowth = {
 		{
 			title: "My role",
 			paragraphs: [
-				"Reporting directly to the Chief Technology Officer, I spearheaded this initiative as Product Design Manager for growth and personalization.",
-				"I collaborated closely with my counterparts, the Product Director and Engineering Director. We had all recently joined the growth team with a shared goal of improving workflows, fostering a supportive environment, and achieving impactful outcomes.",
+				"Reporting directly to the Chief Technology Officer, I led this initiative as Product Design Manager for Growth and Personalization.",
+				"I partnered closely with my counterparts, the Product Director and Engineering Director.",
+				"We had all recently joined the growth team with a shared goal of improving how the org worked.",
 			],
 		},
 		{
@@ -112,7 +110,7 @@ const organizingGrowth = {
 			},
 		},
 		{
-			title: "Aligning on a solution",
+			title: "Navigating to a solution",
 			layout: "image-right",
 			paragraphs: [
 				"Explored tools that could streamline the process without adding redundant work for the product team.",
@@ -169,7 +167,7 @@ const organizingGrowth = {
 					],
 				},
 				{
-					title: "Stakeholder management",
+					title: "Stakeholder Management",
 					paragraphs: [
 						"To achieve alignment across the company, I needed approval from the CTO, SVP of Product, VP of Engineering, and product leads across the company.",
 						"Some leaders were hesitant. I ran a roadshow using storytelling rather than slide decks. The case was simple: we're spending more time managing failed experiments than running good ones. Here's the cost. Here's the fix.",
@@ -180,8 +178,8 @@ const organizingGrowth = {
 		{
 			title: "The outcome",
 			stats: [
-				{ value: "24%", label: "Delivery velocity increase" },
-				{ value: "12%", label: "Team morale (eNPS)" },
+				{ value: "12%", label: "Increase in team morale (eNPS)" },
+				{ value: "24%", label: "Increase in team velocity (delivery)" },
 			],
 			subsectionColumns: true,
 			subsections: [
@@ -204,9 +202,9 @@ const organizingGrowth = {
 				{
 					title: "Enhanced team dynamics",
 					list: [
-						"Improved cross-functional communication",
-						"Enabled proactive planning for design and content",
-						"Quarterly planning and roadmap simplified",
+						"Design and content could plan ahead instead of reacting",
+						"Cross-functional teams had shared visibility on what was running and why",
+						"Quarterly planning got simpler once the data was trustworthy",
 					],
 				},
 			],

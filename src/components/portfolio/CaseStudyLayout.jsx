@@ -92,11 +92,12 @@ function SubSection({ title, paragraphs = [], list = [], image }) {
 }
 
 function StatGrid({ stats, columns }) {
-	const isPair = columns === 2 || stats.length === 2;
+	const count = columns ?? stats.length;
+	const modifier = count === 2 ? " case-study-stat-grid--pair" : count === 3 ? " case-study-stat-grid--trio" : "";
 	return (
-		<div className={`case-study-stat-grid${isPair ? " case-study-stat-grid--pair" : ""}`}>
+		<div className={`case-study-stat-grid${modifier}`}>
 			{stats.map((stat) => (
-				<div key={stat.label} className="case-study-stat-card">
+				<div key={stat.label} className={`case-study-stat-card${stat.negative ? " case-study-stat-card--negative" : ""}`}>
 					<span className="case-study-stat-card__value">{stat.value}</span>
 					<span className="case-study-stat-card__label">{stat.label}</span>
 				</div>
@@ -390,6 +391,10 @@ export default function CaseStudyLayout({ study }) {
 							))}
 						</ul>
 					</div>
+				)}
+
+				{study.metrics?.length > 0 && (
+					<StatGrid stats={study.metrics} columns={study.metrics.length} />
 				)}
 
 				{study.summary?.length > 0 && (
