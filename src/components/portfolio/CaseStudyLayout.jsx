@@ -70,7 +70,33 @@ function BulletList({ items }) {
 	);
 }
 
-function SubSection({ title, paragraphs = [], list = [], image }) {
+function SubSection({ title, paragraphs = [], list = [], image, layout }) {
+	const hasSplit = (layout === "image-right" || layout === "image-left") && image;
+
+	if (hasSplit) {
+		const textContent = (
+			<div className="case-study-subsection__text">
+				<h3 className="case-study-subsection__title">{title}</h3>
+				{paragraphs.length > 0 && <Paragraphs items={paragraphs} />}
+				{list.length > 0 && <BulletList items={list} />}
+			</div>
+		);
+		const imageContent = (
+			<SectionImage
+				src={image.src}
+				alt={image.alt}
+				caption={image.caption}
+				fullWidth={false}
+				contain={image.contain ?? true}
+			/>
+		);
+		return (
+			<div className={`case-study-subsection case-study-subsection--${layout}`}>
+				{layout === "image-left" ? <>{imageContent}{textContent}</> : <>{textContent}{imageContent}</>}
+			</div>
+		);
+	}
+
 	return (
 		<div className="case-study-subsection">
 			<h3 className="case-study-subsection__title">{title}</h3>
@@ -294,6 +320,13 @@ function SectionBlock({ section, index }) {
 		{section.video && <DemoVideo src={section.video.src} caption={section.video.caption} />}
 			{section.embed && (
 				<FigmaEmbed src={section.embed.src} caption={section.embed.caption} height={section.embed.height} />
+			)}
+			{section.readMore && (
+				<Link to={`/case-study/${section.readMore.slug}`} className="case-study-read-more">
+					<span className="case-study-read-more__label">{section.readMore.label ?? "Related case study"}</span>
+					<span className="case-study-read-more__title">{section.readMore.title} →</span>
+					{section.readMore.text && <span className="case-study-read-more__text">{section.readMore.text}</span>}
+				</Link>
 			)}
 		</div>
 	);

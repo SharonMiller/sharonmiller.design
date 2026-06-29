@@ -19,20 +19,6 @@ const buildingAtlas = {
 		src: "/images/Atlas Workspace/cursor-2-crop.png",
 		alt: "VSCO Workspace redesign and Cursor agent side-by-side, showing the AI-native design workflow in action",
 	},
-	impact: [
-		"VSCO Workspace shipped publicly June 23, 2026 as part of VSCO One (vsco.co/vsco-one). Live at vsco.co/workspace.",
-		"Covered by 9to5Mac at launch, June 23, 2026.",
-		"Dashboard, contacts, jobs, invoices, calendar, settings. A redesign and simplified transformation of a legacy CRM into a product creative professionals actually want to use.",
-		"Did the IC work as Head of Design with a designer on leave, on top of full management responsibilities. No additional hire. The AI made the difference.",
-		"272 commits to the prototype. Engineering used the working branch as the primary production reference, not a Figma file.",
-		"Concept-to-spec cycles compressed from months to roughly one week.",
-		"No P0 failures in the May 2026 usability test.",
-	],
-	summary: [
-		"When a designer on my team went on leave, I was already running the org full-time: 1:1s, direction-setting, cross-functional work. Adding IC work on top wasn't a clean handoff; it was a judgment call about what mattered and how fast I could learn to work differently.",
-		"In practice that meant carrying Workspace design, partial design systems lead work, and all the documentation that usually gets deprioritized (decision logs, usability test scripts, research synthesis), on top of my management responsibilities. AI compressed the overhead enough to make it workable. Not by automating design judgment, but by eliminating the low-value work around it.",
-		"The honest framing on AI-native design: it executes exactly what you specify, immediately, without pushback. Vague direction produces fast mediocre work that you now have to unpick. Design expertise isn't optional in this loop; it's the whole point.",
-	],
 	relatedStudy: {
 		slug: "operationalizing-ai-native-design",
 		label: "Read next",
@@ -41,39 +27,53 @@ const buildingAtlas = {
 	},
 	sections: [
 		{
+			title: "My role",
+			paragraphs: [
+				"When a designer on my team went on leave, I took on the IC work myself rather than bring in a contractor. Faster, cheaper, and proof of the process at the same time.",
+			],
+			list: [
+				"Cursor: almost everything was built here. The design lived in code from day one.",
+				"Figma: opened for two things only — polishing specific components like dashboard cards, and running review sessions for team feedback.",
+				"Claude: summarized research, audited the design system, wrote Figma components, and generated Cursor prompts grounded in context from Confluence, Jira, and the PRDs.",
+			],
+		},
+		{
 			title: "The problem",
 			paragraphs: [
 				"VSCO acquired Táve, a full-featured CRM for photographers. The backend was genuinely powerful. The frontend was built for a different era and a different audience.",
-				"Usability research on the legacy product was specific about where it failed. Users couldn't find a starting point. Terminology didn't map to how photographers think. One user spent over an hour with two support reps and still couldn't figure out how to structure his existing work. That pattern repeated across multiple new users.",
-				"The redesign scope was deliberately narrow: Lead to Booking to Payment. Get a photographer from first contact to paid job without requiring them to understand the full CRM.",
+				"Usability research on the legacy product was specific about where it failed.",
 			],
-			image: {
-				src: "/images/Atlas Workspace/workspace-before-after.png",
-				alt: "Before and after: legacy Táve CRM interface versus the redesigned VSCO Workspace",
-				contain: false,
-			},
-			imageFullWidth: true,
+			list: [
+				"The UI was overwhelming. Advanced options everywhere with no progressive complexity.",
+				"Onboarding was not self-serve. New users had to schedule two 1-hour phone calls just to get started.",
+				"Terminology didn't map to how photographers think. One user spent over an hour with two support reps and still couldn't structure his existing work.",
+			],
+			closingParagraphs: [
+				"Our ICP was the aspiring pro: a photographer building a client business. The redesign scope matched: Lead to Booking to Payment. First contact to paid job, without needing to understand an enterprise CRM.",
+			],
 			beforeAfter: {
 				before: {
-					src: "/images/Atlas Workspace/contact-form-old.png",
-					alt: "Legacy Táve contact form, generic dated styling",
-					caption: "Before: legacy Táve client contact form",
+					src: "/images/Atlas Workspace/doashboard old.png",
+					alt: "Legacy Táve dashboard: dark sidebar with 15+ navigation items, cluttered widgets, onboarding prompts",
+					caption: "Before: legacy Táve dashboard",
 				},
 				after: {
-					src: "/images/Atlas Workspace/contact-form-new.png",
-					alt: "New VSCO Workspace contact form, clean branded styling",
-					caption: "After: VSCO Workspace contact form",
+					src: "/images/Atlas Workspace/dashboard new.png",
+					alt: "New VSCO Workspace dashboard: clean layout, 4 navigation items, upcoming jobs and leads at a glance",
+					caption: "After: VSCO Workspace dashboard",
 				},
 			},
 		},
 		{
 			title: "Defining the approach",
-			pullquote: "No contractor moves at that speed. Taking the IC work myself was faster, cheaper, and proof of process at the same time.",
 			paragraphs: [
-				"I joke that working with AI is like managing a very eager junior with no taste and infinite energy. The good news: they will do exactly what you ask, immediately, without complaint. The bad news: they will do exactly what you ask, including the things you asked for wrong.",
-				"The feedback loop is constant. Every iteration requires a design eye. Every push requires a review. The AI will confidently implement something that is technically correct and visually wrong. If you're not catching it, it compounds.",
-				"The biggest shift was learning to front-load the thinking. The AI rewards clarity. A well-specified component takes minutes. An underspecified one takes longer to fix than it would have taken to build manually.",
+				"Working this way required building a new muscle. I learned to front-load the thinking: clear specs, defined constraints, explicit success criteria before any generation. AI rewards that investment. A well-specified component takes minutes. An underspecified one takes longer to fix than it would have taken to build manually. The design eye never turns off.",
 			],
+			readMore: {
+				slug: "operationalizing-ai-native-design",
+				title: "Operationalizing AI-Native Design",
+				text: "How this approach scaled across the full design org",
+			},
 		},
 		{
 			title: "Building the solution",
@@ -113,16 +113,20 @@ const buildingAtlas = {
 		{
 			title: "Designing the AI assistant",
 			paragraphs: [
-				"The assistant is the simple surface on top of a complex system. Designing it required a different approach than designing a flow: we can't map every conversation a photographer might have.",
-				"Instead of flows, we designed a component vocabulary: output primitives the assistant can assemble in any order. Option chips for decisions. Structured preview cards before any write action. A confirmation step before anything is committed. Always one tap from a real person.",
-				"The human-in-the-loop principle that applied to my design process applied to the product too. The assistant shows its work before it acts. Users stay in control.",
-				"I designed Scout as a standalone React component library. Every component in the vocabulary ships as a documented, testable primitive: ScoutOptionChip, ScoutConfirmationStep, ScoutCelebrationState, ScoutHandoffCard, ScoutThinkingIndicator. The library is published with a live playground for testing animation parameters.",
-				"My instinct whenever someone proposes a third-party hire: try it myself first. Cursor kept producing hard-edged blobs instead of the soft mesh the design called for. I switched to Claude, which solved the SVG math differently and got there. The head of brand liked it but wanted to tweak it, so it shipped as an interactive playground with parametric controls rather than a hardcoded value.",
+				"VSCO One launched with a simplified experience. Workspace — the full CRM — has capabilities the simplified version doesn't yet. Scout bridges that gap: a conversational agent that helps users navigate the more advanced experience on demand, without needing to know where anything lives.",
+				"Designing it required a different approach than designing a flow. A photographer asking Scout for help could be in any state, at any point in their work. You can't map every conversation.",
 			],
-			embed: {
-				src: "/demos/scout-thinking-playground.html?embed=1",
-				caption: "Thinking indicator exploration: six animation styles as interactive prototypes. Click a card to preview.",
-				height: 500,
+			list: [
+				"Instead of flows, a component vocabulary: output primitives Scout can assemble in any order.",
+				"Option chips for decisions.",
+				"Preview cards before any write action.",
+				"A confirmation step before anything is committed.",
+				"Always one tap from a real person.",
+			],
+			image: {
+				src: "/images/ai design ops/IMG_5260.png",
+				alt: "Scout thinking animation concepts: four styles — Float + dots, Pulse + dots, Head tilt + dots, Orbit ring",
+				caption: "Thinking indicator concepts built as interactive prototypes so the team could feel the motion before committing.",
 			},
 			video: {
 				src: "/videos/scout-ui-2.mp4",
@@ -130,12 +134,24 @@ const buildingAtlas = {
 			},
 		},
 		{
+			title: "Testing the API",
+			paragraphs: [
+				"Before designing what Scout could do, I needed to know what the Workspace API could actually do. So I built an MCP — a small server that connects Claude directly to the Workspace API — and used it to manage a real studio in plain language.",
+				"The test: create leads, move jobs through the pipeline, batch-import clients from a pasted list, look up contacts, manage products. All through conversation with Claude. No UI navigation required.",
+				"This wasn't a production feature. It was design research through building. The bugs surfaced immediately: price formatting (the API expects cents, the code was passing dollars), job types being guessed instead of fetched from the studio's actual settings, lead status missing so jobs appeared in the pipeline without a state. Fixing those gave a precise picture of where the API was solid and where Scout would need guardrails.",
+				"The MCP shipped to a shared Claude Enterprise project so anyone on the team could test it without setup. That's how the trust architecture decisions for Scout got grounded in something real: not hypothetical flows, but actual agent behavior against a live API.",
+			],
+		},
+		{
 			title: "Cross-functional work",
 			paragraphs: [
-				"The first version of this workflow was a design-only process. I was moving fast; engineering was trying to keep up with a reference that kept changing. Their concept link moved underneath them mid-sprint. That broke trust.",
-				"Fixing it meant treating this as a team process, not a design tool. I updated the PDLC to account for how handoff worked now. Three environments with explicit contracts: eng-ready (stable, what engineering builds from), wip (active design work only), and concept-testing (frozen during active research sessions).",
-				"Sometimes you have to go slow to go fast. Building trust with engineering, and building the process scaffolding around the new workflow, took time up front that paid back across every sprint afterward.",
+				"Moving fast in Cursor created a real problem. Design changes were going out while engineering was actively building against the same reference. Their concept link moved underneath them mid-sprint. That wasn't a workflow failure. It was a trust failure. Once engineering couldn't rely on the reference staying stable, they stopped trusting the process. Fixing it meant building a coordination model so design could keep moving without pulling the floor out from under engineering.",
 			],
+			readMore: {
+				slug: "operationalizing-ai-native-design",
+				title: "Operationalizing AI-Native Design",
+				text: "The full operating model, including handoff and review workflow",
+			},
 			imageFullWidth: {
 				src: `${DO}/IMG_0495.png`,
 				alt: "Scout animation playground running in browser alongside Cursor agent conversation, showing the actual design workflow in action",

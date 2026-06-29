@@ -8,26 +8,15 @@ const aiFirst = {
 	hook: "Shipped two products. Zero design hires. Here's the operating model.",
 	metrics: [
 		{ value: "0", label: "Design hires added" },
+		{ value: "~1 wk", label: "Concept to working spec" },
 		{ value: "June 23", label: "Shipped on schedule" },
 	],
 	description:
 		"AI-native operating model: Cursor as the primary design surface, working branches as engineering handoff, and a Flywheel that made the design system stronger with every prototype.",
 	thumbnail: {
 		src: "/images/ai design ops/ai-first-process-diagram.svg",
-		alt: "Design × AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
+		alt: "Design x AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
 	},
-	impact: [
-		"Two production MVPs designed from working prototypes, not static Figma decks. Engineering forked from a working branch.",
-		"Concept-to-spec cycles compressed from months to roughly one week.",
-		"272 commits, 177k lines of design-led code. Top contributor to the prototype repo.",
-		"Design × AI Flywheel and IC-level AI competency framework adopted across the full design org at the design all-hands.",
-		"No dedicated design systems IC added. Governance distributed through workflow.",
-	],
-	summary: [
-		"VSCO needed to redesign Workspace, a CRM acquired through Táve, for a new audience: aspiring creative professionals who needed business tools that fit how they actually work. My designer went on leave. The timeline did not move.",
-		"Engineering was using Cursor to move faster. Design was becoming the bottleneck. The choice was not between speed and quality. It was between a process that was already broken and a new one built around the actual constraints.",
-		"The solution was not a tool swap. It was a new operating model: design in code, engineering handoff from a working branch, and a Flywheel connecting the design system to every prototype. I ran the full Head of Design function while owning the end-to-end product design. This is the process that made both possible.",
-	],
 	relatedStudies: [
 		{
 			slug: "vsco-workspace",
@@ -38,20 +27,22 @@ const aiFirst = {
 		{
 			slug: "design-system-governance",
 			label: "Go deeper",
-			text: "The Flywheel made our design system stronger with every prototype.",
-			cta: "The Flywheel made our design system stronger. Read how we govern it →",
+			text: "The design system automation, org operations, and everything else AI runs at VSCO.",
+			cta: "See AI-Powered Design Ops →",
 		},
 	],
 	sections: [
 		{
-			title: "The problem with Figma specs",
+			title: "The problem",
 			paragraphs: [
-				"A Figma spec is an approximation. Interactions are simulated, edge cases are invisible, and a hundred small decisions get made in the gap between design and code, quietly, without the designer in the room. Engineering picks up the file and starts interpreting.",
-				"That interpretation gap was costing weeks. With a team under-resourced for the scope, design couldn't afford to be the translation bottleneck. The question was whether the artifact itself could change.",
+				"A Figma spec is an approximation. A designer finishes a screen, engineering picks it up, and a week later what ships is close but not exact. Not because anyone did something wrong. A static file cannot communicate behavior, edge cases, or the small decisions that happen in the space between design and code.",
+				"At VSCO this played out specifically. Engineering was using Cursor to reference design concepts visually in a separate repo, reading the code as a visual, not a spec. Output came back close but not exact. They wanted Figma redlines. The artifact was the problem, not the people.",
+				"There was a second barrier. Getting a React prototype running at VSCO required enough setup that most designers never got there. And the ones who did were starting from scratch each time, with no guardrails to keep things aligned with the design system. The process was not teachable.",
 			],
 		},
 		{
-			title: "The stack",
+			title: "The approach",
+			subsectionColumns: true,
 			image: {
 				src: "/images/Atlas Workspace/cursor ide.png",
 				alt: "Cursor agent making commits to the VSCO design workspace prototype",
@@ -59,15 +50,21 @@ const aiFirst = {
 			},
 			subsections: [
 				{
-					title: "Claude: strategy and systems",
+					title: "Cursor: the design surface",
 					paragraphs: [
-						"Connected to Figma, GitHub, Confluence, Slack, and Jira. A Claude project synthesized current product thinking (PRDs, user research, eng constraints, decisions from meetings) into Cursor prompts that produced significantly better output than starting from scratch. As scope shifted over four months, the context updated with it. It did not start from zero each session.",
+						"The prototype was built directly in Cursor — a React app running in the browser, with real state. Engineering handoff became 'here's the branch.' Design office hours ran three times a week so product and engineering could drop in and clarify in real time.",
 					],
 				},
 				{
-					title: "Cursor: execution",
+					title: "Claude: context and strategy",
 					paragraphs: [
-						"Prototyping directly in VUI component code. When the Kanban board needed a sheet drawer on card click, it got built. When the dashboard needed a KPI block that conditionally surfaced an upgrade, it was designed in actual code. Real state, real layout behavior, real component constraints, not approximated. The prototype became the handoff artifact. Engineering forked from a working branch.",
+						"A Claude project connected to Jira, Confluence, and linked PRDs served as a persistent context layer. Rather than writing prompts from scratch, Claude synthesized current product thinking — scope, research, constraints, decisions — into prompts that produced better output.",
+					],
+				},
+				{
+					title: "Figma: review surface",
+					paragraphs: [
+						"Figma didn't go away. When a flow was ready for review, the prototype was pushed to Figma via an HTML-to-Design integration — real layers, ready to polish or contribute back to the design system. Figma as a spec tool is slow. As a component system and review surface, it's irreplaceable.",
 					],
 				},
 			],
@@ -76,53 +73,106 @@ const aiFirst = {
 			title: "The Flywheel",
 			image: {
 				src: "/images/ai design ops/ai-first-process-diagram.svg",
-				alt: "The Design × AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
+				alt: "The Design x AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
 				contain: true,
 			},
 			paragraphs: [
 				"A well-maintained design system makes AI-assisted prototyping possible. AI-assisted prototyping surfaces design system gaps fast. Each cycle makes both stronger.",
-				"The Dashboard Card system is the concrete proof point. Building Workspace in Cursor surfaced that the card system didn't exist as a proper VUI component. It lived in the product file as a local build. That gap went through the Flywheel: audited via the Figma Plugin API, built programmatically in the VUI Design System file with correct token bindings, published to the library, pulled back into the prototype. The prototype got better. VUI got stronger. Neither required a separate sprint.",
-				"VUI stopped being a design artifact. It became the foundation that lets design move at engineering speed.",
+				"The Dashboard Card system is the concrete proof point. Building Workspace in Cursor surfaced that the card system did not exist as a proper design system component. That gap went through the Flywheel: audited via the Figma Plugin API, built programmatically in the design system with correct token bindings, published to the library, pulled back into the prototype. The prototype got better. The design system got stronger. Neither required a separate sprint.",
+				"The design system stopped being a design artifact. It became the foundation that lets design move at engineering speed.",
 			],
+			readMore: {
+				slug: "design-system-governance",
+				title: "AI Across a Design Org",
+				text: "The full design system automation workflow: audit, fix, and report via the Figma Plugin API",
+			},
 		},
 		{
-			title: "Three environments, one codebase",
+			title: "The infrastructure",
 			paragraphs: [
-				"Designing in code while engineering builds from the same codebase creates a real coordination problem: a design update can shift the reference engineering is coding against mid-sprint. Three branches solved it.",
+				"A process only one person can run is not a process. sandbox-design-starter-web is a VSCO Enterprise GitHub template any designer on the team can fork. Open it in Cursor and the rules and skills are already active. VSCO Gothic fonts are bundled so typography matches Figma from the first dev run. One prompt starts the full setup.",
 			],
-			list: [
-				"eng-ready: stable, what engineering builds from. Updated on a schedule with advance notice and a Cursor-generated changelog so engineers always knew what changed before they saw it.",
-				"wip: active design work only. Design moved freely here without touching anything in-flight.",
-				"concept-testing: stable enough for user research sessions. Last week's build was available for testing while this week's iteration was already in wip.",
-			],
-		},
-		{
-			title: "The review workflow",
-			paragraphs: [
-				"Share the concept link. Pull the live UI into Figma via html-to-design. Team leaves comments the way they always have. Updates go back into Cursor, or new components get built in VUI via MCP. Push to the concept link. Repeat.",
-				"The loop felt familiar to designers because it used Figma comments. The source of truth stayed in code. Live design hours three times a week replaced the async Slack thread that went nowhere.",
+			subsections: [
+				{
+					title: "Always-on rules",
+					layout: "image-right",
+					paragraphs: [
+						"Cursor rules run automatically on every prompt. Designers don't have to remember them.",
+					],
+					list: [
+						"Design system rule: typography variants, color tokens, component hierarchy. No raw HTML elements or hex values.",
+						"No-override rule: prevents CSS from fighting design system component defaults.",
+						"Prototype rule: tells the agent this is a concept, optimize for clarity and testable UX, not production patterns.",
+						"Vocabulary rule: translates designer language to git actions in passing. 'Save my changes' becomes a commit. 'Send it to the link' becomes a push and deploy. No lecture required.",
+					],
+					image: {
+						src: "/images/ai design ops/IMG_0471.png",
+						alt: "Design Best Practices for Cursor Starter Repos: the always-on rules document that runs on every prompt",
+						caption: "The rules file: read by the agent on every prompt. Designers don't configure anything.",
+					},
+				},
+				{
+					title: "Skills for every stage",
+					paragraphs: [
+						"Skills are on-demand workflows triggered by a single prompt in Cursor.",
+					],
+					list: [
+						"Project setup: first-time onboarding. Walks through Node, branches, dev server, and Figma connection.",
+						"Prototype to Figma: captures the live prototype into Figma for review, converts hardcoded values to design system tokens, flags what needs a manual swap.",
+						"Design system audit: checks whether a prototype pattern maps to an existing component before building a new one.",
+						"Eng-ready release: diffs main vs eng-ready, generates a changelog, and can post a summary to Figma via the Figma MCP.",
+					],
+				},
+				{
+					title: "Three-stage lifecycle",
+					list: [
+						"wip: active iteration. Design moves freely, not for testing.",
+						"concept-testing: stable enough for user research sessions. Last week's build is available for testing while this week's iteration is already in wip.",
+						"eng-ready: polished handoff. Updated on a predictable schedule with a Cursor-generated changelog so engineers always know what changed before they see it.",
+					],
+				},
 			],
 		},
 		{
 			title: "The handoff prompt",
 			paragraphs: [
-				"When design pushes changes, the PR auto-posts to Slack with two things: the concept link and a Cursor prompt for engineering.",
-				"The prompt is generated by a Claude skill written to follow a consistent template. It covers what the feature is and how it should behave, what to reference in the concept branch, and granular written descriptions of any design components not in the design system, so Cursor on the engineering side has explicit guidance rather than guessing by visually inspecting the concept.",
-				"Engineering uses both when they start on the feature. The concept link is the visual reference. The prompt is the instruction set. They add their own context on top: API details, technical constraints, anything the code needs that design cannot supply.",
-				"This is a new kind of design deliverable: not a redline, not a handoff document, but a machine-readable instruction set that travels with the code.",
+				"Engineering was reading design concepts visually in Cursor and getting output that was close but not exact. They wanted Figma redlines. The handoff prompt is what replaced them.",
+				"When design pushes to eng-ready, a Claude skill auto-generates a structured prompt and posts it to Slack. The prompt covers:",
+			],
+			list: [
+				"What the feature is and how it should behave.",
+				"Exact specs for anything ambiguous: corner radius, spacing, shadow values, interaction states.",
+				"Written descriptions for any components not yet in the design system, precise enough for an agent to build from rather than guess from a visual.",
+				"Product context and flow descriptions so the agent understands why the design works the way it does, not just what it looks like.",
+			],
+			closingParagraphs: [
+				"Engineering uses the concept link and the prompt together. The link is the visual reference. The prompt is the instruction set. They add API details and technical constraints on top. Not a redline, not a handoff doc, but a machine-readable instruction set that travels with the code.",
+			],
+			image: {
+				src: "/images/design ops/IMG_2671.png",
+				alt: "Claude posting a structured handoff summary in Slack with component specs and design context",
+				caption: "The handoff prompt auto-posted to Slack: feature context, exact specs, and agent-ready instructions in one message.",
+			},
+		},
+		{
+			title: "Getting the team in",
+			paragraphs: [
+				"Adoption required removing every excuse not to start. The template repo ships with everything pre-configured. Design system installed, fonts bundled, Cursor rules active, skills for every stage of the workflow.",
+				"One designer on the team took it from there and shipped Studio Pro. Much of the concept testing happened in Cursor, even though some high-fidelity design was still detailed in Figma first. Not full adoption yet, but real. The process is transferring and the team is moving toward it.",
+				"Presented the methodology at the design org all-hands. AI fluency defined as a required competency at every IC level: working with tools fluently, configuring context, building prompt systems, and designing the infrastructure other designers build on.",
 			],
 		},
 		{
 			title: "What didn't work: Figma Make",
 			paragraphs: [
-				"Figma Make was the obvious starting point. It's in the design tool, designers already live there, and the output is a Figma prototype: the artifact the team had always handed to engineering.",
-				"I used it on the VSCO Galleries product experience, which shipped. But the process was frustrating in a specific way: Figma Make had no knowledge of the VSCO design system. Every prompt required correcting tokens, components, and patterns, things Cursor knows from the rules files automatically. The irony wasn't lost on me. The tool built into the design system host had less design system context than a code editor with a markdown file.",
-				"The deeper problem: the output lives in Figma. There is no path from a Figma Make prototype to a production codebase that doesn't require a full rebuild. Cursor's output lives in the codebase. Engineering could fork from the working branch. The prototype and the product converged rather than diverged.",
+				"Figma Make was the obvious starting point. It is in the design tool, designers already live there, and the output is a Figma prototype: the artifact the team had always handed to engineering.",
+				"I used it on the VSCO Galleries product experience, which shipped. But the process was frustrating in a specific way: Figma Make had no knowledge of the VSCO design system. Every prompt required correcting tokens, components, and patterns, things Cursor knows from the rules files automatically. The tool built into the design system host had less design system context than a code editor with a markdown file.",
+				"The deeper problem: the output lives in Figma. There is no path from a Figma Make prototype to a production codebase that does not require a full rebuild. Cursor's output lives in the codebase. Engineering forked from a working branch. The prototype and the product converged rather than diverged.",
 			],
 			image: {
 				src: "/images/Atlas Workspace/figma-galleries.png",
 				alt: "Figma Make concept test output for the VSCO Galleries feature",
-				caption: "Figma Make concept test for the Galleries feature: technically functional, but design-system-blind and credit-heavy.",
+				caption: "Figma Make concept test for the Galleries feature: technically functional, but design-system-blind.",
 			},
 		},
 		{
@@ -138,26 +188,23 @@ const aiFirst = {
 				{
 					title: "The language barrier for designers",
 					paragraphs: [
-						"Cursor is built for engineers. Before other designers could use it, the mental model gap had to close. They didn't know what a push was. What a commit meant. Solving adoption meant solving the language problem first.",
-						"I built template repos with CLAUDE.md context files and a designer-workflows.mdc Cursor rule that mapped designer vocabulary to git actions in passing ('save my changes' → commit, 'send it to the link' → push, deploy) so Cursor translated without a lecture. The goal: open the template, read the files, start working. No two-hour onboarding call.",
+						"Cursor is built for engineers. Before other designers could use it, the mental model gap had to close. They did not know what a push was. What a commit meant. Solving adoption meant solving the language problem first.",
+						"The designer-workflows.mdc rule mapped designer vocabulary to git actions in passing so Cursor translated without a lecture. 'Save my changes' becomes a commit. 'Send it to the link' becomes a push and deploy. The goal: open the template, read the files, start working. No two-hour onboarding call.",
 					],
 				},
 			],
 		},
 		{
-			title: "Getting the team in",
-			paragraphs: [
-				"Adoption required removing every excuse not to start.",
-				"A GitHub template any designer on the team can fork. Design system pre-installed, brand fonts bundled, Cursor rules active, and skills for every stage of the workflow: first-time setup, prototype-to-Figma capture, design system auditing, eng-ready releases. One prompt in Cursor starts the full setup.",
-				"Presented the methodology at the design org all-hands. Defined AI fluency as a required competency at every IC level, not a bonus skill.",
-				"That meant working with AI tools fluently, configuring context, building prompt systems, and designing the infrastructure other designers build on. The framework changed how the team thought about what the work actually was.",
-			],
-		},
-		{
 			title: "The outcome",
+			stats: [
+				{ value: "0", label: "Design hires added" },
+				{ value: "2", label: "Products shipped" },
+				{ value: "~1 wk", label: "Concept to working spec" },
+			],
 			paragraphs: [
-				"Two production MVPs shipped June 23, 2026, on schedule. Zero design hires added. Engineering used the prototype as the primary production reference, with no spec translation required. Scout's component architecture, designed in the prototype, was adopted by engineering as a standalone cross-app repo for production. That's external validation: the design approach was sound enough that engineering rebuilt it.",
-				"The most significant result was not the speed. It was that design stopped being a bottleneck and became infrastructure. VUI got stronger through the build cycle. Designers have a repeatable process. The system compounds.",
+				"Two production MVPs shipped June 23, 2026. Engineering used the working prototype as the primary production reference, with no spec translation required. Scout's component architecture was adopted by engineering as a standalone cross-app repo for production. External validation: the design was sound enough that engineering rebuilt it.",
+				"The more important outcome: design stopped being a bottleneck and became infrastructure. the design system gets stronger through the build cycle. Designers have a repeatable process. The system compounds.",
+				"Detailed design still matters. Craft is still required, applied more intentionally to the moments where it has the highest impact rather than spread across every screen in a flow. The design system handles the baseline. The designer's eye goes into the decisions that make something feel considered.",
 			],
 		},
 	],

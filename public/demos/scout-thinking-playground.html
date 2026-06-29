@@ -10,12 +10,12 @@
 
   h1 { font-size: 14px; font-weight: 500; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 32px; }
 
-  .cards { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 32px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; width: 100%; }
 
   .card {
     background: white; border-radius: 16px; padding: 24px 18px 16px;
     border: 2px solid transparent; cursor: pointer; text-align: center;
-    transition: border-color 0.2s; min-width: 120px;
+    transition: border-color 0.2s;
   }
   .card:hover { border-color: #ddd; }
   .card.on { border-color: #1a1a1a; }
@@ -23,7 +23,7 @@
   .card-name { font-size: 13px; color: #222; font-weight: 500; margin-top: 2px; }
 
   /* Avatar */
-  .av { width: 64px; height: 76px; position: relative; margin: 0 auto; display: flex; align-items: flex-end; justify-content: center; }
+  .av { width: 84px; height: 76px; position: relative; margin: 0 auto; display: flex; align-items: flex-end; justify-content: center; }
   .face { width: 64px; height: 64px; position: relative; flex-shrink: 0; }
   .face svg.base { width: 64px; height: 64px; position: absolute; }
   .mouth-mask { position: absolute; background: white; width: 16px; height: 8px; left: 13px; bottom: 7px; border-radius: 2px; }
