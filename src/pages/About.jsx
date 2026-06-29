@@ -20,48 +20,6 @@ const WORK_PHOTOS = [
 
 // ─── Work capabilities ───────────────────────────────────────────────────────
 
-const CAPABILITIES = [
-	{
-		title: "Design",
-		description:
-			"Platform and systems design across growth, AI, and 0→1 products. Human-in-the-loop patterns, agentic UI, design systems governance, and the full arc from strategy to shipped product.",
-		proof: [
-			"600% lift in Team Plan purchases, single experiment",
-			"Two MVPs shipped from concept to working code branch",
-			"AI competency framework written and presented org-wide",
-		],
-	},
-	{
-		title: "Engineering",
-		description:
-			"Full-stack background from a year building in React at a software consultancy. Prototype in Cursor, build component systems, wire Figma Code Connect, and deploy to production environments.",
-		proof: [
-			"React and React Native component systems",
-			"Cursor prototyping directly in VUI codebase",
-			"Figma Code Connect: component naming to code convention alignment",
-		],
-	},
-	{
-		title: "Product",
-		description:
-			"Served as Product Owner for a production SaaS platform. Defined three-year vision presented at executive and board level. Shaped roadmap, wrote user stories, and ran experiment strategy.",
-		proof: [
-			"3-year platform vision presented to exec leadership at SurveyMonkey",
-			"Experiment tracking system → 24% team delivery velocity improvement",
-			"A/B testing, user stories, sprint planning as PO",
-		],
-	},
-	{
-		title: "DevOps & Operations",
-		description:
-			"AWS Solutions Architect certified. Led UX for an AWS Premier Partner cloud management platform. Built a three-environment deployment system for design-to-engineering handoff.",
-		proof: [
-			"AWS Certified Solutions Architect, Associate",
-			"Enterprise cloud platform UX at Effectual (AWS Premier Partner)",
-			"Three-environment handoff system: eng-ready, wip, concept-testing",
-		],
-	},
-];
 
 // ─── Career arc ──────────────────────────────────────────────────────────────
 
@@ -73,52 +31,7 @@ const CAREER_ARC = [
 	{ period: "2000–2004", role: "Early Career", company: "Zango (startup, employee #5)" },
 ];
 
-// ─── Tools ───────────────────────────────────────────────────────────────────
-
-const TOOL_GROUPS = [
-	{
-		label: "Daily workflow",
-		tools: ["Claude", "Cursor", "Figma", "GitHub", "Vercel"],
-	},
-	{
-		label: "Design & systems",
-		tools: ["React", "Figma Code Connect", "TypeScript"],
-	},
-	{
-		label: "Data & platform",
-		tools: ["Snowflake", "Python", "AWS", "Jira", "Confluence"],
-	},
-];
-
 // ─── Components ──────────────────────────────────────────────────────────────
-
-function Tag({ children }) {
-	return (
-		<span className="about-tag">
-			{children}
-		</span>
-	);
-}
-
-function CapabilityCard({ title, description, proof, revealIndex, featured = false }) {
-	return (
-		<div
-			className={`capability-card lumen-reveal lumen-reveal--lift${featured ? " capability-card--featured" : ""}`}
-			data-reveal-index={revealIndex}
-		>
-			<h3 className="capability-card__title">{title}</h3>
-			<p className="capability-card__description">{description}</p>
-			<ul className="capability-card__proof">
-				{proof.map((item) => (
-					<li key={item} className="capability-card__proof-item">
-						<span className="capability-card__dot" aria-hidden="true" />
-						{item}
-					</li>
-				))}
-			</ul>
-		</div>
-	);
-}
 
 function PhotoGrid({ photos, columns = 2 }) {
 	return (
@@ -227,17 +140,6 @@ export default function About() {
 					</figure>
 				</div>
 
-				{/* Availability */}
-				<div className="about-availability">
-					<p>
-						<span className="about-availability__status">
-							<span aria-hidden="true">● </span>Available
-						</span>
-						<span>
-							Open to senior IC and staff roles, and consulting with design teams on AI-powered workflow and process.
-						</span>
-					</p>
-				</div>
 			</section>
 
 			{/* ── SECTION DIVIDER ──────────────────────────────── */}
@@ -251,22 +153,20 @@ export default function About() {
 			<section className="about-section" aria-labelledby="about-work-heading" style={{ background: "#ffffff", borderRadius: "1rem", padding: "2.5rem", marginTop: "2rem" }}>
 				<div className="about-work-intro">
 					<h2 className="about-work-heading" id="about-work-heading">
-						Design, engineering, product, and operations: not as separate tracks, but as one practice.
+						Head of Product Design at VSCO.
 					</h2>
-					<p className="about-work-subhead">
-						Twenty years across platform UX, growth design, SaaS product ownership, and cloud
-						infrastructure. Currently leading design at VSCO, an iconic platform built for photographers
-						and creators. The range is intentional.
-					</p>
 				</div>
 
-				<div className="capability-grid">
-					<CapabilityCard {...CAPABILITIES[0]} revealIndex={0} featured />
-					<div className="capability-grid__secondary">
-						{CAPABILITIES.slice(1).map((cap, index) => (
-							<CapabilityCard key={cap.title} {...cap} revealIndex={index + 1} />
-						))}
-					</div>
+				<div className="about-prose home-body-copy">
+					<p>I lead design teams and still do the work.</p>
+					<ul className="about-bullets">
+						<li>Head of Product Design at VSCO: multiple product squads, team, budget, hiring, and AI competency framework presented org-wide</li>
+						<li>SurveyMonkey: four distributed design squads reporting directly to the CTO</li>
+						<li>IC design at both VSCO and SurveyMonkey, not just managing</li>
+						<li>Prototyping in code: React, React Native, Figma Code Connect</li>
+						<li>Product Owner for a production SaaS platform; three-year product vision at exec and board level</li>
+						<li>AWS Solutions Architect: four years leading UX at an AWS Premier Partner</li>
+					</ul>
 				</div>
 
 
@@ -311,19 +211,6 @@ export default function About() {
 					<p className="about-speaking-note">Open to speaking engagements on AI-native design process, design systems, and building effective design teams.</p>
 				</div>
 
-				{/* Tools */}
-				<div className="about-tools">
-					{TOOL_GROUPS.map((group) => (
-						<div key={group.label} className="about-tools__group">
-							<p className="about-tools__label">{group.label}</p>
-							<div className="about-tools__tags">
-								{group.tools.map((tool) => (
-									<Tag key={tool}>{tool}</Tag>
-								))}
-							</div>
-						</div>
-					))}
-				</div>
 			</section>
 		</PortfolioShell>
 	);

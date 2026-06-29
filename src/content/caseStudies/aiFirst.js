@@ -52,19 +52,34 @@ const aiFirst = {
 				{
 					title: "Cursor: the design surface",
 					paragraphs: [
-						"The prototype was built directly in Cursor — a React app running in the browser, with real state. Engineering handoff became 'here's the branch.' Design office hours ran three times a week so product and engineering could drop in and clarify in real time.",
+						"The prototype was built directly in Cursor: a React app running in the browser, with real state.",
+					],
+					list: [
+						"Engineering handoff: 'here's the branch.'",
+						"Design office hours three times a week for PM and eng to clarify in real time.",
+						"Agent commits tracked alongside manual work — full history, no handoff translation.",
 					],
 				},
 				{
 					title: "Claude: context and strategy",
 					paragraphs: [
-						"A Claude project connected to Jira, Confluence, and linked PRDs served as a persistent context layer. Rather than writing prompts from scratch, Claude synthesized current product thinking — scope, research, constraints, decisions — into prompts that produced better output.",
+						"A Claude project connected to Jira, Confluence, and linked PRDs: a persistent context layer.",
+					],
+					list: [
+						"Scope, research, constraints, and decisions synthesized on demand.",
+						"Prompts grounded in current product thinking rather than written from scratch.",
+						"Design system audits, component generation, and Cursor prompt drafting all routed through the same context.",
 					],
 				},
 				{
 					title: "Figma: review surface",
 					paragraphs: [
-						"Figma didn't go away. When a flow was ready for review, the prototype was pushed to Figma via an HTML-to-Design integration — real layers, ready to polish or contribute back to the design system. Figma as a spec tool is slow. As a component system and review surface, it's irreplaceable.",
+						"Figma didn't go away — its role changed.",
+					],
+					list: [
+						"HTML-to-Design integration: prototype pushed to Figma as real layers when ready for review.",
+						"Polished components contributed back to the design system.",
+						"Spec tool replaced. Component system and review surface kept.",
 					],
 				},
 			],
@@ -83,7 +98,7 @@ const aiFirst = {
 			],
 			readMore: {
 				slug: "design-system-governance",
-				title: "AI Across a Design Org",
+				title: "AI-Powered Design Ops",
 				text: "The full design system automation workflow: audit, fix, and report via the Figma Plugin API",
 			},
 		},
@@ -189,7 +204,7 @@ const aiFirst = {
 					title: "The language barrier for designers",
 					paragraphs: [
 						"Cursor is built for engineers. Before other designers could use it, the mental model gap had to close. They did not know what a push was. What a commit meant. Solving adoption meant solving the language problem first.",
-						"The designer-workflows.mdc rule mapped designer vocabulary to git actions in passing so Cursor translated without a lecture. 'Save my changes' becomes a commit. 'Send it to the link' becomes a push and deploy. The goal: open the template, read the files, start working. No two-hour onboarding call.",
+						"The vocabulary rule mapped designer language to git actions in passing so Cursor translated without a lecture. 'Save my changes' becomes a commit. 'Send it to the link' becomes a push and deploy. The goal: open the template, read the files, start working. No two-hour onboarding call.",
 					],
 				},
 			],
@@ -203,7 +218,7 @@ const aiFirst = {
 			],
 			paragraphs: [
 				"Two production MVPs shipped June 23, 2026. Engineering used the working prototype as the primary production reference, with no spec translation required. Scout's component architecture was adopted by engineering as a standalone cross-app repo for production. External validation: the design was sound enough that engineering rebuilt it.",
-				"The more important outcome: design stopped being a bottleneck and became infrastructure. the design system gets stronger through the build cycle. Designers have a repeatable process. The system compounds.",
+				"The more important outcome: design stopped being a bottleneck and became infrastructure. The design system gets stronger through the build cycle. Designers have a repeatable process. The system compounds.",
 				"Detailed design still matters. Craft is still required, applied more intentionally to the moments where it has the highest impact rather than spread across every screen in a flow. The design system handles the baseline. The designer's eye goes into the decisions that make something feel considered.",
 			],
 		},

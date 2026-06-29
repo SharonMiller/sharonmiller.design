@@ -287,6 +287,15 @@ function SectionBlock({ section, index }) {
 
 	const textContent = (
 		<div className="case-study-section__content">
+			{section.beforeImage && (
+				<SectionImage
+					src={section.beforeImage.src}
+					alt={section.beforeImage.alt}
+					caption={section.beforeImage.caption}
+					fullWidth
+					contain
+				/>
+			)}
 			{section.stats?.length > 0 && <StatGrid stats={section.stats} />}
 			{section.paragraphs?.length > 0 && <Paragraphs items={section.paragraphs} />}
 			{section.list?.length > 0 && <BulletList items={section.list} />}

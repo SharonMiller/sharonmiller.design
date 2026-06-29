@@ -58,7 +58,7 @@ const designSystemGovernance = {
 				},
 				{
 					title: "Engineering-side guardrails",
-					layout: "image-right",
+					layout: "image-left",
 					paragraphs: [
 						"The Figma library has composite components designers use to work fast. The code design system has primitives. Getting them to stay in sync required more than governance of Figma files.",
 						"The React and React Native design libraries now include written guidance documents that engineering's Cursor agents read when expanding components. Instead of pre-building every variant, the docs describe what configurations are valid — what a modal header can contain, what spacing rules apply, when to use which component. The agent checks its output against the guidelines rather than guessing from a visual. Consistency at scale without pre-building every permutation.",
