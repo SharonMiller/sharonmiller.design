@@ -6,7 +6,7 @@ export default function Contact() {
 			<div className="contact-page">
 				<h1 className="contact-page__heading">Let's talk.</h1>
 				<p className="contact-page__sub">
-					Open to senior IC and staff roles, and consulting with design teams on AI-powered workflow and process.
+					Open to head of design, director, and staff IC roles. Also consulting on AI-native design workflow with teams who want to move faster without losing craft.
 				</p>
 
 				<div className="contact-page__links">

@@ -30,6 +30,11 @@ export default async function middleware(request: Request) {
 		return next();
 	}
 
+	// Only gate case study detail pages — home, about, contact stay public
+	if (!pathname.startsWith("/case-study/")) {
+		return next();
+	}
+
 	const cookie = getCookie(request, AUTH_COOKIE_NAME);
 	const expectedToken = await createAuthToken(sitePassword);
 
@@ -38,9 +43,7 @@ export default async function middleware(request: Request) {
 	}
 
 	const loginUrl = new URL("/login", request.url);
-	if (pathname !== "/") {
-		loginUrl.searchParams.set("returnTo", pathname);
-	}
+	loginUrl.searchParams.set("returnTo", pathname);
 
 	return Response.redirect(loginUrl, 307);
 }

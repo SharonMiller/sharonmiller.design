@@ -45,7 +45,7 @@ const EARLY_CAREER = [
 	{
 		period: "2000-2004",
 		location: "Seattle, WA",
-		title: "Head of Customer Engagement at Zango",
+		title: "Head of Customer Experience at Zango",
 		description:
 			"Startup employee #5 with diverse roles, including support management and customer engagement. Relocated to Bend, Oregon after Zango acquisition in 2004 to start a family.",
 	},
@@ -67,7 +67,7 @@ const EARLY_CAREER = [
 
 const WORK_PHOTOS = [
 	{
-		src: "/images/wark_about_3.png",
+		src: "/images/work_about_3.png",
 		alt: "Sharon Miller holding a SurveyMonkey Innovate Outstanding Achievement Award",
 	},
 	{
@@ -117,7 +117,7 @@ export default function WorkHistory() {
 				asideCaption="Head of Product Design at VSCO"
 			>
 				<h2 className="text-xl font-bold text-lumen-ink md:text-2xl">
-					Head of Product Design @ VSCO
+					Head of Product Design at VSCO
 				</h2>
 				<div className="mt-5 space-y-4 text-base leading-relaxed text-gray-700">
 					<p>
@@ -182,8 +182,8 @@ export default function WorkHistory() {
 						leadership and partnered closely with product and engineering.
 					</p>
 					<p>
-						I spearheaded growth initiatives that increased team velocity by 24 percent,
-						improved monetization, and advanced AI/ML-driven personalization.
+						I led growth initiatives that increased team velocity by 24 percent,
+						improved monetization, and advanced AI-driven personalization.
 					</p>
 					<p>
 						As Director of Product Design at an AWS Premier partner, I established UX/UI best
