@@ -44,11 +44,11 @@ const designSystemGovernance = {
 					title: "What the workflow does",
 					layout: "image-right",
 					list: [
-						"Reads every component against a full structural checklist: variant structure, auto-layout, token bindings, layer naming, component descriptions.",
-						"Produces a tiered report: passing, issues, blockers, with specific fix instructions per node.",
-						"Executes fixes directly in the Figma file: rebuilds auto-layout, rewires token bindings, creates missing variants, corrects property naming.",
-						"Verifies every change before moving on. Progress is blocked until every modified node passes.",
-						"Posts a structured summary to the design Slack channel: what was audited, what changed, what needs human review. Engineers get notified when their components update.",
+						"Component check: reads every component against a structural checklist. Variant structure, auto-layout, token bindings, layer naming, descriptions.",
+						"Tiered report: passing, issues, blockers, with specific fix instructions per node.",
+						"Direct fixes: rebuilds auto-layout, rewires token bindings, creates missing variants, corrects property naming.",
+						"Verified: every change confirmed before moving on. Progress blocked until every modified node passes.",
+						"Slack summary: what was audited, what changed, what needs human review. Engineers notified when their components update.",
 					],
 					image: {
 						src: `${DS}/IMG_5693.png`,
@@ -58,15 +58,40 @@ const designSystemGovernance = {
 				},
 				{
 					title: "Engineering-side guardrails",
-					layout: "image-left",
+					layout: "spec-left",
 					paragraphs: [
 						"The Figma library has composite components designers use to work fast. The code design system has primitives. Getting them to stay in sync required more than governance of Figma files.",
-						"The React and React Native design libraries now include written guidance documents that engineering's Cursor agents read when expanding components. Instead of pre-building every variant, the docs describe what configurations are valid — what a modal header can contain, what spacing rules apply, when to use which component. The agent checks its output against the guidelines rather than guessing from a visual. Consistency at scale without pre-building every permutation.",
+						"The React and React Native design libraries now include written guidance documents that engineering's Cursor agents read when expanding components. Instead of pre-building every variant, the docs describe what configurations are valid. The agent checks its output against the guidelines rather than guessing from a visual. Consistency at scale without pre-building every permutation.",
 					],
-					image: {
-						src: `${DS}/IMG_6063.png`,
-						alt: "Figma Dashboard Card System components: Dashboard/Row, Dashboard/Slot, and Dashboard/Card variants built programmatically",
-						caption: "Dashboard Card System in Figma: components built via Plugin API with correct token bindings and auto-layout.",
+					specBlock: {
+						title: "modal.md",
+						sections: [
+							{
+								heading: "Structure",
+								lines: [
+									"  sections: header · body · footer (optional)",
+									"  radius: radius.standard (4px)",
+									"  backdrop: color.overlay.scrim · 40% opacity",
+								],
+							},
+							{
+								heading: "Header",
+								lines: [
+									"  font: vsco-gothic · 17/semibold · caps",
+									"  color: color.text.primary",
+									"  close icon: optional — omit if footer has dismiss button",
+									"  padding: 24 24 16",
+								],
+							},
+							{
+								heading: "Body",
+								lines: [
+									"  font: 16/medium desktop · 13/medium mobile",
+									"  content: text | rows | form | image",
+									"  ...",
+								],
+							},
+						],
 					},
 				},
 			],
@@ -92,6 +117,7 @@ const designSystemGovernance = {
 						src: "/images/ai design ops/IMG_4301.png",
 						alt: "VSCO Design Project Tracker dashboard: all active design initiatives with status chips, owners, and key dates",
 						caption: "All active VSCO design initiatives in one view. Status, key dates, links — no status meeting required.",
+						fade: true,
 					},
 				},
 				{
@@ -153,15 +179,15 @@ const designSystemGovernance = {
 				"These are lighter use cases — things I reach for regularly that are harder to show than to describe. Happy to go deeper on any of them.",
 			],
 			list: [
-				"PRD summarization. Product now uses AI to write 20-page PRDs. Design uses AI to make them readable again.",
-				"Thinking through flows and edge cases before committing to a direction.",
-				"Competitor research: how other teams are approaching AI-first design, what's worth trying, what to avoid.",
-				"Hypothesis development: structuring design and product hypotheses in a consistent testable format.",
-				"Job descriptions and interview panel communications.",
-				"Drafting design team responses to PRDs and briefs — scope pushback, clarifying questions, design rationale.",
-				"Unmoderated research scripts and post-session critique summaries.",
-				"Figma comments-to-code workflow: design feedback automatically informing the next Cursor iteration.",
-				"Design critique prep: flagging missing states and inconsistencies before the room sees them.",
+				"PRD summarization: Product writes them long. Design needs them short.",
+				"Flow thinking: working through flows and edge cases before committing, pulling in competitor patterns and research as we go.",
+				"AI practice tracking: how other teams are figuring out AI-first design. What's working, what's worth trying, what to skip.",
+				"Hypothesis development: structuring design and product hypotheses in a consistent, testable format.",
+				"JDs and panel comms: job descriptions and interview panel communications.",
+				"PRD responses: scope pushback, clarifying questions, design rationale.",
+				"Design critique and research: summarizing sessions, prepping what to look for and why, and writing post-session takeaways.",
+				"Figma comments-to-code: design feedback informing the next Cursor iteration automatically.",
+				"Change context: design system updates and change summaries posted to engineering.",
 			],
 			closingParagraphs: [
 				"I love talking about this. Reach out at sharonmillercreative@gmail.com if you want to go deeper on any of them.",

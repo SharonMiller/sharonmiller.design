@@ -44,9 +44,9 @@ const buildingAtlas = {
 				"Usability research on the legacy product was specific about where it failed.",
 			],
 			list: [
-				"The UI was overwhelming. Advanced options everywhere with no progressive complexity.",
-				"Onboarding was not self-serve. New users had to schedule two 1-hour phone calls just to get started.",
-				"Terminology didn't map to how photographers think. One user spent over an hour with two support reps and still couldn't structure his existing work.",
+				"UI: overwhelming. Advanced options everywhere, no progressive complexity.",
+				"Onboarding: not self-serve. Two 1-hour phone calls required just to get started.",
+				"Terminology: didn't map to how photographers think. One user spent over an hour with support and still couldn't structure his existing work.",
 			],
 			closingParagraphs: [
 				"Our ICP was the aspiring pro: a photographer building a client business. The redesign scope matched: Lead to Booking to Payment. First contact to paid job, without needing to understand an enterprise CRM.",
@@ -87,9 +87,9 @@ const buildingAtlas = {
 				{
 					type: "list",
 					items: [
-						"WORKSPACE / FULL: switch between the free tier and paid roadmap in one link so PM and leadership could compare both products without two prototypes.",
-						"WITH DATA / NEW USER: flip between a populated account and a zero-state so research could run new-user sessions without resetting anything.",
-						"ASSISTANT NUDGES: trigger specific push-in messages to test assistant behavior in context before any production code was written.",
+						"Workspace / Full: switch between the free tier and paid roadmap in one link so PM and leadership could compare both products without two prototypes.",
+						"With Data / New User: flip between a populated account and a zero-state so research could run new-user sessions without resetting anything.",
+						"Assistant Nudges: trigger specific push-in messages to test assistant behavior in context before any production code was written.",
 					],
 				},
 				{
@@ -117,11 +117,11 @@ const buildingAtlas = {
 				"Designing it required a different approach than designing a flow. A photographer asking Scout for help could be in any state, at any point in their work. You can't map every conversation.",
 			],
 			list: [
-				"Instead of flows, a component vocabulary: output primitives Scout can assemble in any order.",
-				"Option chips for decisions.",
-				"Preview cards before any write action.",
-				"A confirmation step before anything is committed.",
-				"Always one tap from a real person.",
+				"Component vocabulary: output primitives Scout assembles in any order, for any request.",
+				"Option chips: surface decisions without typing.",
+				"Preview cards: show what Scout will do before any write action.",
+				"Confirmation step: required before anything is committed.",
+				"Human escape: always one tap from a real person.",
 			],
 			image: {
 				src: "/images/ai design ops/IMG_5260.png",

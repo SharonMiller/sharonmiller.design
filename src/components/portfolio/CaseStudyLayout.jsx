@@ -60,18 +60,63 @@ function Paragraphs({ items }) {
 	);
 }
 
+function BulletListItem({ text }) {
+	const colonIdx = text.indexOf(": ");
+	if (colonIdx > 0 && colonIdx < 50) {
+		const term = text.slice(0, colonIdx);
+		const rest = text.slice(colonIdx + 2);
+		return <li><strong>{term}:</strong> {rest}</li>;
+	}
+	return <li>{text}</li>;
+}
+
 function BulletList({ items }) {
 	return (
 		<ul className="case-study-bullets">
 			{items.map((item) => (
-				<li key={item}>{item}</li>
+				<BulletListItem key={item} text={item} />
 			))}
 		</ul>
 	);
 }
 
-function SubSection({ title, paragraphs = [], list = [], image, layout }) {
+function SpecBlock({ title, sections }) {
+	return (
+		<div className="case-study-spec-block">
+			{title && <p className="case-study-spec-block__title">{title}</p>}
+			{sections.map((section) => (
+				<div key={section.heading} className="case-study-spec-block__section">
+					<p className="case-study-spec-block__heading">{section.heading}</p>
+					{section.lines.map((line, i) => (
+						<p key={i} className={`case-study-spec-block__line${line.startsWith("  ") ? " case-study-spec-block__line--indent" : ""}`}>
+							{line.trim()}
+						</p>
+					))}
+				</div>
+			))}
+		</div>
+	);
+}
+
+function SubSection({ title, paragraphs = [], list = [], image, layout, specBlock }) {
+	const hasSpecSplit = (layout === "spec-right" || layout === "spec-left") && specBlock;
 	const hasSplit = (layout === "image-right" || layout === "image-left") && image;
+
+	if (hasSpecSplit) {
+		const textCol = (
+			<div className="case-study-subsection__text">
+				<h3 className="case-study-subsection__title">{title}</h3>
+				{paragraphs.length > 0 && <Paragraphs items={paragraphs} />}
+				{list.length > 0 && <BulletList items={list} />}
+			</div>
+		);
+		const specCol = <SpecBlock title={specBlock.title} sections={specBlock.sections} />;
+		return (
+			<div className={`case-study-subsection case-study-subsection--${layout}`}>
+				{layout === "spec-left" ? <>{specCol}{textCol}</> : <>{textCol}{specCol}</>}
+			</div>
+		);
+	}
 
 	if (hasSplit) {
 		const textContent = (
@@ -103,6 +148,7 @@ function SubSection({ title, paragraphs = [], list = [], image, layout }) {
 			<div className="case-study-section__content">
 				{paragraphs.length > 0 && <Paragraphs items={paragraphs} />}
 				{list.length > 0 && <BulletList items={list} />}
+				{specBlock && <SpecBlock title={specBlock.title} sections={specBlock.sections} />}
 				{image && (
 					<SectionImage
 						src={image.src}
@@ -152,9 +198,9 @@ function FigmaEmbed({ src, caption, height = 450 }) {
 	);
 }
 
-function SectionImage({ src, alt, caption, fullWidth = false, contain = true }) {
+function SectionImage({ src, alt, caption, fullWidth = false, contain = true, fade = false }) {
 	return (
-		<figure className={`case-study-image${fullWidth ? " case-study-image--full" : ""}`}>
+		<figure className={`case-study-image${fullWidth ? " case-study-image--full" : ""}${fade ? " case-study-image--fade" : ""}`}>
 			<div className={`case-study-image__frame${contain ? " case-study-image__frame--contain" : ""}`}>
 				<img src={src} alt={alt ?? ""} loading="lazy" className="case-study-image__img" />
 			</div>
@@ -320,6 +366,7 @@ function SectionBlock({ section, index }) {
 					caption={section.image.caption}
 					fullWidth={section.imageFullWidth}
 					contain={section.image.contain ?? true}
+					fade={section.image.fade ?? false}
 				/>
 			)}
 			{section.pullquote && <PullQuote text={section.pullquote} />}

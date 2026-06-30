@@ -56,8 +56,8 @@ const aiFirst = {
 					],
 					list: [
 						"Engineering handoff: 'here's the branch.'",
-						"Design office hours three times a week for PM and eng to clarify in real time.",
-						"Agent commits tracked alongside manual work — full history, no handoff translation.",
+						"Office hours: design sessions three times a week for PM and eng to clarify in real time.",
+						"Commit history: agent and manual work tracked together, no handoff translation.",
 					],
 				},
 				{
@@ -66,20 +66,20 @@ const aiFirst = {
 						"A Claude project connected to Jira, Confluence, and linked PRDs: a persistent context layer.",
 					],
 					list: [
-						"Scope, research, constraints, and decisions synthesized on demand.",
-						"Prompts grounded in current product thinking rather than written from scratch.",
-						"Design system audits, component generation, and Cursor prompt drafting all routed through the same context.",
+						"Context: scope, research, constraints, and decisions synthesized on demand.",
+						"Prompts: grounded in current product thinking, not written from scratch.",
+						"Routing: design system audits, component generation, and Cursor prompt drafting all through the same layer.",
 					],
 				},
 				{
 					title: "Figma: review surface",
 					paragraphs: [
-						"Figma didn't go away — its role changed.",
+						"Figma didn't go away. Its role changed.",
 					],
 					list: [
-						"HTML-to-Design integration: prototype pushed to Figma as real layers when ready for review.",
-						"Polished components contributed back to the design system.",
-						"Spec tool replaced. Component system and review surface kept.",
+						"HTML-to-Design: prototype pushed to Figma as real layers when ready for review.",
+						"Library: polished components contributed back to the design system.",
+						"Spec tool: replaced. Component system and review surface kept.",
 					],
 				},
 			],
@@ -155,10 +155,10 @@ const aiFirst = {
 				"When design pushes to eng-ready, a Claude skill auto-generates a structured prompt and posts it to Slack. The prompt covers:",
 			],
 			list: [
-				"What the feature is and how it should behave.",
-				"Exact specs for anything ambiguous: corner radius, spacing, shadow values, interaction states.",
-				"Written descriptions for any components not yet in the design system, precise enough for an agent to build from rather than guess from a visual.",
-				"Product context and flow descriptions so the agent understands why the design works the way it does, not just what it looks like.",
+				"Feature brief: what it is, how it should behave, and what success looks like.",
+				"Exact specs: corner radius, spacing, shadow values, interaction states.",
+				"Component descriptions: precise enough for an agent to build from, not guess from a visual.",
+				"Product context: why the design works the way it does, not just what it looks like.",
 			],
 			closingParagraphs: [
 				"Engineering uses the concept link and the prompt together. The link is the visual reference. The prompt is the instruction set. They add API details and technical constraints on top. Not a redline, not a handoff doc, but a machine-readable instruction set that travels with the code.",

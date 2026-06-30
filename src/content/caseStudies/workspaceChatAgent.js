@@ -107,9 +107,9 @@ const workspaceChatAgent = {
 				"I built concept testing infrastructure directly into the prototype. Three controls, visible only in design sessions, that let research run without resetting or rebuilding anything:",
 			],
 			list: [
-				"ATLAS / FULL: toggle between the June free tier and the paid roadmap direction in the same link. PM and leadership could see both products without two separate prototypes.",
-				"WITH DATA / NEW USER: flip instantly between a populated account and a zero-state onboarding experience.",
-				"ASSISTANT NUDGES: trigger specific Scout push-in messages (Getting Started, Site Setup, Set Up Pricing, First Contact) to test agent behavior in context before any production code was written.",
+				"Atlas / Full: toggle between the June free tier and the paid roadmap direction in the same link. PM and leadership could see both products without two separate prototypes.",
+				"With Data / New User: flip instantly between a populated account and a zero-state onboarding experience.",
+				"Assistant Nudges: trigger specific Scout push-in messages (Getting Started, Site Setup, Set Up Pricing, First Contact) to test agent behavior in context before any production code was written.",
 			],
 			image: {
 				src: "/images/surveymonkey transformation/showing concept testing .png",

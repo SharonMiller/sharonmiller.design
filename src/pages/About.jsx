@@ -25,10 +25,10 @@ const WORK_PHOTOS = [
 
 const CAREER_ARC = [
 	{ period: "2025–Now", role: "Head of Product Design", company: "VSCO" },
-	{ period: "2021–2025", role: "Lead Designer → Design Manager, Growth & AI", company: "SurveyMonkey" },
+	{ period: "2021–2025", role: "Design Manager, Growth & AI", company: "SurveyMonkey" },
 	{ period: "2017–2021", role: "Director of UX & Brand", company: "Effectual (AWS Premier Partner)" },
 	{ period: "2007–present", role: "Principal Designer · consulting", company: "Sharon Miller Creative" },
-	{ period: "2000–2004", role: "Early Career", company: "Zango (startup, employee #5)" },
+	{ period: "2000–2004", role: "Head of Customer Experience", company: "Zango (startup, employee #5)" },
 ];
 
 // ─── Components ──────────────────────────────────────────────────────────────
@@ -106,18 +106,20 @@ export default function About() {
 							</p>
 							<p>
 								Based in Bend, Oregon, working fully remote. Outside work: family,
-								hiking, skiing, and two French Bulldogs who have very strong opinions about
-								everything. I mentor early-career designers and have run community art
-								workshops with local youth for years. I serve on the advisory board for the
-								Design department at Central Oregon Community College, and advise the High
-								Desert Education Service District, working with high school teachers across
-								Oregon to prepare students for careers in tech.
+								hiking, skiing, and two French Bulldogs with very strong opinions.
+							</p>
+							<p>
+								I mentor early-career designers and serve on the design advisory board at
+								Central Oregon Community College. I also advise the High Desert Education
+								Service District, working with high school teachers across Oregon to prepare
+								students for careers in tech.
 							</p>
 							<p>
 								I care about the people on the teams I work with as much as I care about
 								the work. Good culture and hard problems are not a trade-off.
 							</p>
 						</div>
+						<div style={{ display: "flex", gap: "1.5rem" }}>
 						<a
 							href="https://linkedin.com/in/millersharonk"
 							target="_blank"
@@ -126,6 +128,15 @@ export default function About() {
 						>
 							LinkedIn
 						</a>
+						<a
+							href="https://www.linkedin.com/pulse/leaning-ai-native-design-sharon-miller-yxsjc/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="home-linkedin"
+						>
+							Writing
+						</a>
+					</div>
 					</div>
 
 					<figure className="about-collage-frame">
@@ -150,21 +161,21 @@ export default function About() {
 			</div>
 
 			{/* ── WORK SECTION ─────────────────────────────────── */}
-			<section className="about-section" aria-labelledby="about-work-heading" style={{ background: "#ffffff", borderRadius: "1rem", padding: "2.5rem", marginTop: "2rem" }}>
+			<section className="about-section" aria-labelledby="about-work-heading">
 				<div className="about-work-intro">
 					<h2 className="about-work-heading" id="about-work-heading">
-						Head of Product Design at VSCO.
+						I lead design teams and still do the work.
 					</h2>
 				</div>
 
 				<div className="about-prose home-body-copy">
-					<p>I lead design teams and still do the work.</p>
 					<ul className="about-bullets">
-						<li>Head of Product Design at VSCO: multiple product squads, team, budget, hiring, and AI competency framework presented org-wide</li>
-						<li>SurveyMonkey: four distributed design squads reporting directly to the CTO</li>
-						<li>IC design at both VSCO and SurveyMonkey, not just managing</li>
+						<li>VSCO: Head of Product Design across multiple product squads, team, budget, hiring, and AI competency framework presented org-wide</li>
+						<li>SurveyMonkey: designers embedded across growth squads, partnering with engineering and product leaders, reporting to the CTO</li>
+						<li>IC design at VSCO and SurveyMonkey alongside managing: VSCO Workspace shipped as my design</li>
+						<li>Team building: org structure, IC mentorship, and AI fluency defined as a required competency at every level</li>
 						<li>Prototyping in code: React, React Native, Figma Code Connect</li>
-						<li>Product Owner for a production SaaS platform; three-year product vision at exec and board level</li>
+						<li>Product Owner: production SaaS platform, three-year product vision presented at exec and board level</li>
 						<li>AWS Solutions Architect: four years leading UX at an AWS Premier Partner</li>
 					</ul>
 				</div>
