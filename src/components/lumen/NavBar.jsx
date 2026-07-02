@@ -46,6 +46,7 @@ function NavDropdown({ link, mobile = false, onClose }) {
 								onClick={() => { setOpen(false); onClose?.(); }}
 							>
 								{child.label}
+								{child.gated && <span className="portfolio-nav-dropdown-lock" aria-label="Password required">🔒</span>}
 							</Link>
 						))}
 					</div>
@@ -85,6 +86,7 @@ function NavDropdown({ link, mobile = false, onClose }) {
 							onClick={() => setOpen(false)}
 						>
 							{child.label}
+							{child.gated && <span className="portfolio-nav-dropdown-lock" aria-label="Password required">🔒</span>}
 						</Link>
 					))}
 				</div>

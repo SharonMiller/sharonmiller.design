@@ -17,3 +17,10 @@ export function buildAuthCookie(token: string): string {
 	const secure = process.env.VERCEL === "1" ? "; Secure" : "";
 	return `${AUTH_COOKIE_NAME}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=31536000${secure}`;
 }
+
+/** JS-readable companion cookie — lets client-side code know the user authenticated.
+ *  Not HttpOnly intentionally; actual auth validation stays server-side. */
+export function buildClientAuthCookie(): string {
+	const secure = process.env.VERCEL === "1" ? "; Secure" : "";
+	return `site_auth_client=1; Path=/; SameSite=Lax; Max-Age=31536000${secure}`;
+}

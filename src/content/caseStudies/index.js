@@ -4,6 +4,12 @@ import aiFirst from "./aiFirst.js";
 import growthDesign from "./growthDesign.js";
 import organizingGrowth from "./organizingGrowth.js";
 
+export const GATED_SLUGS = new Set([
+	"vsco-workspace",
+	"operationalizing-ai-native-design",
+	"design-system-governance",
+]);
+
 /** Order: lead with IC AI work → ops/org → systems → IC craft → growth */
 export const CASE_STUDIES = [
 	buildingAtlas,
@@ -25,6 +31,7 @@ export const CASE_STUDY_CARDS = CASE_STUDIES.map(
 		description,
 		metrics,
 		thumbnail,
+		gated: GATED_SLUGS.has(slug),
 	}),
 );
 

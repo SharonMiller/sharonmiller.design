@@ -287,7 +287,10 @@
 	}
 
 	.portfolio-nav-dropdown-item {
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
 		padding: 8px 12px;
 		font-size: 0.875rem;
 		font-weight: 500;
@@ -296,6 +299,12 @@
 		text-decoration: none;
 		white-space: nowrap;
 		transition: background 150ms ease, color 150ms ease;
+	}
+
+	.portfolio-nav-dropdown-lock {
+		font-size: 0.625rem;
+		opacity: 0.45;
+		flex-shrink: 0;
 	}
 
 	.portfolio-nav-dropdown-item:hover {

@@ -30,8 +30,20 @@ export default async function middleware(request: Request) {
 		return next();
 	}
 
-	// Only gate case study detail pages — home, about, contact stay public
+	// Only gate specific VSCO case studies — SurveyMonkey studies stay public
+	const GATED_SLUGS = new Set([
+		"vsco-workspace",
+		"operationalizing-ai-native-design",
+		"design-system-governance",
+		"workspace-chat-agent",
+	]);
+
 	if (!pathname.startsWith("/case-study/")) {
+		return next();
+	}
+
+	const slug = pathname.replace("/case-study/", "").split("/")[0];
+	if (!GATED_SLUGS.has(slug)) {
 		return next();
 	}
 

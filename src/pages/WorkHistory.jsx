@@ -186,13 +186,13 @@ export default function WorkHistory() {
 						improved monetization, and advanced AI-driven personalization.
 					</p>
 					<p>
-						As Director of Product Design at an AWS Premier partner, I established UX/UI best
-						practices and promoted Lean UX and Agile methods. I led the design of a B2B SaaS
+						As Director of Product Design at an AWS Premier partner, I established design process
+						and collaboration patterns across the org. I led the design of a B2B SaaS
 						platform for AWS service monitoring, working closely with cross-functional teams.
 					</p>
 					<p>
-						My consulting experience and action-oriented approach fostered a results-driven
-						culture, boosting team velocity and encouraging rapid learning.
+						My consulting background shaped how I think about clarity and speed: clear problem
+						framing, fast iteration, and a team culture where learning happens in the open.
 					</p>
 				</WorkColumn>
 

@@ -25,12 +25,12 @@ export default function Contact() {
 						LinkedIn
 					</a>
 					<a
-						href="https://github.com/SharonMiller"
+						href="https://www.linkedin.com/pulse/leaning-ai-native-design-sharon-miller-yxsjc/"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="contact-page__link"
 					>
-						GitHub
+						Blog
 					</a>
 				</div>
 			</div>

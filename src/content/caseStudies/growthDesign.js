@@ -1,12 +1,12 @@
 const SM = "/images/surveymonkey transformation";
 
 const growthDesign = {
-	slug: "growth-design",
+	slug: "survey-builder-transformation",
 	title: "Survey Builder Transformation",
 	year: "2021–2024",
 	role: "Lead Product Designer, Growth and AI/ML",
 	type: "Platform design · AI · Legacy modernization",
-	hook: "Re-architected SurveyMonkey's survey authoring platform without a full rewrite. Three-year modernization vision, phased delivery, no disruption to millions of enterprise users mid-migration. Engagement up 8%, conversion up 3.2%.",
+	hook: "Redesigned SurveyMonkey's authoring platform with phased delivery - no disruption to millions of enterprise users. Engagement +8%, conversion +3.2%.",
 	description:
 		"Survey authoring rebuilt from the ground up. AI creation flow designed with a trust model that became the primary creation path. 3-year platform vision presented at exec level.",
 	thumbnail: {

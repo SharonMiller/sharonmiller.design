@@ -1,5 +1,6 @@
 import {
 	buildAuthCookie,
+	buildClientAuthCookie,
 	createAuthToken,
 	getSitePassword,
 } from "../lib/auth";
@@ -35,7 +36,10 @@ export default async function handler(request: Request): Promise<Response> {
 
 	const token = await createAuthToken(sitePassword);
 	const headers = new Headers({ "Content-Type": "application/json" });
-	headers.set("Set-Cookie", buildAuthCookie(token));
+	// HttpOnly cookie — validated by edge middleware on server
+	headers.append("Set-Cookie", buildAuthCookie(token));
+	// JS-readable companion cookie — lets client-side routing gate gated case studies
+	headers.append("Set-Cookie", buildClientAuthCookie());
 
 	return new Response(JSON.stringify({ ok: true }), {
 		status: 200,

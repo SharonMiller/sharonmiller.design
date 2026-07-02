@@ -435,13 +435,6 @@ export default function CaseStudyLayout({ study }) {
 						{study.role}{study.year ? ` · ${study.year}` : ""}
 					</p>
 					{study.type && <p className="case-study-header__type">{study.type}</p>}
-				{study.stack?.length > 0 && (
-					<div className="case-study-stack">
-						{study.stack.map((tag) => (
-							<span key={tag} className="case-study-stack__tag">{tag}</span>
-						))}
-					</div>
-				)}
 				</div>
 
 				{/* Hero image — full width */}

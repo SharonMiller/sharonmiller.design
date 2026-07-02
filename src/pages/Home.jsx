@@ -27,7 +27,23 @@ function CaseStudyCard({ study, revealIndex }) {
 
 					{study.hook ? <p className="case-study-card__description">{study.hook}</p> : null}
 
-					<span className="case-study-card__cta">Read case study →</span>
+					{study.metrics && study.metrics.length > 0 && (
+						<div className="case-study-card__stats">
+							{study.metrics.map((m) => (
+								<div key={m.label}>
+									<span className="case-study-card__stat-value">{m.value}</span>
+									<span className="case-study-card__stat-label">{m.label}</span>
+								</div>
+							))}
+						</div>
+					)}
+
+					<div className="case-study-card__cta-row">
+						{study.gated && (
+							<span className="case-study-card__gate">Password required</span>
+						)}
+						<span className="case-study-card__cta">Read case study →</span>
+					</div>
 				</div>
 
 				<CaseStudyThumbnail image={study.thumbnail} title={study.title} variant="card" />

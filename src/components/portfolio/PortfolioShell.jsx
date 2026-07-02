@@ -4,7 +4,7 @@ import PageContainer from "./PageContainer";
 import BackToTop from "./BackToTop";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useScrollToTopOnNavigate } from "../../hooks/useScrollToTopOnNavigate";
-import { CASE_STUDIES } from "../../content/caseStudies";
+import { CASE_STUDIES, GATED_SLUGS } from "../../content/caseStudies";
 import "../../pages/Home.css";
 
 export const PORTFOLIO_NAV = [
@@ -14,6 +14,7 @@ export const PORTFOLIO_NAV = [
 		children: CASE_STUDIES.map((s) => ({
 			label: s.title,
 			href: `/case-study/${s.slug}`,
+			gated: GATED_SLUGS.has(s.slug),
 		})),
 	},
 	{ label: "About", href: "/about" },
@@ -22,7 +23,7 @@ export const PORTFOLIO_NAV = [
 
 export const FOOTER_SOCIAL = [
 	{ label: "LinkedIn", href: "https://linkedin.com/in/millersharonk" },
-	{ label: "GitHub", href: "https://github.com/SharonMiller" },
+	{ label: "Blog", href: "https://www.linkedin.com/pulse/leaning-ai-native-design-sharon-miller-yxsjc/" },
 ];
 
 const FOOTER_EMAIL = "sharonmillercreative@gmail.com";

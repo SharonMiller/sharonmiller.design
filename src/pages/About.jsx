@@ -90,7 +90,7 @@ export default function About() {
 						<h1 className="home-hero-name mt-2" id="about-personal-heading">
 							Sharon Miller
 						</h1>
-						<p className="home-hero-title">Design Leader</p>
+						<p className="home-hero-title">Head of Product Design</p>
 					</div>
 				</div>
 
@@ -134,7 +134,7 @@ export default function About() {
 							rel="noopener noreferrer"
 							className="home-linkedin"
 						>
-							Writing
+							Blog
 						</a>
 					</div>
 					</div>
