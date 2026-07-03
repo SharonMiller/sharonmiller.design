@@ -91,19 +91,25 @@ export default function Home() {
 						<div className="intro-body">
 							<div className="home-body-copy">
 								<p>
-									Most design teams are adopting AI tools. Fewer have figured out how to make
-									that adoption work at the org level: the processes, the guardrails, the
-									handoff patterns, and the infrastructure that lets every designer move faster
-									without compromising craft or trust.
+									The next generation of products won&apos;t be defined by AI features. They&apos;ll
+									be defined by how naturally AI disappears into them.
+								</p>
+								<p>I believe that starts with designers.</p>
+								<p>
+									I build practices that help design teams use AI to move faster without
+									sacrificing craft.
 								</p>
 								<p>
-									That gap is where I work. Design leader at VSCO, where I built the
-									AI-native operating model alongside shipping product. Previously at SurveyMonkey
-									leading platform design and AI features. Twenty years bridging design, engineering,
-									and product strategy.
+									Then I apply the same thinking to products, redesigning complex workflows so
+									AI feels like a natural part of the experience instead of something layered on top.
 								</p>
 								<p>
-									Looking for senior IC, staff, and leadership roles where the design challenge is as much about how the team works as what they ship.
+									At VSCO I led both. Before that, I helped bring AI into SurveyMonkey&apos;s
+									authoring experience.
+								</p>
+								<p>
+									Helping one designer work this way is useful. Helping an entire team do it
+									changes what&apos;s possible.
 								</p>
 							</div>
 
