@@ -39,7 +39,7 @@ export default function CaseStudyPage() {
 	if (!authReady) return null;
 
 	return (
-		<PortfolioShell activePath="/#work" background="#ffffff">
+		<PortfolioShell activePath="/#work">
 			<BackLink to="/#work">← All case studies</BackLink>
 			<CaseStudyLayout study={study} />
 			<CaseStudyPager slug={slug} />

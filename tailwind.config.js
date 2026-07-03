@@ -4,19 +4,19 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				sage: "#5F7161",
-				terracotta: "#5F7161",
+				sage: "var(--color-accent)",
+				terracotta: "var(--color-accent)",
 				lumen: {
-					sage: "#5F7161",
-					"sage-light": "#7A8F7A",
-					"sage-dark": "#4A5A4F",
-					terracotta: "#5F7161",
-					"terracotta-light": "#7A8F7A",
-					"terracotta-dark": "#4A5A4F",
-					ink: "#111111",
-					secondary: "#6B7280",
-					surface: "#F9F9F9",
-					border: "#E5E7EB",
+					sage: "var(--color-accent)",
+					"sage-light": "var(--color-accent-light)",
+					"sage-dark": "var(--color-accent-dark)",
+					terracotta: "var(--color-accent)",
+					"terracotta-light": "var(--color-accent-light)",
+					"terracotta-dark": "var(--color-accent-dark)",
+					ink: "var(--color-text-primary)",
+					secondary: "var(--color-text-tertiary)",
+					surface: "var(--color-surface-secondary)",
+					border: "var(--color-border-secondary)",
 				},
 			},
 			fontFamily: {

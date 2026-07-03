@@ -8,23 +8,51 @@
 
 @layer base {
 	:root {
-		--lumen-sage: #5f7161;
-		--lumen-sage-light: #7a8f7a;
-		--lumen-sage-dark: #4a5a4f;
-		--lumen-terracotta: var(--lumen-sage);
-		--lumen-terracotta-light: var(--lumen-sage-light);
-		--lumen-terracotta-dark: var(--lumen-sage-dark);
-		--lumen-ink: #111111;
-		--lumen-secondary: #6b7280;
-		--lumen-surface: #f9f9f9;
-		--lumen-border: #e5e7eb;
+		/* ── Color tokens ─────────────────────────────────── */
 
-		--ds-text-primary: var(--lumen-ink);
-		--ds-text-secondary: var(--lumen-secondary);
-		--ds-surface-background-primary: #ffffff;
-		--ds-surface-background-secondary: #ffffff;
-		--ds-border-divider: var(--lumen-border);
-		--ds-interactive-primary: var(--lumen-sage);
+		/* Accent */
+		--color-accent: #5f7161;
+		--color-accent-light: #7a8f7a;
+		--color-accent-dark: #4a5a4f;
+
+		/* Text */
+		--color-text-primary: #111111;
+		--color-text-secondary: #555555;
+		--color-text-tertiary: #888888;
+		--color-text-muted: #999999;
+		--color-text-faint: #aaaaaa;
+
+		/* Surfaces */
+		--color-surface-primary: #ffffff;
+		--color-surface-secondary: #fafafa;
+		--color-surface-tertiary: #f0f0ef;
+		--color-surface-elevated: #ffffff;
+		--color-surface-invert: #111111;
+
+		/* Borders */
+		--color-border-primary: #ebebeb;
+		--color-border-secondary: #e5e7eb;
+		--color-border-subtle: #f3f4f6;
+		--color-border-hover: #c8c8c8;
+
+		/* Backward-compat aliases (consumed by Tailwind + lumen components) */
+		--lumen-sage: var(--color-accent);
+		--lumen-sage-light: var(--color-accent-light);
+		--lumen-sage-dark: var(--color-accent-dark);
+		--lumen-terracotta: var(--color-accent);
+		--lumen-terracotta-light: var(--color-accent-light);
+		--lumen-terracotta-dark: var(--color-accent-dark);
+		--lumen-ink: var(--color-text-primary);
+		--lumen-secondary: var(--color-text-tertiary);
+		--lumen-surface: var(--color-surface-secondary);
+		--lumen-border: var(--color-border-secondary);
+
+		--ds-text-primary: var(--color-text-primary);
+		--ds-text-secondary: var(--color-text-tertiary);
+		--ds-surface-background-primary: var(--color-surface-primary);
+		--ds-surface-background-secondary: var(--color-surface-primary);
+		--ds-border-divider: var(--color-border-secondary);
+		--ds-interactive-primary: var(--color-accent);
 	}
 
 	html {
@@ -38,8 +66,8 @@
 	}
 
 	body {
-		background: #ffffff;
-		color: #555555;
+		background: var(--color-surface-primary);
+		color: var(--color-text-secondary);
 		font-size: 1rem;
 		font-weight: 400;
 		line-height: 1.7;
@@ -101,12 +129,12 @@
 		display: inline-flex;
 		align-items: center;
 		border-radius: 9999px;
-		background: #1a1a1a;
+		background: var(--color-surface-invert);
 		padding: 6px 10px;
 		font-size: 13px;
 		font-weight: 500;
 		line-height: 1;
-		color: #ffffff;
+		color: var(--color-surface-primary);
 	}
 
 	/* Desktop: links inline in pill */
@@ -127,13 +155,13 @@
 		font-size: 0.875rem;
 		font-weight: 500;
 		line-height: 1.4;
-		color: #555555;
+		color: var(--color-text-secondary);
 		text-decoration: none;
 		transition: color 150ms ease, opacity 150ms ease;
 	}
 
 	.portfolio-nav-link:hover {
-		color: #111111;
+		color: var(--color-text-primary);
 		opacity: 1;
 	}
 
@@ -162,8 +190,8 @@
 		align-items: center;
 		padding: 0.375rem 0.875rem;
 		border-radius: 9999px;
-		background: #111111;
-		color: #ffffff;
+		background: var(--color-surface-invert);
+		color: var(--color-surface-primary);
 		font-size: 0.8125rem;
 		font-weight: 500;
 		line-height: 1.4;
@@ -173,7 +201,7 @@
 	}
 
 	.portfolio-nav-cta:hover {
-		background: #333333;
+		background: var(--color-text-secondary);
 	}
 
 	/* Hamburger button — visible only on mobile */
@@ -186,7 +214,7 @@
 		border-radius: 6px;
 		border: none;
 		background: transparent;
-		color: #333333;
+		color: var(--color-text-primary);
 		cursor: pointer;
 		transition: background 150ms ease;
 		-webkit-tap-highlight-color: transparent;
@@ -229,7 +257,7 @@
 		border-radius: 10px;
 		font-size: 15px;
 		font-weight: 500;
-		color: #333333;
+		color: var(--color-text-primary);
 		text-decoration: none;
 		transition: background 150ms ease;
 	}
@@ -294,7 +322,7 @@
 		padding: 8px 12px;
 		font-size: 0.875rem;
 		font-weight: 500;
-		color: #444;
+		color: var(--color-text-secondary);
 		border-radius: 8px;
 		text-decoration: none;
 		white-space: nowrap;
@@ -310,7 +338,7 @@
 
 	.portfolio-nav-dropdown-item:hover {
 		background: rgba(0, 0, 0, 0.05);
-		color: #111;
+		color: var(--color-text-primary);
 	}
 
 	/* Dropdown — mobile */
@@ -333,7 +361,7 @@
 	.portfolio-nav-dropdown-panel--mobile .portfolio-nav-dropdown-item {
 		font-size: 0.8125rem;
 		padding: 7px 10px;
-		color: #555;
+		color: var(--color-text-secondary);
 	}
 
 	@media (max-width: 639px) {

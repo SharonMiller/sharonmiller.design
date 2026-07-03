@@ -74,7 +74,7 @@ export default function Home() {
 	useScrollReveal(["home"]);
 
 	return (
-		<div className="portfolio-page page-load" style={{ background: "#ffffff" }}>
+		<div className="portfolio-page page-load">
 			<NavBar
 				brandHref="/"
 				links={PORTFOLIO_NAV.map((link) => ({

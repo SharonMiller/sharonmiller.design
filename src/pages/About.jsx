@@ -119,7 +119,7 @@ export default function About() {
 								the work. Good culture and hard problems are not a trade-off.
 							</p>
 						</div>
-						<div style={{ display: "flex", gap: "1.5rem" }}>
+						<div className="about-social-links">
 						<a
 							href="https://linkedin.com/in/millersharonk"
 							target="_blank"

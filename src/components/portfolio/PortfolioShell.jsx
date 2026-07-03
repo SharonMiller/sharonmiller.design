@@ -33,7 +33,6 @@ export default function PortfolioShell({
 	activePath,
 	contactFooter = true,
 	mainClassName = "",
-	background = "#ffffff",
 }) {
 	const location = useLocation();
 	useScrollToTopOnNavigate();
@@ -46,7 +45,7 @@ export default function PortfolioShell({
 	}));
 
 	return (
-		<div className="min-h-screen" style={{ background }}>
+		<div className="portfolio-page">
 			<NavBar brandHref="/" links={links} />
 
 			<main
