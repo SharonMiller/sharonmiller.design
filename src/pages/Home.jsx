@@ -6,6 +6,7 @@ import { PORTFOLIO_NAV } from "../components/portfolio/PortfolioShell";
 import SectionHeading from "../components/portfolio/SectionHeading";
 import { CASE_STUDY_CARDS } from "../content/caseStudies/index.js";
 import CaseStudyThumbnail from "../components/portfolio/CaseStudyThumbnail.jsx";
+import LockIcon from "../components/portfolio/LockIcon.jsx";
 import { useIntroPhotoParallax } from "../hooks/useIntroPhotoParallax";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useScrollToTopOnNavigate } from "../hooks/useScrollToTopOnNavigate";
@@ -40,7 +41,10 @@ function CaseStudyCard({ study, revealIndex }) {
 
 					<div className="case-study-card__cta-row">
 						{study.gated && (
-							<span className="case-study-card__gate">Password required</span>
+							<span className="case-study-card__gate">
+								<LockIcon size={11} />
+								Password required
+							</span>
 						)}
 						<span className="case-study-card__cta">Read case study →</span>
 					</div>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { scrollToHash } from "../../utils/smoothScroll.js";
+import LockIcon from "../portfolio/LockIcon.jsx";
 
 function NavDropdown({ link, mobile = false, onClose }) {
 	const [open, setOpen] = useState(false);
@@ -46,7 +47,11 @@ function NavDropdown({ link, mobile = false, onClose }) {
 								onClick={() => { setOpen(false); onClose?.(); }}
 							>
 								{child.label}
-								{child.gated && <span className="portfolio-nav-dropdown-lock" aria-label="Password required">🔒</span>}
+								{child.gated && (
+									<span className="portfolio-nav-dropdown-lock" aria-label="Password required">
+										<LockIcon size={11} />
+									</span>
+								)}
 							</Link>
 						))}
 					</div>
@@ -86,7 +91,11 @@ function NavDropdown({ link, mobile = false, onClose }) {
 							onClick={() => setOpen(false)}
 						>
 							{child.label}
-							{child.gated && <span className="portfolio-nav-dropdown-lock" aria-label="Password required">🔒</span>}
+							{child.gated && (
+								<span className="portfolio-nav-dropdown-lock" aria-label="Password required">
+									<LockIcon size={11} />
+								</span>
+							)}
 						</Link>
 					))}
 				</div>

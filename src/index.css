@@ -302,8 +302,9 @@
 	}
 
 	.portfolio-nav-dropdown-lock {
-		font-size: 0.625rem;
-		opacity: 0.45;
+		display: inline-flex;
+		align-items: center;
+		color: var(--lumen-sage);
 		flex-shrink: 0;
 	}
 
