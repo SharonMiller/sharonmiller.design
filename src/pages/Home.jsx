@@ -1,15 +1,12 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { NavBar } from "../components/lumen";
 import PageContainer from "../components/portfolio/PageContainer";
-import { PORTFOLIO_NAV } from "../components/portfolio/PortfolioShell";
+import PortfolioShell from "../components/portfolio/PortfolioShell";
 import SectionHeading from "../components/portfolio/SectionHeading";
 import { CASE_STUDY_CARDS } from "../content/caseStudies/index.js";
 import CaseStudyThumbnail from "../components/portfolio/CaseStudyThumbnail.jsx";
 import LockIcon from "../components/portfolio/LockIcon.jsx";
 import { useIntroPhotoParallax } from "../hooks/useIntroPhotoParallax";
-import { useScrollReveal } from "../hooks/useScrollReveal";
-import { useScrollToTopOnNavigate } from "../hooks/useScrollToTopOnNavigate";
 import "./Home.css";
 
 const CARD_METRICS_MAX = 2;
@@ -70,19 +67,9 @@ export default function Home() {
 	const introRef = useRef(null);
 	const photoFrameRef = useRef(null);
 	useIntroPhotoParallax(photoFrameRef, introRef);
-	useScrollToTopOnNavigate();
-	useScrollReveal(["home"]);
 
 	return (
-		<div className="portfolio-page page-load">
-			<NavBar
-				brandHref="/"
-				links={PORTFOLIO_NAV.map((link) => ({
-					...link,
-					active: link.href === "/",
-				}))}
-			/>
-
+		<PortfolioShell activePath="/" rawChildren wrapperClassName="page-load">
 			<section id="intro" ref={introRef} className="home-intro">
 				<PageContainer>
 					<div className="intro-layout">
@@ -151,6 +138,6 @@ export default function Home() {
 					</div>
 				</PageContainer>
 			</section>
-		</div>
+		</PortfolioShell>
 	);
 }

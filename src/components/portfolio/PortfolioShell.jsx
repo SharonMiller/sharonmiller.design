@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { NavBar } from "../lumen";
 import PageContainer from "./PageContainer";
 import BackToTop from "./BackToTop";
+import ThemeToggle from "./ThemeToggle";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useScrollToTopOnNavigate } from "../../hooks/useScrollToTopOnNavigate";
 import { CASE_STUDIES, GATED_SLUGS } from "../../content/caseStudies";
@@ -33,6 +34,8 @@ export default function PortfolioShell({
 	activePath,
 	contactFooter = true,
 	mainClassName = "",
+	rawChildren = false,
+	wrapperClassName = "",
 }) {
 	const location = useLocation();
 	useScrollToTopOnNavigate();
@@ -45,15 +48,19 @@ export default function PortfolioShell({
 	}));
 
 	return (
-		<div className="portfolio-page">
+		<div className={`portfolio-page ${wrapperClassName}`.trim()}>
 			<NavBar brandHref="/" links={links} />
 
-			<main
-				key={location.pathname}
-				className={`page-route pb-24 pt-[88px] ${mainClassName}`.trim()}
-			>
-				<PageContainer>{children}</PageContainer>
-			</main>
+			{rawChildren ? (
+				children
+			) : (
+				<main
+					key={location.pathname}
+					className={`page-route pb-24 pt-[88px] ${mainClassName}`.trim()}
+				>
+					<PageContainer>{children}</PageContainer>
+				</main>
+			)}
 
 			{contactFooter && (
 				<footer className="portfolio-site-footer">
@@ -89,10 +96,11 @@ export default function PortfolioShell({
 					<div className="portfolio-site-footer__bar">
 						<PageContainer innerClassName="portfolio-site-footer__bar-inner">
 							<p className="portfolio-site-footer__meta">
-								<span className="portfolio-site-footer__copyright">
-									&copy; {year} Sharon Miller &middot; Designed and built with Cursor + Claude
-								</span>
-								<BackToTop className="portfolio-site-footer__back-top" />
+							<span className="portfolio-site-footer__copyright">
+								&copy; {year} Sharon Miller &middot; Designed and built with Cursor + Claude
+							</span>
+							<ThemeToggle />
+							<BackToTop className="portfolio-site-footer__back-top" />
 							</p>
 						</PageContainer>
 					</div>
