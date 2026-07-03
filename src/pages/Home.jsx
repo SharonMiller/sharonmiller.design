@@ -12,25 +12,43 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useScrollToTopOnNavigate } from "../hooks/useScrollToTopOnNavigate";
 import "./Home.css";
 
-function CaseStudyCard({ study, revealIndex }) {
+const CARD_METRICS_MAX = 2;
+
+function CaseStudyCard({ study, revealIndex, featured = false }) {
+	const cardMetrics = study.metrics?.slice(0, CARD_METRICS_MAX) ?? [];
+
 	return (
 		<article
-			className="case-study-card lumen-reveal lumen-reveal--lift"
+			className={`case-study-card lumen-reveal lumen-reveal--lift${featured ? " case-study-card--featured" : ""}`}
 			data-reveal-index={revealIndex}
 		>
 			<Link to={study.href} className="case-study-card__link group">
 				<div className="case-study-card__content">
+					{study.company && (
+						<p className="case-study-card__eyebrow">
+							Case study · {study.company}
+						</p>
+					)}
+
 					<h3 className="case-study-card__title">{study.title}</h3>
-					<p className="case-study-card__year-line">
-						{study.year}
-						{study.role ? ` · ${study.role}` : ""}
+
+					<p className="case-study-card__meta">
+						<span>{study.year}</span>
+						{study.role ? <span> · {study.role}</span> : null}
+						{study.gated && (
+							<span className="case-study-card__meta-lock">
+								{" · "}
+								<LockIcon size={10} />
+								Password required
+							</span>
+						)}
 					</p>
 
 					{study.hook ? <p className="case-study-card__description">{study.hook}</p> : null}
 
-					{study.metrics && study.metrics.length > 0 && (
+					{cardMetrics.length > 0 && (
 						<div className="case-study-card__stats">
-							{study.metrics.map((m) => (
+							{cardMetrics.map((m) => (
 								<div key={m.label}>
 									<span className="case-study-card__stat-value">{m.value}</span>
 									<span className="case-study-card__stat-label">{m.label}</span>
@@ -39,15 +57,7 @@ function CaseStudyCard({ study, revealIndex }) {
 						</div>
 					)}
 
-					<div className="case-study-card__cta-row">
-						{study.gated && (
-							<span className="case-study-card__gate">
-								<LockIcon size={11} />
-								Password required
-							</span>
-						)}
-						<span className="case-study-card__cta">Read case study →</span>
-					</div>
+					<span className="case-study-card__cta">Read case study →</span>
 				</div>
 
 				<CaseStudyThumbnail image={study.thumbnail} title={study.title} variant="card" />
@@ -124,9 +134,19 @@ export default function Home() {
 						Case studies
 					</SectionHeading>
 
+					<p className="case-studies-section-intro">
+						VSCO studies are password-protected.{" "}
+						<a href="mailto:sharonmillercreative@gmail.com">Email me for access</a>.
+					</p>
+
 					<div className="case-study-card-list">
 						{CASE_STUDY_CARDS.map((study, index) => (
-							<CaseStudyCard key={study.slug} study={study} revealIndex={index} />
+							<CaseStudyCard
+								key={study.slug}
+								study={study}
+								revealIndex={index}
+								featured={index === 0}
+							/>
 						))}
 					</div>
 				</PageContainer>

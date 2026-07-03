@@ -7,6 +7,7 @@ const designSystemGovernance = {
 	role: "Head of Product Design, VSCO",
 	type: "Design leadership · AI tooling · Operations",
 	hook: "Head of Design. Zero specialist hires. Here's what AI handles.",
+	cardHook: "Head of Design running 10+ automated workflows. No specialist hires.",
 	metrics: [
 		{ value: "0", label: "Specialist hires added" },
 		{ value: "< 1 day", label: "Audit to fix cycle" },

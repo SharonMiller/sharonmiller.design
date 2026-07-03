@@ -7,6 +7,11 @@ const organizingGrowth = {
 	role: "Product Design Manager, Growth (reporting to CTO)",
 	type: "Design leadership · Systems thinking · Cross-functional influence",
 	hook: "Grew growth team delivery velocity 24%. Four distributed squads, no shared experiment tracking, no institutional memory, no accountability across teams. I built the system that fixed it, without the authority to make anyone use it.",
+	cardHook: "Built the experiment system that fixed cross-squad chaos. No formal authority.",
+	metrics: [
+		{ value: "24%", label: "Team delivery velocity" },
+		{ value: "4", label: "Squads aligned" },
+	],
 	description:
 		"No direct authority. Cross-functional resistance. A broken experiment tracking system causing repeated failures and wasted work. Fixed through influence, systems thinking, and a roadshow to every stakeholder who needed to say yes.",
 	thumbnail: {

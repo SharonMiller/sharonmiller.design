@@ -10,6 +10,14 @@ export const GATED_SLUGS = new Set([
 	"design-system-governance",
 ]);
 
+const COMPANY_BY_SLUG = {
+	"vsco-workspace": "VSCO",
+	"operationalizing-ai-native-design": "VSCO",
+	"design-system-governance": "VSCO",
+	"survey-builder-transformation": "SurveyMonkey",
+	"organizing-growth": "SurveyMonkey",
+};
+
 /** Order: lead with IC AI work → ops/org → systems → IC craft → growth */
 export const CASE_STUDIES = [
 	buildingAtlas,
@@ -20,17 +28,18 @@ export const CASE_STUDIES = [
 ];
 
 export const CASE_STUDY_CARDS = CASE_STUDIES.map(
-	({ slug, title, year, role, href, hook, description, metrics, thumbnail }) => ({
+	({ slug, title, year, role, href, hook, cardHook, description, metrics, thumbnail }) => ({
 		slug,
 		label: "Case study",
 		title,
 		year,
 		role,
-		hook,
+		hook: cardHook ?? hook,
 		href: href ?? `/case-study/${slug}`,
 		description,
 		metrics,
 		thumbnail,
+		company: COMPANY_BY_SLUG[slug],
 		gated: GATED_SLUGS.has(slug),
 	}),
 );

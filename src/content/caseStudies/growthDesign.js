@@ -7,6 +7,11 @@ const growthDesign = {
 	role: "Lead Product Designer, Growth and AI/ML",
 	type: "Platform design · AI · Legacy modernization",
 	hook: "Redesigned SurveyMonkey's authoring platform with phased delivery - no disruption to millions of enterprise users. Engagement +8%, conversion +3.2%.",
+	cardHook: "Survey authoring rebuilt with phased delivery. No disruption to enterprise users.",
+	metrics: [
+		{ value: "+8%", label: "Engagement lift" },
+		{ value: "+3.2%", label: "Conversion lift" },
+	],
 	description:
 		"Survey authoring rebuilt from the ground up. AI creation flow designed with a trust model that became the primary creation path. 3-year platform vision presented at exec level.",
 	thumbnail: {

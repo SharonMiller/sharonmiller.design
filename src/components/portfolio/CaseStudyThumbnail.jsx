@@ -27,7 +27,7 @@ export default function CaseStudyThumbnail({ image, title, variant = "card" }) {
 		}
 
 		return (
-			<div className="case-study-card__media">
+			<div className={`case-study-card__media${image.contain ? " case-study-card__media--contain" : ""}`}>
 				<img src={image.src} alt={image.alt ?? ""} loading="lazy" />
 			</div>
 		);

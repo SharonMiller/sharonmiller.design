@@ -8,6 +8,7 @@ const buildingAtlas = {
 	type: "Product design · AI-native process · Agentic UX",
 	status: "Shipped June 23, 2026 · VSCO One",
 	hook: "VSCO Workspace is live. A legacy CRM rebuilt for creative professionals, shipped in 12 weeks with AI-native design.",
+	cardHook: "Legacy CRM rebuilt for creative professionals. Shipped in 12 weeks with AI-native design.",
 	metrics: [
 		{ value: "12 weeks", label: "First commit to shipped product" },
 		{ value: "272", label: "Commits to the prototype" },

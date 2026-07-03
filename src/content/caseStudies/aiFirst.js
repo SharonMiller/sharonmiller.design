@@ -6,6 +6,7 @@ const aiFirst = {
 	type: "Operating model · Platform delivery",
 	status: "MVP launch June 23, 2026",
 	hook: "Shipped two products. Zero design hires. Here's the operating model.",
+	cardHook: "Two production MVPs shipped. Zero design hires added.",
 	metrics: [
 		{ value: "0", label: "Design hires added" },
 		{ value: "~1 wk", label: "Concept to working spec" },
@@ -16,6 +17,7 @@ const aiFirst = {
 	thumbnail: {
 		src: "/images/ai design ops/ai-first-process-diagram.svg",
 		alt: "Design x AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
+		contain: true,
 	},
 	relatedStudies: [
 		{
