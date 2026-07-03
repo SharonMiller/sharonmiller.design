@@ -5,6 +5,13 @@ export function getSitePassword(): string | undefined {
 	return password && password.length > 0 ? password : undefined;
 }
 
+/** Returns all valid passwords (supports comma-separated list in SITE_PASSWORD). */
+export function getSitePasswords(): string[] {
+	const raw = process.env.SITE_PASSWORD;
+	if (!raw || raw.length === 0) return [];
+	return raw.split(",").map((p) => p.trim()).filter(Boolean);
+}
+
 export async function createAuthToken(password: string): Promise<string> {
 	const data = new TextEncoder().encode(`site-auth:${password}`);
 	const hashBuffer = await crypto.subtle.digest("SHA-256", data);

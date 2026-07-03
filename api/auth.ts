@@ -2,7 +2,7 @@ import {
 	buildAuthCookie,
 	buildClientAuthCookie,
 	createAuthToken,
-	getSitePassword,
+	getSitePasswords,
 } from "../lib/auth";
 
 export const config = {
@@ -14,8 +14,8 @@ export default async function handler(request: Request): Promise<Response> {
 		return new Response("Method not allowed", { status: 405 });
 	}
 
-	const sitePassword = getSitePassword();
-	if (!sitePassword) {
+	const sitePasswords = getSitePasswords();
+	if (sitePasswords.length === 0) {
 		return Response.json(
 			{ error: "Password protection is not configured" },
 			{ status: 503 },
@@ -30,11 +30,13 @@ export default async function handler(request: Request): Promise<Response> {
 		return Response.json({ error: "Invalid request body" }, { status: 400 });
 	}
 
-	if (password !== sitePassword) {
+	const matchedPassword = sitePasswords.find((p) => p === password);
+	if (!matchedPassword) {
 		return Response.json({ error: "Incorrect password" }, { status: 401 });
 	}
 
-	const token = await createAuthToken(sitePassword);
+	// Always token against the first password so middleware only needs one expected token
+	const token = await createAuthToken(sitePasswords[0]);
 	const headers = new Headers({ "Content-Type": "application/json" });
 	// HttpOnly cookie — validated by edge middleware on server
 	headers.append("Set-Cookie", buildAuthCookie(token));
