@@ -25,7 +25,7 @@ const growthDesign = {
 			{
 				title: "Design leadership",
 				items: [
-					"Co-led product and UX strategy with the Sr. Manager of Product to define a three-year modernization vision for SurveyMonkey's core authoring experience",
+					"Co-led product and UX strategy with the Sr. Manager of Product to transform SurveyMonkey's core authoring experience, moving off a legacy codebase and replacing accumulated complexity with a simpler experience",
 					"Shaped architectural direction in partnership with the Engineering Director",
 					"Defined foundational UX patterns to guide phased system evolution and long-term consistency",
 				],

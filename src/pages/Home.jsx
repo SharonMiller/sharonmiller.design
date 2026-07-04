@@ -90,21 +90,19 @@ export default function Home() {
 
 						<div className="intro-body">
 							<div className="home-body-copy">
-								<p>Complex products don’t have to feel complicated.</p>
 								<p>
-									I’ve spent my career helping teams turn powerful technology into
-									products people actually enjoy using. Sometimes that means redesigning
-									the product. Sometimes it means redesigning how the team works.
+									I’m drawn to complex problems. I enjoy simplifying products and
+									designing better ways of working.
 								</p>
 								<p>
-									Lately that work centers on AI: helping design teams adopt it without
-									losing craft, and designing it into products so it feels like a natural
-									part of the workflow, not another feature to learn.
+									AI is a powerful tool, but only when it’s applied thoughtfully. I help
+									organizations use it to improve speed without compromising craft, while
+									designing products where AI reduces complexity and friction instead of
+									adding to it.
 								</p>
 								<p>
-									Twenty years in, at the intersection of design, engineering, and product
-									strategy, what I care about most is building products people trust and
-									organizations that can adapt.
+									I enjoy building products people trust and helping organizations adapt
+									to what’s next.
 								</p>
 							</div>
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PortfolioShell from "../components/portfolio/PortfolioShell";
 import "./Home.css";
 
@@ -13,22 +14,37 @@ const CAREER_ARC = [
 
 // ─── Leadership principles ────────────────────────────────────────────────────
 
-const PILLARS = [
+const PRINCIPLES = [
 	{
-		title: "Products",
-		body: "Powerful technology only matters if people can actually use it. The most interesting products are ones where the technology is genuinely capable but the experience makes it hard to use. I'm drawn to closing that gap.",
+		title: "Make complexity feel simple.",
+		body: "Powerful products only matter if people can actually use them. I enjoy working on mature products where complexity has accumulated over time. My goal is to simplify the experience while preserving capability, maintaining a high bar for craft, and using the right tools to solve the problem.",
+		relatedWork: [
+			{ label: "VSCO Workspace", href: "/case-study/vsco-workspace" },
+			{ label: "Survey Builder Transformation", href: "/case-study/survey-builder-transformation" },
+		],
 	},
 	{
-		title: "Teams",
-		body: "The most rewarding moments in my career have been watching someone become capable of something they didn't think they could do. Those moments make the job worth doing.",
+		title: "Know when to lean in and when to lean out.",
+		body: "Good leadership starts with understanding what your team needs from you. Sometimes that’s hands-on design. Sometimes it’s coaching, creating clarity, or pushing back so the team can keep moving. Knowing when to step in and when to step back is part of the job.",
+		relatedWork: [
+			{ label: "Operationalizing AI-Native Design", href: "/case-study/operationalizing-ai-native-design" },
+			{ label: "VSCO Workspace", href: "/case-study/vsco-workspace" },
+		],
 	},
 	{
-		title: "Systems",
-		body: "A design system is only as valuable as the number of people building from it. I think a lot about what it means to build design infrastructure that serves designers, engineers, and AI agents equally. When it works, quality compounds.",
+		title: "Build systems that make great work easier.",
+		body: "Great systems are built on a solid foundation. I enjoy building the work behind the work: the workflows, patterns, and ways of working that reduce friction, create consistency, and help teams deliver better products. Strong systems don’t replace good design. They make it easier to achieve.",
+		relatedWork: [
+			{ label: "AI Design Ops", href: "/case-study/design-system-governance" },
+			{ label: "Order From Chaos", href: "/case-study/organizing-growth" },
+		],
 	},
 	{
-		title: "Organizations",
-		body: "The most lasting thing you can build is organizational capability. I've spent my career helping organizations navigate difficult transitions: new growth models, new technology, new ways of working. The goal is always to build something that outlasts my involvement.",
+		title: "Leave people stronger.",
+		body: "One of the most rewarding parts of leadership is helping someone grow into something they didn’t think they could do. Whether it’s through mentoring, coaching, or simply creating the space to stretch, I want people to leave with more confidence, stronger judgment, and the ability to tackle bigger challenges.",
+		relatedWork: [
+			{ label: "Operationalizing AI-Native Design", href: "/case-study/operationalizing-ai-native-design" },
+		],
 	},
 ];
 
@@ -82,32 +98,19 @@ export default function About() {
 				<div className="about-personal-row">
 					<div className="intro-body">
 						<div className="home-body-copy">
-							<p>Complex products don't have to feel complicated.</p>
 							<p>
-								I've spent my career helping teams turn powerful technology into
-								products people actually enjoy using. Sometimes that means redesigning
-								the product. Sometimes it means redesigning how the team works.
+								I’m drawn to problems that are messy, ambiguous, and inherently
+								complex. Products, workflows, organizations, and now AI. I enjoy
+								bringing clarity to those systems so people can do their best work.
 							</p>
 							<p>
-								Today, much of that work involves AI. I help design organizations
-								adopt AI in ways that improve speed without compromising craft,
-								collaboration, or trust. I also design AI into complex products,
-								creating experiences where AI feels like a natural part of the
-								workflow instead of another feature to learn.
+								I help organizations use AI to improve speed without compromising
+								craft, and I design products where AI reduces complexity instead of
+								adding to it.
 							</p>
 							<p>
-								At VSCO, I lead Product Design and have chosen to dive into the work
-								to explore AI-first design. Using code as a design medium gave me
-								firsthand experience with AI-native product development before asking
-								my team to work differently. That experience shaped the operating
-								model, workflows, and design practices we introduced across the
-								organization.
-							</p>
-							<p>
-								Over the past twenty years I've worked at the intersection of design,
-								engineering, and product strategy. The tools will keep changing.
-								Building products people trust, and organizations that can adapt, is
-								the work I'm most interested in.
+								I enjoy building products people trust and helping organizations
+								adapt to what’s next.
 							</p>
 						</div>
 						<div className="about-social-links">
@@ -135,18 +138,31 @@ export default function About() {
 			{/* ── DIVIDER: LEADERSHIP PRINCIPLES ───────────────────────── */}
 			<div className="about-divider" aria-hidden="true">
 				<div className="about-divider__line" />
-				<span className="about-divider__label">Leadership Principles</span>
+				<span className="about-divider__label">What Guides My Work</span>
 				<div className="about-divider__line" />
 			</div>
 
-			{/* ── FOUR PILLARS ─────────────────────────────────────────── */}
-			<section className="about-section about-section--pillars">
+			{/* ── LEADERSHIP PRINCIPLES ─────────────────────────────────── */}
+			<section className="about-section about-section--pillars" aria-label="What guides my work">
 				<div className="about-pillars">
-					{PILLARS.map((pillar) => (
-						<div key={pillar.title} className="about-pillar">
-							<h3 className="about-pillar__title">{pillar.title}</h3>
-							<p className="about-pillar__body">{pillar.body}</p>
-						</div>
+					{PRINCIPLES.map((principle) => (
+						<article key={principle.title} className="about-pillar">
+							<h3 className="about-pillar__title">{principle.title}</h3>
+							<p className="about-pillar__body">{principle.body}</p>
+							<div className="about-pillar__proof">
+								<div className="about-pillar__pills">
+									{principle.relatedWork.map((item) => (
+										<Link
+											key={item.href}
+											to={item.href}
+											className="about-pillar__pill"
+										>
+											{item.label}
+										</Link>
+									))}
+								</div>
+							</div>
+						</article>
 					))}
 				</div>
 			</section>
@@ -228,9 +244,29 @@ export default function About() {
 						<p>
 							I spoke at AI Snack Club's Generating CRE(AI)tivity panel at the
 							AWS Builder Loft in San Francisco alongside designers from OpenArt
-							and Luma AI. I participate in the Artificiality Institute to stay
-							connected to how the broader design community is thinking through
-							the same questions.
+							and Luma AI. We talked about AI-native design practices and the
+							balance between understanding design principles and letting AI
+							design for you, including how easily AI slop creeps in and why
+							guardrails matter so much.
+						</p>
+					</div>
+				</div>
+
+				<div className="about-community-subsection">
+					<h4 className="about-community-label">In the community</h4>
+					<div className="home-body-copy">
+						<p>
+							I attended the{" "}
+							<a
+								href="https://www.artificialityinstitute.org/summit"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="home-linkedin"
+							>
+								Artificiality Summit
+							</a>
+							, a gathering focused on human and AI co-evolution. I stay connected to
+							the community as those conversations continue.
 						</p>
 					</div>
 				</div>
