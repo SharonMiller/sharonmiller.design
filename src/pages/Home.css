@@ -604,9 +604,9 @@
 
 .case-study-title {
 	margin: 0.5rem 0 0;
-	font-size: clamp(1.75rem, 4vw, 2.75rem);
+	font-size: clamp(1.5rem, 5vw, 2.75rem);
 	font-weight: 700;
-	line-height: 1.15;
+	line-height: 1.2;
 	letter-spacing: -0.02em;
 	color: var(--color-text-primary);
 }
@@ -1962,9 +1962,9 @@
 }
 
 .case-study-stat-card__value {
-	font-size: 2.5rem;
+	font-size: clamp(1.625rem, 6vw, 2.5rem);
 	font-weight: 700;
-	line-height: 1;
+	line-height: 1.05;
 	color: var(--lumen-ink);
 	letter-spacing: -0.02em;
 }
@@ -1980,6 +1980,21 @@
 	line-height: 1.4;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
+}
+
+/* Mobile: a forced 3-up grid is too tight — drop to 2 columns and tighten */
+@media (max-width: 639px) {
+	.case-study-stat-grid {
+		gap: 0.75rem;
+	}
+
+	.case-study-stat-grid--trio {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.case-study-stat-card {
+		padding: 1rem;
+	}
 }
 
 /* ─── Case study image ─────────────────────────────────────────────────────── */
@@ -2344,6 +2359,13 @@
 	gap: 1rem 1.5rem;
 	padding-top: 1.25rem;
 	padding-bottom: 1.5rem;
+}
+
+/* Clear the floating mobile dock so it doesn't cover footer actions */
+@media (max-width: 639px) {
+	.portfolio-site-footer__bar-inner {
+		padding-bottom: 5.5rem;
+	}
 }
 
 .portfolio-site-footer__nav {
