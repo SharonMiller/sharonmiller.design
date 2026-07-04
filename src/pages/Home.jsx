@@ -92,13 +92,19 @@ export default function Home() {
 							<div className="home-body-copy">
 								<p>Complex products don’t have to feel complicated.</p>
 								<p>
-									I help teams build products people can actually use, and organizations that
-									can adapt as those products evolve. Lately that means AI — helping teams
-									adopt it, and designing it into products so it feels natural.
+									I’ve spent my career helping teams turn powerful technology into
+									products people actually enjoy using. Sometimes that means redesigning
+									the product. Sometimes it means redesigning how the team works.
 								</p>
 								<p>
-									Head of Product Design at VSCO. Twenty years at the intersection of design,
-									engineering, and product strategy.
+									Lately that work centers on AI: helping design teams adopt it without
+									losing craft, and designing it into products so it feels like a natural
+									part of the workflow, not another feature to learn.
+								</p>
+								<p>
+									Twenty years in, at the intersection of design, engineering, and product
+									strategy, what I care about most is building products people trust and
+									organizations that can adapt.
 								</p>
 							</div>
 
