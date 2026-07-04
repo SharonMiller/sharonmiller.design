@@ -5,16 +5,15 @@ const designSystemGovernance = {
 	title: "AI-Powered Design Ops",
 	year: "2025–2026",
 	role: "Head of Product Design, VSCO",
-	type: "Design leadership · AI tooling · Operations",
-	hook: "Head of Design. Zero specialist hires. Here's what AI handles.",
-	cardHook: "Head of Design running 10+ automated workflows. No specialist hires.",
+	type: "The organization · Design leadership · AI tooling",
+	hook: "Head of Design. Zero specialist hires. Here's how the org scales without them.",
+	cardHook: "Scaling design quality, consistency, and visibility. Without scaling headcount.",
 	metrics: [
-		{ value: "0", label: "Specialist hires added" },
-		{ value: "< 1 day", label: "Audit to fix cycle" },
-		{ value: "10+", label: "Automated workflows running" },
+		{ value: "0", label: "specialist hires to maintain design system quality" },
+		{ value: "4", label: "platforms kept in sync without a dedicated DS role" },
 	],
 	description:
-		"How AI extended what one Head of Design can do across every dimension of the role: design system governance, org operations, specialist craft work, and team capability building.",
+		"Every problem that would have required a specialist hire became a solved problem instead. Design system governance, org operations, craft work, team capability — covered without adding headcount.",
 	thumbnail: {
 		src: `${DS}/IMG_9072.png`,
 		alt: "Figma Dashboard Card System: component inventory and variants built programmatically with Claude",
@@ -23,21 +22,22 @@ const designSystemGovernance = {
 		{
 			slug: "operationalizing-ai-native-design",
 			label: "Related",
-			text: "The operating model that lets one designer own all of this.",
+			text: "The org story only makes sense alongside the process. This is the process.",
 			cta: "See the AI-native design process →",
 		},
 		{
 			slug: "vsco-workspace",
 			label: "The product",
-			text: "The product that was built while all of this infrastructure was being created.",
+			text: "The org story and the product story are different. This is the product.",
 			cta: "See VSCO Workspace →",
 		},
 	],
 	sections: [
 		{
-			title: "Design system at scale",
+			title: "Four platforms. No specialist.",
 			paragraphs: [
 				"At VSCO, web, React Native, iOS, and Android each had their own Figma library. They had grown independently and diverged. The standard fix requires a dedicated design systems specialist. That was not an option.",
+				"The solution needed to replace specialist capacity without adding headcount.",
 				"Instead: a Claude skill with write access to the live Figma file via the Plugin API. Not advisory AI. Operational AI that inspects, fixes, and reports.",
 			],
 			subsections: [
@@ -63,6 +63,7 @@ const designSystemGovernance = {
 					paragraphs: [
 						"The Figma library has composite components designers use to work fast. The code design system has primitives. Getting them to stay in sync required more than governance of Figma files.",
 						"The React and React Native design libraries now include written guidance documents that engineering's Cursor agents read when expanding components. Instead of pre-building every variant, the docs describe what configurations are valid. The agent checks its output against the guidelines rather than guessing from a visual. Consistency at scale without pre-building every permutation.",
+						"This extended the design system to serve a third consumer: AI agents, alongside designers and engineers.",
 					],
 					specBlock: {
 						title: "modal.md",
@@ -103,7 +104,7 @@ const designSystemGovernance = {
 			},
 		},
 		{
-			title: "Running the org",
+			title: "Visibility without the overhead",
 			paragraphs: [
 				"The hardest part of leading a design team across multiple squads is staying current. Updates live in Confluence pages, Jira boards, PDF briefs, and Google Sheets. No one has time to read all of them.",
 			],
@@ -130,9 +131,9 @@ const designSystemGovernance = {
 			],
 		},
 		{
-			title: "Complex work without specialist hires",
+			title: "Solving craft problems without specialists",
 			paragraphs: [
-				"The instinct whenever something complex comes up: try Claude before proposing a hire.",
+				"The instinct whenever something complex comes up: solve it before proposing a hire. Animation, conversion design, interaction research — each of these would have stalled or required outside help. None of them did.",
 			],
 			subsections: [
 				{
@@ -165,8 +166,9 @@ const designSystemGovernance = {
 		{
 			title: "Building team capability",
 			paragraphs: [
-				"The leverage in AI-first design is not one person moving faster. It is a whole team moving faster together. One designer on the team built and shipped Studio Pro largely in Cursor. AI fluency is now defined as a required competency at every IC level.",
-				"The custom skills, always-on rules, template repo, and onboarding system that made this possible are documented separately.",
+				"One person moving fast is useful. A whole team moving fast changes what's possible. The risk with any new process is that it stays siloed — one person's skill, not the org's capability.",
+				"One designer on the team built and shipped Studio Pro largely in Cursor. AI fluency is now defined as a required competency at every IC level. The custom skills, always-on rules, template repo, and onboarding system that made this possible are documented separately.",
+				"I partnered with that designer directly before stepping back — their independent delivery was the proof of concept the team needed before broader adoption.",
 			],
 			readMore: {
 				slug: "operationalizing-ai-native-design",
@@ -175,23 +177,11 @@ const designSystemGovernance = {
 			},
 		},
 		{
-			title: "Also using Claude for...",
+			title: "The rest of the role",
 			paragraphs: [
-				"These are lighter use cases — things I reach for regularly that are harder to show than to describe. Happy to go deeper on any of them.",
-			],
-			list: [
-				"PRD summarization: Product writes them long. Design needs them short.",
-				"Flow thinking: working through flows and edge cases before committing, pulling in competitor patterns and research as we go.",
-				"AI practice tracking: how other teams are figuring out AI-first design. What's working, what's worth trying, what to skip.",
-				"Hypothesis development: structuring design and product hypotheses in a consistent, testable format.",
-				"JDs and panel comms: job descriptions and interview panel communications.",
-				"PRD responses: scope pushback, clarifying questions, design rationale.",
-				"Design critique and research: summarizing sessions, prepping what to look for and why, and writing post-session takeaways.",
-				"Figma comments-to-code: design feedback informing the next Cursor iteration automatically.",
-				"Change context: design system updates and change summaries posted to engineering.",
-			],
-			closingParagraphs: [
-				"I love talking about this. Reach out at sharonmillercreative@gmail.com if you want to go deeper on any of them.",
+				"Design leadership involves a lot of work that doesn't show up in case studies: synthesizing long PRDs into decision-ready briefs, structuring hypotheses before committing to a direction, preparing research sessions, writing scope pushback, keeping engineering informed when the design system changes. These aren't glamorous. They're the operational surface area of the role.",
+				"Each of them has a repeatable workflow now. PRDs get summarized. Research sessions get prepped and debriefed. Design system changes travel to engineering with context instead of just a Figma update. The overhead of running the org doesn't disappear — it just stops requiring the same amount of manual effort each time.",
+				"I'm happy to go deeper on any of this. Reach out at sharonmillercreative@gmail.com.",
 			],
 		},
 	],

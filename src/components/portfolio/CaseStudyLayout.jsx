@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading.jsx";
+import { useTheme } from "../../hooks/useTheme";
 
 function DemoVideo({ src, caption }) {
 	const videoRef = useRef(null);
@@ -198,6 +199,33 @@ function FigmaEmbed({ src, caption, height = 450 }) {
 	);
 }
 
+/** Live, self-contained HTML prototype embedded inline so visitors can interact with it. */
+function InteractiveEmbed({ src, caption, title }) {
+	const { theme } = useTheme();
+	// Pass the active site theme so the embedded prototype matches light/dark.
+	const themedSrc = `${src}${src.includes("?") ? "&" : "?"}theme=${theme}`;
+
+	return (
+		<figure className="case-study-embed case-study-embed--interactive">
+			<div className="case-study-embed__frame case-study-embed__frame--interactive">
+				<span className="case-study-embed__badge">
+					<span className="case-study-embed__badge-dot" aria-hidden="true" />
+					Interactive
+				</span>
+				<iframe
+					key={themedSrc}
+					src={themedSrc}
+					width="100%"
+					frameBorder="0"
+					title={title ?? caption ?? "Interactive prototype"}
+					loading="lazy"
+				/>
+			</div>
+			{caption && <figcaption className="case-study-image__caption">{caption}</figcaption>}
+		</figure>
+	);
+}
+
 function SectionImage({ src, alt, caption, fullWidth = false, contain = true, fade = false }) {
 	return (
 		<figure className={`case-study-image${fullWidth ? " case-study-image--full" : ""}${fade ? " case-study-image--fade" : ""}`}>
@@ -305,6 +333,15 @@ function ContentBlocks({ blocks }) {
 				);
 			case "video":
 				return <DemoVideo key={blockIndex} src={block.src} caption={block.caption} />;
+			case "interactive":
+				return (
+					<InteractiveEmbed
+						key={blockIndex}
+						src={block.src}
+						caption={block.caption}
+						title={block.title}
+					/>
+				);
 			case "pullquote":
 				return <PullQuote key={blockIndex} text={block.text} />;
 			case "divider":
@@ -367,6 +404,13 @@ function SectionBlock({ section, index }) {
 					fullWidth={section.imageFullWidth}
 					contain={section.image.contain ?? true}
 					fade={section.image.fade ?? false}
+				/>
+			)}
+			{section.interactive && (
+				<InteractiveEmbed
+					src={section.interactive.src}
+					caption={section.interactive.caption}
+					title={section.interactive.title}
 				/>
 			)}
 			{section.pullquote && <PullQuote text={section.pullquote} />}

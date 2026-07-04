@@ -90,26 +90,24 @@ export default function Home() {
 
 						<div className="intro-body">
 							<div className="home-body-copy">
+								<p>Complex products don&apos;t have to feel complicated.</p>
 								<p>
-									The next generation of products won&apos;t be defined by AI features. They&apos;ll
-									be defined by how naturally AI disappears into them.
-								</p>
-								<p>I believe that starts with designers.</p>
-								<p>
-									I build practices that help design teams use AI to move faster without
-									sacrificing craft.
+									That&apos;s the design problem I keep coming back to: powerful systems that
+									overwhelm the people they&apos;re meant to serve. Workflows that make sense in
+									a spec but fail in practice. Organizations moving slowly not because of the
+									people, but because of how the work is structured.
 								</p>
 								<p>
-									Then I apply the same thinking to products, redesigning complex workflows so
-									AI feels like a natural part of the experience instead of something layered on top.
+									AI is the biggest opportunity I&apos;ve seen to close that gap. Not as a feature
+									to add, but as a way to redesign how complex work gets done.
 								</p>
 								<p>
-									At VSCO I led both. Before that, I helped bring AI into SurveyMonkey&apos;s
-									authoring experience.
+									Head of Product Design at VSCO, where I led both. Previously at SurveyMonkey,
+									redesigning complex enterprise experiences.
 								</p>
 								<p>
-									Helping one designer work this way is useful. Helping an entire team do it
-									changes what&apos;s possible.
+									One designer working this way is useful. A whole team working this way changes
+									what&apos;s possible.
 								</p>
 							</div>
 

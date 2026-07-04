@@ -54,16 +54,32 @@ export default function Login() {
 					animation: fade-in 0.5s ease both;
 					min-height: 100vh;
 					background: var(--color-surface-secondary);
+					display: flex;
+					flex-direction: column;
+				}
+
+				/* Shared top bar */
+				.login-topbar {
+					display: flex;
+					align-items: center;
+					padding: 1.75rem 2.5rem;
+					flex-shrink: 0;
+				}
+
+				/* Two-column body */
+				.login-body {
+					flex: 1;
 					display: grid;
 					grid-template-columns: 1fr 1fr;
+					min-height: 0;
 				}
 
 				/* Left panel */
 				.login-left {
 					display: flex;
 					flex-direction: column;
-					justify-content: space-between;
-					padding: 3rem;
+					justify-content: center;
+					padding: 3rem 3rem 3rem 2.5rem;
 					border-right: 1px solid var(--color-border-primary);
 				}
 				.login-eyebrow {
@@ -73,7 +89,7 @@ export default function Login() {
 					letter-spacing: 0.12em;
 					text-transform: uppercase;
 					color: var(--color-accent);
-					margin: 0 0 1.75rem;
+					margin: 0 0 1.5rem;
 				}
 				.login-name {
 					animation: slide-up 0.7s 0.12s cubic-bezier(0.16,1,0.3,1) both;
@@ -96,7 +112,7 @@ export default function Login() {
 					animation: slide-up 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) both;
 					font-size: 0.75rem;
 					color: var(--color-text-faint);
-					margin: 0;
+					margin: 2.5rem 0 0;
 					letter-spacing: 0.02em;
 				}
 
@@ -105,7 +121,7 @@ export default function Login() {
 					display: flex;
 					flex-direction: column;
 					justify-content: center;
-					padding: 3rem;
+					padding: 3rem 3rem 3rem 4rem;
 				}
 				.login-right-inner {
 					max-width: 360px;
@@ -232,24 +248,28 @@ export default function Login() {
 			`}</style>
 
 			<div className="login-root">
-				{/* ── Left: Identity ── */}
-				<div className="login-left">
+				{/* ── Top bar ── */}
+				<div className="login-topbar">
 					<button className="back-btn" type="button" onClick={() => navigate(-1)}>
 						<svg width="12" height="12" viewBox="0 0 12 12" fill="none">
 							<path d="M8 2L4 6L8 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
 						</svg>
 						Back
 					</button>
+				</div>
 
+				{/* ── Two-column body ── */}
+				<div className="login-body">
+				{/* ── Left: Identity ── */}
+				<div className="login-left">
 					<div>
 						<p className="login-eyebrow">Portfolio · By invitation</p>
 						<h1 className="login-name">Sharon<br />Miller</h1>
 						<p className="login-tagline">
 							Head of Product Design. Building AI-native teams and designing AI into complex products.
 						</p>
+						<p className="login-domain">sharonmiller.design</p>
 					</div>
-
-					<p className="login-domain">sharonmiller.design</p>
 				</div>
 
 				{/* ── Right: Form ── */}
@@ -319,6 +339,7 @@ export default function Login() {
 						)}
 					</div>
 				</div>
+				</div>{/* end login-body */}
 			</div>
 		</>
 	);

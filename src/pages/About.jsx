@@ -25,7 +25,7 @@ const WORK_PHOTOS = [
 
 const CAREER_ARC = [
 	{ period: "2025–Now", role: "Head of Product Design", company: "VSCO" },
-	{ period: "2021–2025", role: "Design Manager, Growth & AI", company: "SurveyMonkey" },
+	{ period: "2021–2025", role: "Design Manager, Growth & Personalization", company: "SurveyMonkey" },
 	{ period: "2017–2021", role: "Director of UX & Brand", company: "Effectual (AWS Premier Partner)" },
 	{ period: "2007–present", role: "Principal Designer · consulting", company: "Sharon Miller Creative" },
 	{ period: "2000–2004", role: "Head of Customer Experience", company: "Zango (startup, employee #5)" },
@@ -99,10 +99,11 @@ export default function About() {
 					<div className="intro-body">
 						<div className="home-body-copy">
 							<p>
-								I work at the intersection of design leadership, AI tooling, and engineering
-								process. My job is to make sure design teams can actually use AI well: not
-								just adopt the tools, but build the workflows, guardrails, and shared
-								infrastructure that make it sustainable and scalable across a whole org.
+								I redesign products and the teams that build them. At VSCO, that meant
+								both: shipping a CRM rebuilt for creative professionals, and building the
+								design org practices that made it possible to ship two products without
+								adding headcount. The product problems and the practice problems are the
+								same problem.
 							</p>
 							<p>
 								Based in Bend, Oregon, working fully remote. Outside work: family,
@@ -169,15 +170,19 @@ export default function About() {
 				</div>
 
 				<div className="about-prose home-body-copy">
-					<ul className="about-bullets">
-						<li>VSCO: Head of Product Design across multiple product squads, team, budget, hiring, and AI competency framework presented org-wide</li>
-						<li>SurveyMonkey: designers embedded across growth squads, partnering with engineering and product leaders, reporting to the CTO</li>
-						<li>IC design at VSCO and SurveyMonkey alongside managing: VSCO Workspace shipped as my design</li>
-						<li>Team building: org structure, IC mentorship, and AI fluency defined as a required competency at every level</li>
-						<li>Prototyping in code: React, React Native, Figma Code Connect</li>
-						<li>Product Owner: production SaaS platform, three-year product vision presented at exec and board level</li>
-						<li>AWS Solutions Architect: four years leading UX at an AWS Premier Partner</li>
-					</ul>
+					<p>
+						At VSCO I lead design strategy across multiple product squads — budget, hiring,
+						org structure, and an IC role I kept deliberately to stay close to the work.
+						The Workspace redesign and Scout shipped as my design. I defined AI fluency as
+						a required competency at every IC level and presented the methodology org-wide.
+					</p>
+					<p>
+						Earlier: four years as design manager at SurveyMonkey, embedded across growth
+						squads and partnering with engineering and product leaders, reporting to the CTO.
+						Before that, four years as UX lead and Product Owner at an AWS Premier Partner,
+						presenting a three-year product vision at exec and board level. AWS Solutions
+						Architect certified. I prototype in code — React, React Native, Figma Code Connect.
+					</p>
 				</div>
 
 

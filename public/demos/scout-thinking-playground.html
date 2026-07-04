@@ -5,33 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scout Thinking Animation</title>
 <style>
+  :root {
+    --bg: #f0f0ed;
+    --card-bg: #ffffff;
+    --card-border-hover: #dddddd;
+    --card-border-on: #1a1a1a;
+    --text-muted: #aaaaaa;
+    --text-name: #222222;
+    --face: #000000;
+    --dot: #222222;
+  }
+  html.dark {
+    --bg: #111111;
+    --card-bg: #1a1a1a;
+    --card-border-hover: #333333;
+    --card-border-on: #ececec;
+    --text-muted: #888888;
+    --text-name: #ececec;
+    --face: #ececec;
+    --dot: #ececec;
+  }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f0ed; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; transition: background 0.2s; }
 
-  h1 { font-size: 14px; font-weight: 500; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 32px; }
+  h1 { font-size: 14px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 32px; }
 
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; width: 100%; }
+  .cards { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 32px; }
 
   .card {
-    background: white; border-radius: 16px; padding: 24px 18px 16px;
+    background: var(--card-bg); border-radius: 16px; padding: 24px 18px 16px;
     border: 2px solid transparent; cursor: pointer; text-align: center;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background 0.2s; min-width: 120px;
   }
-  .card:hover { border-color: #ddd; }
-  .card.on { border-color: #1a1a1a; }
-  .card-lbl { font-size: 11px; color: #aaa; margin-top: 12px; }
-  .card-name { font-size: 13px; color: #222; font-weight: 500; margin-top: 2px; }
+  .card:hover { border-color: var(--card-border-hover); }
+  .card.on { border-color: var(--card-border-on); }
+  .card-lbl { font-size: 11px; color: var(--text-muted); margin-top: 12px; }
+  .card-name { font-size: 13px; color: var(--text-name); font-weight: 500; margin-top: 2px; }
 
   /* Avatar */
-  .av { width: 84px; height: 76px; position: relative; margin: 0 auto; display: flex; align-items: flex-end; justify-content: center; }
+  .av { width: 64px; height: 76px; position: relative; margin: 0 auto; display: flex; align-items: flex-end; justify-content: center; }
   .face { width: 64px; height: 64px; position: relative; flex-shrink: 0; }
   .face svg.base { width: 64px; height: 64px; position: absolute; }
-  .mouth-mask { position: absolute; background: white; width: 16px; height: 8px; left: 13px; bottom: 7px; border-radius: 2px; }
-  .mouth-line { position: absolute; left: 13px; bottom: 10px; width: 16px; height: 2px; background: black; border-radius: 1px; }
+  .face svg.base path { fill: var(--face); }
+  .mouth-mask { position: absolute; background: var(--card-bg); width: 16px; height: 8px; left: 13px; bottom: 7px; border-radius: 2px; }
+  .mouth-line { position: absolute; left: 13px; bottom: 10px; width: 16px; height: 2px; background: var(--face); border-radius: 1px; }
 
   /* A: Thought bubble */
   .bubble-wrap { position: absolute; top: -2px; right: -10px; }
-  .bubble-dot { border-radius: 50%; background: #222; position: absolute; }
+  .bubble-dot { border-radius: 50%; background: var(--dot); position: absolute; }
   .card.on .bubble-dot { animation: bpop 1.6s ease-in-out infinite; }
   .bd1 { width: 5px; height: 5px; right: 0; bottom: 0; animation-delay: 0s !important; }
   .bd2 { width: 7px; height: 7px; right: 8px; bottom: 7px; animation-delay: 0.2s !important; }
@@ -40,21 +62,23 @@
 
   /* B: Halo arc */
   .halo { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); width: 52px; height: 26px; }
+  .halo-path { stroke: var(--dot); }
   .card.on .halo-path { animation: hglow 1.8s ease-in-out infinite; }
   @keyframes hglow { 0%,100%{opacity:0.15;stroke-width:1.5} 50%{opacity:1;stroke-width:2.5} }
 
   /* C: Question mark */
-  .qmark { position: absolute; top: -18px; right: -8px; font-size: 22px; color: #222; font-weight: 700; line-height: 1; opacity: 0; }
+  .qmark { position: absolute; top: -18px; right: -8px; font-size: 22px; color: var(--dot); font-weight: 700; line-height: 1; opacity: 0; }
   .card.on .qmark { animation: qfade 2s ease-in-out infinite; }
   @keyframes qfade { 0%,100%{opacity:0;transform:translateY(4px) scale(0.8)} 25%,75%{opacity:1;transform:translateY(0) scale(1)} }
 
   /* D: Lightbulb */
+  .bulb-svg path, .bulb-svg rect { fill: var(--dot); }
   .card.on .bulb-svg { animation: bglow 1.6s ease-in-out infinite; }
   @keyframes bglow { 0%,100%{opacity:0.25} 50%{opacity:1} }
 
   /* E: Steam */
   .steam { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
-  .wisp { width: 3px; height: 12px; border-radius: 2px; background: #333; opacity: 0; transform-origin: bottom center; }
+  .wisp { width: 3px; height: 12px; border-radius: 2px; background: var(--dot); opacity: 0; transform-origin: bottom center; }
   .card.on .wisp:nth-child(1) { animation: wrise 1.4s 0.0s ease-out infinite; }
   .card.on .wisp:nth-child(2) { animation: wrise 1.4s 0.3s ease-out infinite; }
   .card.on .wisp:nth-child(3) { animation: wrise 1.4s 0.6s ease-out infinite; }
@@ -62,7 +86,7 @@
 
   /* F: Orbit */
   .orbit-ring { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 64px; height: 64px; pointer-events: none; }
-  .orbit-dot { width: 7px; height: 7px; border-radius: 50%; background: #222; position: absolute; top: -3px; left: 50%; margin-left: -3.5px; opacity: 0; }
+  .orbit-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--dot); position: absolute; top: -3px; left: 50%; margin-left: -3.5px; opacity: 0; }
   .card.on .orbit-ring { animation: spin 2s linear infinite; }
   .card.on .orbit-dot { opacity: 1; }
   @keyframes spin { from{transform:translateX(-50%) rotate(0deg)} to{transform:translateX(-50%) rotate(360deg)} }
@@ -79,8 +103,25 @@
     100% { transform: rotate(0deg); }
   }
 
-  .note { font-size: 13px; color: #aaa; text-align: center; }
+  .note { font-size: 13px; color: var(--text-muted); text-align: center; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card.on .bubble-dot, .card.on .halo-path, .card.on .qmark,
+    .card.on .bulb-svg, .card.on .wisp, .card.on .orbit-ring, .card.on .face {
+      animation: none;
+    }
+  }
 </style>
+<script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    var t = params.get("theme");
+    if (t !== "dark" && t !== "light") {
+      t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    if (t === "dark") document.documentElement.classList.add("dark");
+  })();
+</script>
 </head>
 <body>
 

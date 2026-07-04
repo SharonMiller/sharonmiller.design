@@ -3,17 +3,16 @@ const aiFirst = {
 	title: "Operationalizing AI-Native Design",
 	year: "2025–2026",
 	role: "Head of Product Design, VSCO",
-	type: "Operating model · Platform delivery",
+	type: "The process · Operating model · Platform delivery",
 	status: "MVP launch June 23, 2026",
-	hook: "Shipped two products. Zero design hires. Here's the operating model.",
-	cardHook: "Two production MVPs shipped. Zero design hires added.",
+	hook: "Design stopped being a bottleneck. It became infrastructure. Here's how that happened.",
+	cardHook: "Design stopped being a bottleneck. It became infrastructure.",
 	metrics: [
-		{ value: "0", label: "Design hires added" },
-		{ value: "~1 wk", label: "Concept to working spec" },
-		{ value: "June 23", label: "Shipped on schedule" },
+		{ value: "2 products", label: "shipped without adding design headcount" },
+		{ value: "~1 wk", label: "concept to production-ready spec" },
 	],
 	description:
-		"AI-native operating model: Cursor as the primary design surface, working branches as engineering handoff, and a Flywheel that made the design system stronger with every prototype.",
+		"When the prototype becomes the production foundation and the design system gets stronger through every build cycle, something changes. Design stops being a translation layer and becomes the thing engineering builds from.",
 	thumbnail: {
 		src: "/images/ai design ops/ai-first-process-diagram.svg",
 		alt: "Design x AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
@@ -23,27 +22,27 @@ const aiFirst = {
 		{
 			slug: "vsco-workspace",
 			label: "Read next",
-			text: "The operating model only makes sense alongside the product it shipped.",
+			text: "The process only makes sense alongside the product. This is the product.",
 			cta: "See the product we shipped while building this model →",
 		},
 		{
 			slug: "design-system-governance",
 			label: "Go deeper",
-			text: "The design system automation, org operations, and everything else AI runs at VSCO.",
+			text: "The process is one story. How the organization changed to support it is another.",
 			cta: "See AI-Powered Design Ops →",
 		},
 	],
 	sections: [
 		{
-			title: "The problem",
+			title: "The gap between design and what ships",
 			paragraphs: [
 				"A Figma spec is an approximation. A designer finishes a screen, engineering picks it up, and a week later what ships is close but not exact. Not because anyone did something wrong. A static file cannot communicate behavior, edge cases, or the small decisions that happen in the space between design and code.",
-				"At VSCO this played out specifically. Engineering was using Cursor to reference design concepts visually in a separate repo, reading the code as a visual, not a spec. Output came back close but not exact. They wanted Figma redlines. The artifact was the problem, not the people.",
-				"There was a second barrier. Getting a React prototype running at VSCO required enough setup that most designers never got there. And the ones who did were starting from scratch each time, with no guardrails to keep things aligned with the design system. The process was not teachable.",
+				"At VSCO this played out in a specific way: engineering was referencing design concepts visually and getting output that was close but not exact. They wanted redlines. But the artifact was the problem, not the people. The real gap was between a design intent and an executable spec.",
+				"There was a second problem. Prototyping at VSCO required enough setup that most designers never got there — and the ones who did were starting from scratch each time, with no guardrails to stay aligned with the design system. The process wasn't teachable, which meant it couldn't scale.",
 			],
 		},
 		{
-			title: "The approach",
+			title: "Closing the gap",
 			subsectionColumns: true,
 			image: {
 				src: "/images/Atlas Workspace/cursor ide.png",
@@ -52,34 +51,34 @@ const aiFirst = {
 			},
 			subsections: [
 				{
-					title: "Cursor: the design surface",
+					title: "From intent to executable spec",
 					paragraphs: [
-						"The prototype was built directly in Cursor: a React app running in the browser, with real state.",
+						"The prototype was built as a React app running in the browser — with real state, real interactions, real edge cases. The handoff was the branch.",
 					],
 					list: [
 						"Engineering handoff: 'here's the branch.'",
 						"Office hours: design sessions three times a week for PM and eng to clarify in real time.",
-						"Commit history: agent and manual work tracked together, no handoff translation.",
+						"Commit history: agent and manual work tracked together, no translation required.",
 					],
 				},
 				{
-					title: "Claude: context and strategy",
+					title: "Shared context across the team",
 					paragraphs: [
-						"A Claude project connected to Jira, Confluence, and linked PRDs: a persistent context layer.",
+						"A persistent context layer connected to Jira, Confluence, and linked PRDs — so no one had to reconstruct the current state of thinking from scratch.",
 					],
 					list: [
 						"Context: scope, research, constraints, and decisions synthesized on demand.",
 						"Prompts: grounded in current product thinking, not written from scratch.",
-						"Routing: design system audits, component generation, and Cursor prompt drafting all through the same layer.",
+						"Routing: design system audits, component generation, and prompt drafting all through the same layer.",
 					],
 				},
 				{
-					title: "Figma: review surface",
+					title: "Review, not spec",
 					paragraphs: [
-						"Figma didn't go away. Its role changed.",
+						"Figma didn't go away. Its role changed from primary design surface to review and library surface.",
 					],
 					list: [
-						"HTML-to-Design: prototype pushed to Figma as real layers when ready for review.",
+						"Review: prototype pushed to Figma as real layers when ready for stakeholder review.",
 						"Library: polished components contributed back to the design system.",
 						"Spec tool: replaced. Component system and review surface kept.",
 					],
@@ -105,10 +104,11 @@ const aiFirst = {
 			},
 		},
 		{
-			title: "The infrastructure",
+			title: "Making it teachable",
 			paragraphs: [
-				"A process only one person can run is not a process. sandbox-design-starter-web is a VSCO Enterprise GitHub template any designer on the team can fork. Open it in Cursor and the rules and skills are already active. VSCO Gothic fonts are bundled so typography matches Figma from the first dev run. One prompt starts the full setup.",
+				"A process only one person can run is not a process. The goal was a system any designer on the team could pick up without a two-hour onboarding call. That meant removing every excuse not to start: pre-configured templates, bundled fonts, always-on guardrails, and a vocabulary that translated designer language into the actions the tools understand.",
 			],
+			pullquote: "A process only one person can run is not a process.",
 			subsections: [
 				{
 					title: "Always-on rules",
@@ -151,10 +151,10 @@ const aiFirst = {
 			],
 		},
 		{
-			title: "The handoff prompt",
+			title: "Replacing the redline",
 			paragraphs: [
-				"Engineering was reading design concepts visually in Cursor and getting output that was close but not exact. They wanted Figma redlines. The handoff prompt is what replaced them.",
-				"When design pushes to eng-ready, a Claude skill auto-generates a structured prompt and posts it to Slack. The prompt covers:",
+				"The handoff artifact was always the weak link. A static Figma file communicates what something looks like, not how it should behave, what the edge cases are, or why the design works the way it does.",
+				"When design pushes to a stable state, a skill auto-generates a structured handoff and posts it to Slack. It covers:",
 			],
 			list: [
 				"Feature brief: what it is, how it should behave, and what success looks like.",
@@ -176,16 +176,18 @@ const aiFirst = {
 			paragraphs: [
 				"Adoption required removing every excuse not to start. The template repo ships with everything pre-configured. Design system installed, fonts bundled, Cursor rules active, skills for every stage of the workflow.",
 				"One designer on the team took it from there and shipped Studio Pro. Much of the concept testing happened in Cursor, even though some high-fidelity design was still detailed in Figma first. Not full adoption yet, but real. The process is transferring and the team is moving toward it.",
+				"Rather than rolling out to everyone at once, the process started with one designer — Studio Pro was the proof of concept that made broader adoption credible.",
 				"Presented the methodology at the design org all-hands. AI fluency defined as a required competency at every IC level: working with tools fluently, configuring context, building prompt systems, and designing the infrastructure other designers build on.",
 			],
 		},
 		{
-			title: "What didn't work: Figma Make",
+			title: "What the tools revealed",
 			paragraphs: [
-				"Figma Make was the obvious starting point. It is in the design tool, designers already live there, and the output is a Figma prototype: the artifact the team had always handed to engineering.",
-				"I used it on the VSCO Galleries product experience, which shipped. But the process was frustrating in a specific way: Figma Make had no knowledge of the VSCO design system. Every prompt required correcting tokens, components, and patterns, things Cursor knows from the rules files automatically. The tool built into the design system host had less design system context than a code editor with a markdown file.",
-				"The deeper problem: the output lives in Figma. There is no path from a Figma Make prototype to a production codebase that does not require a full rebuild. Cursor's output lives in the codebase. Engineering forked from a working branch. The prototype and the product converged rather than diverged.",
+				"The most important insight didn't come from what worked. It came from what didn't.",
+				"Prototyping in Figma produced a Figma artifact. There's no path from a Figma prototype to a production codebase that doesn't require a full rebuild. Every prototype-to-engineering handoff meant starting over. The prototype and the product always diverged.",
+				"Prototyping in code produced the opposite: engineering forked from a working branch. The concept link and the production build pointed at the same thing. The prototype and the product converged rather than diverged. That's not a workflow preference. It's a fundamentally different relationship between design and what ships.",
 			],
+			pullquote: "The prototype and the product converged rather than diverged.",
 			image: {
 				src: "/images/Atlas Workspace/figma-galleries.png",
 				alt: "Figma Make concept test output for the VSCO Galleries feature",
@@ -199,6 +201,7 @@ const aiFirst = {
 					title: "The trust problem with engineering",
 					paragraphs: [
 						"The first version of this workflow created a real problem. Design changes were being pushed to the concept link while engineering was actively building against it. Their reference moved underneath them mid-sprint. That was not a workflow failure. It was a trust failure.",
+						"I introduced a three-environment model — wip, concept-testing, eng-ready — to give engineering a stable reference design wouldn't touch mid-sprint.",
 						"The three-environment system fixed it. Once eng-ready was stable and updated on a predictable schedule, engineers stopped worrying about the prototype shifting on them. They became advocates for the workflow instead of resistors to it.",
 					],
 				},

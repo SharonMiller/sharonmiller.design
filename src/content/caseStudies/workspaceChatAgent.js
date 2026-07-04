@@ -5,13 +5,13 @@ const workspaceChatAgent = {
 	role: "Head of Product Design, VSCO",
 	type: "Agentic UX · Legacy rebuild",
 	status: "Atlas launch June 23, 2026",
-	hook: "The UI wasn't the problem. Designing an AI agent users would trust to act on their behalf was.",
+	hook: "VSCO acquired a CRM photographers couldn't use. The goal wasn't a better interface. It was making the complexity disappear.",
 	metrics: [
-		{ value: "0", label: "P0 failures in usability test" },
-		{ value: "June 23", label: "Shipped on schedule" },
+		{ value: "~10%", label: "of my time as IC, while leading the full design org" },
+		{ value: "0", label: "P0 failures in usability testing" },
 	],
 	description:
-		"A trust-first AI agent designed from first principles: confirmation before every write action, transparent processing states, always-one-tap escape to human support. Built on a component vocabulary that handles any user request, including ones we never anticipated.",
+		"When a product is too complex to learn, the answer isn't a better tutorial. It's an experience that handles complexity on the user's behalf — and earns enough trust to do it.",
 	thumbnail: {
 		src: "/images/workspace/assistant.png",
 		alt: "Scout AI assistant embedded in VSCO Workspace",
@@ -24,23 +24,23 @@ const workspaceChatAgent = {
 		"Engineering used the Cursor prototype as the primary production reference. Fastest concept-to-build cycle the team had seen.",
 	],
 	summary: [
-		"VSCO acquired Táve, a CRM for professional photographers. The backend was genuinely powerful. Even after simplifying the UI, the underlying complexity remained: photographers still had to navigate a dense product to create a job, send an invoice, or follow up on a lead.",
-		"Scout is the answer to that problem. An AI agent embedded in the product that lets users describe what they need in plain language and handles the CRM complexity on their behalf. The design challenge was not the chat interface. It was building the trust architecture that makes handing consequential actions to an AI agent feel safe.",
-		"The approach: instead of designing flows, design the system that makes any flow work. A component vocabulary of output primitives the agent can assemble in any order, for any request, including ones we never anticipated.",
+		"Creative professionals shouldn't have to think like CRM administrators. But that's exactly what VSCO's acquired CRM required. The backend was genuinely powerful. The problem was that photographers had to learn a complex enterprise product before they could do simple things: create a job, send an invoice, follow up on a lead. Usability research was unambiguous — one user spent over an hour with support and still couldn't get started.",
+		"The goal wasn't to simplify the interface. It was to make the complexity disappear. Workspace was redesigned so photographers could run their business without learning the product. Scout — an AI assistant embedded in the experience — handles the CRM layer on their behalf. The design challenge: building the trust architecture that makes handing consequential work to an AI feel safe.",
+		"I led this as the IC designer while continuing to run the design organization — a deliberate choice to prove the process on a real product, not a side project. The approach: instead of designing flows, design the system that makes any flow work.",
 	],
 	sections: [
 		{
-			title: "Agentic UX is a different design problem",
+			title: "Designing for what you can't predict",
 			paragraphs: [
-				"Designing an AI agent is different from designing a product flow. You cannot map every conversation a user might have: the inputs are too varied and most of them have not happened yet. Traditional flow-based design breaks down immediately. There are too many branches, too many unknowns, and the moment you script a conversation it starts feeling like a decision tree instead of a real assistant.",
-				"The shift: stop designing flows and start designing the system that makes any flow work. The investment is in the output primitives, the components the agent assembles at runtime to handle whatever the user asks. Build those right and the flows take care of themselves.",
-				"Every component decision was evaluated against one question: does this help a user complete a real task, or does it just make the chat feel more chat-like?",
+				"A conversational product doesn't have a fixed flow. You can't map every conversation a user might have — the inputs are too varied and most of them haven't happened yet. Traditional flow-based design breaks down immediately. The moment you script a conversation, it starts feeling like a decision tree instead of a real assistant.",
+				"The shift: stop designing flows and start designing the system that makes any flow work. The investment is in the output components — the building blocks the product assembles at runtime to handle whatever the user asks. Build those right and the flows take care of themselves.",
+				"Every component decision was evaluated against one question: does this help a user complete a real task, or does it just make the product feel more conversational?",
 			],
 		},
 		{
 			title: "The trust architecture",
 			paragraphs: [
-				"Scout writes to real user data: jobs, invoices, client records. Users need to trust that before they'll let it act. Trust is not a feeling you design for generically. It is built through specific, deliberate patterns at the moments that matter.",
+				"The hardest design problem wasn't the conversation. It was trust. Scout writes to real data — jobs, invoices, client records — and users have to trust it before they'll hand it anything consequential. Trust isn't a feeling you design for generically. It's earned through specific, deliberate decisions at the moments that matter.",
 			],
 			image: {
 				src: "/images/workspace/dashboard-with-assistant.png",
@@ -51,19 +51,19 @@ const workspaceChatAgent = {
 				{
 					title: "Confirmation before every write action",
 					paragraphs: [
-						"Before Scout writes anything to the Workspace API, it shows a structured summary of exactly what it is about to do and asks the user to confirm. Non-negotiable. Not a nice-to-have. Users who can see what the agent is about to do before it does it are fundamentally more willing to hand it work. The confirmation step is not friction. It is the trust mechanism.",
+						"Before Scout writes anything, it shows exactly what it's about to do and asks the user to confirm. This is non-negotiable — not optional polish. Users who see what will happen before it happens are fundamentally more willing to hand off work. The confirmation step isn't friction. It's the mechanism that makes delegation feel safe.",
 					],
 				},
 				{
 					title: "Transparent processing states",
 					paragraphs: [
-						"The thinking indicator has three states: simple dots for short operations, a listed-steps variant that surfaces what Scout is doing in real time ('Looking up Jamie Lee… Creating job… Attaching invoice…'), and a saving state for write operations. The listed steps are not polish. They make the process legible. Users who can see what the agent is doing are more willing to trust the result.",
+						"Three thinking states: simple for short operations, step-by-step for complex ones ('Looking up Jamie Lee... Creating job... Attaching invoice...'), and a saving state for writes. The step-by-step isn't polish. It makes the process legible. Legibility is what earns trust.",
 					],
 				},
 				{
 					title: "Always one tap from a human",
 					paragraphs: [
-						"Escape to support is always visible in the header. Not buried. Not conditional. If Scout cannot help or the user is frustrated, the path to a real person is one tap away. An AI agent that doesn't acknowledge its own limits destroys trust faster than any UX failure.",
+						"Escape to support is always visible. Not buried in a menu, not conditional on an error state. An AI that doesn't acknowledge its own limits destroys trust faster than any UX failure. The path to a real person is part of the design.",
 					],
 				},
 			],
@@ -71,22 +71,20 @@ const workspaceChatAgent = {
 		{
 			title: "The component vocabulary",
 			paragraphs: [
-				"The Scout UI is a purpose-built component library, @vsco/scout-ui, that extends VSCO's VUI design system. Every component is built for the pattern, not the specific object. A confirmation step that works for creating a job also works for sending an invoice, attaching a contract, or updating a contact, because it is designed for the action type, not the data type.",
+				"Scout's UI components are built for the pattern, not the specific object. A confirmation step that works for creating a job also works for sending an invoice or updating a contact — because it's designed for the action type, not the data type. That generality is what lets the system handle requests it was never explicitly designed for.",
 			],
 			list: [
-				"Option chips: when Scout needs a decision, it surfaces 2–4 tappable choices. No typing required. Transient: selecting one sends it as a user message and dismisses the rest.",
-				"Confirmation step: before any write action, Scout shows exactly what it is about to do. Users review before anything happens.",
-				"Thinking indicator: three states (simple, doing with live step labels, saving) that surface process in real time.",
-				"Handoff card: after every completed task, a success signal, direct link to the object in Workspace, and contextual next step chips. Scout creates. Workspace owns. The handoff card bridges them.",
-				"Celebration state: emotional punctuation on meaningful completions, like finishing onboarding or creating a first job.",
-				"Escape to support: one tap, always visible, routes to a real person when Scout cannot help.",
+				"Option chips: when Scout needs a decision, it surfaces 2–4 tappable choices. No typing required. Transient: selecting one sends it as a message and dismisses the rest.",
+				"Thinking indicator: three states — simple, step-by-step with live labels, and saving — that make the process legible rather than invisible.",
+				"Handoff card: after every completed task, a success signal, direct link to the object in Workspace, and contextual next-step chips. Scout creates. Workspace owns. The handoff card bridges them.",
+				"Celebration state: emotional punctuation on meaningful completions — finishing onboarding, creating a first job.",
 			],
 		},
 		{
 			title: "The rebuild",
 			paragraphs: [
-				"The CRM itself needed a full redesign before Scout could sit on top of it. Usability research on the legacy Táve product showed exactly where it was failing: users couldn't find a starting point, terminology didn't match how photographers think, and setup required a support rep.",
-				"The MVP scope was deliberately narrow: Lead to Booking to Payment. Get a photographer from first contact to paid job without requiring them to understand the full CRM.",
+				"Scout could only work if the product underneath it worked too. Usability research on the legacy CRM showed exactly where it was failing: no clear starting point, terminology that didn't match how photographers think, setup that required a support rep.",
+				"The MVP scope was deliberately narrow: Lead to Booking to Payment. Get a photographer from first contact to paid job without having to understand the full CRM first.",
 			],
 			list: [
 				"Dashboard: priorities, business insights, upcoming jobs, lead management",

@@ -6,8 +6,8 @@ const organizingGrowth = {
 	year: "2023–2024",
 	role: "Product Design Manager, Growth (reporting to CTO)",
 	type: "Design leadership · Systems thinking · Cross-functional influence",
-	hook: "Grew growth team delivery velocity 24%. Four distributed squads, no shared experiment tracking, no institutional memory, no accountability across teams. I built the system that fixed it, without the authority to make anyone use it.",
-	cardHook: "Built the experiment system that fixed cross-squad chaos. No formal authority.",
+	hook: "Leadership had no visibility into which experiments drove business outcomes and which were repeating past failures. Four distributed squads, no shared tracking, no institutional memory. I designed the organizational system that changed it — without the authority to make anyone use it.",
+	cardHook: "Designed the org system that gave leadership visibility into which experiments drove business outcomes. No formal authority.",
 	metrics: [
 		{ value: "24%", label: "Team delivery velocity" },
 		{ value: "4", label: "Squads aligned" },
@@ -56,6 +56,7 @@ const organizingGrowth = {
 				"Reporting directly to the Chief Technology Officer, I led this initiative as Product Design Manager for Growth and Personalization.",
 				"I partnered closely with my counterparts, the Product Director and Engineering Director.",
 				"We had all recently joined the growth team with a shared goal of improving how the org worked.",
+				"I proposed the initiative and led it from design — partnering with product and engineering to build the case before taking it to executive stakeholders.",
 			],
 		},
 		{

@@ -5,7 +5,7 @@ const buildingAtlas = {
 	title: "VSCO Workspace Simplified: AI-Native Design",
 	year: "2026",
 	role: "Head of Product Design, VSCO",
-	type: "Product design · AI-native process · Agentic UX",
+	type: "The product · AI-native design · Agentic UX",
 	status: "Shipped June 23, 2026 · VSCO One",
 	hook: "VSCO Workspace is live. A legacy CRM rebuilt for creative professionals, shipped in 12 weeks with AI-native design.",
 	cardHook: "Legacy CRM rebuilt for creative professionals. Shipped in 12 weeks with AI-native design.",
@@ -23,7 +23,7 @@ const buildingAtlas = {
 	relatedStudy: {
 		slug: "operationalizing-ai-native-design",
 		label: "Read next",
-		text: "The learnings from building Workspace became the foundation for scaling AI-native design across the full design org.",
+		text: "Building the product is one story. How I redesigned the process behind it is another.",
 		cta: "How I operationalized it across the team →",
 	},
 	sections: [
@@ -31,6 +31,7 @@ const buildingAtlas = {
 			title: "My role",
 			paragraphs: [
 				"When a designer on my team went on leave, I took on the IC work myself rather than bring in a contractor. Faster, cheaper, and proof of the process at the same time.",
+				"I chose to take on the work — proving the process on a real product before asking the team to adopt it.",
 			],
 			list: [
 				"Cursor: almost everything was built here. The design lived in code from day one.",
@@ -124,10 +125,10 @@ const buildingAtlas = {
 				"Confirmation step: required before anything is committed.",
 				"Human escape: always one tap from a real person.",
 			],
-			image: {
-				src: "/images/ai design ops/IMG_5260.png",
-				alt: "Scout thinking animation concepts: four styles — Float + dots, Pulse + dots, Head tilt + dots, Orbit ring",
-				caption: "Thinking indicator concepts built as interactive prototypes so the team could feel the motion before committing.",
+			interactive: {
+				src: "/demos/scout-thinking-playground.html",
+				title: "Scout thinking-indicator concepts",
+				caption: "Thinking indicator concepts, built as a live prototype so the team could feel the motion before committing. Click any card to preview.",
 			},
 			video: {
 				src: "/videos/scout-ui-2.mp4",
@@ -147,6 +148,7 @@ const buildingAtlas = {
 			title: "Cross-functional work",
 			paragraphs: [
 				"Moving fast in Cursor created a real problem. Design changes were going out while engineering was actively building against the same reference. Their concept link moved underneath them mid-sprint. That wasn't a workflow failure. It was a trust failure. Once engineering couldn't rely on the reference staying stable, they stopped trusting the process. Fixing it meant building a coordination model so design could keep moving without pulling the floor out from under engineering.",
+				"I decided to treat this as a process problem: designing structure into the workflow rather than adding more alignment meetings.",
 			],
 			readMore: {
 				slug: "operationalizing-ai-native-design",
