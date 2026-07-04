@@ -1,26 +1,6 @@
 import PortfolioShell from "../components/portfolio/PortfolioShell";
 import "./Home.css";
 
-// ─── Work photos ─────────────────────────────────────────────────────────────
-
-const WORK_PHOTOS = [
-	{
-		src: "/images/about and career/work_about_1.jpeg",
-		alt: "Sharon presenting the Visual Roadmap",
-	},
-	{
-		src: "/images/about and career/team1.jpeg",
-		alt: "Design team selfie in Chicago",
-	},
-	{
-		src: "/images/about and career/team3.jpeg",
-		alt: "Full design org group photo",
-	},
-];
-
-// ─── Work capabilities ───────────────────────────────────────────────────────
-
-
 // ─── Career arc ──────────────────────────────────────────────────────────────
 
 const CAREER_ARC = [
@@ -31,23 +11,28 @@ const CAREER_ARC = [
 	{ period: "2000–2004", role: "Head of Customer Experience", company: "Zango (startup, employee #5)" },
 ];
 
-// ─── Components ──────────────────────────────────────────────────────────────
+// ─── Leadership principles ────────────────────────────────────────────────────
 
-function PhotoGrid({ photos, columns = 2 }) {
-	return (
-		<div className={`about-photo-grid${columns === 3 ? " about-photo-grid--three" : ""}`}>
-			{photos.map((photo) => (
-				<img
-					key={photo.src}
-					src={photo.src}
-					alt={photo.alt}
-					className="about-photo-grid__img"
-					loading="lazy"
-				/>
-			))}
-		</div>
-	);
-}
+const PILLARS = [
+	{
+		title: "Products",
+		body: "Powerful technology only matters if people can actually use it. The most interesting products are ones where the technology is genuinely capable but the experience makes it hard to use. I'm drawn to closing that gap.",
+	},
+	{
+		title: "Teams",
+		body: "The most rewarding moments in my career have been watching someone become capable of something they didn't think they could do. Those moments make the job worth doing.",
+	},
+	{
+		title: "Systems",
+		body: "A design system is only as valuable as the number of people building from it. I think a lot about what it means to build design infrastructure that serves designers, engineers, and AI agents equally. When it works, quality compounds.",
+	},
+	{
+		title: "Organizations",
+		body: "The most lasting thing you can build is organizational capability. I've spent my career helping organizations navigate difficult transitions: new growth models, new technology, new ways of working. The goal is always to build something that outlasts my involvement.",
+	},
+];
+
+// ─── Components ──────────────────────────────────────────────────────────────
 
 function CareerRow({ period, role, company, companyHref }) {
 	return (
@@ -77,9 +62,9 @@ function CareerRow({ period, role, company, companyHref }) {
 export default function About() {
 	return (
 		<PortfolioShell activePath="/about" contactFooter={false} mainClassName="py-20">
-			{/* ── PERSONAL SECTION ─────────────────────────────── */}
+
+			{/* ── IDENTITY ─────────────────────────────────────────────── */}
 			<section className="about-section" aria-labelledby="about-personal-heading">
-				{/* Name + circle photo */}
 				<div className="about-identity">
 					<img
 						src="/images/about and career/profile-photo-full.png"
@@ -94,140 +79,220 @@ export default function About() {
 					</div>
 				</div>
 
-				{/* Bio + family collage */}
 				<div className="about-personal-row">
 					<div className="intro-body">
 						<div className="home-body-copy">
+							<p>Complex products don't have to feel complicated.</p>
 							<p>
-								I redesign products and the teams that build them. At VSCO, that meant
-								both: shipping a CRM rebuilt for creative professionals, and building the
-								design org practices that made it possible to ship two products without
-								adding headcount. The product problems and the practice problems are the
-								same problem.
+								I've spent my career helping teams turn powerful technology into
+								products people actually enjoy using. Sometimes that means redesigning
+								the product. Sometimes it means redesigning how the team works.
 							</p>
 							<p>
-								Based in Bend, Oregon, working fully remote. Outside work: family,
-								hiking, skiing, and two French Bulldogs with very strong opinions.
+								Today, much of that work involves AI. I help design organizations
+								adopt AI in ways that improve speed without compromising craft,
+								collaboration, or trust. I also design AI into complex products,
+								creating experiences where AI feels like a natural part of the
+								workflow instead of another feature to learn.
 							</p>
 							<p>
-								I mentor early-career designers and serve on the design advisory board at
-								Central Oregon Community College. I also advise the High Desert Education
-								Service District, working with high school teachers across Oregon to prepare
-								students for careers in tech.
+								At VSCO, I lead Product Design and have chosen to dive into the work
+								to explore AI-first design. Using code as a design medium gave me
+								firsthand experience with AI-native product development before asking
+								my team to work differently. That experience shaped the operating
+								model, workflows, and design practices we introduced across the
+								organization.
 							</p>
 							<p>
-								I care about the people on the teams I work with as much as I care about
-								the work. Good culture and hard problems are not a trade-off.
+								Over the past twenty years I've worked at the intersection of design,
+								engineering, and product strategy. The tools will keep changing.
+								Building products people trust, and organizations that can adapt, is
+								the work I'm most interested in.
 							</p>
 						</div>
 						<div className="about-social-links">
-						<a
-							href="https://linkedin.com/in/millersharonk"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="home-linkedin"
-						>
-							LinkedIn
-						</a>
-						<a
-							href="https://www.linkedin.com/pulse/leaning-ai-native-design-sharon-miller-yxsjc/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="home-linkedin"
-						>
-							Blog
-						</a>
+							<a
+								href="https://linkedin.com/in/millersharonk"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="home-linkedin"
+							>
+								LinkedIn
+							</a>
+							<a
+								href="https://www.linkedin.com/pulse/leaning-ai-native-design-sharon-miller-yxsjc/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="home-linkedin"
+							>
+								Blog
+							</a>
+						</div>
 					</div>
-					</div>
+				</div>
+			</section>
 
-					<figure className="about-collage-frame">
+			{/* ── DIVIDER: LEADERSHIP PRINCIPLES ───────────────────────── */}
+			<div className="about-divider" aria-hidden="true">
+				<div className="about-divider__line" />
+				<span className="about-divider__label">Leadership Principles</span>
+				<div className="about-divider__line" />
+			</div>
+
+			{/* ── FOUR PILLARS ─────────────────────────────────────────── */}
+			<section className="about-section about-section--pillars">
+				<div className="about-pillars">
+					{PILLARS.map((pillar) => (
+						<div key={pillar.title} className="about-pillar">
+							<h3 className="about-pillar__title">{pillar.title}</h3>
+							<p className="about-pillar__body">{pillar.body}</p>
+						</div>
+					))}
+				</div>
+			</section>
+
+			{/* ── THE WORK ─────────────────────────────────────────────── */}
+			<section className="about-section">
+
+				<div className="about-work-photos">
+					<figure className="about-photo-figure">
 						<img
-							src="/images/about and career/family-collage.png"
-							alt="Sharon with family on the beach, skiing with kids, lakeside with French Bulldogs, and son's track meet at George Fox University"
-							className="about-collage-img"
+							src="/images/about and career/work_about_1.jpeg"
+							alt="Sharon presenting the Visual Roadmap to cross-functional stakeholders at SurveyMonkey"
+							className="about-work-photo-img"
+							loading="lazy"
 						/>
 						<figcaption className="about-photo-caption">
-							Family in Bend: beach trips, ski days, and two very opinionated Frenchies
+							Presenting the SurveyMonkey modernization roadmap
+						</figcaption>
+					</figure>
+					<figure className="about-photo-figure">
+						<img
+							src="/images/about and career/team1.jpeg"
+							alt="Sharon and the SurveyMonkey design team"
+							className="about-work-photo-img"
+							loading="lazy"
+						/>
+						<figcaption className="about-photo-caption">
+							SurveyMonkey design team
 						</figcaption>
 					</figure>
 				</div>
 
+				{/* Career arc */}
+				<div className="about-divider" aria-hidden="true">
+					<div className="about-divider__line" />
+					<span className="about-divider__label">Career arc</span>
+					<div className="about-divider__line" />
+				</div>
+				<div className="career-arc__list">
+					{CAREER_ARC.map((item) => (
+						<CareerRow key={item.period} {...item} />
+					))}
+				</div>
 			</section>
 
-			{/* ── SECTION DIVIDER ──────────────────────────────── */}
+			{/* ── DIVIDER: OUTSIDE WORK ─────────────────────────────────── */}
 			<div className="about-divider" aria-hidden="true">
 				<div className="about-divider__line" />
-				<span className="about-divider__label">The work</span>
+				<span className="about-divider__label">Outside Work</span>
 				<div className="about-divider__line" />
 			</div>
 
-			{/* ── WORK SECTION ─────────────────────────────────── */}
-			<section className="about-section" aria-labelledby="about-work-heading">
-				<div className="about-work-intro">
-					<h2 className="about-work-heading" id="about-work-heading">
-						I lead design teams and still do the work.
-					</h2>
+			{/* ── OUTSIDE WORK ─────────────────────────────────────────── */}
+			<section className="about-section">
+
+				{/* Community photos */}
+				<div className="about-community-media">
+					<figure className="about-photo-figure">
+						<img
+							src="/images/about and career/ai-snack-club-3 1.png"
+							alt="Sharon speaking on the Generating CRE(AI)tivity panel at the AWS Builder Loft in San Francisco"
+							className="about-community-photo"
+							loading="lazy"
+						/>
+					</figure>
+					<figure className="about-photo-figure">
+						<img
+							src="/images/about and career/ai-snack-club-flyer 1.png"
+							alt="AI Snack Club — Generating CRE(AI)tivity event poster"
+							className="about-community-photo about-community-photo--flyer"
+							loading="lazy"
+						/>
+					</figure>
 				</div>
 
-				<div className="about-prose home-body-copy">
-					<p>
-						At VSCO I lead design strategy across multiple product squads — budget, hiring,
-						org structure, and an IC role I kept deliberately to stay close to the work.
-						The Workspace redesign and Scout shipped as my design. I defined AI fluency as
-						a required competency at every IC level and presented the methodology org-wide.
-					</p>
-					<p>
-						Earlier: Lead Product Designer then Design Manager at SurveyMonkey, embedded
-						across growth squads and partnering with engineering and product leaders, reporting to the CTO.
-						Before that, four years as UX lead and Product Owner at an AWS Premier Partner,
-						presenting a three-year product vision at exec and board level. AWS Solutions
-						Architect certified. I prototype in code — React, React Native, Figma Code Connect.
-					</p>
-				</div>
-
-
-				{/* Career arc */}
-				<div className="career-arc">
-					<h3 className="career-arc__heading">Career arc</h3>
-					<div className="career-arc__list">
-						{CAREER_ARC.map((item) => (
-							<CareerRow key={item.period} {...item} />
-						))}
+				<div className="about-community-subsection">
+					<h4 className="about-community-label">Speaking</h4>
+					<div className="home-body-copy">
+						<p>
+							I spoke at AI Snack Club's Generating CRE(AI)tivity panel at the
+							AWS Builder Loft in San Francisco alongside designers from OpenArt
+							and Luma AI. I participate in the Artificiality Institute to stay
+							connected to how the broader design community is thinking through
+							the same questions.
+						</p>
 					</div>
-
 				</div>
 
-				{/* Speaking */}
-				<div className="career-arc">
-					<h3 className="career-arc__heading">Speaking</h3>
-					<div className="career-arc__list">
-						<CareerRow
-							period="June 2026"
-							role="Speaker"
-							company="AI Snack Club"
-							companyHref="https://luma.com/aisnackclub"
-						/>
-						<CareerRow
-							period="2024–2025"
-							role="Attendee & participant"
-							company="Artificiality Summit"
-							companyHref="https://www.artificialityinstitute.org/summit"
-						/>
-						<CareerRow
-							period="Oct 2025"
-							role="Guest speaker"
-							company="George Fox University: AI-native design and product portfolio"
-						/>
-						<CareerRow
-							period="Ongoing"
-							role="Guest speaker"
-							company="Local universities: AI-native design workflow"
-						/>
+				<div className="about-community-subsection">
+					<h4 className="about-community-label">Advisory</h4>
+					<div className="home-body-copy">
+						<p>
+							I serve on the Art and Design Advisory Board at Central Oregon
+							Community College and advise the High Desert Education Service
+							District. Most of that work centers on helping educators understand
+							what modern product organizations need from designers, including
+							honest conversations about where AI belongs in a curriculum and
+							why strong fundamentals still come first.
+						</p>
 					</div>
-					<p className="about-speaking-note">Open to speaking engagements on AI-native design process, design systems, and building effective design teams.</p>
+				</div>
+
+				<div className="about-community-subsection about-community-closing">
+					<h4 className="about-community-label">Giving back</h4>
+					<ul className="about-bullets">
+						<li>Volunteered as Principal Product Designer for Guardian Group, helping architect tools supporting the fight against human trafficking</li>
+						<li>Volunteer at student events introducing early-career designers to careers in product design</li>
+						<li>Mentor early-career designers one-on-one</li>
+					</ul>
+				</div>
+
+				{/* Personal */}
+				<div className="about-community-subsection">
+					<h4 className="about-community-label">Family</h4>
+					<div className="about-personal-row">
+						<div className="intro-body about-outside-body">
+							<div className="home-body-copy">
+								<p>
+									My husband and I have three kids: two sons in college and a
+									daughter in high school. We spend as much time outside as we can,
+									whether that's skiing, camping, hiking, or taking the motorhome
+									to explore new places.
+								</p>
+								<p>
+									Our two French Bulldogs love to join most of our adventures.
+									They're happiest exploring a campground or riding on a paddle board.
+									They're less enthusiastic about long hikes, which occasionally end
+									with one of us carrying them back to camp.
+								</p>
+							</div>
+						</div>
+						<figure className="about-collage-frame">
+							<img
+								src="/images/about and career/family-collage.png"
+								alt="Sharon with family on the beach, skiing, and lakeside"
+								className="about-collage-img"
+							/>
+							<figcaption className="about-photo-caption">
+								Family in Bend: beach trips, ski days, and two very opinionated Frenchies
+							</figcaption>
+						</figure>
+					</div>
 				</div>
 
 			</section>
+
 		</PortfolioShell>
 	);
 }

@@ -90,24 +90,15 @@ export default function Home() {
 
 						<div className="intro-body">
 							<div className="home-body-copy">
-								<p>Complex products don&apos;t have to feel complicated.</p>
+								<p>Complex products don’t have to feel complicated.</p>
 								<p>
-									That&apos;s the design problem I keep coming back to: powerful systems that
-									overwhelm the people they&apos;re meant to serve. Workflows that make sense in
-									a spec but fail in practice. Organizations moving slowly not because of the
-									people, but because of how the work is structured.
+									I help teams build products people can actually use, and organizations that
+									can adapt as those products evolve. Lately that means AI — helping teams
+									adopt it, and designing it into products so it feels natural.
 								</p>
 								<p>
-									AI is the biggest opportunity I&apos;ve seen to close that gap. Not as a feature
-									to add, but as a way to redesign how complex work gets done.
-								</p>
-								<p>
-									Head of Product Design at VSCO, where I led both. Previously at SurveyMonkey,
-									redesigning complex enterprise experiences.
-								</p>
-								<p>
-									One designer working this way is useful. A whole team working this way changes
-									what&apos;s possible.
+									Head of Product Design at VSCO. Twenty years at the intersection of design,
+									engineering, and product strategy.
 								</p>
 							</div>
 
