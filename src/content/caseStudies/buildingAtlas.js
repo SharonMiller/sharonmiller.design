@@ -30,7 +30,7 @@ const buildingAtlas = {
 		{
 			title: "My role",
 			paragraphs: [
-				"When a designer on my team went on leave, I took on the IC work myself rather than bring in a contractor. Faster, cheaper, and proof of the process at the same time.",
+				"One designer on my team went on leave. I was still leading the design org, so rather than bring in a contractor, I took on the IC work myself. Workspace was roughly 10% of my capacity.",
 				"I chose to take on the work — proving the process on a real product before asking the team to adopt it.",
 			],
 			list: [
