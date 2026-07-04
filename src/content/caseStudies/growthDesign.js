@@ -299,7 +299,7 @@ const growthDesign = {
 				{
 					type: "paragraphs",
 					items: [
-						"The logic panel redesign shipped with measurable impact. Engagement up 8%, UX score up 17%, NPS up 4%. Build with AI became the primary survey creation path.",
+						"The logic panel redesign shipped with measurable impact. Engagement up 8%, UX score up 17%, NPS up 4%. The AI-assisted 'Build with AI' experience became the primary survey creation path, validating many of the concepts behind the original modernization strategy.",
 						"The three-year platform vision got multi-quarter exec buy-in for the phased approach. The hybrid migration model delivered incremental value without disrupting millions of enterprise users mid-rewrite.",
 					],
 				},

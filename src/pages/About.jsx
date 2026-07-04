@@ -25,7 +25,7 @@ const WORK_PHOTOS = [
 
 const CAREER_ARC = [
 	{ period: "2025–Now", role: "Head of Product Design", company: "VSCO" },
-	{ period: "2021–2025", role: "Design Manager, Growth & Personalization", company: "SurveyMonkey" },
+	{ period: "2021–2024", role: "Lead Product Designer · Design Manager", company: "SurveyMonkey" },
 	{ period: "2017–2021", role: "Director of UX & Brand", company: "Effectual (AWS Premier Partner)" },
 	{ period: "2007–present", role: "Principal Designer · consulting", company: "Sharon Miller Creative" },
 	{ period: "2000–2004", role: "Head of Customer Experience", company: "Zango (startup, employee #5)" },
@@ -177,8 +177,8 @@ export default function About() {
 						a required competency at every IC level and presented the methodology org-wide.
 					</p>
 					<p>
-						Earlier: four years as design manager at SurveyMonkey, embedded across growth
-						squads and partnering with engineering and product leaders, reporting to the CTO.
+						Earlier: Lead Product Designer then Design Manager at SurveyMonkey, embedded
+						across growth squads and partnering with engineering and product leaders, reporting to the CTO.
 						Before that, four years as UX lead and Product Owner at an AWS Premier Partner,
 						presenting a three-year product vision at exec and board level. AWS Solutions
 						Architect certified. I prototype in code — React, React Native, Figma Code Connect.
