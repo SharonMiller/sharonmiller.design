@@ -6,6 +6,7 @@ const aiFirst = {
 	type: "The process · Operating model · Platform delivery",
 	status: "MVP launch June 23, 2026",
 	hook: "Design stopped being a bottleneck. It became infrastructure. Here's how that happened.",
+	cardTitle: "Operationalizing AI-Native Design",
 	cardHook: "Design stopped being a bottleneck. It became infrastructure.",
 	metrics: [
 		{ value: "2 products", label: "shipped without adding design headcount" },

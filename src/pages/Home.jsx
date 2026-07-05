@@ -27,7 +27,14 @@ function CaseStudyCard({ study, revealIndex, featured = false }) {
 						</p>
 					)}
 
-					<h3 className="case-study-card__title">{study.title}</h3>
+					<div className="case-study-card__heading">
+						<h3 className="case-study-card__title">{study.cardTitle ?? study.title}</h3>
+						{study.cardSubtitle ? (
+							<p className="case-study-card__subtitle">{study.cardSubtitle}</p>
+						) : null}
+					</div>
+
+					{study.hook ? <p className="case-study-card__description">{study.hook}</p> : null}
 
 					<p className="case-study-card__meta">
 						<span>{study.year}</span>
@@ -40,8 +47,6 @@ function CaseStudyCard({ study, revealIndex, featured = false }) {
 							</span>
 						)}
 					</p>
-
-					{study.hook ? <p className="case-study-card__description">{study.hook}</p> : null}
 
 					{cardMetrics.length > 0 && (
 						<div className="case-study-card__stats">
@@ -57,7 +62,7 @@ function CaseStudyCard({ study, revealIndex, featured = false }) {
 					<span className="case-study-card__cta">Read case study →</span>
 				</div>
 
-				<CaseStudyThumbnail image={study.thumbnail} title={study.title} variant="card" />
+				<CaseStudyThumbnail image={study.thumbnail} title={study.cardTitle ?? study.title} variant="card" />
 			</Link>
 		</article>
 	);

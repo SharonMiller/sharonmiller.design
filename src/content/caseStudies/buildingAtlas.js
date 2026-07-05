@@ -2,23 +2,37 @@ const DO = "/images/ai design ops";
 
 const buildingAtlas = {
 	slug: "vsco-workspace",
-	title: "VSCO Workspace Simplified: AI-Native Design",
+	title: "VSCO Workspace: Simplifying a Complex CRM",
 	year: "2026",
 	role: "Head of Product Design, VSCO",
-	type: "The product · AI-native design · Agentic UX",
+	type: "The product · CRM redesign · Agentic UX",
 	status: "Shipped June 23, 2026 · VSCO One",
-	hook: "VSCO Workspace is live. A legacy CRM rebuilt for creative professionals, shipped in 12 weeks with AI-native design.",
-	cardHook: "Legacy CRM rebuilt for creative professionals. Shipped in 12 weeks with AI-native design.",
+	hook: "Designed in Cursor while leading Product Design, proving a new AI-native design workflow on a production product.",
+	cardTitle: "VSCO Workspace",
+	cardSubtitle: "Simplifying a Complex CRM",
+	cardHook: "A production redesign that became the proving ground for a new AI-native design workflow.",
+	cardMetrics: [
+		{ value: "12 weeks", label: "Initial release" },
+		{ value: "272", label: "Prototype commits" },
+	],
+	liveProduct: {
+		label: "View Live Product ↗",
+		href: "https://vsco.co/workspace",
+	},
+	projectUpdate:
+		"Since the initial release, I've continued leading the evolution of Workspace through the Atlas redesign for Starter, Plus, and Pro users, and designed the onboarding agent for the classic Workspace experience while the broader AI vision continues to roll out.",
 	metrics: [
-		{ value: "12 weeks", label: "First commit to shipped product" },
+		{ value: "12 weeks", label: "Initial release" },
 		{ value: "272", label: "Commits to the prototype" },
 		{ value: "~10 hrs", label: "Time in Figma (rest in Cursor)" },
 	],
 	description:
-		"A legacy CRM rebuilt for creative professionals, designed in Cursor with AI. What it actually took to ship real product while running a design org, and what I learned about working with AI that changed how I think about both.",
+		"A legacy CRM rebuilt for creative professionals, designed in Cursor while leading Product Design. What it took to simplify a complex product, prove a new workflow on real production work, and keep evolving the experience beyond the first release.",
 	thumbnail: {
 		src: "/images/Atlas Workspace/cursor-2-crop.png",
 		alt: "VSCO Workspace redesign and Cursor agent side-by-side, showing the AI-native design workflow in action",
+		cardObjectPosition: "18% 12%",
+		cardScale: 1.12,
 	},
 	relatedStudy: {
 		slug: "operationalizing-ai-native-design",
@@ -30,8 +44,9 @@ const buildingAtlas = {
 		{
 			title: "My role",
 			paragraphs: [
-				"One designer on my team went on leave. I was still leading the design org, so rather than bring in a contractor, I took on the IC work myself. Workspace was roughly 10% of my capacity.",
-				"I chose to take on the work — proving the process on a real product before asking the team to adopt it.",
+				"One designer on my team went on leave. Rather than bringing in a contractor, I chose to take on the IC work myself while continuing to lead Product Design.",
+				"Workspace represented roughly 10% of my capacity, but it gave me the opportunity to prove a new AI-native design workflow on a real production product before asking the team to work differently.",
+				"Designing in Cursor gave me firsthand experience using code as a design medium. What I learned shaped the workflows, operating model, and design practices we later introduced across the organization.",
 			],
 			list: [
 				"Cursor: almost everything was built here. The design lived in code from day one.",

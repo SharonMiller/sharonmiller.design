@@ -28,16 +28,32 @@ export const CASE_STUDIES = [
 ];
 
 export const CASE_STUDY_CARDS = CASE_STUDIES.map(
-	({ slug, title, year, role, href, hook, cardHook, description, metrics, thumbnail }) => ({
+	({
+		slug,
+		title,
+		cardTitle,
+		cardSubtitle,
+		year,
+		role,
+		href,
+		hook,
+		cardHook,
+		description,
+		metrics,
+		cardMetrics,
+		thumbnail,
+	}) => ({
 		slug,
 		label: "Case study",
 		title,
+		cardTitle: cardTitle ?? title,
+		cardSubtitle,
 		year,
 		role,
 		hook: cardHook ?? hook,
 		href: href ?? `/case-study/${slug}`,
 		description,
-		metrics,
+		metrics: cardMetrics ?? metrics,
 		thumbnail,
 		company: COMPANY_BY_SLUG[slug],
 		gated: GATED_SLUGS.has(slug),

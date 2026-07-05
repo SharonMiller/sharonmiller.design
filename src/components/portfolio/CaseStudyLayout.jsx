@@ -481,6 +481,23 @@ export default function CaseStudyLayout({ study }) {
 					{study.type && <p className="case-study-header__type">{study.type}</p>}
 				</div>
 
+				{study.hook && (
+					<p className="case-study-hook">{study.hook}</p>
+				)}
+
+				{study.liveProduct && (
+					<p className="case-study-live-product">
+						<a
+							href={study.liveProduct.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="case-study-live-product__link"
+						>
+							{study.liveProduct.label}
+						</a>
+					</p>
+				)}
+
 				{/* Hero image — full width */}
 				{study.thumbnail && (
 					<div className="case-study-hero">
@@ -490,10 +507,6 @@ export default function CaseStudyLayout({ study }) {
 							className="case-study-hero__img"
 						/>
 					</div>
-				)}
-
-				{study.hook && (
-					<p className="case-study-hook">{study.hook}</p>
 				)}
 
 				{study.beforeImage && (
@@ -521,6 +534,10 @@ export default function CaseStudyLayout({ study }) {
 
 				{study.metrics?.length > 0 && (
 					<StatGrid stats={study.metrics} columns={study.metrics.length} />
+				)}
+
+				{study.projectUpdate && (
+					<p className="case-study-update">{study.projectUpdate}</p>
 				)}
 
 				{study.summary?.length > 0 && (
