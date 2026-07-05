@@ -96,23 +96,18 @@ export default function Home() {
 						<div className="intro-body">
 							<div className="home-body-copy">
 								<p>
-									I’m drawn to complex problems. I enjoy simplifying products and
-									designing better ways of working.
+									I help organizations turn complexity into clarity by simplifying products, evolving design organizations, and helping teams adapt to new ways of working.
 								</p>
 								<p>
-									AI is a powerful tool, but only when it’s applied thoughtfully. I help
-									organizations use it to improve speed without compromising craft, while
-									designing products where AI reduces complexity and friction instead of
-									adding to it.
+									AI doesn’t level the playing field. It amplifies the expertise of the team using it.
 								</p>
 								<p>
-									I enjoy building products people trust and helping organizations adapt
-									to what’s next.
+									Now more than ever, design teams must cultivate craft and develop the judgment and deep expertise needed to leverage AI to create thoughtful, trusted products.
 								</p>
 							</div>
 
 							<Link to="/about" className="home-linkedin">
-								My story →
+								Read more →
 							</Link>
 						</div>
 					</div>
