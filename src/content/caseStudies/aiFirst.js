@@ -62,7 +62,11 @@ const aiFirst = {
 			},
 			paragraphs: [
 				"The operating model rests on a simple loop: a well-maintained design system makes AI-assisted prototyping possible. Prototyping surfaces design system gaps fast. Each cycle makes both stronger.",
-				"The Dashboard Card system is the concrete proof point. Building Workspace in Cursor surfaced that the card system did not exist as a proper design system component. That gap went through the Flywheel: audited via the Figma Plugin API, built programmatically in the design system with correct token bindings, published to the library, pulled back into the prototype. The prototype got better. The design system got stronger. Neither required a separate sprint.",
+				"The Dashboard Card system became an early proof point for what an AI-native design workflow could look like.",
+				"While designing Workspace, I realized our design system didn't include a dashboard card flexible enough to support the CRM experience we were building. Rather than creating a one-off component inside the product, I wanted to strengthen the design system itself.",
+				"Using Claude with the Figma MCP, I audited dashboard cards across VSCO to understand the existing patterns, inconsistencies, and opportunities for reuse. Claude then assembled a new component using our existing primitives, applying the correct token bindings, auto layout, variants, and design system conventions. After several rounds of review and refinement, we published the component to our design library.",
+				"From there, we pulled the updated library directly into the Workspace prototype through Cursor and continued designing against the production-ready component.",
+				"In a single afternoon, we had designed, reviewed, refined, and published a complex, flexible component. We validated it across desktop and mobile, light and dark mode, and then exported it to engineering. What traditionally would have taken days became a matter of hours, while still preserving the design review and judgment that ensured quality.",
 				"The design system stopped being a design artifact. It became the foundation that lets design move at engineering speed.",
 			],
 			readMore: {
