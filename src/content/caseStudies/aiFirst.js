@@ -5,15 +5,15 @@ const aiFirst = {
 	role: "Head of Product Design, VSCO",
 	type: "The process · Operating model · Platform delivery",
 	status: "MVP launch June 23, 2026",
-	hook: "Design stopped being a bottleneck. It became infrastructure. Here's how that happened.",
+	hook: "Design risked becoming the bottleneck as engineering moved faster. This is how I built an operating model that kept pace without sacrificing craft.",
 	cardTitle: "Operationalizing AI-Native Design",
-	cardHook: "Design stopped being a bottleneck. It became infrastructure.",
+	cardHook: "How I helped design evolve so the org could move at AI speed without sacrificing craft.",
 	metrics: [
 		{ value: "2 products", label: "shipped without adding design headcount" },
 		{ value: "~1 wk", label: "concept to production-ready spec" },
 	],
 	description:
-		"When the prototype becomes the production foundation and the design system gets stronger through every build cycle, something changes. Design stops being a translation layer and becomes the thing engineering builds from.",
+		"Workspace became the proving ground for a new way of working. What I learned there became the operating model that let the design organization move at engineering speed while maintaining a high bar for craft.",
 	thumbnail: {
 		src: "/images/ai design ops/ai-first-process-diagram.svg",
 		alt: "Design x AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
@@ -35,15 +35,47 @@ const aiFirst = {
 	],
 	sections: [
 		{
-			title: "The gap between design and what ships",
+			title: "The challenge",
 			paragraphs: [
-				"A Figma spec is an approximation. A designer finishes a screen, engineering picks it up, and a week later what ships is close but not exact. Not because anyone did something wrong. A static file cannot communicate behavior, edge cases, or the small decisions that happen in the space between design and code.",
-				"At VSCO this played out in a specific way: engineering was referencing design concepts visually and getting output that was close but not exact. They wanted redlines. But the artifact was the problem, not the people. The real gap was between a design intent and an executable spec.",
-				"There was a second problem. Prototyping at VSCO required enough setup that most designers never got there — and the ones who did were starting from scratch each time, with no guardrails to stay aligned with the design system. The process wasn't teachable, which meant it couldn't scale.",
+				"AI changed how products get built almost overnight. Engineering was already building in Cursor, and product teams were beginning to generate concepts with AI. The speed was exciting, but the quality was inconsistent. Good prompts and product requirements weren't enough to produce thoughtful product design.",
+				"At the same time, design couldn't afford to become the bottleneck. If we couldn't keep pace, decisions would increasingly be made without us. If we lowered the quality bar to keep up, we risked losing the craft that makes products intuitive, trustworthy, and enjoyable to use.",
+				"I wasn't interested in choosing between the two.",
+				"I wanted to find the best of both: the speed AI made possible and the craft users expect.",
+				"Workspace became the proving ground. Designing directly in Cursor taught me that great results didn't come from AI alone. They came from embedding design judgment into the workflow through systems, constraints, best practices, and continuous feedback.",
+				"Everything that follows grew out of those lessons.",
 			],
 		},
 		{
-			title: "Closing the gap",
+			title: "My role",
+			paragraphs: [
+				"As Head of Product Design, I wasn't just redesigning Workspace. I was helping the design organization adapt to a fundamental shift in how software was being built.",
+				"Workspace became the proving ground for experimenting with AI-native product design. Once I understood what produced high-quality results—and what didn't—I turned those lessons into a repeatable operating model the rest of the design organization could adopt.",
+				"My role expanded beyond designing one product. I built the workflows, templates, guardrails, and feedback systems that allowed designers to move faster while maintaining a high bar for craft.",
+			],
+		},
+		{
+			title: "The Flywheel",
+			image: {
+				src: "/images/ai design ops/ai-first-process-diagram.svg",
+				alt: "The Design x AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
+				contain: true,
+			},
+			paragraphs: [
+				"The operating model rests on a simple loop: a well-maintained design system makes AI-assisted prototyping possible. Prototyping surfaces design system gaps fast. Each cycle makes both stronger.",
+				"The Dashboard Card system is the concrete proof point. Building Workspace in Cursor surfaced that the card system did not exist as a proper design system component. That gap went through the Flywheel: audited via the Figma Plugin API, built programmatically in the design system with correct token bindings, published to the library, pulled back into the prototype. The prototype got better. The design system got stronger. Neither required a separate sprint.",
+				"The design system stopped being a design artifact. It became the foundation that lets design move at engineering speed.",
+			],
+			readMore: {
+				slug: "design-system-governance",
+				title: "AI-Powered Design Ops",
+				text: "The full design system automation workflow: audit, fix, and report via the Figma Plugin API",
+			},
+		},
+		{
+			title: "How the operating model works",
+			paragraphs: [
+				"The Flywheel defines the principle. What follows is how it works in practice: from design intent to executable spec, with shared context across the team and a clear handoff to engineering.",
+			],
 			subsectionColumns: true,
 			image: {
 				src: "/images/Atlas Workspace/cursor ide.png",
@@ -87,27 +119,9 @@ const aiFirst = {
 			],
 		},
 		{
-			title: "The Flywheel",
-			image: {
-				src: "/images/ai design ops/ai-first-process-diagram.svg",
-				alt: "The Design x AI Flywheel: prototype surfaces gaps, gaps go through the design system, system strengthens the next prototype",
-				contain: true,
-			},
-			paragraphs: [
-				"A well-maintained design system makes AI-assisted prototyping possible. AI-assisted prototyping surfaces design system gaps fast. Each cycle makes both stronger.",
-				"The Dashboard Card system is the concrete proof point. Building Workspace in Cursor surfaced that the card system did not exist as a proper design system component. That gap went through the Flywheel: audited via the Figma Plugin API, built programmatically in the design system with correct token bindings, published to the library, pulled back into the prototype. The prototype got better. The design system got stronger. Neither required a separate sprint.",
-				"The design system stopped being a design artifact. It became the foundation that lets design move at engineering speed.",
-			],
-			readMore: {
-				slug: "design-system-governance",
-				title: "AI-Powered Design Ops",
-				text: "The full design system automation workflow: audit, fix, and report via the Figma Plugin API",
-			},
-		},
-		{
 			title: "Making it teachable",
 			paragraphs: [
-				"A process only one person can run is not a process. The goal was a system any designer on the team could pick up without a two-hour onboarding call. That meant removing every excuse not to start: pre-configured templates, bundled fonts, always-on guardrails, and a vocabulary that translated designer language into the actions the tools understand.",
+				"A process only one person can run is not a process. The goal was a system any designer could pick up without a two-hour onboarding call — pre-configured templates, bundled fonts, always-on guardrails, and a vocabulary that translated designer language into the actions the tools understand.",
 			],
 			pullquote: "A process only one person can run is not a process.",
 			subsections: [
@@ -115,13 +129,13 @@ const aiFirst = {
 					title: "Always-on rules",
 					layout: "image-right",
 					paragraphs: [
-						"Cursor rules run automatically on every prompt. Designers don't have to remember them.",
+						"Cursor rules run automatically on every prompt. Designers don't have to remember them — the agent enforces design system tokens, component hierarchy, and prototype conventions before anything gets built.",
 					],
 					list: [
 						"Design system rule: typography variants, color tokens, component hierarchy. No raw HTML elements or hex values.",
 						"No-override rule: prevents CSS from fighting design system component defaults.",
 						"Prototype rule: tells the agent this is a concept, optimize for clarity and testable UX, not production patterns.",
-						"Vocabulary rule: translates designer language to git actions in passing. 'Save my changes' becomes a commit. 'Send it to the link' becomes a push and deploy. No lecture required.",
+						"Vocabulary rule: translates designer language to git actions in passing. 'Save my changes' becomes a commit. 'Send it to the link' becomes a push and deploy.",
 					],
 					image: {
 						src: "/images/ai design ops/IMG_0471.png",
@@ -132,17 +146,20 @@ const aiFirst = {
 				{
 					title: "Skills for every stage",
 					paragraphs: [
-						"Skills are on-demand workflows triggered by a single prompt in Cursor.",
+						"Skills are on-demand workflows triggered by a single prompt — setup, review, audit, and handoff without leaving Cursor.",
 					],
 					list: [
-						"Project setup: first-time onboarding. Walks through Node, branches, dev server, and Figma connection.",
-						"Prototype to Figma: captures the live prototype into Figma for review, converts hardcoded values to design system tokens, flags what needs a manual swap.",
+						"Project setup: first-time onboarding — Node, branches, dev server, and Figma connection.",
+						"Prototype to Figma: captures the live prototype for review and converts hardcoded values to design system tokens.",
 						"Design system audit: checks whether a prototype pattern maps to an existing component before building a new one.",
 						"Eng-ready release: diffs main vs eng-ready, generates a changelog, and can post a summary to Figma via the Figma MCP.",
 					],
 				},
 				{
 					title: "Three-stage lifecycle",
+					paragraphs: [
+						"Three environments gave every stakeholder a predictable reference point — and solved the trust problem with engineering when it surfaced mid-rollout.",
+					],
 					list: [
 						"wip: active iteration. Design moves freely, not for testing.",
 						"concept-testing: stable enough for user research sessions. Last week's build is available for testing while this week's iteration is already in wip.",
@@ -154,8 +171,8 @@ const aiFirst = {
 		{
 			title: "Replacing the redline",
 			paragraphs: [
-				"The handoff artifact was always the weak link. A static Figma file communicates what something looks like, not how it should behave, what the edge cases are, or why the design works the way it does.",
-				"When design pushes to a stable state, a skill auto-generates a structured handoff and posts it to Slack. It covers:",
+				"The handoff artifact was always the weak link. A static Figma file communicates what something looks like, not how it should behave or why the design works the way it does.",
+				"When design pushes to a stable state, a skill auto-generates a structured handoff and posts it to Slack:",
 			],
 			list: [
 				"Feature brief: what it is, how it should behave, and what success looks like.",
@@ -164,7 +181,7 @@ const aiFirst = {
 				"Product context: why the design works the way it does, not just what it looks like.",
 			],
 			closingParagraphs: [
-				"Engineering uses the concept link and the prompt together. The link is the visual reference. The prompt is the instruction set. They add API details and technical constraints on top. Not a redline, not a handoff doc, but a machine-readable instruction set that travels with the code.",
+				"Engineering uses the concept link and the prompt together. The link is the visual reference. The prompt is the instruction set. They add API details and technical constraints on top — a machine-readable instruction set that travels with the code.",
 			],
 			image: {
 				src: "/images/design ops/IMG_2671.png",
@@ -173,59 +190,67 @@ const aiFirst = {
 			},
 		},
 		{
-			title: "Getting the team in",
+			title: "How designers adopted it",
 			paragraphs: [
-				"Adoption required removing every excuse not to start. The template repo ships with everything pre-configured. Design system installed, fonts bundled, Cursor rules active, skills for every stage of the workflow.",
-				"One designer on the team took it from there and shipped Studio Pro. Much of the concept testing happened in Cursor, even though some high-fidelity design was still detailed in Figma first. Not full adoption yet, but real. The process is transferring and the team is moving toward it.",
-				"Rather than rolling out to everyone at once, the process started with one designer — Studio Pro was the proof of concept that made broader adoption credible.",
-				"Presented the methodology at the design org all-hands. AI fluency defined as a required competency at every IC level: working with tools fluently, configuring context, building prompt systems, and designing the infrastructure other designers build on.",
+				"With the operating model defined, adoption came down to removing every excuse not to start. The template repo ships with everything pre-configured: design system installed, fonts bundled, Cursor rules active, skills for every stage of the workflow.",
+				"Rather than rolling out to everyone at once, the process started with one designer. Studio Pro was the proof of concept that made broader adoption credible — much of the concept testing happened in Cursor, even though some high-fidelity design was still detailed in Figma first.",
+				"I presented the methodology at the design org all-hands and defined AI fluency as a required competency at every IC level — working with tools fluently, configuring context, and designing the infrastructure other designers build on.",
 			],
 		},
 		{
-			title: "What the tools revealed",
+			title: "Resistance and lessons learned",
 			paragraphs: [
-				"The most important insight didn't come from what worked. It came from what didn't.",
-				"Prototyping in Figma produced a Figma artifact. There's no path from a Figma prototype to a production codebase that doesn't require a full rebuild. Every prototype-to-engineering handoff meant starting over. The prototype and the product always diverged.",
-				"Prototyping in code produced the opposite: engineering forked from a working branch. The concept link and the production build pointed at the same thing. The prototype and the product converged rather than diverged. That's not a workflow preference. It's a fundamentally different relationship between design and what ships.",
+				"The most important insights didn't come from what worked on day one. They came from what didn't — and from the friction that surfaced when other teams tried to adopt the model.",
 			],
-			pullquote: "The prototype and the product converged rather than diverged.",
-			image: {
-				src: "/images/Atlas Workspace/figma-galleries.png",
-				alt: "Figma Make concept test output for the VSCO Galleries feature",
-				caption: "Figma Make concept test for the Galleries feature: technically functional, but design-system-blind.",
-			},
-		},
-		{
-			title: "Overcoming resistance",
 			subsections: [
+				{
+					title: "What the tools revealed",
+					paragraphs: [
+						"Prototyping in Figma produced a Figma artifact. There's no path from a Figma prototype to a production codebase that doesn't require a full rebuild. Every handoff meant starting over. The prototype and the product always diverged.",
+						"Prototyping in code produced the opposite: engineering forked from a working branch. The concept link and the production build pointed at the same thing. The prototype and the product converged rather than diverged. That's not a workflow preference. It's a fundamentally different relationship between design and what ships.",
+					],
+					image: {
+						src: "/images/Atlas Workspace/figma-galleries.png",
+						alt: "Figma Make concept test output for the VSCO Galleries feature",
+						caption: "Figma Make concept test for the Galleries feature: technically functional, but design-system-blind.",
+					},
+				},
 				{
 					title: "The trust problem with engineering",
 					paragraphs: [
 						"The first version of this workflow created a real problem. Design changes were being pushed to the concept link while engineering was actively building against it. Their reference moved underneath them mid-sprint. That was not a workflow failure. It was a trust failure.",
-						"I introduced a three-environment model — wip, concept-testing, eng-ready — to give engineering a stable reference design wouldn't touch mid-sprint.",
-						"The three-environment system fixed it. Once eng-ready was stable and updated on a predictable schedule, engineers stopped worrying about the prototype shifting on them. They became advocates for the workflow instead of resistors to it.",
+						"The three-stage lifecycle fixed it. Once eng-ready was stable and updated on a predictable schedule, engineers stopped worrying about the prototype shifting on them. They became advocates for the workflow instead of resistors to it.",
 					],
 				},
 				{
 					title: "The language barrier for designers",
 					paragraphs: [
-						"Cursor is built for engineers. Before other designers could use it, the mental model gap had to close. They did not know what a push was. What a commit meant. Solving adoption meant solving the language problem first.",
-						"The vocabulary rule mapped designer language to git actions in passing so Cursor translated without a lecture. 'Save my changes' becomes a commit. 'Send it to the link' becomes a push and deploy. The goal: open the template, read the files, start working. No two-hour onboarding call.",
+						"Cursor is built for engineers. Before other designers could use it, the mental model gap had to close — most didn't know what a push or a commit meant.",
+						"The vocabulary rule in the always-on rules file solved this without a lecture. Designers could open the template, read the files, and start working. No two-hour onboarding call.",
 					],
 				},
 			],
 		},
 		{
 			title: "The outcome",
+			paragraphs: [
+				"Two production MVPs shipped June 23, 2026. Engineering used the working prototype as the primary production reference, with no spec translation required. Scout's component architecture was adopted by engineering as a standalone cross-app repo for production. External validation: the design was sound enough that engineering rebuilt it.",
+			],
 			stats: [
 				{ value: "0", label: "Design hires added" },
 				{ value: "2", label: "Products shipped" },
 				{ value: "~1 wk", label: "Concept to working spec" },
 			],
+			closingParagraphs: [
+				"The design system gets stronger through the build cycle. Designers have a repeatable process. The system compounds. Detailed design still matters — craft applied to the moments where it has the highest impact, with the design system handling the baseline.",
+			],
+		},
+		{
+			title: "Reflection",
 			paragraphs: [
-				"Two production MVPs shipped June 23, 2026. Engineering used the working prototype as the primary production reference, with no spec translation required. Scout's component architecture was adopted by engineering as a standalone cross-app repo for production. External validation: the design was sound enough that engineering rebuilt it.",
-				"The more important outcome: design stopped being a bottleneck and became infrastructure. The design system gets stronger through the build cycle. Designers have a repeatable process. The system compounds.",
-				"Detailed design still matters. Craft is still required, applied more intentionally to the moments where it has the highest impact rather than spread across every screen in a flow. The design system handles the baseline. The designer's eye goes into the decisions that make something feel considered.",
+				"The biggest lesson wasn't that AI replaced design. It was that design had to evolve alongside it.",
+				"Craft still matters. Judgment still matters. The difference is where those skills are applied. Rather than spending time manually producing every artifact, designers can focus on the decisions that shape the product while systems and AI handle more of the execution.",
+				"That balance between craft and speed became the operating model we introduced across the design organization.",
 			],
 		},
 	],

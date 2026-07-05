@@ -226,9 +226,9 @@ function InteractiveEmbed({ src, caption, title }) {
 	);
 }
 
-function SectionImage({ src, alt, caption, fullWidth = false, contain = true, fade = false }) {
+function SectionImage({ src, alt, caption, fullWidth = false, contain = true, fade = false, featured = false }) {
 	return (
-		<figure className={`case-study-image${fullWidth ? " case-study-image--full" : ""}${fade ? " case-study-image--fade" : ""}`}>
+		<figure className={`case-study-image${fullWidth ? " case-study-image--full" : ""}${fade ? " case-study-image--fade" : ""}${featured ? " case-study-image--featured" : ""}`}>
 			<div className={`case-study-image__frame${contain ? " case-study-image__frame--contain" : ""}`}>
 				<img src={src} alt={alt ?? ""} loading="lazy" className="case-study-image__img" />
 			</div>
@@ -404,6 +404,7 @@ function SectionBlock({ section, index }) {
 					fullWidth={section.imageFullWidth}
 					contain={section.image.contain ?? true}
 					fade={section.image.fade ?? false}
+					featured={section.image.featured ?? false}
 				/>
 			)}
 			{section.interactive && (

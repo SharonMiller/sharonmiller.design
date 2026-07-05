@@ -2399,6 +2399,18 @@
 	max-width: none;
 }
 
+.case-study-image--featured {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+	.case-study-image--featured {
+		margin-top: 4rem;
+		margin-bottom: 4rem;
+	}
+}
+
 .case-study-image--fade {
 	position: relative;
 	overflow: hidden;
