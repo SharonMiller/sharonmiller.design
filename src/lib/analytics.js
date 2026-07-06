@@ -29,14 +29,14 @@ export function initGoogleAnalytics() {
 }
 
 /** Fire a page_view for React Router navigations. */
-export function trackPageView(path) {
+export function trackPageView(path, title) {
 	if (!MEASUREMENT_ID || typeof window.gtag !== "function") {
 		return;
 	}
 
 	window.gtag("event", "page_view", {
 		page_path: path,
-		page_title: document.title,
+		page_title: title,
 		page_location: `${window.location.origin}${path}`,
 	});
 }

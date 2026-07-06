@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { initGoogleAnalytics, trackPageView } from "../lib/analytics.js";
+import { getPageTitle } from "../utils/pageTitle.js";
 
 /** Initialize GA4 once and track page views on every client-side route change. */
 export function useGoogleAnalytics() {
@@ -17,6 +18,9 @@ export function useGoogleAnalytics() {
 	}, []);
 
 	useEffect(() => {
-		trackPageView(`${pathname}${search}`);
+		const path = `${pathname}${search}`;
+		const title = getPageTitle(pathname);
+		document.title = title;
+		trackPageView(path, title);
 	}, [pathname, search]);
 }
