@@ -10,7 +10,8 @@
 		"noEmit": true,
 		"isolatedModules": true,
 		"allowJs": true,
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"types": ["node"]
 	},
 	"include": ["src", "api", "lib", "middleware.ts"]
 }

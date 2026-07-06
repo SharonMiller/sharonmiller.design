@@ -9,7 +9,7 @@ export function getSitePassword(): string | undefined {
 export function getSitePasswords(): string[] {
 	const raw = process.env.SITE_PASSWORD;
 	if (!raw || raw.length === 0) return [];
-	return raw.split(",").map((p) => p.trim()).filter(Boolean);
+	return raw.split(",").map((p: string) => p.trim()).filter(Boolean);
 }
 
 export async function createAuthToken(password: string): Promise<string> {

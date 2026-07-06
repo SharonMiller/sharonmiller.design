@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Analytics } from "@vercel/analytics/react";
+import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics.js";
 import { useLenisScroll } from "./hooks/useLenisScroll.js";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
@@ -8,6 +8,7 @@ import CaseStudyPage from "./pages/CaseStudyPage.jsx";
 import Login from "./pages/Login.tsx";
 
 function AppRoutes() {
+	useGoogleAnalytics();
 	useLenisScroll();
 
 	return (
@@ -43,7 +44,6 @@ export default function App() {
 	return (
 		<BrowserRouter>
 			<AppRoutes />
-			<Analytics />
 		</BrowserRouter>
 	);
 }
