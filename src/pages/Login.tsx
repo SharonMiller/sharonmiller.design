@@ -100,14 +100,6 @@ export default function Login() {
 					letter-spacing: -0.025em;
 					margin: 0 0 1.25rem;
 				}
-				.login-tagline {
-					animation: slide-up 0.7s 0.2s cubic-bezier(0.16,1,0.3,1) both;
-					font-size: 0.9375rem;
-					color: var(--color-text-secondary);
-					line-height: 1.65;
-					margin: 0;
-					max-width: 260px;
-				}
 				.login-domain {
 					animation: slide-up 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) both;
 					font-size: 0.75rem;
@@ -234,16 +226,36 @@ export default function Login() {
 
 				/* Mobile */
 				@media (max-width: 680px) {
-					.login-root { grid-template-columns: 1fr; }
+					.login-topbar { padding: 1rem 1.25rem; }
+					.login-body {
+						grid-template-columns: 1fr;
+					}
 					.login-left {
 						border-right: none;
 						border-bottom: 1px solid var(--color-border-primary);
-						padding: 2.5rem 2rem 2rem;
-						gap: 1.5rem;
+						padding: 1.25rem 1.25rem 1.5rem;
 					}
+					.login-eyebrow { margin-bottom: 0.625rem; }
+					.login-name {
+						font-size: 1.75rem;
+						margin-bottom: 0;
+					}
+					.login-name-break { display: none; }
 					.login-domain { display: none; }
-					.login-name { font-size: 2.5rem; }
-					.login-right { padding: 2.5rem 2rem; }
+					.login-right {
+						padding: 1.5rem 1.25rem 2rem;
+						justify-content: flex-start;
+					}
+					.login-heading { font-size: 1.0625rem; }
+					.login-subtext {
+						margin-bottom: 1.75rem;
+						font-size: 0.875rem;
+					}
+					.login-form { gap: 1.5rem; }
+					.login-footer {
+						margin-top: 2rem;
+						padding-top: 1.25rem;
+					}
 				}
 			`}</style>
 
@@ -264,10 +276,9 @@ export default function Login() {
 				<div className="login-left">
 					<div>
 						<p className="login-eyebrow">Portfolio · By invitation</p>
-						<h1 className="login-name">Sharon<br />Miller</h1>
-						<p className="login-tagline">
-							Head of Product Design. Building AI-native teams and designing AI into complex products.
-						</p>
+						<h1 className="login-name">
+							Sharon<br className="login-name-break" /> Miller
+						</h1>
 						<p className="login-domain">sharonmiller.design</p>
 					</div>
 				</div>
